@@ -12,10 +12,10 @@
 			<_id type="a">GUID 2b8e6f41-919c-4cc5-83a3-676454190e09</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Operating_Environment</_name>
-			<_modifiedTimeWeak type="a">12.15.2025::8:49:53</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.15.2025::8:51:37</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.18.2025::14:56:37</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:56:37</_modifiedTime>
 			<_lastID type="a">14</_lastID>
-			<weakCGTime type="a">12.15.2025::8:49:53</weakCGTime>
+			<weakCGTime type="a">12.18.2025::14:56:37</weakCGTime>
 			<strongCGTime type="a">12.13.2025::17:29:29</strongCGTime>
 			<_defaultComposite type="s">GUID 66201d40-4fc2-4e7c-8aad-ed429267e758</_defaultComposite>
 			<_eventsBaseID type="a">-1</_eventsBaseID>
@@ -42,90 +42,402 @@
 			<_id type="a">GUID d2ca254b-1a7e-42b4-af3f-f3c241ff72f5</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Physical_CoastalOffshore_Operation</_name>
-			<_modifiedTimeWeak type="a">12.15.2025::8:42:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.15.2025::8:42:0</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.18.2025::14:56:16</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:56:16</_modifiedTime>
+			<_lastID type="a">1</_lastID>
 			<_body type="a">{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}%0D
 \viewkind4\uc1\pard\fs20 SMSWTD shall operate under coastal/offshore conditions including humidity and salt exposure.\par%0D
 }%0D
 </_body>
+			<AggregatesList type="e">
+				<value>GUID fce1a596-0f74-48d4-a3d9-48bc9047b230</value>
+			</AggregatesList>
 		</IRequirement>
+		<IDependency type="e">
+			<_id type="a">GUID fce1a596-0f74-48d4-a3d9-48bc9047b230</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Extensibility_ModularIntegration</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Requirements</_hsubsystem>
+							<_hname type="a">deriveReqt</_hname>
+							<_hid type="a">GUID bd4e59da-660e-4d0f-b509-206b2bd9daaf</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.18.2025::14:56:16</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:56:16</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hfilename type="a">.\NonFunctional.sbsx</_hfilename>
+					<_hsubsystem type="a">SMSWTD_Requirements::NonFunctional</_hsubsystem>
+					<_hname type="a">Extensibility_ModularIntegration</_hname>
+					<_hid type="a">GUID cda6faa8-b1d2-4861-aa9d-74dc7d9d30a0</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hid type="a">GUID d2ca254b-1a7e-42b4-af3f-f3c241ff72f5</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
 		<IRequirement type="e">
 			<_id type="a">GUID 277965ef-4a2d-432a-9896-a188fa7eeffb</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Physical_SensorDrift_IntermittentAvailability_Tolerance</_name>
-			<_modifiedTimeWeak type="a">12.15.2025::8:42:15</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.15.2025::8:42:15</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.18.2025::14:53:54</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:53:54</_modifiedTime>
+			<_lastID type="a">1</_lastID>
 			<_body type="a">{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}%0D
 \viewkind4\uc1\pard\fs20 SMSWTD shall tolerate sensor drift and intermittent sensor availability.\par%0D
 }%0D
 </_body>
+			<AggregatesList type="e">
+				<value>GUID 78b82367-e363-4d40-a9ef-4c267a004920</value>
+			</AggregatesList>
 		</IRequirement>
+		<IDependency type="e">
+			<_id type="a">GUID 78b82367-e363-4d40-a9ef-4c267a004920</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Maintainability_RemoteDiagnosticsAndMonitoring</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Requirements</_hsubsystem>
+							<_hname type="a">deriveReqt</_hname>
+							<_hid type="a">GUID bd4e59da-660e-4d0f-b509-206b2bd9daaf</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.18.2025::14:53:54</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:53:54</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hfilename type="a">.\NonFunctional.sbsx</_hfilename>
+					<_hsubsystem type="a">SMSWTD_Requirements::NonFunctional</_hsubsystem>
+					<_hname type="a">Maintainability_RemoteDiagnosticsAndMonitoring</_hname>
+					<_hid type="a">GUID 503687d3-f6c7-48fa-8dc3-2e4d7c350b3a</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hid type="a">GUID 277965ef-4a2d-432a-9896-a188fa7eeffb</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
 		<IRequirement type="e">
 			<_id type="a">GUID 330c57a6-f7a9-459c-8e0a-13154675b5e2</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Comms_PartialOutage_Continuity</_name>
-			<_modifiedTimeWeak type="a">12.15.2025::8:43:24</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.15.2025::8:43:24</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.18.2025::14:52:16</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:52:16</_modifiedTime>
+			<_lastID type="a">1</_lastID>
 			<_body type="a">{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}%0D
 \viewkind4\uc1\pard\fs20 SMSWTD shall maintain core warning capability during partial communications outages.\par%0D
 }%0D
 </_body>
+			<AggregatesList type="e">
+				<value>GUID fa66f489-e2e2-4cc2-a15a-9de0e846f938</value>
+			</AggregatesList>
 		</IRequirement>
+		<IDependency type="e">
+			<_id type="a">GUID fa66f489-e2e2-4cc2-a15a-9de0e846f938</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Reliability_GracefulDegradation</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Requirements</_hsubsystem>
+							<_hname type="a">deriveReqt</_hname>
+							<_hid type="a">GUID bd4e59da-660e-4d0f-b509-206b2bd9daaf</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.18.2025::14:52:16</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:52:16</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hfilename type="a">.\NonFunctional.sbsx</_hfilename>
+					<_hsubsystem type="a">SMSWTD_Requirements::NonFunctional</_hsubsystem>
+					<_hname type="a">Reliability_GracefulDegradation</_hname>
+					<_hid type="a">GUID 4286b3a5-0bbc-46f1-b1f5-7af10d0e33e5</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hid type="a">GUID 330c57a6-f7a9-459c-8e0a-13154675b5e2</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
 		<IRequirement type="e">
 			<_id type="a">GUID 20927d29-1b53-4d25-8f76-fb88adf3e613</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Comms_MultiChannel_AlertDelivery</_name>
-			<_modifiedTimeWeak type="a">12.15.2025::8:44:23</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.15.2025::8:44:23</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.18.2025::14:52:57</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:52:57</_modifiedTime>
+			<_lastID type="a">1</_lastID>
 			<_body type="a">{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}%0D
 \viewkind4\uc1\pard\fs20 SMSWTD shall support multiple alert delivery channels to mitigate single-channel failure.\par%0D
 }%0D
 </_body>
+			<AggregatesList type="e">
+				<value>GUID 27eb98ce-25e7-4de7-9fa4-e14995760507</value>
+			</AggregatesList>
 		</IRequirement>
+		<IDependency type="e">
+			<_id type="a">GUID 27eb98ce-25e7-4de7-9fa4-e14995760507</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Reliability_MultiChannel_Redundancy</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Requirements</_hsubsystem>
+							<_hname type="a">deriveReqt</_hname>
+							<_hid type="a">GUID bd4e59da-660e-4d0f-b509-206b2bd9daaf</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.18.2025::14:52:57</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:52:57</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hfilename type="a">.\NonFunctional.sbsx</_hfilename>
+					<_hsubsystem type="a">SMSWTD_Requirements::NonFunctional</_hsubsystem>
+					<_hname type="a">Reliability_MultiChannel_Redundancy</_hname>
+					<_hid type="a">GUID 49224dc0-ce23-41e4-a10b-5e1d1c24cdc1</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hid type="a">GUID 20927d29-1b53-4d25-8f76-fb88adf3e613</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
 		<IRequirement type="e">
 			<_id type="a">GUID e11263c5-bcdb-47f9-b1f7-86e41db11c6e</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Ops_Continuous24x7_Operation</_name>
-			<_modifiedTimeWeak type="a">12.15.2025::8:45:55</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.15.2025::8:45:55</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.18.2025::14:56:37</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:56:37</_modifiedTime>
+			<_lastID type="a">1</_lastID>
 			<_body type="a">{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}%0D
 \viewkind4\uc1\pard\fs20 SMSWTD shall support 24/7 operation with shift handover continuity.\par%0D
 }%0D
 </_body>
+			<AggregatesList type="e">
+				<value>GUID 3337b935-aa7b-4427-b42d-3f91b962ed49</value>
+			</AggregatesList>
 		</IRequirement>
+		<IDependency type="e">
+			<_id type="a">GUID 3337b935-aa7b-4427-b42d-3f91b962ed49</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Performance_RealTime_DataProcessing</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Requirements</_hsubsystem>
+							<_hname type="a">deriveReqt</_hname>
+							<_hid type="a">GUID bd4e59da-660e-4d0f-b509-206b2bd9daaf</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.18.2025::14:56:37</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:56:37</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hfilename type="a">.\NonFunctional.sbsx</_hfilename>
+					<_hsubsystem type="a">SMSWTD_Requirements::NonFunctional</_hsubsystem>
+					<_hname type="a">Performance_RealTime_DataProcessing</_hname>
+					<_hid type="a">GUID 1b602e92-428d-4eea-bec5-c9c213dd626c</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hid type="a">GUID e11263c5-bcdb-47f9-b1f7-86e41db11c6e</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
 		<IRequirement type="e">
 			<_id type="a">GUID 76d10dfb-80d8-4197-b162-6fd1ae6f9b6f</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Ops_RoleBased_Authorization_Workflow</_name>
-			<_modifiedTimeWeak type="a">12.15.2025::8:48:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.15.2025::8:48:0</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.18.2025::14:54:20</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:54:20</_modifiedTime>
+			<_lastID type="a">1</_lastID>
 			<_body type="a">{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}%0D
 \viewkind4\uc1\pard\fs20 SMSWTD shall support role-based access and an authority workflow for issuing/updating/canceling alerts.\par%0D
 }%0D
 </_body>
+			<AggregatesList type="e">
+				<value>GUID e9ff32cf-276b-4f8b-87f0-4a2e6af1bb35</value>
+			</AggregatesList>
 		</IRequirement>
+		<IDependency type="e">
+			<_id type="a">GUID e9ff32cf-276b-4f8b-87f0-4a2e6af1bb35</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Security_RoleBasedAccessControl</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Requirements</_hsubsystem>
+							<_hname type="a">deriveReqt</_hname>
+							<_hid type="a">GUID bd4e59da-660e-4d0f-b509-206b2bd9daaf</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.18.2025::14:54:20</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:54:20</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hfilename type="a">.\NonFunctional.sbsx</_hfilename>
+					<_hsubsystem type="a">SMSWTD_Requirements::NonFunctional</_hsubsystem>
+					<_hname type="a">Security_RoleBasedAccessControl</_hname>
+					<_hid type="a">GUID cf783ab5-4219-47f8-88dd-df235c351060</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hid type="a">GUID 76d10dfb-80d8-4197-b162-6fd1ae6f9b6f</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
 		<IRequirement type="e">
 			<_id type="a">GUID 84886dba-83ba-4ccf-a2c6-5f18b818b744</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Threat_DataIntegrity_AntiSpoofing</_name>
-			<_modifiedTimeWeak type="a">12.15.2025::8:49:2</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.15.2025::8:49:2</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.18.2025::14:55:38</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:55:38</_modifiedTime>
+			<_lastID type="a">1</_lastID>
 			<_body type="a">{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}%0D
 \viewkind4\uc1\pard\fs20 SMSWTD shall protect the integrity of incoming sensor data and detect spoofing/tampering.\par%0D
 }%0D
 </_body>
+			<AggregatesList type="e">
+				<value>GUID d3b39651-8a39-4e2e-9b8b-2c2610e16060</value>
+			</AggregatesList>
 		</IRequirement>
+		<IDependency type="e">
+			<_id type="a">GUID d3b39651-8a39-4e2e-9b8b-2c2610e16060</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Security_SecureCommunications</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Requirements</_hsubsystem>
+							<_hname type="a">deriveReqt</_hname>
+							<_hid type="a">GUID bd4e59da-660e-4d0f-b509-206b2bd9daaf</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.18.2025::14:55:38</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:55:38</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hfilename type="a">.\NonFunctional.sbsx</_hfilename>
+					<_hsubsystem type="a">SMSWTD_Requirements::NonFunctional</_hsubsystem>
+					<_hname type="a">Security_SecureCommunications</_hname>
+					<_hid type="a">GUID e08f7be0-d1fa-4100-89bd-297678905167</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hid type="a">GUID 84886dba-83ba-4ccf-a2c6-5f18b818b744</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
 		<IRequirement type="e">
 			<_id type="a">GUID 67fe2337-ab4c-48f7-8c58-bfa51c9f4479</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Safety_AuditLogging_Traceability</_name>
-			<_modifiedTimeWeak type="a">12.15.2025::8:49:53</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.15.2025::8:49:53</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.18.2025::14:54:54</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:54:54</_modifiedTime>
+			<_lastID type="a">1</_lastID>
 			<_body type="a">{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}%0D
 \viewkind4\uc1\pard\fs20 SMSWTD shall log alert decisions and configuration changes to provide auditability and traceability.\par%0D
 }%0D
 </_body>
+			<AggregatesList type="e">
+				<value>GUID 8eaf5b88-1903-49d2-a534-82d376f32d2d</value>
+			</AggregatesList>
 		</IRequirement>
+		<IDependency type="e">
+			<_id type="a">GUID 8eaf5b88-1903-49d2-a534-82d376f32d2d</_id>
+			<_myState type="a">2048</_myState>
+			<_name type="a">Security_Auditability_And_NonRepudiation</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Requirements</_hsubsystem>
+							<_hname type="a">deriveReqt</_hname>
+							<_hid type="a">GUID bd4e59da-660e-4d0f-b509-206b2bd9daaf</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.18.2025::14:54:54</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::14:54:54</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hfilename type="a">.\NonFunctional.sbsx</_hfilename>
+					<_hsubsystem type="a">SMSWTD_Requirements::NonFunctional</_hsubsystem>
+					<_hname type="a">Security_Auditability_And_NonRepudiation</_hname>
+					<_hid type="a">GUID 23aa323d-6814-46c3-b1ff-174b89687ee0</_hid>
+				</INObjectHandle>
+			</_dependsOn>
+			<_dependent type="r">
+				<INObjectHandle type="e">
+					<_hm2Class type="a">IRequirement</_hm2Class>
+					<_hid type="a">GUID 67fe2337-ab4c-48f7-8c58-bfa51c9f4479</_hid>
+				</INObjectHandle>
+			</_dependent>
+		</IDependency>
 		<IDiagram type="e">
 			<_id type="a">GUID 185dbb1d-94d7-4293-9889-a755e704ce10</_id>
 			<_myState type="a">8192</_myState>

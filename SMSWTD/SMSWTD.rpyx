@@ -254,8 +254,8 @@
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.16.2025::13:59:43</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.16.2025::13:59:43</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.18.2025::12:46:36</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.18.2025::12:46:36</_modifiedTime>
 			<_lastID type="a">4</_lastID>
 			<_UserColors type="w">
 				<IRPYRawContainer type="e">
@@ -331,6 +331,7 @@
 				<value>GUID 1ae60846-5b60-4a5d-9643-b15aacdfb03d</value>
 				<value>GUID 2e4b8e17-4bda-40de-8ee7-086916ae6240</value>
 				<value>GUID fca6d916-27ee-412b-9df4-d6c4e6d5bc9b</value>
+				<value>GUID 568906fa-2849-4268-9ae0-73f2b8a5735f</value>
 				<value>GUID 3294f9d6-eb66-40af-9164-528272c7436c</value>
 				<value>GUID 2b948c50-6e5c-4901-996d-4803539639d1</value>
 			</AggregatesList>
@@ -391,6 +392,10 @@
 		<ISubsystem type="e">
 			<fileName type="a">SMSWTD_Requirements</fileName>
 			<_id type="a">GUID fca6d916-27ee-412b-9df4-d6c4e6d5bc9b</_id>
+		</ISubsystem>
+		<ISubsystem type="e">
+			<fileName type="a">UseCases</fileName>
+			<_id type="a">GUID 568906fa-2849-4268-9ae0-73f2b8a5735f</_id>
 		</ISubsystem>
 		<IDiagram type="e">
 			<_id type="a">GUID 3294f9d6-eb66-40af-9164-528272c7436c</_id>
