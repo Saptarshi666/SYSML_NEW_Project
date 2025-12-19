@@ -12,8 +12,8 @@
 			<_id type="a">GUID 2b948c50-6e5c-4901-996d-4803539639d1</_id>
 			<_myState type="a">139264</_myState>
 			<_name type="a">DefaultComponent</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.12.2025::13:47:11</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.19.2025::10:53:18</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.19.2025::10:53:18</_modifiedTime>
 			<m_buildType type="a">Executable</m_buildType>
 			<m_configActive type="r">
 				<ICodeGenConfigInfoHandle type="e">
@@ -23,14 +23,6 @@
 			</m_configActive>
 			<HandlesInMe type="c">
 				<IRPYRawContainer type="e">
-					
-						<IHandle type="e">
-							<_hm2Class type="a">ISubsystem</_hm2Class>
-							<_hfilename type="a">.\Default.sbsx</_hfilename>
-							<_hname type="a">Default</_hname>
-							<_hid type="a">GUID 1ae60846-5b60-4a5d-9643-b15aacdfb03d</_hid>
-						</IHandle>
-					
 					
 						<IHandle type="e">
 							<_hm2Class type="a">IProfile</_hm2Class>
@@ -47,6 +39,82 @@
 							<_hid type="a">GUID 5717d983-7bb5-4aba-bdc8-41bcb977f568</_hid>
 						</IHandle>
 					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">ISubsystem</_hm2Class>
+							<_hfilename type="a">.\Default.sbsx</_hfilename>
+							<_hname type="a">Default</_hname>
+							<_hid type="a">GUID 1ae60846-5b60-4a5d-9643-b15aacdfb03d</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">ISubsystem</_hm2Class>
+							<_hfilename type="a">.\Context.sbsx</_hfilename>
+							<_hname type="a">Context</_hname>
+							<_hid type="a">GUID 2e4b8e17-4bda-40de-8ee7-086916ae6240</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">ISubsystem</_hm2Class>
+							<_hfilename type="a">.\FlowItems.sbsx</_hfilename>
+							<_hsubsystem type="a">Context</_hsubsystem>
+							<_hname type="a">FlowItems</_hname>
+							<_hid type="a">GUID 7b6c3d21-5509-4f18-aeb4-58b3273d3af3</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">ISubsystem</_hm2Class>
+							<_hfilename type="a">.\Operating_Environment.sbsx</_hfilename>
+							<_hsubsystem type="a">Context</_hsubsystem>
+							<_hname type="a">Operating_Environment</_hname>
+							<_hid type="a">GUID 2b8e6f41-919c-4cc5-83a3-676454190e09</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">ISubsystem</_hm2Class>
+							<_hfilename type="a">.\SMSWTD_Requirements.sbsx</_hfilename>
+							<_hname type="a">SMSWTD_Requirements</_hname>
+							<_hid type="a">GUID fca6d916-27ee-412b-9df4-d6c4e6d5bc9b</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">ISubsystem</_hm2Class>
+							<_hfilename type="a">.\NonFunctional.sbsx</_hfilename>
+							<_hsubsystem type="a">SMSWTD_Requirements</_hsubsystem>
+							<_hname type="a">NonFunctional</_hname>
+							<_hid type="a">GUID bfb884fd-7ff8-4c47-b597-b09441fdf591</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">ISubsystem</_hm2Class>
+							<_hfilename type="a">.\Functional.sbsx</_hfilename>
+							<_hsubsystem type="a">SMSWTD_Requirements</_hsubsystem>
+							<_hname type="a">Functional</_hname>
+							<_hid type="a">GUID 24cc696e-7c21-40a3-9d8d-1c1319e64787</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">ISubsystem</_hm2Class>
+							<_hfilename type="a">.\UseCases.sbsx</_hfilename>
+							<_hname type="a">UseCases</_hname>
+							<_hid type="a">GUID 568906fa-2849-4268-9ae0-73f2b8a5735f</_hid>
+						</IHandle>
+					
+					
+						<IHandle type="e">
+							<_hm2Class type="a">ISubsystem</_hm2Class>
+							<_hfilename type="a">.\SMSWTD_Architecture.sbsx</_hfilename>
+							<_hname type="a">SMSWTD_Architecture</_hname>
+							<_hid type="a">GUID e23c64b9-081b-424b-b550-ee00e998897b</_hid>
+						</IHandle>
+					
 				</IRPYRawContainer>
 			</HandlesInMe>
 			<VariationPoints type="c">
@@ -57,7 +125,7 @@
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
 			</SelectedVariants>
-			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
+			<weakCGTime type="a">12.19.2025::10:53:18</weakCGTime>
 			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
 			<AggregatesList type="e">
 				<value>GUID bab9ecd1-500d-4a91-af1e-3f839df26910</value>
@@ -83,10 +151,10 @@
 			<_id type="a">GUID 782ed838-5672-40a4-8614-e24d67d5204b</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">DefaultConfig</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.12.2025::13:47:11</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.19.2025::10:53:18</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.19.2025::10:53:18</_modifiedTime>
 			<_scopeType type="a">Explicit</_scopeType>
-			<_instrumentation type="a">None</_instrumentation>
+			<_instrumentation type="a">Animation</_instrumentation>
 			<_timeModel type="a">RealTime</_timeModel>
 			<m_generateActors type="a">1</m_generateActors>
 			<_statechartImplementation type="a">Flat</_statechartImplementation>
@@ -100,8 +168,8 @@
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
 			</InitialInstances>
-			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
-			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
+			<weakCGTime type="a">12.19.2025::10:53:18</weakCGTime>
+			<strongCGTime type="a">12.19.2025::10:53:18</strongCGTime>
 			<AnimScopeElements type="c">
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
@@ -109,9 +177,37 @@
 			<m_allInAnimScope type="a">1</m_allInAnimScope>
 			<m_generateUsecases type="a">0</m_generateUsecases>
 			<AggregatesList type="e">
+				<value>GUID df8ccea8-2dd4-4dbe-baa4-0e208bb3331e</value>
+				<value>GUID 52415c2f-2565-4799-8f08-4c41d5f74de0</value>
 				<value>GUID 062e9a5b-435e-41b4-9c8a-e01398eb8fb7</value>
 			</AggregatesList>
 		</ICodeGenConfigInfo>
+		<IMHyperLink type="e">
+			<_id type="a">GUID df8ccea8-2dd4-4dbe-baa4-0e208bb3331e</_id>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.19.2025::10:53:9</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+				</INObjectHandle>
+			</_dependsOn>
+			<_linkDispName type="a">Edit Makefile</_linkDispName>
+			<_linkType type="a">FREE</_linkType>
+			<_linkTarget type="a">DefaultComponent.mak</_linkTarget>
+			<isConfigurationFileHyperLink type="a">1</isConfigurationFileHyperLink>
+		</IMHyperLink>
+		<IMHyperLink type="e">
+			<_id type="a">GUID 52415c2f-2565-4799-8f08-4c41d5f74de0</_id>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.19.2025::10:53:9</_modifiedTime>
+			<_dependsOn type="r">
+				<INObjectHandle type="e">
+				</INObjectHandle>
+			</_dependsOn>
+			<_linkDispName type="a">Edit Main File</_linkDispName>
+			<_linkType type="a">FREE</_linkType>
+			<_linkTarget type="a">MainDefaultComponent</_linkTarget>
+			<isConfigurationFileHyperLink type="a">1</isConfigurationFileHyperLink>
+		</IMHyperLink>
 		<IFolder type="e">
 			<_id type="a">GUID 062e9a5b-435e-41b4-9c8a-e01398eb8fb7</_id>
 			<_myState type="a">8192</_myState>
