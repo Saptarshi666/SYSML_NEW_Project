@@ -1,3 +1,5 @@
 [Op Calls]
 [Events]
+SensingInterfaceSubsystem[0]->GEN(evStartDataCollector())`SensingInterfaceSubsystem
+SensingInterfaceSubsystem[0]->GEN(evCheckData())`SensingInterfaceSubsystem
 [Breakpoints]

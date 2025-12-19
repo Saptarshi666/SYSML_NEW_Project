@@ -1,0 +1,25 @@
+/*********************************************************************
+	Rhapsody	: 9.0 
+	Login		: 20255590
+	Component	: DefaultComponent 
+	Configuration 	: DefaultConfig
+	Model Element	: UseCases
+//!	Generated Date	: Fri, 19, Dec 2025  
+	File Path	: DefaultComponent\DefaultConfig\UseCases.h
+*********************************************************************/
+
+#ifndef UseCases_H
+#define UseCases_H
+
+//## auto_generated
+#include <oxf.h>
+//## auto_generated
+#include <aom.h>
+//## package UseCases
+
+
+
+#endif
+/*********************************************************************
+	File Path	: DefaultComponent\DefaultConfig\UseCases.h
+*********************************************************************/
