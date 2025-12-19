@@ -1,6 +1,6 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20255590
+	Login		: 20190977
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
@@ -52,6 +52,11 @@ class UserInterfaceSubsystem;
 
 //## package SMSWTD_Architecture
 
+
+//## type FloatArray
+struct FloatArray {
+    double data[6];		//## attribute data
+};
 
 //## classInstance itsMetOceanDataProvider
 extern MetOceanDataProvider itsMetOceanDataProvider;

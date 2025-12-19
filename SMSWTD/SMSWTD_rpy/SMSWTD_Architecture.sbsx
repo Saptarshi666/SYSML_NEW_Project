@@ -12,10 +12,10 @@
 			<_id type="a">GUID e23c64b9-081b-424b-b550-ee00e998897b</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">SMSWTD_Architecture</_name>
-			<_modifiedTimeWeak type="a">12.19.2025::16:37:1</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.19.2025::16:37:1</_modifiedTime>
-			<_lastID type="a">11</_lastID>
-			<weakCGTime type="a">12.19.2025::16:37:1</weakCGTime>
+			<_modifiedTimeWeak type="a">12.19.2025::18:13:29</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.19.2025::18:13:29</_modifiedTime>
+			<_lastID type="a">12</_lastID>
+			<weakCGTime type="a">12.19.2025::18:13:29</weakCGTime>
 			<strongCGTime type="a">12.19.2025::16:23:28</strongCGTime>
 			<_defaultComposite type="s">GUID 098630c7-f493-48d7-bde3-353e7e7507bf</_defaultComposite>
 			<_eventsBaseID type="a">3401</_eventsBaseID>
@@ -36,6 +36,7 @@
 				<value>GUID efa29303-e062-466c-afca-efad2265b99a</value>
 				<value>GUID 2cd7523d-8152-4057-a840-5157a1aa36e5</value>
 				<value>GUID 954bc1ea-9639-447e-9a60-1cada71daf7b</value>
+				<value>GUID 725c47be-3337-4684-8ddd-467405d0d296</value>
 			</AggregatesList>
 		</ISubsystem>
 		<IDiagram type="e">
@@ -4021,7 +4022,8 @@
 			<m_displayOption type="a">All</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">1</_itemValueOfFontPropertiesMapCount>
+			<_itemValueOfFontPropertiesMapCount type="a">2</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 		</CGICompartment>
 		<CGICompartment type="e">
@@ -4746,7 +4748,7 @@
 			<m_pParent type="s">GUID 95b9e508-b005-4db2-bd11-bc977107db4f</m_pParent>
 			<m_name type="p">
 				<CGIText type="e">
-					<m_str type="a">itsSeismicTsunamiNetwork</m_str>
+					<m_str type="a">itsSeismicTsunamiNetwork:SeismicTsunamiNetwork</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -4871,7 +4873,7 @@
 			<m_pParent type="s">GUID 95b9e508-b005-4db2-bd11-bc977107db4f</m_pParent>
 			<m_name type="p">
 				<CGIText type="e">
-					<m_str type="a">itsSensingInterfaceSubsystem</m_str>
+					<m_str type="a">itsSensingInterfaceSubsystem:SensingInterfaceSubsystem</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -5001,7 +5003,7 @@
 			<m_pParent type="s">GUID 95b9e508-b005-4db2-bd11-bc977107db4f</m_pParent>
 			<m_name type="p">
 				<CGIText type="e">
-					<m_str type="a">itsMetOceanDataProvider</m_str>
+					<m_str type="a">itsMetOceanDataProvider:MetOceanDataProvider</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -5077,7 +5079,8 @@
 			<m_displayOption type="a">Public</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">1</_itemValueOfFontPropertiesMapCount>
+			<_itemValueOfFontPropertiesMapCount type="a">2</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 		</CGICompartment>
 		<CGICompartment type="e">
@@ -7471,6 +7474,65 @@ std::cout&lt;&lt;&quot;Hello i am in status seismic\n&quot;;</_body>
 				</IRPYRawContainer>
 			</Args>
 		</IEvent>
+		<IType type="e">
+			<_id type="a">GUID 725c47be-3337-4684-8ddd-467405d0d296</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">FloatArray</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">DataType</_hname>
+							<_hid type="a">GUID 39bf6572-6f61-4cbf-b651-64241e075688</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.19.2025::18:13:29</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.19.2025::18:13:29</_modifiedTime>
+			<_lastID type="a">2</_lastID>
+			<_kind type="a">Structure</_kind>
+			<AggregatesList type="e">
+				<value>GUID 20e09d0b-1e48-425d-b59e-5e08753ded06</value>
+			</AggregatesList>
+		</IType>
+		<IAttribute type="e">
+			<_id type="a">GUID 20e09d0b-1e48-425d-b59e-5e08753ded06</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">data</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">ValueProperty</_hname>
+							<_hid type="a">GUID 04164f8c-01a3-4eab-b4a4-c37aae7a46e9</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.19.2025::18:13:29</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.19.2025::18:13:29</_modifiedTime>
+			<_typeOf type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IType</_hm2Class>
+					<_hsubsystem type="a">PredefinedTypesCpp</_hsubsystem>
+					<_hname type="a">double</_hname>
+					<_hid type="a">GUID 02ef7294-6849-47b9-9fb2-cfb87b56d2ad</_hid>
+				</IHandle>
+			</_typeOf>
+			<_multiplicity type="a">6</_multiplicity>
+			<_isOrdered type="a">0</_isOrdered>
+			<_protection type="a">iPublic</_protection>
+			<_static type="a">0</_static>
+			<_isReferenceAttr type="a">0</_isReferenceAttr>
+			<_isConstant type="a">0</_isConstant>
+		</IAttribute>
 		
 	</RHAPSODY-MODEL>
 	<OslcLinks type="c">

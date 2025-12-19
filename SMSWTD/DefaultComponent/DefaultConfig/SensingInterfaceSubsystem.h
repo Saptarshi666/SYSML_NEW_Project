@@ -1,6 +1,6 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20255590
+	Login		: 20190977
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SensingInterfaceSubsystem
@@ -51,6 +51,12 @@ public :
     ////    Additional operations    ////
     
     //## auto_generated
+    const int getValueproperty_1(void) const;
+    
+    //## auto_generated
+    void setValueproperty_1(const int p_valueproperty_1);
+    
+    //## auto_generated
     const DataIngestionSubsystem* getItsDataIngestionSubsystem(void) const;
     
     //## auto_generated
@@ -73,10 +79,14 @@ protected :
     //## auto_generated
     void cancelTimeouts(void);
     
-    ////    Relations and components    ////
+    ////    Attributes    ////
 
 private :
 
+    int valueproperty_1;		//## attribute valueproperty_1
+    
+    ////    Relations and components    ////
+    
     DataIngestionSubsystem* itsDataIngestionSubsystem;		//## link itsDataIngestionSubsystem
     
     ////    Framework operations    ////
@@ -205,6 +215,8 @@ class OMAnimatedSensingInterfaceSubsystem : virtual public AOMInstance {
     
 public :
 
+    virtual void serializeAttributes(AOMSAttributes* aomsAttributes) const;
+    
     virtual void serializeRelations(AOMSRelations* aomsRelations) const;
     
     //## statechart_method

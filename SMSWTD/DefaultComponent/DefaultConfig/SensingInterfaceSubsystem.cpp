@@ -1,6 +1,6 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20255590
+	Login		: 20190977
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SensingInterfaceSubsystem
@@ -35,6 +35,14 @@ SensingInterfaceSubsystem::~SensingInterfaceSubsystem(void) {
     NOTIFY_DESTRUCTOR(~SensingInterfaceSubsystem, true);
     cleanUpRelations();
     cancelTimeouts();
+}
+
+const int SensingInterfaceSubsystem::getValueproperty_1(void) const {
+    return valueproperty_1;
+}
+
+void SensingInterfaceSubsystem::setValueproperty_1(const int p_valueproperty_1) {
+    valueproperty_1 = p_valueproperty_1;
 }
 
 const DataIngestionSubsystem* SensingInterfaceSubsystem::getItsDataIngestionSubsystem(void) const {
@@ -227,6 +235,11 @@ void SensingInterfaceSubsystem::state_4_entDef(void) {
     //check seismicsenosr status
     // if false
     std::cout<<"Hello i am in status seismic\n";
+    FloatArray killbox = {{1.0, 2.0, 3.0, 4.0, 5.0, 6.0}};
+    // Print
+    for(int i = 0; i < 6; i++) {
+        printf("Killbox.data[%d] = %f\n", i, killbox.data[i]);
+    }
     //#]
     NOTIFY_TRANSITION_TERMINATED("3");
 }
@@ -310,6 +323,10 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::rootState_processEvent(
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
+void OMAnimatedSensingInterfaceSubsystem::serializeAttributes(AOMSAttributes* aomsAttributes) const {
+    aomsAttributes->addAttribute("valueproperty_1", x2String(myReal->valueproperty_1));
+}
+
 void OMAnimatedSensingInterfaceSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {
     aomsRelations->addRelation("itsDataIngestionSubsystem", false, true);
     if(myReal->itsDataIngestionSubsystem)

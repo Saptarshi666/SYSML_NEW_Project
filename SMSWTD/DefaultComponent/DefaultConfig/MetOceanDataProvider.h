@@ -1,6 +1,6 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20255590
+	Login		: 20190977
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MetOceanDataProvider
@@ -17,6 +17,8 @@
 #include <aom.h>
 //## auto_generated
 #include "Context.h"
+//## attribute testing
+#include "SMSWTD_Architecture.h"
 //## auto_generated
 #include <OMDefaultReactivePort.h>
 //## package Context
@@ -79,11 +81,19 @@ public :
     //## auto_generated
     void setMagnitude(const int p_magnitude);
     
+    //## auto_generated
+    const FloatArray getTesting(void) const;
+    
+    //## auto_generated
+    void setTesting(const FloatArray p_testing);
+    
     ////    Attributes    ////
 
 private :
 
     int magnitude;		//## attribute magnitude
+    
+    FloatArray testing;		//## attribute testing
     
     ////    Relations and components    ////
     

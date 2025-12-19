@@ -1,6 +1,6 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20255590
+	Login		: 20190977
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MetOceanDataProvider
@@ -32,7 +32,7 @@ void MetOceanDataProvider::out_C::connectMetOceanDataProvider(MetOceanDataProvid
 }
 //#]
 
-MetOceanDataProvider::MetOceanDataProvider(void) : magnitude(70) {
+MetOceanDataProvider::MetOceanDataProvider(void) : magnitude(70), testing({6.0, 6.0, 6.0, 6.0, 6.0, 6.0}) {
     NOTIFY_CONSTRUCTOR(MetOceanDataProvider, MetOceanDataProvider(), 0, Context_MetOceanDataProvider_MetOceanDataProvider_SERIALIZE);
 }
 
@@ -56,10 +56,19 @@ void MetOceanDataProvider::setMagnitude(const int p_magnitude) {
     magnitude = p_magnitude;
 }
 
+const FloatArray MetOceanDataProvider::getTesting(void) const {
+    return testing;
+}
+
+void MetOceanDataProvider::setTesting(const FloatArray p_testing) {
+    testing = p_testing;
+}
+
 #ifdef _OMINSTRUMENT
 //#[ ignore
 void OMAnimatedMetOceanDataProvider::serializeAttributes(AOMSAttributes* aomsAttributes) const {
     aomsAttributes->addAttribute("magnitude", x2String(myReal->magnitude));
+    aomsAttributes->addAttribute("testing", UNKNOWN2STRING(myReal->testing));
 }
 //#]
 
