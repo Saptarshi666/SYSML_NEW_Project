@@ -15,6 +15,14 @@
 #include <oxf.h>
 //## auto_generated
 #include <aom.h>
+class DefaultComponent {
+    ////    Constructors and destructors    ////
+    
+public :
+
+    DefaultComponent(void);
+};
+
 #endif
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\MainDefaultComponent.h

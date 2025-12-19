@@ -73,10 +73,20 @@ public :
     //## auto_generated
     out_C* get_out(void) const;
     
-    ////    Relations and components    ////
+    //## auto_generated
+    const int getMagnitude(void) const;
+    
+    //## auto_generated
+    void setMagnitude(const int p_magnitude);
+    
+    ////    Attributes    ////
 
 private :
 
+    int magnitude;		//## attribute magnitude
+    
+    ////    Relations and components    ////
+    
 //#[ ignore
     out_C out;
 //#]
@@ -86,6 +96,12 @@ private :
 //#[ ignore
 class OMAnimatedMetOceanDataProvider : virtual public AOMInstance {
     DECLARE_META(MetOceanDataProvider, OMAnimatedMetOceanDataProvider)
+    
+    ////    Framework operations    ////
+    
+public :
+
+    virtual void serializeAttributes(AOMSAttributes* aomsAttributes) const;
 };
 //#]
 #endif // _OMINSTRUMENT

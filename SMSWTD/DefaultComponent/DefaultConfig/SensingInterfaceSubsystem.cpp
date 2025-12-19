@@ -37,14 +37,6 @@ SensingInterfaceSubsystem::~SensingInterfaceSubsystem(void) {
     cancelTimeouts();
 }
 
-const int SensingInterfaceSubsystem::getValueproperty_1(void) const {
-    return valueproperty_1;
-}
-
-void SensingInterfaceSubsystem::setValueproperty_1(const int p_valueproperty_1) {
-    valueproperty_1 = p_valueproperty_1;
-}
-
 const DataIngestionSubsystem* SensingInterfaceSubsystem::getItsDataIngestionSubsystem(void) const {
     return itsDataIngestionSubsystem;
 }
@@ -318,10 +310,6 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::rootState_processEvent(
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
-void OMAnimatedSensingInterfaceSubsystem::serializeAttributes(AOMSAttributes* aomsAttributes) const {
-    aomsAttributes->addAttribute("valueproperty_1", x2String(myReal->valueproperty_1));
-}
-
 void OMAnimatedSensingInterfaceSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {
     aomsRelations->addRelation("itsDataIngestionSubsystem", false, true);
     if(myReal->itsDataIngestionSubsystem)

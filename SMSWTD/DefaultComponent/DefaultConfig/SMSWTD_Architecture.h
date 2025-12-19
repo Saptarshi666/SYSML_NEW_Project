@@ -29,6 +29,9 @@ class DataIngestionSubsystem;
 //## auto_generated
 class DataManagementSubsystem;
 
+//## classInstance itsMetOceanDataProvider
+class MetOceanDataProvider;
+
 //## auto_generated
 class OpsSafetySecuritySubsystem;
 
@@ -38,7 +41,10 @@ class RiskAssessmentSubsystem;
 //## auto_generated
 class SMSWTD_System;
 
-//## auto_generated
+//## classInstance itsSeismicTsunamiNetwork
+class SeismicTsunamiNetwork;
+
+//## classInstance itsSensingInterfaceSubsystem
 class SensingInterfaceSubsystem;
 
 //## auto_generated
@@ -47,6 +53,34 @@ class UserInterfaceSubsystem;
 //## package SMSWTD_Architecture
 
 
+//## classInstance itsMetOceanDataProvider
+extern MetOceanDataProvider itsMetOceanDataProvider;
+
+//## classInstance itsSeismicTsunamiNetwork
+extern SeismicTsunamiNetwork itsSeismicTsunamiNetwork;
+
+//## classInstance itsSensingInterfaceSubsystem
+extern SensingInterfaceSubsystem itsSensingInterfaceSubsystem;
+
+//## auto_generated
+void SMSWTD_Architecture_initRelations(void);
+
+//## auto_generated
+bool SMSWTD_Architecture_startBehavior(void);
+
+//#[ ignore
+class SMSWTD_Architecture_OMInitializer {
+    ////    Constructors and destructors    ////
+    
+public :
+
+    //## auto_generated
+    SMSWTD_Architecture_OMInitializer(void);
+    
+    //## auto_generated
+    ~SMSWTD_Architecture_OMInitializer(void);
+};
+//#]
 
 //## event startdatacollector()
 class startdatacollector : public OMEvent {

@@ -11,7 +11,22 @@
 //## auto_generated
 #include "MainDefaultComponent.h"
 //## auto_generated
+#include "Context.h"
+//## auto_generated
+#include "FlowItems.h"
+//## auto_generated
+#include "Operating_Environment.h"
+//## auto_generated
+#include "SMSWTD_Architecture.h"
+//## auto_generated
+#include "UseCases.h"
+//## auto_generated
 #include "SensingInterfaceSubsystem.h"
+DefaultComponent::DefaultComponent(void) {
+    SMSWTD_Architecture_initRelations();
+    (void) SMSWTD_Architecture_startBehavior();
+}
+
 RhpInteger main( void) {
     RhpInteger status = 0;
     try {
@@ -19,6 +34,7 @@ RhpInteger main( void) {
             {
                 SensingInterfaceSubsystem p_SensingInterfaceSubsystem;
                 p_SensingInterfaceSubsystem.setShouldDelete(false);
+                DefaultComponent initializer_DefaultComponent;
                 (void) p_SensingInterfaceSubsystem.startBehavior();
                 //#[ configuration DefaultComponent::DefaultConfig 
                 //#]

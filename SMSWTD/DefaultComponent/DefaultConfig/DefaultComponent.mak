@@ -518,7 +518,7 @@ UseCases.obj : UseCases.cpp UseCases.h
 
 
 
-SMSWTD_Architecture.obj : SMSWTD_Architecture.cpp SMSWTD_Architecture.h    SMSWTD_System.h SensingInterfaceSubsystem.h DataIngestionSubsystem.h AnalyticsSubsystem.h RiskAssessmentSubsystem.h AlertingSubsystem.h UserInterfaceSubsystem.h OpsSafetySecuritySubsystem.h DataManagementSubsystem.h 
+SMSWTD_Architecture.obj : SMSWTD_Architecture.cpp SMSWTD_Architecture.h    SMSWTD_System.h SensingInterfaceSubsystem.h DataIngestionSubsystem.h AnalyticsSubsystem.h RiskAssessmentSubsystem.h AlertingSubsystem.h UserInterfaceSubsystem.h OpsSafetySecuritySubsystem.h DataManagementSubsystem.h SeismicTsunamiNetwork.h MetOceanDataProvider.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SMSWTD_Architecture.obj" "SMSWTD_Architecture.cpp" 
 

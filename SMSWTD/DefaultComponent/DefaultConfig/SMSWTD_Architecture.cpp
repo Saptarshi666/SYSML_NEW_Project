@@ -14,6 +14,12 @@
 
 //## auto_generated
 #include "SMSWTD_Architecture.h"
+//## classInstance itsMetOceanDataProvider
+#include "MetOceanDataProvider.h"
+//## classInstance itsSeismicTsunamiNetwork
+#include "SeismicTsunamiNetwork.h"
+//## classInstance itsSensingInterfaceSubsystem
+#include "SensingInterfaceSubsystem.h"
 //## auto_generated
 #include "AlertingSubsystem.h"
 //## auto_generated
@@ -26,8 +32,6 @@
 #include "OpsSafetySecuritySubsystem.h"
 //## auto_generated
 #include "RiskAssessmentSubsystem.h"
-//## auto_generated
-#include "SensingInterfaceSubsystem.h"
 //## auto_generated
 #include "SMSWTD_System.h"
 //## auto_generated
@@ -55,14 +59,64 @@
 //## package SMSWTD_Architecture
 
 
+//## classInstance itsMetOceanDataProvider
+MetOceanDataProvider itsMetOceanDataProvider;
+
+//## classInstance itsSeismicTsunamiNetwork
+SeismicTsunamiNetwork itsSeismicTsunamiNetwork;
+
+//## classInstance itsSensingInterfaceSubsystem
+SensingInterfaceSubsystem itsSensingInterfaceSubsystem;
+
 #ifdef _OMINSTRUMENT
 static void serializeGlobalVars(AOMSAttributes* /* aomsAttributes */);
 
-IMPLEMENT_META_PACKAGE(SMSWTD_Architecture, SMSWTD_Architecture)
+static void RenameGlobalInstances(void);
 
+IMPLEMENT_META_PACKAGE(SMSWTD_Architecture, SMSWTD_Architecture)
+#endif // _OMINSTRUMENT
+
+void SMSWTD_Architecture_initRelations(void) {
+    {
+        {
+            itsSensingInterfaceSubsystem.setShouldDelete(false);
+        }
+    }
+    
+    #ifdef _OMINSTRUMENT
+    RenameGlobalInstances();
+    #endif // _OMINSTRUMENT
+}
+
+bool SMSWTD_Architecture_startBehavior(void) {
+    bool done = true;
+    if(done == true)
+        {
+            done = itsSensingInterfaceSubsystem.startBehavior();
+        }
+    return done;
+}
+
+#ifdef _OMINSTRUMENT
 static void serializeGlobalVars(AOMSAttributes* /* aomsAttributes */) {
 }
+
+static void RenameGlobalInstances(void) {
+    OM_SET_INSTANCE_NAME(&itsSeismicTsunamiNetwork, SeismicTsunamiNetwork, "itsSeismicTsunamiNetwork", AOMNoMultiplicity);
+    OM_SET_INSTANCE_NAME(&itsSensingInterfaceSubsystem, SensingInterfaceSubsystem, "itsSensingInterfaceSubsystem", AOMNoMultiplicity);
+    OM_SET_INSTANCE_NAME(&itsMetOceanDataProvider, MetOceanDataProvider, "itsMetOceanDataProvider", AOMNoMultiplicity);
+}
 #endif // _OMINSTRUMENT
+
+//#[ ignore
+SMSWTD_Architecture_OMInitializer::SMSWTD_Architecture_OMInitializer(void) {
+    SMSWTD_Architecture_initRelations();
+    (void) SMSWTD_Architecture_startBehavior();
+}
+
+SMSWTD_Architecture_OMInitializer::~SMSWTD_Architecture_OMInitializer(void) {
+}
+//#]
 
 //## event startdatacollector()
 startdatacollector::startdatacollector(void) : OMEvent() {

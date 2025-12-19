@@ -32,7 +32,7 @@ void MetOceanDataProvider::out_C::connectMetOceanDataProvider(MetOceanDataProvid
 }
 //#]
 
-MetOceanDataProvider::MetOceanDataProvider(void) {
+MetOceanDataProvider::MetOceanDataProvider(void) : magnitude(70) {
     NOTIFY_CONSTRUCTOR(MetOceanDataProvider, MetOceanDataProvider(), 0, Context_MetOceanDataProvider_MetOceanDataProvider_SERIALIZE);
 }
 
@@ -48,7 +48,21 @@ MetOceanDataProvider::out_C* MetOceanDataProvider::get_out(void) const {
     return (MetOceanDataProvider::out_C*) &out;
 }
 
+const int MetOceanDataProvider::getMagnitude(void) const {
+    return magnitude;
+}
+
+void MetOceanDataProvider::setMagnitude(const int p_magnitude) {
+    magnitude = p_magnitude;
+}
+
 #ifdef _OMINSTRUMENT
+//#[ ignore
+void OMAnimatedMetOceanDataProvider::serializeAttributes(AOMSAttributes* aomsAttributes) const {
+    aomsAttributes->addAttribute("magnitude", x2String(myReal->magnitude));
+}
+//#]
+
 IMPLEMENT_META_P(MetOceanDataProvider, Context, Context, false, OMAnimatedMetOceanDataProvider)
 #endif // _OMINSTRUMENT
 
