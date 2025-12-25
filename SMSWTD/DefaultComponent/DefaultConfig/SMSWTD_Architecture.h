@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Thu, 25, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.h
 *********************************************************************/
 
@@ -36,6 +36,9 @@ class MetOceanDataProvider;
 class OpsSafetySecuritySubsystem;
 
 //## auto_generated
+class Public;
+
+//## auto_generated
 class RiskAssessmentSubsystem;
 
 //## auto_generated
@@ -53,9 +56,16 @@ class UserInterfaceSubsystem;
 //## package SMSWTD_Architecture
 
 
+// Can store 6 double elements.
 //## type FloatArray
 struct FloatArray {
     double data[6];		//## attribute data
+};
+
+// Store long term recorded data for simulation use. 18 elements (double values) can be stored.
+//## type SimData
+struct SimData {
+    double data[18];		//## attribute data
 };
 
 //## classInstance itsMetOceanDataProvider
@@ -66,6 +76,20 @@ extern SeismicTsunamiNetwork itsSeismicTsunamiNetwork;
 
 //## classInstance itsSensingInterfaceSubsystem
 extern SensingInterfaceSubsystem itsSensingInterfaceSubsystem;
+
+// Generate wave data with a certain amplitude.
+//## operation fillHistRamp(double)
+SimData fillHistRamp(double maxAmplitude);
+
+//## operation fillHistSineWave(double,double,double)
+SimData fillHistSineWave(double maxAmplitude = 1, double frequency = 2, double offset_Ydir = 0);
+
+//## operation printArray(FloatArray)
+void printArray(const FloatArray& curr_data);
+
+// Print all the elements inside the Input variable of SimData datatype
+//## operation printHistory(SimData)
+void printHistory(const SimData& HistData);
 
 //## auto_generated
 void SMSWTD_Architecture_initRelations(void);
@@ -83,36 +107,8 @@ public :
     SMSWTD_Architecture_OMInitializer(void);
     
     //## auto_generated
-    ~SMSWTD_Architecture_OMInitializer(void);
+    virtual ~SMSWTD_Architecture_OMInitializer(void);
 };
-//#]
-
-//## event startdatacollector()
-class startdatacollector : public OMEvent {
-    ////    Friends    ////
-    
-public :
-
-#ifdef _OMINSTRUMENT
-    friend class OMAnimatedstartdatacollector;
-#endif // _OMINSTRUMENT
-
-    ////    Constructors and destructors    ////
-    
-    //## auto_generated
-    startdatacollector(void);
-};
-
-#ifdef _OMINSTRUMENT
-//#[ ignore
-class OMAnimatedstartdatacollector : virtual public AOMEvent {
-    DECLARE_META_EVENT(startdatacollector)
-};
-//#]
-#endif // _OMINSTRUMENT
-
-//#[ ignore
-extern const IOxfEvent::ID startdatacollector_SMSWTD_Architecture_id;
 //#]
 
 //## event evStartDataCollector()
@@ -169,6 +165,34 @@ class OMAnimatedevCheckData : virtual public AOMEvent {
 
 //#[ ignore
 extern const IOxfEvent::ID evCheckData_SMSWTD_Architecture_id;
+//#]
+
+//## event evStartDataSend()
+class evStartDataSend : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedevStartDataSend;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    evStartDataSend(void);
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedevStartDataSend : virtual public AOMEvent {
+    DECLARE_META_EVENT(evStartDataSend)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//#[ ignore
+extern const IOxfEvent::ID evStartDataSend_SMSWTD_Architecture_id;
 //#]
 
 #endif

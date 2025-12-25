@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MetOceanDataProvider
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Thu, 25, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\MetOceanDataProvider.cpp
 *********************************************************************/
 
@@ -15,10 +15,10 @@
 //## auto_generated
 #include "MetOceanDataProvider.h"
 //#[ ignore
-#define Context_MetOceanDataProvider_MetOceanDataProvider_SERIALIZE OM_NO_OP
+#define SMSWTD_Architecture_MetOceanDataProvider_MetOceanDataProvider_SERIALIZE OM_NO_OP
 //#]
 
-//## package Context
+//## package SMSWTD_Architecture
 
 //## class MetOceanDataProvider
 //#[ ignore
@@ -33,7 +33,7 @@ void MetOceanDataProvider::out_C::connectMetOceanDataProvider(MetOceanDataProvid
 //#]
 
 MetOceanDataProvider::MetOceanDataProvider(void) : magnitude(70), testing({6.0, 6.0, 6.0, 6.0, 6.0, 6.0}) {
-    NOTIFY_CONSTRUCTOR(MetOceanDataProvider, MetOceanDataProvider(), 0, Context_MetOceanDataProvider_MetOceanDataProvider_SERIALIZE);
+    NOTIFY_CONSTRUCTOR(MetOceanDataProvider, MetOceanDataProvider(), 0, SMSWTD_Architecture_MetOceanDataProvider_MetOceanDataProvider_SERIALIZE);
 }
 
 MetOceanDataProvider::~MetOceanDataProvider(void) {
@@ -72,7 +72,7 @@ void OMAnimatedMetOceanDataProvider::serializeAttributes(AOMSAttributes* aomsAtt
 }
 //#]
 
-IMPLEMENT_META_P(MetOceanDataProvider, Context, Context, false, OMAnimatedMetOceanDataProvider)
+IMPLEMENT_META_P(MetOceanDataProvider, SMSWTD_Architecture, SMSWTD_Architecture, false, OMAnimatedMetOceanDataProvider)
 #endif // _OMINSTRUMENT
 
 /*********************************************************************

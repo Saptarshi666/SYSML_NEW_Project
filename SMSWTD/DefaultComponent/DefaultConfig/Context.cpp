@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Context
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Thu, 25, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\Context.cpp
 *********************************************************************/
 
@@ -25,15 +25,13 @@
 //## auto_generated
 #include "Maintainers.h"
 //## auto_generated
-#include "MetOceanDataProvider.h"
-//## auto_generated
 #include "MobilePushService.h"
 //## auto_generated
-#include "Public.h"
+#include "RefMetOceanDataProvider.h"
+//## auto_generated
+#include "RefSeismicTsunamiNetwork.h"
 //## auto_generated
 #include "Researchers.h"
-//## auto_generated
-#include "SeismicTsunamiNetwork.h"
 //## auto_generated
 #include "SirenPASystem.h"
 //## auto_generated

@@ -86,8 +86,6 @@ ADDITIONAL_OBJS=
 
 OBJS= \
   SMSWTD.obj \
-  MetOceanDataProvider.obj \
-  SeismicTsunamiNetwork.obj \
   TelecomSMSNetwork.obj \
   SirenPASystem.obj \
   BroadcastMedia.obj \
@@ -95,10 +93,11 @@ OBJS= \
   MobilePushService.obj \
   EmergencyAuthorityOperator.obj \
   EmergencyResponders.obj \
-  Public.obj \
   Researchers.obj \
   Maintainers.obj \
   SMSWTD_Context.obj \
+  RefSeismicTsunamiNetwork.obj \
+  RefMetOceanDataProvider.obj \
   SensorObservation.obj \
   PolicyConfig.obj \
   AlertMessage.obj \
@@ -131,6 +130,9 @@ OBJS= \
   UserInterfaceSubsystem.obj \
   OpsSafetySecuritySubsystem.obj \
   DataManagementSubsystem.obj \
+  SeismicTsunamiNetwork.obj \
+  Public.obj \
+  MetOceanDataProvider.obj \
   Context.obj \
   FlowItems.obj \
   Operating_Environment.obj \
@@ -224,18 +226,6 @@ SMSWTD.obj : SMSWTD.cpp SMSWTD.h    Context.h
 
 
 
-MetOceanDataProvider.obj : MetOceanDataProvider.cpp MetOceanDataProvider.h    Context.h 
-	$(CREATE_OBJ_DIR)
-	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"MetOceanDataProvider.obj" "MetOceanDataProvider.cpp" 
-
-
-
-SeismicTsunamiNetwork.obj : SeismicTsunamiNetwork.cpp SeismicTsunamiNetwork.h    Context.h 
-	$(CREATE_OBJ_DIR)
-	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SeismicTsunamiNetwork.obj" "SeismicTsunamiNetwork.cpp" 
-
-
-
 TelecomSMSNetwork.obj : TelecomSMSNetwork.cpp TelecomSMSNetwork.h    Context.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"TelecomSMSNetwork.obj" "TelecomSMSNetwork.cpp" 
@@ -278,12 +268,6 @@ EmergencyResponders.obj : EmergencyResponders.cpp EmergencyResponders.h    Conte
 
 
 
-Public.obj : Public.cpp Public.h    Context.h 
-	$(CREATE_OBJ_DIR)
-	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Public.obj" "Public.cpp" 
-
-
-
 Researchers.obj : Researchers.cpp Researchers.h    Context.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Researchers.obj" "Researchers.cpp" 
@@ -299,6 +283,18 @@ Maintainers.obj : Maintainers.cpp Maintainers.h    Context.h
 SMSWTD_Context.obj : SMSWTD_Context.cpp SMSWTD_Context.h    Context.h SMSWTD.h MetOceanDataProvider.h SeismicTsunamiNetwork.h EmergencyAuthorityOperator.h Maintainers.h Researchers.h TelecomSMSNetwork.h GovAlertNetwork.h MobilePushService.h BroadcastMedia.h SirenPASystem.h PhysicalEnvironment.h CommunicationsEnvironment.h OperationalEnvironment.h ThreatEnvironment.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SMSWTD_Context.obj" "SMSWTD_Context.cpp" 
+
+
+
+RefSeismicTsunamiNetwork.obj : RefSeismicTsunamiNetwork.cpp RefSeismicTsunamiNetwork.h    Context.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"RefSeismicTsunamiNetwork.obj" "RefSeismicTsunamiNetwork.cpp" 
+
+
+
+RefMetOceanDataProvider.obj : RefMetOceanDataProvider.cpp RefMetOceanDataProvider.h    Context.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"RefMetOceanDataProvider.obj" "RefMetOceanDataProvider.cpp" 
 
 
 
@@ -494,7 +490,25 @@ DataManagementSubsystem.obj : DataManagementSubsystem.cpp DataManagementSubsyste
 
 
 
-Context.obj : Context.cpp Context.h    SMSWTD.h MetOceanDataProvider.h SeismicTsunamiNetwork.h TelecomSMSNetwork.h SirenPASystem.h BroadcastMedia.h GovAlertNetwork.h MobilePushService.h EmergencyAuthorityOperator.h EmergencyResponders.h Public.h Researchers.h Maintainers.h SMSWTD_Context.h 
+SeismicTsunamiNetwork.obj : SeismicTsunamiNetwork.cpp SeismicTsunamiNetwork.h    SMSWTD_Architecture.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SeismicTsunamiNetwork.obj" "SeismicTsunamiNetwork.cpp" 
+
+
+
+Public.obj : Public.cpp Public.h    SMSWTD_Architecture.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Public.obj" "Public.cpp" 
+
+
+
+MetOceanDataProvider.obj : MetOceanDataProvider.cpp MetOceanDataProvider.h    SMSWTD_Architecture.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"MetOceanDataProvider.obj" "MetOceanDataProvider.cpp" 
+
+
+
+Context.obj : Context.cpp Context.h    SMSWTD.h TelecomSMSNetwork.h SirenPASystem.h BroadcastMedia.h GovAlertNetwork.h MobilePushService.h EmergencyAuthorityOperator.h EmergencyResponders.h Researchers.h Maintainers.h SMSWTD_Context.h RefSeismicTsunamiNetwork.h RefMetOceanDataProvider.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Context.obj" "Context.cpp" 
 
@@ -518,7 +532,7 @@ UseCases.obj : UseCases.cpp UseCases.h
 
 
 
-SMSWTD_Architecture.obj : SMSWTD_Architecture.cpp SMSWTD_Architecture.h    SMSWTD_System.h SensingInterfaceSubsystem.h DataIngestionSubsystem.h AnalyticsSubsystem.h RiskAssessmentSubsystem.h AlertingSubsystem.h UserInterfaceSubsystem.h OpsSafetySecuritySubsystem.h DataManagementSubsystem.h SeismicTsunamiNetwork.h MetOceanDataProvider.h 
+SMSWTD_Architecture.obj : SMSWTD_Architecture.cpp SMSWTD_Architecture.h    SMSWTD_System.h SensingInterfaceSubsystem.h DataIngestionSubsystem.h AnalyticsSubsystem.h RiskAssessmentSubsystem.h AlertingSubsystem.h UserInterfaceSubsystem.h OpsSafetySecuritySubsystem.h DataManagementSubsystem.h SeismicTsunamiNetwork.h Public.h MetOceanDataProvider.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SMSWTD_Architecture.obj" "SMSWTD_Architecture.cpp" 
 
@@ -552,8 +566,6 @@ $(TARGET_NAME)$(LIB_EXT) : $(OBJS) $(ADDITIONAL_OBJS) DefaultComponent.mak
 clean:
 	@echo Cleanup
 	if exist SMSWTD.obj erase SMSWTD.obj
-	if exist MetOceanDataProvider.obj erase MetOceanDataProvider.obj
-	if exist SeismicTsunamiNetwork.obj erase SeismicTsunamiNetwork.obj
 	if exist TelecomSMSNetwork.obj erase TelecomSMSNetwork.obj
 	if exist SirenPASystem.obj erase SirenPASystem.obj
 	if exist BroadcastMedia.obj erase BroadcastMedia.obj
@@ -561,10 +573,11 @@ clean:
 	if exist MobilePushService.obj erase MobilePushService.obj
 	if exist EmergencyAuthorityOperator.obj erase EmergencyAuthorityOperator.obj
 	if exist EmergencyResponders.obj erase EmergencyResponders.obj
-	if exist Public.obj erase Public.obj
 	if exist Researchers.obj erase Researchers.obj
 	if exist Maintainers.obj erase Maintainers.obj
 	if exist SMSWTD_Context.obj erase SMSWTD_Context.obj
+	if exist RefSeismicTsunamiNetwork.obj erase RefSeismicTsunamiNetwork.obj
+	if exist RefMetOceanDataProvider.obj erase RefMetOceanDataProvider.obj
 	if exist SensorObservation.obj erase SensorObservation.obj
 	if exist PolicyConfig.obj erase PolicyConfig.obj
 	if exist AlertMessage.obj erase AlertMessage.obj
@@ -597,6 +610,9 @@ clean:
 	if exist UserInterfaceSubsystem.obj erase UserInterfaceSubsystem.obj
 	if exist OpsSafetySecuritySubsystem.obj erase OpsSafetySecuritySubsystem.obj
 	if exist DataManagementSubsystem.obj erase DataManagementSubsystem.obj
+	if exist SeismicTsunamiNetwork.obj erase SeismicTsunamiNetwork.obj
+	if exist Public.obj erase Public.obj
+	if exist MetOceanDataProvider.obj erase MetOceanDataProvider.obj
 	if exist Context.obj erase Context.obj
 	if exist FlowItems.obj erase FlowItems.obj
 	if exist Operating_Environment.obj erase Operating_Environment.obj

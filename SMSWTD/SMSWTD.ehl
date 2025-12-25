@@ -1,5 +1,6 @@
 [Op Calls]
 [Events]
-SensingInterfaceSubsystem[0]->GEN(evStartDataCollector())`SensingInterfaceSubsystem
-SensingInterfaceSubsystem[0]->GEN(evCheckData())`SensingInterfaceSubsystem
+SensingInterfaceSubsystem[1]->GEN(evStartDataCollector())`SMSWTD_Architecture::SensingInterfaceSubsystem
+itsSeismicTsunamiNetwork->GEN(evStartDataSend())`SMSWTD_Architecture::SeismicTsunamiNetwork
+itsSeismicTsunamiNetwork->GEN(evStartDataSend())`SeismicTsunamiNetwork
 [Breakpoints]

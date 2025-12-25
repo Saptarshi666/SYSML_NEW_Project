@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Context
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Tue, 23, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Context.h
 *********************************************************************/
 
@@ -17,6 +17,14 @@
 #include <aom.h>
 //## auto_generated
 #include "Context.h"
+//## auto_generated
+#include <omthread.h>
+//## auto_generated
+#include <omreactive.h>
+//## auto_generated
+#include <state.h>
+//## auto_generated
+#include <event.h>
 //## classInstance bm
 #include "BroadcastMedia.h"
 //## classInstance comm
@@ -50,15 +58,11 @@
 //## package Context
 
 //## class SMSWTD_Context
-class SMSWTD_Context {
-#ifdef _OMINSTRUMENT
-    OM_DECLARE_COMPOSITE_OFFSET
-#endif // _OMINSTRUMENT
+class SMSWTD_Context : public OMReactive {
+public :
 
     ////    Friends    ////
     
-public :
-
 #ifdef _OMINSTRUMENT
     friend class OMAnimatedSMSWTD_Context;
 #endif // _OMINSTRUMENT
@@ -66,7 +70,7 @@ public :
     ////    Constructors and destructors    ////
     
     //## auto_generated
-    SMSWTD_Context(void);
+    explicit SMSWTD_Context(IOxfActive* const theActiveContext = NULL);
     
     //## auto_generated
     ~SMSWTD_Context(void);
@@ -117,6 +121,9 @@ public :
     
     //## auto_generated
     const ThreatEnvironment* getThreat(void) const;
+    
+    //## auto_generated
+    virtual bool startBehavior(void);
 
 protected :
 
@@ -156,6 +163,16 @@ private :
     TelecomSMSNetwork tel;		//## classInstance tel
     
     ThreatEnvironment threat;		//## classInstance threat
+    
+    ////    Framework operations    ////
+
+public :
+
+    //## auto_generated
+    void setActiveContext(IOxfActive* const theActiveContext, bool activeInstance);
+    
+    //## auto_generated
+    virtual void destroy(void);
 };
 
 #ifdef _OMINSTRUMENT

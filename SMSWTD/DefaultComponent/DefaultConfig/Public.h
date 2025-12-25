@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Public
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Tue, 23, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\Public.h
 *********************************************************************/
 
@@ -16,8 +16,8 @@
 //## auto_generated
 #include <aom.h>
 //## auto_generated
-#include "Context.h"
-//## package Context
+#include "SMSWTD_Architecture.h"
+//## package SMSWTD_Architecture
 
 //## class Public
 class Public {

@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Public
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Tue, 23, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\Public.cpp
 *********************************************************************/
 
@@ -15,14 +15,14 @@
 //## auto_generated
 #include "Public.h"
 //#[ ignore
-#define Context_Public_Public_SERIALIZE OM_NO_OP
+#define SMSWTD_Architecture_Public_Public_SERIALIZE OM_NO_OP
 //#]
 
-//## package Context
+//## package SMSWTD_Architecture
 
 //## class Public
 Public::Public(void) {
-    NOTIFY_CONSTRUCTOR(Public, Public(), 0, Context_Public_Public_SERIALIZE);
+    NOTIFY_CONSTRUCTOR(Public, Public(), 0, SMSWTD_Architecture_Public_Public_SERIALIZE);
 }
 
 Public::~Public(void) {
@@ -30,7 +30,7 @@ Public::~Public(void) {
 }
 
 #ifdef _OMINSTRUMENT
-IMPLEMENT_META_P(Public, Context, Context, false, OMAnimatedPublic)
+IMPLEMENT_META_P(Public, SMSWTD_Architecture, SMSWTD_Architecture, false, OMAnimatedPublic)
 #endif // _OMINSTRUMENT
 
 /*********************************************************************

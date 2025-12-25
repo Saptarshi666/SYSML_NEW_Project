@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Context
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Tue, 23, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Context.cpp
 *********************************************************************/
 
@@ -21,8 +21,14 @@
 //## package Context
 
 //## class SMSWTD_Context
-SMSWTD_Context::SMSWTD_Context(void) {
-    NOTIFY_CONSTRUCTOR(SMSWTD_Context, SMSWTD_Context(), 0, Context_SMSWTD_Context_SMSWTD_Context_SERIALIZE);
+SMSWTD_Context::SMSWTD_Context(IOxfActive* const theActiveContext) : OMReactive() {
+    NOTIFY_REACTIVE_CONSTRUCTOR(SMSWTD_Context, SMSWTD_Context(), 0, Context_SMSWTD_Context_SMSWTD_Context_SERIALIZE);
+    setActiveContext(theActiveContext, false);
+    {
+        {
+            sei.setShouldDelete(false);
+        }
+    }
     initRelations();
 }
 
@@ -88,6 +94,19 @@ const TelecomSMSNetwork* SMSWTD_Context::getTel(void) const {
 
 const ThreatEnvironment* SMSWTD_Context::getThreat(void) const {
     return &threat;
+}
+
+bool SMSWTD_Context::startBehavior(void) {
+    bool done = true;
+    if(done == true)
+        {
+            done = sei.startBehavior();
+        }
+    if(done == true)
+        {
+            done = OMReactive::startBehavior();
+        }
+    return done;
 }
 
 void SMSWTD_Context::initRelations(void) {
@@ -201,6 +220,18 @@ void SMSWTD_Context::initRelations(void) {
     }
 }
 
+void SMSWTD_Context::setActiveContext(IOxfActive* const theActiveContext, bool activeInstance) {
+    OMReactive::setActiveContext(theActiveContext, activeInstance);
+    {
+        sei.setActiveContext(theActiveContext, false);
+    }
+}
+
+void SMSWTD_Context::destroy(void) {
+    sei.destroy();
+    OMReactive::destroy();
+}
+
 #ifdef _OMINSTRUMENT
 //#[ ignore
 void OMAnimatedSMSWTD_Context::serializeRelations(AOMSRelations* aomsRelations) const {
@@ -237,7 +268,7 @@ void OMAnimatedSMSWTD_Context::serializeRelations(AOMSRelations* aomsRelations) 
 }
 //#]
 
-IMPLEMENT_META_P(SMSWTD_Context, Context, Context, false, OMAnimatedSMSWTD_Context)
+IMPLEMENT_REACTIVE_META_SIMPLE_P(SMSWTD_Context, Context, Context, false, OMAnimatedSMSWTD_Context)
 #endif // _OMINSTRUMENT
 
 /*********************************************************************

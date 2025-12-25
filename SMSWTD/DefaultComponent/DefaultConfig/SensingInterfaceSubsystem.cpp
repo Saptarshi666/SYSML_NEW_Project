@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SensingInterfaceSubsystem
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Thu, 25, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SensingInterfaceSubsystem.cpp
 *********************************************************************/
 
@@ -186,6 +186,8 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::CheckDataStatus_handleE
                     rootState_active = CollectData;
                     //#[ state CollectData.(Entry) 
                     GEN(evCheckData());
+                    GEN(evStartDataSend(), itsSeismicTsunamiNetwork);
+                    
                     //#]
                     NOTIFY_TRANSITION_TERMINATED("5");
                     res = eventConsumed;
@@ -232,14 +234,11 @@ void SensingInterfaceSubsystem::state_4_entDef(void) {
     state_4_subState = StatusSeismic;
     state_4_active = StatusSeismic;
     //#[ state CheckDataStatus.state_4.StatusSeismic.(Entry) 
-    //check seismicsenosr status
-    // if false
+    //check seismic-sensor status
+    
     std::cout<<"Hello i am in status seismic\n";
-    FloatArray killbox = {{1.0, 2.0, 3.0, 4.0, 5.0, 6.0}};
-    // Print
-    for(int i = 0; i < 6; i++) {
-        printf("Killbox.data[%d] = %f\n", i, killbox.data[i]);
-    }
+    //FloatArray killbox = {{1.0, 2.0, 3.0, 4.0, 5.0, 6.0}};
+    //printArray(killbox);
     //#]
     NOTIFY_TRANSITION_TERMINATED("3");
 }
@@ -282,12 +281,18 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::rootState_processEvent(
             if(IS_EVENT_TYPE_OF(evStartDataCollector_SMSWTD_Architecture_id) == 1)
                 {
                     NOTIFY_TRANSITION_STARTED("1");
+                    //#[ state Idle.(Exit) 
+                    //GEN(evStartDataSend(), itsSeismicTsunamiNetwork);
+                    
+                    //#]
                     NOTIFY_STATE_EXITED("ROOT.Idle");
                     NOTIFY_STATE_ENTERED("ROOT.CollectData");
                     rootState_subState = CollectData;
                     rootState_active = CollectData;
                     //#[ state CollectData.(Entry) 
                     GEN(evCheckData());
+                    GEN(evStartDataSend(), itsSeismicTsunamiNetwork);
+                    
                     //#]
                     NOTIFY_TRANSITION_TERMINATED("1");
                     res = eventConsumed;
