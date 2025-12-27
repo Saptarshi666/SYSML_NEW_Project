@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
-//!	Generated Date	: Thu, 25, Dec 2025  
+//!	Generated Date	: Sat, 27, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.cpp
 *********************************************************************/
 
@@ -39,6 +39,9 @@
 //## auto_generated
 #include "UserInterfaceSubsystem.h"
 //#[ ignore
+#define SMSWTD_Architecture_extractCurrData_SERIALIZE \
+    aomsmethod->addAttribute("inputData", UNKNOWN2STRING(inputData));\
+    aomsmethod->addAttribute("index_prev", x2String(index_prev));
 #define SMSWTD_Architecture_fillHistSineWave_SERIALIZE \
     aomsmethod->addAttribute("maxAmplitude", x2String(maxAmplitude));\
     aomsmethod->addAttribute("frequency", x2String(frequency));\
@@ -66,6 +69,12 @@
 #define evStartDataSend_UNSERIALIZE OM_NO_OP
 
 #define evStartDataSend_CONSTRUCTOR evStartDataSend()
+
+#define evStartDataMet_SERIALIZE OM_NO_OP
+
+#define evStartDataMet_UNSERIALIZE OM_NO_OP
+
+#define evStartDataMet_CONSTRUCTOR evStartDataMet()
 //#]
 
 //## package SMSWTD_Architecture
@@ -87,6 +96,35 @@ static void RenameGlobalInstances(void);
 
 IMPLEMENT_META_PACKAGE(SMSWTD_Architecture, SMSWTD_Architecture)
 #endif // _OMINSTRUMENT
+
+//## operation extractCurrData(SimData,int)
+FloatArray extractCurrData(const SimData& inputData, int index_prev) {
+    NOTIFY_FUNCTION(SMSWTD_Architecture, extractCurrData, extractCurrData(SimData,int), 2, SMSWTD_Architecture_extractCurrData_SERIALIZE);
+    //#[ operation extractCurrData(SimData,int)
+        FloatArray result;
+        
+        // Check if index_prev is out of valid range
+        if(index_prev > 17) {
+            printf("Error: index_prev = %d is out of range (max 17). Setting to 0.\n", index_prev);
+            index_prev = 0;
+        }
+        
+        // Extract 6 consecutive values with wrap-around
+        for(int i = 0; i < 6; i++) {
+            int sourceIndex = (index_prev + i) % 18;  // Wrap around using modulo
+            result.data[i] = inputData.data[sourceIndex];
+        }
+        /*
+        printf("Extracted 6 values starting from index %d:\n", index_prev);
+        for(int i = 0; i < 6; i++) {
+            int sourceIndex = (index_prev + i) % 18;
+            printf("result.data[%d] = %f (from inputData.data[%d])\n", 
+                   i, result.data[i], sourceIndex);
+        }
+        */
+        return result;
+    //#]
+}
 
 //## operation fillHistRamp(double)
 SimData fillHistRamp(double maxAmplitude) {
@@ -162,6 +200,9 @@ void SMSWTD_Architecture_initRelations(void) {
         {
             itsSensingInterfaceSubsystem.setShouldDelete(false);
         }
+        {
+            itsMetOceanDataProvider.setShouldDelete(false);
+        }
     }
     
     #ifdef _OMINSTRUMENT
@@ -171,6 +212,10 @@ void SMSWTD_Architecture_initRelations(void) {
 
 bool SMSWTD_Architecture_startBehavior(void) {
     bool done = true;
+    if(done == true)
+        {
+            done = itsMetOceanDataProvider.startBehavior();
+        }
     if(done == true)
         {
             done = itsSeismicTsunamiNetwork.startBehavior();
@@ -238,6 +283,18 @@ const IOxfEvent::ID evStartDataSend_SMSWTD_Architecture_id(3403);
 //#]
 
 IMPLEMENT_META_EVENT_P(evStartDataSend, SMSWTD_Architecture, SMSWTD_Architecture, evStartDataSend())
+
+//## event evStartDataMet()
+evStartDataMet::evStartDataMet(void) : OMEvent() {
+    NOTIFY_EVENT_CONSTRUCTOR(evStartDataMet)
+    setId(evStartDataMet_SMSWTD_Architecture_id);
+}
+
+//#[ ignore
+const IOxfEvent::ID evStartDataMet_SMSWTD_Architecture_id(3404);
+//#]
+
+IMPLEMENT_META_EVENT_P(evStartDataMet, SMSWTD_Architecture, SMSWTD_Architecture, evStartDataMet())
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.cpp

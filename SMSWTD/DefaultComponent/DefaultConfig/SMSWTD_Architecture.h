@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
-//!	Generated Date	: Thu, 25, Dec 2025  
+//!	Generated Date	: Sat, 27, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.h
 *********************************************************************/
 
@@ -68,6 +68,23 @@ struct SimData {
     double data[18];		//## attribute data
 };
 
+//## type Location
+struct Location {
+    double x;		//## attribute x
+    double y;		//## attribute y
+    double z;		//## attribute z
+};
+
+//## type SimLoc
+struct SimLoc {
+    Location data[18];		//## attribute data
+};
+
+//## type LocArray
+struct LocArray {
+    Location data[6];		//## attribute data
+};
+
 //## classInstance itsMetOceanDataProvider
 extern MetOceanDataProvider itsMetOceanDataProvider;
 
@@ -76,6 +93,9 @@ extern SeismicTsunamiNetwork itsSeismicTsunamiNetwork;
 
 //## classInstance itsSensingInterfaceSubsystem
 extern SensingInterfaceSubsystem itsSensingInterfaceSubsystem;
+
+//## operation extractCurrData(SimData,int)
+FloatArray extractCurrData(const SimData& inputData, int index_prev);
 
 // Generate wave data with a certain amplitude.
 //## operation fillHistRamp(double)
@@ -193,6 +213,34 @@ class OMAnimatedevStartDataSend : virtual public AOMEvent {
 
 //#[ ignore
 extern const IOxfEvent::ID evStartDataSend_SMSWTD_Architecture_id;
+//#]
+
+//## event evStartDataMet()
+class evStartDataMet : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedevStartDataMet;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    evStartDataMet(void);
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedevStartDataMet : virtual public AOMEvent {
+    DECLARE_META_EVENT(evStartDataMet)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//#[ ignore
+extern const IOxfEvent::ID evStartDataMet_SMSWTD_Architecture_id;
 //#]
 
 #endif

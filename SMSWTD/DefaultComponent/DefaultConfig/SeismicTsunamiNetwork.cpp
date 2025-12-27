@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SeismicTsunamiNetwork
-//!	Generated Date	: Thu, 25, Dec 2025  
+//!	Generated Date	: Sat, 27, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SeismicTsunamiNetwork.cpp
 *********************************************************************/
 
@@ -195,7 +195,7 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                     //#[ state Idle.(Exit) 
                     printf("Resetting STN data to normal case\n");
                     CaseSeismic = 1;
-                    
+                    PrevSTN = 0;
                     // Fill Normal history
                     RecEQM1 = fillHistRamp(0.0001); // EQ Magnitude
                     RecEQD1 = fillHistRamp(0.001); // ED displacement
@@ -213,24 +213,48 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                     rootState_subState = SendData;
                     rootState_active = SendData;
                     //#[ state SendData.(Entry) 
-                    if(PrevSTN == 18)
+                    if(PrevSTN >= 18) {
+                    	printf("Resetting timeline to continue...\t\t");
                     	PrevSTN = 0;
+                    	}
+                    FloatArray CurrEQD, CurrEQM, CurrSCM, CurrWPM;
                     switch(CaseSeismic) {
-                    	case 1: // normal data
-                    		// send data set 1
+                    	case 1: // normal case
+                    		CurrEQD = extractCurrData(RecEQD1,PrevSTN);
+                    		CurrEQM = extractCurrData(RecEQM1,PrevSTN);
+                    		CurrSCM = extractCurrData(RecSCM1,PrevSTN);
+                    		CurrWPM = extractCurrData(RecWPM1,PrevSTN);
+                    		PrevSTN++;
+                    		// send normal data set (data set 1)
                     		break;
-                    	case 2: // early prediction
-                    		// send prediction data type 2
+                    	case 2: // early prediction case
+                    		CurrEQD = extractCurrData(RecEQD1,PrevSTN);
+                    		CurrEQM = extractCurrData(RecEQM1,PrevSTN);
+                    		CurrSCM = extractCurrData(RecSCM2,PrevSTN); // prediction data
+                    		CurrWPM = extractCurrData(RecWPM1,PrevSTN);
+                    		PrevSTN++;
+                    		// send prediction data set (MIXED data set)
                     		break;
-                    	case 3: //late detection
-                    		// send data set 2
+                    	case 3: //event detection case
+                    		CurrEQD = extractCurrData(RecEQD2,PrevSTN);
+                    		CurrEQM = extractCurrData(RecEQM2,PrevSTN);
+                    		CurrSCM = extractCurrData(RecSCM2,PrevSTN);
+                    		CurrWPM = extractCurrData(RecWPM2,PrevSTN);
+                    		PrevSTN++;
+                    		// send detection data (data set 2)
                     		break;
                     	default:
                     		// default -- execute normal case with warning
                     		std::cout << "Abnormal case value of "<< CaseSeismic << " was given to STN.\n Switching to basic case...\n";
-                    		
+                    		FloatArray CurrEQD = extractCurrData(RecEQD1,PrevSTN);
+                    		FloatArray CurrEQM = extractCurrData(RecEQM1,PrevSTN);
+                    		FloatArray CurrSCM = extractCurrData(RecSCM1,PrevSTN);
+                    		FloatArray CurrWPM = extractCurrData(RecWPM1,PrevSTN);
+                    		PrevSTN++;
                     		break;
                     	}
+                    printf("Success: Data will be set for Case = %d .\n", CaseSeismic);
+                    
                     //#]
                     rootState_timeout = scheduleTimeout(3000, "ROOT.SendData");
                     NOTIFY_TRANSITION_TERMINATED("1");
@@ -253,24 +277,48 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                             rootState_subState = SendData;
                             rootState_active = SendData;
                             //#[ state SendData.(Entry) 
-                            if(PrevSTN == 18)
+                            if(PrevSTN >= 18) {
+                            	printf("Resetting timeline to continue...\t\t");
                             	PrevSTN = 0;
+                            	}
+                            FloatArray CurrEQD, CurrEQM, CurrSCM, CurrWPM;
                             switch(CaseSeismic) {
-                            	case 1: // normal data
-                            		// send data set 1
+                            	case 1: // normal case
+                            		CurrEQD = extractCurrData(RecEQD1,PrevSTN);
+                            		CurrEQM = extractCurrData(RecEQM1,PrevSTN);
+                            		CurrSCM = extractCurrData(RecSCM1,PrevSTN);
+                            		CurrWPM = extractCurrData(RecWPM1,PrevSTN);
+                            		PrevSTN++;
+                            		// send normal data set (data set 1)
                             		break;
-                            	case 2: // early prediction
-                            		// send prediction data type 2
+                            	case 2: // early prediction case
+                            		CurrEQD = extractCurrData(RecEQD1,PrevSTN);
+                            		CurrEQM = extractCurrData(RecEQM1,PrevSTN);
+                            		CurrSCM = extractCurrData(RecSCM2,PrevSTN); // prediction data
+                            		CurrWPM = extractCurrData(RecWPM1,PrevSTN);
+                            		PrevSTN++;
+                            		// send prediction data set (MIXED data set)
                             		break;
-                            	case 3: //late detection
-                            		// send data set 2
+                            	case 3: //event detection case
+                            		CurrEQD = extractCurrData(RecEQD2,PrevSTN);
+                            		CurrEQM = extractCurrData(RecEQM2,PrevSTN);
+                            		CurrSCM = extractCurrData(RecSCM2,PrevSTN);
+                            		CurrWPM = extractCurrData(RecWPM2,PrevSTN);
+                            		PrevSTN++;
+                            		// send detection data (data set 2)
                             		break;
                             	default:
                             		// default -- execute normal case with warning
                             		std::cout << "Abnormal case value of "<< CaseSeismic << " was given to STN.\n Switching to basic case...\n";
-                            		
+                            		FloatArray CurrEQD = extractCurrData(RecEQD1,PrevSTN);
+                            		FloatArray CurrEQM = extractCurrData(RecEQM1,PrevSTN);
+                            		FloatArray CurrSCM = extractCurrData(RecSCM1,PrevSTN);
+                            		FloatArray CurrWPM = extractCurrData(RecWPM1,PrevSTN);
+                            		PrevSTN++;
                             		break;
                             	}
+                            printf("Success: Data will be set for Case = %d .\n", CaseSeismic);
+                            
                             //#]
                             rootState_timeout = scheduleTimeout(3000, "ROOT.SendData");
                             NOTIFY_TRANSITION_TERMINATED("2");

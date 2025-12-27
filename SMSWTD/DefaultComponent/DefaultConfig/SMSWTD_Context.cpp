@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Context
-//!	Generated Date	: Tue, 23, Dec 2025  
+//!	Generated Date	: Sat, 27, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Context.cpp
 *********************************************************************/
 
@@ -25,6 +25,9 @@ SMSWTD_Context::SMSWTD_Context(IOxfActive* const theActiveContext) : OMReactive(
     NOTIFY_REACTIVE_CONSTRUCTOR(SMSWTD_Context, SMSWTD_Context(), 0, Context_SMSWTD_Context_SMSWTD_Context_SERIALIZE);
     setActiveContext(theActiveContext, false);
     {
+        {
+            met.setShouldDelete(false);
+        }
         {
             sei.setShouldDelete(false);
         }
@@ -98,6 +101,10 @@ const ThreatEnvironment* SMSWTD_Context::getThreat(void) const {
 
 bool SMSWTD_Context::startBehavior(void) {
     bool done = true;
+    if(done == true)
+        {
+            done = met.startBehavior();
+        }
     if(done == true)
         {
             done = sei.startBehavior();
@@ -223,11 +230,13 @@ void SMSWTD_Context::initRelations(void) {
 void SMSWTD_Context::setActiveContext(IOxfActive* const theActiveContext, bool activeInstance) {
     OMReactive::setActiveContext(theActiveContext, activeInstance);
     {
+        met.setActiveContext(theActiveContext, false);
         sei.setActiveContext(theActiveContext, false);
     }
 }
 
 void SMSWTD_Context::destroy(void) {
+    met.destroy();
     sei.destroy();
     OMReactive::destroy();
 }

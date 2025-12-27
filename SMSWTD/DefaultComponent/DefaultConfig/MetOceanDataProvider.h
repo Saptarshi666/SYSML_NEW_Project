@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MetOceanDataProvider
-//!	Generated Date	: Thu, 25, Dec 2025  
+//!	Generated Date	: Sat, 27, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\MetOceanDataProvider.h
 *********************************************************************/
 
@@ -18,11 +18,19 @@
 //## auto_generated
 #include "SMSWTD_Architecture.h"
 //## auto_generated
+#include <omthread.h>
+//## auto_generated
+#include <omreactive.h>
+//## auto_generated
+#include <state.h>
+//## auto_generated
+#include <event.h>
+//## auto_generated
 #include <OMDefaultReactivePort.h>
 //## package SMSWTD_Architecture
 
 //## class MetOceanDataProvider
-class MetOceanDataProvider {
+class MetOceanDataProvider : public OMReactive {
 public :
 
 //#[ ignore
@@ -60,7 +68,7 @@ public :
     ////    Constructors and destructors    ////
     
     //## auto_generated
-    MetOceanDataProvider(void);
+    explicit MetOceanDataProvider(IOxfActive* const theActiveContext = NULL);
     
     //## auto_generated
     ~MetOceanDataProvider(void);
@@ -74,45 +82,107 @@ public :
     out_C* get_out(void) const;
     
     //## auto_generated
-    const int getMagnitude(void) const;
+    virtual bool cancelTimeout(const IOxfTimeout* arg);
     
     //## auto_generated
-    void setMagnitude(const int p_magnitude);
+    virtual bool startBehavior(void);
+
+protected :
+
+    //## auto_generated
+    void initRelations(void);
     
     //## auto_generated
-    const FloatArray getTesting(void) const;
+    void initStatechart(void);
     
     //## auto_generated
-    void setTesting(const FloatArray p_testing);
+    void cancelTimeouts(void);
     
-    ////    Attributes    ////
+    ////    Relations and components    ////
 
 private :
 
-    int magnitude;		//## attribute magnitude
-    
-    FloatArray testing;		//## attribute testing
-    
-    ////    Relations and components    ////
-    
 //#[ ignore
     out_C out;
+//#]
+
+    ////    Framework operations    ////
+
+public :
+
+    // rootState:
+    //## statechart_method
+    inline RhpBoolean rootState_IN(void) const;
+    
+    // SendData:
+    //## statechart_method
+    inline RhpBoolean SendData_IN(void) const;
+    
+    // Idle:
+    //## statechart_method
+    inline RhpBoolean Idle_IN(void) const;
+
+protected :
+
+    //## statechart_method
+    virtual void rootState_entDef(void);
+    
+    //## statechart_method
+    virtual IOxfReactive::TakeEventStatus rootState_processEvent(void);
+    
+    ////    Framework    ////
+    
+//#[ ignore
+    enum MetOceanDataProvider_Enum {
+        OMNonState = 0,
+        SendData = 1,
+        Idle = 2
+    };
+//#]
+
+private :
+
+//#[ ignore
+    MetOceanDataProvider_Enum rootState_subState;
+    
+    MetOceanDataProvider_Enum rootState_active;
+    
+    IOxfTimeout* rootState_timeout;
 //#]
 };
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
 class OMAnimatedMetOceanDataProvider : virtual public AOMInstance {
-    DECLARE_META(MetOceanDataProvider, OMAnimatedMetOceanDataProvider)
+    DECLARE_REACTIVE_META(MetOceanDataProvider, OMAnimatedMetOceanDataProvider)
     
     ////    Framework operations    ////
     
 public :
 
-    virtual void serializeAttributes(AOMSAttributes* aomsAttributes) const;
+    //## statechart_method
+    void rootState_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
+    void SendData_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
+    void Idle_serializeStates(AOMSState* aomsState) const;
 };
 //#]
 #endif // _OMINSTRUMENT
+
+inline RhpBoolean MetOceanDataProvider::rootState_IN(void) const {
+    return true;
+}
+
+inline RhpBoolean MetOceanDataProvider::SendData_IN(void) const {
+    return rootState_subState == SendData;
+}
+
+inline RhpBoolean MetOceanDataProvider::Idle_IN(void) const {
+    return rootState_subState == Idle;
+}
 
 #endif
 /*********************************************************************
