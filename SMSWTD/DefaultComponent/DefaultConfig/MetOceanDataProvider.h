@@ -82,6 +82,12 @@ public :
     out_C* get_out(void) const;
     
     //## auto_generated
+    const Location getRecAirLoc1(void) const;
+    
+    //## auto_generated
+    void setRecAirLoc1(const Location p_RecAirLoc1);
+    
+    //## auto_generated
     virtual bool cancelTimeout(const IOxfTimeout* arg);
     
     //## auto_generated
@@ -98,10 +104,14 @@ protected :
     //## auto_generated
     void cancelTimeouts(void);
     
-    ////    Relations and components    ////
+    ////    Attributes    ////
 
 private :
 
+    Location RecAirLoc1;		//## attribute RecAirLoc1
+    
+    ////    Relations and components    ////
+    
 //#[ ignore
     out_C out;
 //#]
@@ -160,6 +170,8 @@ class OMAnimatedMetOceanDataProvider : virtual public AOMInstance {
     
 public :
 
+    virtual void serializeAttributes(AOMSAttributes* aomsAttributes) const;
+    
     //## statechart_method
     void rootState_serializeStates(AOMSState* aomsState) const;
     

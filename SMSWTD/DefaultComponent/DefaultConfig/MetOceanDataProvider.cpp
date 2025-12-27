@@ -37,7 +37,7 @@ void MetOceanDataProvider::out_C::connectMetOceanDataProvider(MetOceanDataProvid
 }
 //#]
 
-MetOceanDataProvider::MetOceanDataProvider(IOxfActive* const theActiveContext) : OMReactive() {
+MetOceanDataProvider::MetOceanDataProvider(IOxfActive* const theActiveContext) : OMReactive(), RecAirLoc1({37.7749, -122.4194, 10000.0}) {
     NOTIFY_REACTIVE_CONSTRUCTOR(MetOceanDataProvider, MetOceanDataProvider(), 0, SMSWTD_Architecture_MetOceanDataProvider_MetOceanDataProvider_SERIALIZE);
     setActiveContext(theActiveContext, false);
     initRelations();
@@ -55,6 +55,14 @@ MetOceanDataProvider::out_C* MetOceanDataProvider::getOut(void) const {
 
 MetOceanDataProvider::out_C* MetOceanDataProvider::get_out(void) const {
     return (MetOceanDataProvider::out_C*) &out;
+}
+
+const Location MetOceanDataProvider::getRecAirLoc1(void) const {
+    return RecAirLoc1;
+}
+
+void MetOceanDataProvider::setRecAirLoc1(const Location p_RecAirLoc1) {
+    RecAirLoc1 = p_RecAirLoc1;
 }
 
 bool MetOceanDataProvider::cancelTimeout(const IOxfTimeout* arg) {
@@ -96,6 +104,11 @@ void MetOceanDataProvider::rootState_entDef(void) {
         NOTIFY_STATE_ENTERED("ROOT.Idle");
         rootState_subState = Idle;
         rootState_active = Idle;
+        //#[ state Idle.(Entry) 
+        //Location RecAirLoc1,RecAirLoc2,RecAirLoc3;
+        //RecAirLoc1 = {37.7749, -122.4194, 10000.0};
+        std::cout << RecAirLoc1.y << " y val \n";
+        //#]
         NOTIFY_TRANSITION_TERMINATED("0");
     }
 }
@@ -117,16 +130,16 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
         // |
         // |--- [SimData]    Air Pressure           (RecAP1, RecAP2)
         // |
-        // |--- [SimLoc]     Aircraft Location      (RecAirLoc1, RecAirLoc2, RecAirLoc3)
+        // |--- [Location]     Aircraft Location      (RecAirLoc1, RecAirLoc2, RecAirLoc3) < Changes Alert/Prediction Emergency
         // |
         // |--- [SimData]    Measurement Uncertainty (RecAMU1, RecAMU2, RecAMU3)
         // 
         // 
         // Satellite Data
         // |
-        // |--- [SimLoc]     Storm Location         (RecSatLoc1, RecSatLoc2, RecSatLoc3)
+        // |--- [Location]     Storm Location         (RecSatLoc1, RecSatLoc2, RecSatLoc3)  < Changes Alert/Prediction Emergency
         // |
-        // |--- [SimData]    Temperature Gradient   (RecSatTemp1, RecSatTemp2)
+        // |--- [SimData]    Temperature Gradient   (RecSatTempGrad1, RecSatTempGrad2, RecSatTempGrad3)
         // |
         // |--- [SimData]    Storm Size             (RecStormSize1, RecStormSize2)
         // 
@@ -148,10 +161,9 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
                     //Declaring History Variables for Aircrafts
                     SimData RecWS1,RecWS2,RecHum1,RecHum2,RecHum3,RecTemp1,RecTemp2,RecTemp3;
                     SimData RecAP1,RecAP2,RecAMU1,RecAMU2,RecAMU3;
-                    SimLoc RecAirLoc1,RecAirLoc2,RecAirLoc3;
                     
                     //Declaring History Variable for Satellite
-                    SimLoc RecSatLoc1,RecSatLoc2,RecSatLoc3;
+                    Location RecSatLoc1,RecSatLoc2,RecSatLoc3;
                     SimData RecSatTempGrad1, RecSatTempGrad2;
                     SimData RecStormSize1,RecStormSize2;
                     
@@ -235,6 +247,10 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
+void OMAnimatedMetOceanDataProvider::serializeAttributes(AOMSAttributes* aomsAttributes) const {
+    aomsAttributes->addAttribute("RecAirLoc1", UNKNOWN2STRING(myReal->RecAirLoc1));
+}
+
 void OMAnimatedMetOceanDataProvider::rootState_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT");
     switch (myReal->rootState_subState) {
