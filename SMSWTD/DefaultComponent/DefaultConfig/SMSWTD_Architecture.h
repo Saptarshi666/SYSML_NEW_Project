@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
-//!	Generated Date	: Sat, 27, Dec 2025  
+//!	Generated Date	: Sun, 28, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.h
 *********************************************************************/
 
@@ -72,7 +72,6 @@ struct SimData {
 struct Location {
     double x;		//## attribute x
     double y;		//## attribute y
-    double z;		//## attribute z
 };
 
 //## type SimLoc
@@ -83,6 +82,25 @@ struct SimLoc {
 //## type LocArray
 struct LocArray {
     Location data[6];		//## attribute data
+};
+
+//## type AirData
+struct AirData {
+    double Temp;		//## attribute Temp
+    double Humd;		//## attribute Humd
+    double AirP;		//## attribute AirP
+    double WinS;		//## attribute WinS
+    double MesU;		//## attribute MesU
+    double LocX;		//## attribute LocX
+    double LocY;		//## attribute LocY
+};
+
+//## type SatData
+struct SatData {
+    double TempG;		//## attribute TempG
+    double StSize;		//## attribute StSize
+    double StLocX;		//## attribute StLocX
+    double StLocY;		//## attribute StLocY
 };
 
 //## classInstance itsMetOceanDataProvider

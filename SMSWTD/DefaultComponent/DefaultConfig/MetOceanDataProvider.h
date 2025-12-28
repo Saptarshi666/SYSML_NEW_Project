@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MetOceanDataProvider
-//!	Generated Date	: Sat, 27, Dec 2025  
+//!	Generated Date	: Sun, 28, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\MetOceanDataProvider.h
 *********************************************************************/
 
@@ -82,10 +82,184 @@ public :
     out_C* get_out(void) const;
     
     //## auto_generated
+    const int getCasePlaneData(void) const;
+    
+    //## auto_generated
+    void setCasePlaneData(const int p_CasePlaneData);
+    
+    //## auto_generated
+    const int getCasePlaneLoc(void) const;
+    
+    //## auto_generated
+    void setCasePlaneLoc(const int p_CasePlaneLoc);
+    
+    //## auto_generated
+    const int getCasePlaneMU(void) const;
+    
+    //## auto_generated
+    void setCasePlaneMU(const int p_CasePlaneMU);
+    
+    //## auto_generated
+    const int getCaseSatStormData(void) const;
+    
+    //## auto_generated
+    void setCaseSatStormData(const int p_CaseSatStormData);
+    
+    //## auto_generated
+    const int getCaseSatStormLoc(void) const;
+    
+    //## auto_generated
+    void setCaseSatStormLoc(const int p_CaseSatStormLoc);
+    
+    //## auto_generated
+    const AirData getCurrPlaneData(void) const;
+    
+    //## auto_generated
+    void setCurrPlaneData(const AirData p_CurrPlaneData);
+    
+    //## auto_generated
+    const SatData getCurrSatData(void) const;
+    
+    //## auto_generated
+    void setCurrSatData(const SatData p_CurrSatData);
+    
+    //## auto_generated
+    const SimData getRecAMU1(void) const;
+    
+    //## auto_generated
+    void setRecAMU1(const SimData p_RecAMU1);
+    
+    //## auto_generated
+    const SimData getRecAMU2(void) const;
+    
+    //## auto_generated
+    void setRecAMU2(const SimData p_RecAMU2);
+    
+    //## auto_generated
+    const SimData getRecAMU3(void) const;
+    
+    //## auto_generated
+    void setRecAMU3(const SimData p_RecAMU3);
+    
+    //## auto_generated
+    const SimData getRecAP1(void) const;
+    
+    //## auto_generated
+    void setRecAP1(const SimData p_RecAP1);
+    
+    //## auto_generated
+    const SimData getRecAP2(void) const;
+    
+    //## auto_generated
+    void setRecAP2(const SimData p_RecAP2);
+    
+    //## auto_generated
     const Location getRecAirLoc1(void) const;
     
     //## auto_generated
     void setRecAirLoc1(const Location p_RecAirLoc1);
+    
+    //## auto_generated
+    const Location getRecAirLoc2(void) const;
+    
+    //## auto_generated
+    void setRecAirLoc2(const Location p_RecAirLoc2);
+    
+    //## auto_generated
+    const Location getRecAirLoc3(void) const;
+    
+    //## auto_generated
+    void setRecAirLoc3(const Location p_RecAirLoc3);
+    
+    //## auto_generated
+    const SimData getRecHumd1(void) const;
+    
+    //## auto_generated
+    void setRecHumd1(const SimData p_RecHumd1);
+    
+    //## auto_generated
+    const SimData getRecHumd2(void) const;
+    
+    //## auto_generated
+    void setRecHumd2(const SimData p_RecHumd2);
+    
+    //## auto_generated
+    const SimData getRecHumd3(void) const;
+    
+    //## auto_generated
+    void setRecHumd3(const SimData p_RecHumd3);
+    
+    //## auto_generated
+    const Location getRecSatLoc1(void) const;
+    
+    //## auto_generated
+    void setRecSatLoc1(const Location p_RecSatLoc1);
+    
+    //## auto_generated
+    const Location getRecSatLoc2(void) const;
+    
+    //## auto_generated
+    void setRecSatLoc2(const Location p_RecSatLoc2);
+    
+    //## auto_generated
+    const Location getRecSatLoc3(void) const;
+    
+    //## auto_generated
+    void setRecSatLoc3(const Location p_RecSatLoc3);
+    
+    //## auto_generated
+    const SimData getRecSatTempGrad1(void) const;
+    
+    //## auto_generated
+    void setRecSatTempGrad1(const SimData p_RecSatTempGrad1);
+    
+    //## auto_generated
+    const SimData getRecSatTempGrad2(void) const;
+    
+    //## auto_generated
+    void setRecSatTempGrad2(const SimData p_RecSatTempGrad2);
+    
+    //## auto_generated
+    const SimData getRecStormSize1(void) const;
+    
+    //## auto_generated
+    void setRecStormSize1(const SimData p_RecStormSize1);
+    
+    //## auto_generated
+    const SimData getRecStormSize2(void) const;
+    
+    //## auto_generated
+    void setRecStormSize2(const SimData p_RecStormSize2);
+    
+    //## auto_generated
+    const SimData getRecTemp1(void) const;
+    
+    //## auto_generated
+    void setRecTemp1(const SimData p_RecTemp1);
+    
+    //## auto_generated
+    const SimData getRecTemp2(void) const;
+    
+    //## auto_generated
+    void setRecTemp2(const SimData p_RecTemp2);
+    
+    //## auto_generated
+    const SimData getRecTemp3(void) const;
+    
+    //## auto_generated
+    void setRecTemp3(const SimData p_RecTemp3);
+    
+    //## auto_generated
+    const SimData getRecWS1(void) const;
+    
+    //## auto_generated
+    void setRecWS1(const SimData p_RecWS1);
+    
+    //## auto_generated
+    const SimData getRecWS2(void) const;
+    
+    //## auto_generated
+    void setRecWS2(const SimData p_RecWS2);
     
     //## auto_generated
     virtual bool cancelTimeout(const IOxfTimeout* arg);
@@ -108,7 +282,66 @@ protected :
 
 private :
 
+    int CasePlaneData;		//## attribute CasePlaneData
+    
+    // Dictates Planes Location and Measurement Uncertainty.
+    int CasePlaneLoc;		//## attribute CasePlaneLoc
+    
+    int CasePlaneMU;		//## attribute CasePlaneMU
+    
+    int CaseSatStormData;		//## attribute CaseSatStormData
+    
+    int CaseSatStormLoc;		//## attribute CaseSatStormLoc
+    
+    AirData CurrPlaneData;		//## attribute CurrPlaneData
+    
+    SatData CurrSatData;		//## attribute CurrSatData
+    
+    SimData RecAMU1;		//## attribute RecAMU1
+    
+    SimData RecAMU2;		//## attribute RecAMU2
+    
+    SimData RecAMU3;		//## attribute RecAMU3
+    
+    SimData RecAP1;		//## attribute RecAP1
+    
+    SimData RecAP2;		//## attribute RecAP2
+    
     Location RecAirLoc1;		//## attribute RecAirLoc1
+    
+    Location RecAirLoc2;		//## attribute RecAirLoc2
+    
+    Location RecAirLoc3;		//## attribute RecAirLoc3
+    
+    SimData RecHumd1;		//## attribute RecHumd1
+    
+    SimData RecHumd2;		//## attribute RecHumd2
+    
+    SimData RecHumd3;		//## attribute RecHumd3
+    
+    Location RecSatLoc1;		//## attribute RecSatLoc1
+    
+    Location RecSatLoc2;		//## attribute RecSatLoc2
+    
+    Location RecSatLoc3;		//## attribute RecSatLoc3
+    
+    SimData RecSatTempGrad1;		//## attribute RecSatTempGrad1
+    
+    SimData RecSatTempGrad2;		//## attribute RecSatTempGrad2
+    
+    SimData RecStormSize1;		//## attribute RecStormSize1
+    
+    SimData RecStormSize2;		//## attribute RecStormSize2
+    
+    SimData RecTemp1;		//## attribute RecTemp1
+    
+    SimData RecTemp2;		//## attribute RecTemp2
+    
+    SimData RecTemp3;		//## attribute RecTemp3
+    
+    SimData RecWS1;		//## attribute RecWS1
+    
+    SimData RecWS2;		//## attribute RecWS2
     
     ////    Relations and components    ////
     

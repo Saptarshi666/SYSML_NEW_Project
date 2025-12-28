@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SeismicTsunamiNetwork
-//!	Generated Date	: Thu, 25, Dec 2025  
+//!	Generated Date	: Sun, 28, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SeismicTsunamiNetwork.h
 *********************************************************************/
 
@@ -82,10 +82,46 @@ public :
     out_C* get_out(void) const;
     
     //## auto_generated
+    const int getCaseSTNHealth(void) const;
+    
+    //## auto_generated
+    void setCaseSTNHealth(const int p_CaseSTNHealth);
+    
+    //## auto_generated
     const int getCaseSeismic(void) const;
     
     //## auto_generated
     void setCaseSeismic(const int p_CaseSeismic);
+    
+    //## auto_generated
+    const FloatArray getCurrEQD(void) const;
+    
+    //## auto_generated
+    void setCurrEQD(const FloatArray p_CurrEQD);
+    
+    //## auto_generated
+    const FloatArray getCurrEQM(void) const;
+    
+    //## auto_generated
+    void setCurrEQM(const FloatArray p_CurrEQM);
+    
+    //## auto_generated
+    const FloatArray getCurrHealth(void) const;
+    
+    //## auto_generated
+    void setCurrHealth(const FloatArray p_CurrHealth);
+    
+    //## auto_generated
+    const FloatArray getCurrSCM(void) const;
+    
+    //## auto_generated
+    void setCurrSCM(const FloatArray p_CurrSCM);
+    
+    //## auto_generated
+    const FloatArray getCurrWPM(void) const;
+    
+    //## auto_generated
+    void setCurrWPM(const FloatArray p_CurrWPM);
     
     //## auto_generated
     const int getPrevSTN(void) const;
@@ -118,6 +154,18 @@ public :
     void setRecEQM2(const SimData p_RecEQM2);
     
     //## auto_generated
+    const SimData getRecHealth1(void) const;
+    
+    //## auto_generated
+    void setRecHealth1(const SimData p_RecHealth1);
+    
+    //## auto_generated
+    const SimData getRecHealth2(void) const;
+    
+    //## auto_generated
+    void setRecHealth2(const SimData p_RecHealth2);
+    
+    //## auto_generated
     const SimData getRecSCM1(void) const;
     
     //## auto_generated
@@ -142,6 +190,12 @@ public :
     void setRecWPM2(const SimData p_RecWPM2);
     
     //## auto_generated
+    const int getSTNStatus(void) const;
+    
+    //## auto_generated
+    void setSTNStatus(const int p_STNStatus);
+    
+    //## auto_generated
     virtual bool cancelTimeout(const IOxfTimeout* arg);
     
     //## auto_generated
@@ -162,8 +216,20 @@ protected :
 
 private :
 
+    int CaseSTNHealth;		//## attribute CaseSTNHealth
+    
     // Simulates different conditions from Seismic Tsunami Sensor Network.
     int CaseSeismic;		//## attribute CaseSeismic
+    
+    FloatArray CurrEQD;		//## attribute CurrEQD
+    
+    FloatArray CurrEQM;		//## attribute CurrEQM
+    
+    FloatArray CurrHealth;		//## attribute CurrHealth
+    
+    FloatArray CurrSCM;		//## attribute CurrSCM
+    
+    FloatArray CurrWPM;		//## attribute CurrWPM
     
     int PrevSTN;		//## attribute PrevSTN
     
@@ -175,6 +241,10 @@ private :
     
     SimData RecEQM2;		//## attribute RecEQM2
     
+    SimData RecHealth1;		//## attribute RecHealth1
+    
+    SimData RecHealth2;		//## attribute RecHealth2
+    
     SimData RecSCM1;		//## attribute RecSCM1
     
     SimData RecSCM2;		//## attribute RecSCM2
@@ -182,6 +252,8 @@ private :
     SimData RecWPM1;		//## attribute RecWPM1
     
     SimData RecWPM2;		//## attribute RecWPM2
+    
+    int STNStatus;		//## attribute STNStatus
     
     ////    Relations and components    ////
     

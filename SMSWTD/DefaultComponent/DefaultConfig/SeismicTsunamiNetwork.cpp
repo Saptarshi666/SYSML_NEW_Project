@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SeismicTsunamiNetwork
-//!	Generated Date	: Sat, 27, Dec 2025  
+//!	Generated Date	: Sun, 28, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SeismicTsunamiNetwork.cpp
 *********************************************************************/
 
@@ -37,7 +37,7 @@ void SeismicTsunamiNetwork::out_C::connectSeismicTsunamiNetwork(SeismicTsunamiNe
 }
 //#]
 
-SeismicTsunamiNetwork::SeismicTsunamiNetwork(IOxfActive* const theActiveContext) : OMReactive(), CaseSeismic(0), PrevSTN(0) {
+SeismicTsunamiNetwork::SeismicTsunamiNetwork(IOxfActive* const theActiveContext) : OMReactive(), CaseSTNHealth(0), CaseSeismic(0), PrevSTN(0), STNStatus(0) {
     NOTIFY_REACTIVE_CONSTRUCTOR(SeismicTsunamiNetwork, SeismicTsunamiNetwork(), 0, SMSWTD_Architecture_SeismicTsunamiNetwork_SeismicTsunamiNetwork_SERIALIZE);
     setActiveContext(theActiveContext, false);
     initRelations();
@@ -57,12 +57,60 @@ SeismicTsunamiNetwork::out_C* SeismicTsunamiNetwork::get_out(void) const {
     return (SeismicTsunamiNetwork::out_C*) &out;
 }
 
+const int SeismicTsunamiNetwork::getCaseSTNHealth(void) const {
+    return CaseSTNHealth;
+}
+
+void SeismicTsunamiNetwork::setCaseSTNHealth(const int p_CaseSTNHealth) {
+    CaseSTNHealth = p_CaseSTNHealth;
+}
+
 const int SeismicTsunamiNetwork::getCaseSeismic(void) const {
     return CaseSeismic;
 }
 
 void SeismicTsunamiNetwork::setCaseSeismic(const int p_CaseSeismic) {
     CaseSeismic = p_CaseSeismic;
+}
+
+const FloatArray SeismicTsunamiNetwork::getCurrEQD(void) const {
+    return CurrEQD;
+}
+
+void SeismicTsunamiNetwork::setCurrEQD(const FloatArray p_CurrEQD) {
+    CurrEQD = p_CurrEQD;
+}
+
+const FloatArray SeismicTsunamiNetwork::getCurrEQM(void) const {
+    return CurrEQM;
+}
+
+void SeismicTsunamiNetwork::setCurrEQM(const FloatArray p_CurrEQM) {
+    CurrEQM = p_CurrEQM;
+}
+
+const FloatArray SeismicTsunamiNetwork::getCurrHealth(void) const {
+    return CurrHealth;
+}
+
+void SeismicTsunamiNetwork::setCurrHealth(const FloatArray p_CurrHealth) {
+    CurrHealth = p_CurrHealth;
+}
+
+const FloatArray SeismicTsunamiNetwork::getCurrSCM(void) const {
+    return CurrSCM;
+}
+
+void SeismicTsunamiNetwork::setCurrSCM(const FloatArray p_CurrSCM) {
+    CurrSCM = p_CurrSCM;
+}
+
+const FloatArray SeismicTsunamiNetwork::getCurrWPM(void) const {
+    return CurrWPM;
+}
+
+void SeismicTsunamiNetwork::setCurrWPM(const FloatArray p_CurrWPM) {
+    CurrWPM = p_CurrWPM;
 }
 
 const int SeismicTsunamiNetwork::getPrevSTN(void) const {
@@ -105,6 +153,22 @@ void SeismicTsunamiNetwork::setRecEQM2(const SimData p_RecEQM2) {
     RecEQM2 = p_RecEQM2;
 }
 
+const SimData SeismicTsunamiNetwork::getRecHealth1(void) const {
+    return RecHealth1;
+}
+
+void SeismicTsunamiNetwork::setRecHealth1(const SimData p_RecHealth1) {
+    RecHealth1 = p_RecHealth1;
+}
+
+const SimData SeismicTsunamiNetwork::getRecHealth2(void) const {
+    return RecHealth2;
+}
+
+void SeismicTsunamiNetwork::setRecHealth2(const SimData p_RecHealth2) {
+    RecHealth2 = p_RecHealth2;
+}
+
 const SimData SeismicTsunamiNetwork::getRecSCM1(void) const {
     return RecSCM1;
 }
@@ -135,6 +199,14 @@ const SimData SeismicTsunamiNetwork::getRecWPM2(void) const {
 
 void SeismicTsunamiNetwork::setRecWPM2(const SimData p_RecWPM2) {
     RecWPM2 = p_RecWPM2;
+}
+
+const int SeismicTsunamiNetwork::getSTNStatus(void) const {
+    return STNStatus;
+}
+
+void SeismicTsunamiNetwork::setSTNStatus(const int p_STNStatus) {
+    STNStatus = p_STNStatus;
 }
 
 bool SeismicTsunamiNetwork::cancelTimeout(const IOxfTimeout* arg) {
@@ -194,19 +266,23 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                     NOTIFY_TRANSITION_STARTED("1");
                     //#[ state Idle.(Exit) 
                     printf("Resetting STN data to normal case\n");
-                    CaseSeismic = 1;
+                    CaseSeismic = 1; CaseSTNHealth = 1;
                     PrevSTN = 0;
-                    // Fill Normal history
+                    // Generate Normal history data
                     RecEQM1 = fillHistRamp(0.0001); // EQ Magnitude
                     RecEQD1 = fillHistRamp(0.001); // ED displacement
                     RecSCM1 = fillHistRamp(0.01); // Slow crustal Movement
                     RecWPM1 = fillHistRamp(2.6); // Change in water pressure
                     
-                    // Fill worst case values for Energency scenario
+                    // Generate worst case data for Energency scenario
                     RecEQM2 = fillHistSineWave(2.0,5,6);
                     RecEQD2 = fillHistSineWave();
                     RecSCM2 = fillHistRamp(1.6);
                     RecWPM2 = fillHistSineWave(5.4,2,1.1);
+                    
+                    // Generate Measurement Certainty (Health) Data
+                    RecHealth1 = fillHistSineWave(0.12,1,0.86);	// Sensors Work Normally
+                    RecHealth2 = fillHistSineWave(1,1,0);	// Sensors Glitch out Occationally
                     //#]
                     NOTIFY_STATE_EXITED("ROOT.Idle");
                     NOTIFY_STATE_ENTERED("ROOT.SendData");
@@ -217,7 +293,26 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                     	printf("Resetting timeline to continue...\t\t");
                     	PrevSTN = 0;
                     	}
-                    FloatArray CurrEQD, CurrEQM, CurrSCM, CurrWPM;
+                    
+                    // Simulating Sensor Health Data
+                    switch (CaseSTNHealth) {
+                        case 1: // Normal health (sensors work normally)
+                            CurrHealth = extractCurrData(RecHealth1, PrevSTN);
+                            break;
+                        case 2: // Degraded / glitchy health
+                            CurrHealth = extractCurrData(RecHealth2, PrevSTN);
+                            break;
+                        default:
+                            // Default: fall back to normal health data
+                            std::cout << "Abnormal CaseSTNHealth value of "
+                                      << CaseSTNHealth
+                                      << " was given.\nSwitching to normal health data...\n";
+                            CurrHealth = extractCurrData(RecHealth1, PrevSTN);
+                            break;
+                    }
+                    printf("Success: Data will be set for STN Health = %d .\n", CaseSTNHealth);
+                    
+                    // Sending Actual Data Now
                     switch(CaseSeismic) {
                     	case 1: // normal case
                     		CurrEQD = extractCurrData(RecEQD1,PrevSTN);
@@ -253,8 +348,7 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                     		PrevSTN++;
                     		break;
                     	}
-                    printf("Success: Data will be set for Case = %d .\n", CaseSeismic);
-                    
+                    printf("Success: Data will be set for STN Data Case = %d .\n", CaseSeismic);
                     //#]
                     rootState_timeout = scheduleTimeout(3000, "ROOT.SendData");
                     NOTIFY_TRANSITION_TERMINATED("1");
@@ -272,6 +366,9 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                         {
                             NOTIFY_TRANSITION_STARTED("2");
                             cancel(rootState_timeout);
+                            //#[ state SendData.(Exit) 
+                            //FloatArray CurrEQD, CurrEQM, CurrSCM, CurrWPM;
+                            //#]
                             NOTIFY_STATE_EXITED("ROOT.SendData");
                             NOTIFY_STATE_ENTERED("ROOT.SendData");
                             rootState_subState = SendData;
@@ -281,7 +378,26 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                             	printf("Resetting timeline to continue...\t\t");
                             	PrevSTN = 0;
                             	}
-                            FloatArray CurrEQD, CurrEQM, CurrSCM, CurrWPM;
+                            
+                            // Simulating Sensor Health Data
+                            switch (CaseSTNHealth) {
+                                case 1: // Normal health (sensors work normally)
+                                    CurrHealth = extractCurrData(RecHealth1, PrevSTN);
+                                    break;
+                                case 2: // Degraded / glitchy health
+                                    CurrHealth = extractCurrData(RecHealth2, PrevSTN);
+                                    break;
+                                default:
+                                    // Default: fall back to normal health data
+                                    std::cout << "Abnormal CaseSTNHealth value of "
+                                              << CaseSTNHealth
+                                              << " was given.\nSwitching to normal health data...\n";
+                                    CurrHealth = extractCurrData(RecHealth1, PrevSTN);
+                                    break;
+                            }
+                            printf("Success: Data will be set for STN Health = %d .\n", CaseSTNHealth);
+                            
+                            // Sending Actual Data Now
                             switch(CaseSeismic) {
                             	case 1: // normal case
                             		CurrEQD = extractCurrData(RecEQD1,PrevSTN);
@@ -317,8 +433,7 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                             		PrevSTN++;
                             		break;
                             	}
-                            printf("Success: Data will be set for Case = %d .\n", CaseSeismic);
-                            
+                            printf("Success: Data will be set for STN Data Case = %d .\n", CaseSeismic);
                             //#]
                             rootState_timeout = scheduleTimeout(3000, "ROOT.SendData");
                             NOTIFY_TRANSITION_TERMINATED("2");
@@ -347,6 +462,15 @@ void OMAnimatedSeismicTsunamiNetwork::serializeAttributes(AOMSAttributes* aomsAt
     aomsAttributes->addAttribute("RecSCM1", UNKNOWN2STRING(myReal->RecSCM1));
     aomsAttributes->addAttribute("RecSCM2", UNKNOWN2STRING(myReal->RecSCM2));
     aomsAttributes->addAttribute("PrevSTN", x2String(myReal->PrevSTN));
+    aomsAttributes->addAttribute("CurrEQD", UNKNOWN2STRING(myReal->CurrEQD));
+    aomsAttributes->addAttribute("CurrEQM", UNKNOWN2STRING(myReal->CurrEQM));
+    aomsAttributes->addAttribute("CurrSCM", UNKNOWN2STRING(myReal->CurrSCM));
+    aomsAttributes->addAttribute("CurrWPM", UNKNOWN2STRING(myReal->CurrWPM));
+    aomsAttributes->addAttribute("STNStatus", x2String(myReal->STNStatus));
+    aomsAttributes->addAttribute("CurrHealth", UNKNOWN2STRING(myReal->CurrHealth));
+    aomsAttributes->addAttribute("RecHealth1", UNKNOWN2STRING(myReal->RecHealth1));
+    aomsAttributes->addAttribute("RecHealth2", UNKNOWN2STRING(myReal->RecHealth2));
+    aomsAttributes->addAttribute("CaseSTNHealth", x2String(myReal->CaseSTNHealth));
 }
 
 void OMAnimatedSeismicTsunamiNetwork::rootState_serializeStates(AOMSState* aomsState) const {
