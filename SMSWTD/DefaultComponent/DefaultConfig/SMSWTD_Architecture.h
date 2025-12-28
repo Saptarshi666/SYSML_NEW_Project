@@ -1,6 +1,6 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20255590
+	Login		: 20190977
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
@@ -132,12 +132,24 @@ SimData fillHistRamp(double maxAmplitude);
 //## operation fillHistSineWave(double,double,double)
 SimData fillHistSineWave(double maxAmplitude = 1, double frequency = 2, double offset_Ydir = 0);
 
+//## operation printAirData(AirData)
+void printAirData(const AirData& curr_air);
+
 //## operation printArray(FloatArray)
 void printArray(const FloatArray& curr_data);
 
 // Print all the elements inside the Input variable of SimData datatype
 //## operation printHistory(SimData)
 void printHistory(const SimData& HistData);
+
+//## operation printLocation(Location)
+void printLocation(const Location& curr_loc = {0,0});
+
+//## operation printSTNData(STNData)
+void printSTNData(const STNData& curr_stn);
+
+//## operation printSatData(SatData)
+void printSatData(const SatData& curr_sat);
 
 //## auto_generated
 void SMSWTD_Architecture_initRelations(void);

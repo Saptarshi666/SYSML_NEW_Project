@@ -1,6 +1,6 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20255590
+	Login		: 20190977
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MetOceanDataProvider
@@ -418,9 +418,9 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
                     RecAMC1 = fillHistSineWave(4,2,95); // good certainty of measurement
                     RecAMC2 = fillHistSineWave(4,2,65); // questionable certainty of measurement
                     RecAMC3 = fillHistSineWave(4,2,35); // uncertain measurement
-                    RecAirLoc1 = {37.7749, -122.4194};
-                    RecAirLoc2 = {37.7749, -122.4194};
-                    RecAirLoc3 = {37.7749, -122.4194};
+                    RecAirLoc1 = {36.1, 36.1}; // 51 Km away
+                    RecAirLoc2 = {-63, 109.1}; // 126 Km away
+                    RecAirLoc3 = {-233.2, -135}; // 270 Km away
                     // ************* Update Location Values here ************** //
                     
                     //AirCarft Weather Data - Normal Case 
@@ -442,9 +442,9 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
                     RecTemp3 = fillHistSineWave(5,1,40.0);
                     
                     //(Possible) Storm Locations Sent by Satellite
-                    RecSatLoc1 = {37.7749, -122.4194};
-                    RecSatLoc2 = {37.7749, -122.4194};
-                    RecSatLoc3 = {37.7749, -122.4194};
+                    RecSatLoc1 = {-233.2, -135}; // 270 Km away
+                    RecSatLoc2 = {113.9 , 372.8}; // 390 Km away
+                    RecSatLoc3 = {-515.8 , 219.0}; // 560 Km away
                     // ************* Update Location Values here ************** //
                     
                     //Satellite Data - Normal Case 

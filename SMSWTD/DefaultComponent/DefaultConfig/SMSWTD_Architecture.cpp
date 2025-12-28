@@ -1,6 +1,6 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20255590
+	Login		: 20190977
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
@@ -62,9 +62,17 @@
     OMADD_UNSER(FloatArray, CurrHealth, OMDestructiveString2X)
 #define SMSWTD_Architecture_fillHistRamp_SERIALIZE aomsmethod->addAttribute("maxAmplitude", x2String(maxAmplitude));
 
+#define SMSWTD_Architecture_printAirData_SERIALIZE aomsmethod->addAttribute("curr_air", UNKNOWN2STRING(curr_air));
+
 #define SMSWTD_Architecture_printArray_SERIALIZE aomsmethod->addAttribute("curr_data", UNKNOWN2STRING(curr_data));
 
 #define SMSWTD_Architecture_printHistory_SERIALIZE aomsmethod->addAttribute("HistData", UNKNOWN2STRING(HistData));
+
+#define SMSWTD_Architecture_printLocation_SERIALIZE aomsmethod->addAttribute("curr_loc", UNKNOWN2STRING(curr_loc));
+
+#define SMSWTD_Architecture_printSTNData_SERIALIZE aomsmethod->addAttribute("curr_stn", UNKNOWN2STRING(curr_stn));
+
+#define SMSWTD_Architecture_printSatData_SERIALIZE aomsmethod->addAttribute("curr_sat", UNKNOWN2STRING(curr_sat));
 
 #define evStartDataCollector_SERIALIZE OM_NO_OP
 
@@ -186,6 +194,21 @@ SimData fillHistSineWave(double maxAmplitude, double frequency, double offset_Yd
     //#]
 }
 
+//## operation printAirData(AirData)
+void printAirData(const AirData& curr_air) {
+    NOTIFY_FUNCTION(SMSWTD_Architecture, printAirData, printAirData(AirData), 1, SMSWTD_Architecture_printAirData_SERIALIZE);
+    //#[ operation printAirData(AirData)
+        std::cout << "Aircraft Data:\n";
+        std::cout << "  Temperature (Temp) = " << curr_air.Temp << std::endl;
+        std::cout << "  Humidity (Humd) = " << curr_air.Humd << std::endl;
+        std::cout << "  Air Pressure (AirP) = " << curr_air.AirP << std::endl;
+        std::cout << "  Wind Speed (WinS) = " << curr_air.WinS << std::endl;
+        std::cout << "  Measurement Certainty (MesC) = " << curr_air.MesC << std::endl;
+        std::cout << "  Location X (LocX) = " << curr_air.LocX << std::endl;
+        std::cout << "  Location Y (LocY) = " << curr_air.LocY << std::endl;
+    //#]
+}
+
 //## operation printArray(FloatArray)
 void printArray(const FloatArray& curr_data) {
     NOTIFY_FUNCTION(SMSWTD_Architecture, printArray, printArray(FloatArray), 1, SMSWTD_Architecture_printArray_SERIALIZE);
@@ -205,6 +228,41 @@ void printHistory(const SimData& HistData) {
         for(int i = 0; i < 18; i++) {
             std::cout << "History.data[" << i << "] = " << HistData.data[i] << std::endl;
         }
+    //#]
+}
+
+//## operation printLocation(Location)
+void printLocation(const Location& curr_loc) {
+    NOTIFY_FUNCTION(SMSWTD_Architecture, printLocation, printLocation(Location), 1, SMSWTD_Architecture_printLocation_SERIALIZE);
+    //#[ operation printLocation(Location)
+        std::cout << "Location Data:\n";
+        std::cout << "  x = " << curr_loc.x << std::endl;
+        std::cout << "  y = " << curr_loc.y << std::endl;
+    //#]
+}
+
+//## operation printSTNData(STNData)
+void printSTNData(const STNData& curr_stn) {
+    NOTIFY_FUNCTION(SMSWTD_Architecture, printSTNData, printSTNData(STNData), 1, SMSWTD_Architecture_printSTNData_SERIALIZE);
+    //#[ operation printSTNData(STNData)
+        std::cout << "Station Data:\n";
+        std::cout << "  Earthquake Magnitude (EQM) = " << curr_stn.EQM << std::endl;
+        std::cout << "  Earthquake Depth (EQD) = " << curr_stn.EQD << std::endl;
+        std::cout << "  Seismic Count Measure (SCM) = " << curr_stn.SCM << std::endl;
+        std::cout << "  Wave Propagation Measure (WPM) = " << curr_stn.WPM << std::endl;
+        std::cout << "  Data Complete (DataC) = " << (curr_stn.DataC ? "true" : "false") << std::endl;
+    //#]
+}
+
+//## operation printSatData(SatData)
+void printSatData(const SatData& curr_sat) {
+    NOTIFY_FUNCTION(SMSWTD_Architecture, printSatData, printSatData(SatData), 1, SMSWTD_Architecture_printSatData_SERIALIZE);
+    //#[ operation printSatData(SatData)
+        std::cout << "Satellite Data:\n";
+        std::cout << "  Temperature Gradient (TempG) = " << curr_sat.TempG << std::endl;
+        std::cout << "  Storm Size (StSize) = " << curr_sat.StSize << std::endl;
+        std::cout << "  Storm Location X (StLocX) = " << curr_sat.StLocX << std::endl;
+        std::cout << "  Storm Location Y (StLocY) = " << curr_sat.StLocY << std::endl;
     //#]
 }
 
