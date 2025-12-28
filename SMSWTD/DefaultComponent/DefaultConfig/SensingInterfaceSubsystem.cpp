@@ -39,7 +39,7 @@ void SensingInterfaceSubsystem::port_2_C::connectSensingInterfaceSubsystem(Sensi
 }
 //#]
 
-SensingInterfaceSubsystem::SensingInterfaceSubsystem(IOxfActive* const theActiveContext) : OMReactive(), itsDataIngestionSubsystem(NULL) {
+SensingInterfaceSubsystem::SensingInterfaceSubsystem(IOxfActive* const theActiveContext) : OMReactive(), Prev_STN_Final({-1,-1,-1,-1,false}), itsDataIngestionSubsystem(NULL) {
     NOTIFY_REACTIVE_CONSTRUCTOR(SensingInterfaceSubsystem, SensingInterfaceSubsystem(), 0, SMSWTD_Architecture_SensingInterfaceSubsystem_SensingInterfaceSubsystem_SERIALIZE);
     setActiveContext(theActiveContext, false);
     initRelations();
@@ -60,52 +60,68 @@ SensingInterfaceSubsystem::port_2_C* SensingInterfaceSubsystem::get_port_2(void)
     return (SensingInterfaceSubsystem::port_2_C*) &port_2;
 }
 
-const FloatArray SensingInterfaceSubsystem::getValueproperty_1(void) const {
-    return valueproperty_1;
+const FloatArray SensingInterfaceSubsystem::getCurrEQD(void) const {
+    return CurrEQD;
 }
 
-void SensingInterfaceSubsystem::setValueproperty_1(const FloatArray p_valueproperty_1) {
-    valueproperty_1 = p_valueproperty_1;
+void SensingInterfaceSubsystem::setCurrEQD(const FloatArray p_CurrEQD) {
+    CurrEQD = p_CurrEQD;
 }
 
-const FloatArray SensingInterfaceSubsystem::getValueproperty_3(void) const {
-    return valueproperty_3;
+const FloatArray SensingInterfaceSubsystem::getCurrEQM(void) const {
+    return CurrEQM;
 }
 
-void SensingInterfaceSubsystem::setValueproperty_3(const FloatArray p_valueproperty_3) {
-    valueproperty_3 = p_valueproperty_3;
+void SensingInterfaceSubsystem::setCurrEQM(const FloatArray p_CurrEQM) {
+    CurrEQM = p_CurrEQM;
 }
 
-const FloatArray SensingInterfaceSubsystem::getValueproperty_4(void) const {
-    return valueproperty_4;
+const FloatArray SensingInterfaceSubsystem::getCurrHealth(void) const {
+    return CurrHealth;
 }
 
-void SensingInterfaceSubsystem::setValueproperty_4(const FloatArray p_valueproperty_4) {
-    valueproperty_4 = p_valueproperty_4;
+void SensingInterfaceSubsystem::setCurrHealth(const FloatArray p_CurrHealth) {
+    CurrHealth = p_CurrHealth;
 }
 
-const FloatArray SensingInterfaceSubsystem::getValueproperty_5(void) const {
-    return valueproperty_5;
+const FloatArray SensingInterfaceSubsystem::getCurrSCM(void) const {
+    return CurrSCM;
 }
 
-void SensingInterfaceSubsystem::setValueproperty_5(const FloatArray p_valueproperty_5) {
-    valueproperty_5 = p_valueproperty_5;
+void SensingInterfaceSubsystem::setCurrSCM(const FloatArray p_CurrSCM) {
+    CurrSCM = p_CurrSCM;
 }
 
-const int SensingInterfaceSubsystem::getValueproperty_6(void) const {
-    return valueproperty_6;
+const FloatArray SensingInterfaceSubsystem::getCurrWPM(void) const {
+    return CurrWPM;
 }
 
-void SensingInterfaceSubsystem::setValueproperty_6(const int p_valueproperty_6) {
-    valueproperty_6 = p_valueproperty_6;
+void SensingInterfaceSubsystem::setCurrWPM(const FloatArray p_CurrWPM) {
+    CurrWPM = p_CurrWPM;
 }
 
-const FloatArray SensingInterfaceSubsystem::getValueproperty_7(void) const {
-    return valueproperty_7;
+const STNData SensingInterfaceSubsystem::getCurr_STN(void) const {
+    return Curr_STN;
 }
 
-void SensingInterfaceSubsystem::setValueproperty_7(const FloatArray p_valueproperty_7) {
-    valueproperty_7 = p_valueproperty_7;
+void SensingInterfaceSubsystem::setCurr_STN(const STNData p_Curr_STN) {
+    Curr_STN = p_Curr_STN;
+}
+
+const STNData SensingInterfaceSubsystem::getPrev_STN_Final(void) const {
+    return Prev_STN_Final;
+}
+
+void SensingInterfaceSubsystem::setPrev_STN_Final(const STNData p_Prev_STN_Final) {
+    Prev_STN_Final = p_Prev_STN_Final;
+}
+
+const int SensingInterfaceSubsystem::getSTNStatus(void) const {
+    return STNStatus;
+}
+
+void SensingInterfaceSubsystem::setSTNStatus(const int p_STNStatus) {
+    STNStatus = p_STNStatus;
 }
 
 const DataIngestionSubsystem* SensingInterfaceSubsystem::getItsDataIngestionSubsystem(void) const {
@@ -272,7 +288,7 @@ void SensingInterfaceSubsystem::state_5_entDef(void) {
     state_5_subState = checkMetOcean;
     state_5_active = checkMetOcean;
     //#[ state CheckDataStatus.state_5.checkMetOcean.(Entry) 
-    std::cout<<"Hello i am in status metOcean\n";
+    //std::cout<<"Hello i am in status metOcean\n";
     //#]
     NOTIFY_TRANSITION_TERMINATED("4");
 }
@@ -302,11 +318,40 @@ void SensingInterfaceSubsystem::state_4_entDef(void) {
     state_4_subState = StatusSeismic;
     state_4_active = StatusSeismic;
     //#[ state CheckDataStatus.state_4.StatusSeismic.(Entry) 
-    //check seismic-sensor status
-    
-    std::cout<<"Hello i am in status seismic\n";
-    //FloatArray killbox = {{1.0, 2.0, 3.0, 4.0, 5.0, 6.0}};
-    //printArray(killbox);
+    if(STNStatus == 0)
+    {
+    for(int i = 5; i >=0; i--)
+    {
+     if (CurrHealth.data[i]> 0.85)
+     {
+       Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};	
+       Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};	
+       break;
+     }
+    }
+    }
+    else if(STNStatus == -1)
+    {
+    Curr_STN = Prev_STN_Final ;
+    }
+    else
+    {
+    for(int i = 5; i >=0; i--)
+    {
+     if (CurrHealth.data[i]> 0.85)
+     {
+       Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
+       Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
+       break;
+     }
+    }
+    }
+    std::cout<<"I AM IN STATUSSEISMIC AND HERE IS ALL THE DATA"<<std::endl;
+    std::cout<<Curr_STN.EQM<<" IS EQM"<<std::endl;
+    std::cout<<Curr_STN.EQD<<" IS EQD"<<std::endl;
+    std::cout<<Curr_STN.SCM<<" IS SCM"<<std::endl;
+    std::cout<<Curr_STN.WPM<<" IS WPM"<<std::endl;
+    std::cout<<Curr_STN.DataC<<" IS DataC"<<std::endl;
     //#]
     NOTIFY_TRANSITION_TERMINATED("3");
 }
@@ -325,7 +370,53 @@ void SensingInterfaceSubsystem::state_4_exit(void) {
 IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::state_4_processEvent(void) {
     IOxfReactive::TakeEventStatus res = eventNotConsumed;
     // State StatusSeismic
-    
+    if(state_4_active == StatusSeismic)
+        {
+            if(IS_EVENT_TYPE_OF(evCheckData_SMSWTD_Architecture_id) == 1)
+                {
+                    NOTIFY_TRANSITION_STARTED("7");
+                    //#[ transition 7 
+                    if(STNStatus == 0)
+                    {
+                    for(int i = 5; i >=0; i--)
+                    {
+                     if (CurrHealth.data[i]> 0.85)
+                     {
+                       Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};	
+                       Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};	
+                       break;
+                     }
+                    }
+                    }
+                    else if(STNStatus == -1)
+                    {
+                    Curr_STN = Prev_STN_Final ;
+                    }
+                    else
+                    {
+                    for(int i = 5; i >=0; i--)
+                    {
+                     if (CurrHealth.data[i]> 0.85)
+                     {
+                       Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
+                       Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
+                       break;
+                     }
+                    }
+                    }
+                    std::cout<<"I AM IN STATUSSEISMIC AND HERE IS ALL THE DATA"<<std::endl;
+                    std::cout<<Curr_STN.EQM<<" IS EQM"<<std::endl;
+                    std::cout<<Curr_STN.EQD<<" IS EQD"<<std::endl;
+                    std::cout<<Curr_STN.SCM<<" IS SCM"<<std::endl;
+                    std::cout<<Curr_STN.WPM<<" IS WPM"<<std::endl;
+                    std::cout<<Curr_STN.DataC<<" IS DataC"<<std::endl;
+                    //#]
+                    NOTIFY_TRANSITION_TERMINATED("7");
+                    res = eventConsumed;
+                }
+            
+            
+        }
     return res;
 }
 
@@ -384,24 +475,12 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::rootState_processEvent(
                         OMSETPARAMS(evSeismicUpdate);
                         NOTIFY_TRANSITION_STARTED("6");
                         //#[ transition 6 
-                        valueproperty_1 = params->getCurrEQD();
-                        valueproperty_3 = params->getCurrEQM();
-                        valueproperty_4 = params->getCurrSCM();
-                        valueproperty_5 = params->getCurrWPM();
-                        valueproperty_6 = params->getSTNStatus();
-                        valueproperty_7 = params->getCurrHealth();
-                        printArray(valueproperty_1);
-                        std::cout<<std::endl;
-                        printArray(valueproperty_3);
-                        std::cout<<std::endl;
-                        printArray(valueproperty_4);
-                        std::cout<<std::endl;
-                        printArray(valueproperty_5);
-                        std::cout<<std::endl;
-                        std::cout<<valueproperty_6<<std::endl;
-                        printArray(valueproperty_7);
-                        std::cout<<std::endl;
-                        std::cout<<"this all happened in sensinginterfacesubsystem"<<std::endl;
+                        CurrEQD = params->getCurrEQD();
+                        CurrEQM = params->getCurrEQM();
+                        CurrSCM = params->getCurrSCM();
+                        CurrWPM = params->getCurrWPM();
+                        STNStatus = params->getSTNStatus();
+                        CurrHealth = params->getCurrHealth();
                         GEN(evCheckData());
                         //#]
                         NOTIFY_TRANSITION_TERMINATED("6");
@@ -427,12 +506,14 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::rootState_processEvent(
 #ifdef _OMINSTRUMENT
 //#[ ignore
 void OMAnimatedSensingInterfaceSubsystem::serializeAttributes(AOMSAttributes* aomsAttributes) const {
-    aomsAttributes->addAttribute("valueproperty_1", UNKNOWN2STRING(myReal->valueproperty_1));
-    aomsAttributes->addAttribute("valueproperty_3", UNKNOWN2STRING(myReal->valueproperty_3));
-    aomsAttributes->addAttribute("valueproperty_4", UNKNOWN2STRING(myReal->valueproperty_4));
-    aomsAttributes->addAttribute("valueproperty_5", UNKNOWN2STRING(myReal->valueproperty_5));
-    aomsAttributes->addAttribute("valueproperty_6", x2String(myReal->valueproperty_6));
-    aomsAttributes->addAttribute("valueproperty_7", UNKNOWN2STRING(myReal->valueproperty_7));
+    aomsAttributes->addAttribute("CurrEQD", UNKNOWN2STRING(myReal->CurrEQD));
+    aomsAttributes->addAttribute("CurrEQM", UNKNOWN2STRING(myReal->CurrEQM));
+    aomsAttributes->addAttribute("CurrSCM", UNKNOWN2STRING(myReal->CurrSCM));
+    aomsAttributes->addAttribute("CurrWPM", UNKNOWN2STRING(myReal->CurrWPM));
+    aomsAttributes->addAttribute("STNStatus", x2String(myReal->STNStatus));
+    aomsAttributes->addAttribute("CurrHealth", UNKNOWN2STRING(myReal->CurrHealth));
+    aomsAttributes->addAttribute("Prev_STN_Final", UNKNOWN2STRING(myReal->Prev_STN_Final));
+    aomsAttributes->addAttribute("Curr_STN", UNKNOWN2STRING(myReal->Curr_STN));
 }
 
 void OMAnimatedSensingInterfaceSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {

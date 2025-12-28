@@ -2,6 +2,7 @@
 [Events]
 itsSeismicTsunamiNetwork->GEN(evStartDataSend())`SeismicTsunamiNetwork
 itsSensingInterfaceSubsystem->GEN(evStartDataCollector())`SMSWTD_Architecture::SensingInterfaceSubsystem
+itsSensingInterfaceSubsystem->GEN(evStartDataCollector())`SensingInterfaceSubsystem
 itsSeismicTsunamiNetwork->GEN(evStartDataSend())`SMSWTD_Architecture::SeismicTsunamiNetwork
 SensingInterfaceSubsystem[1]->GEN(evStartDataCollector())`SMSWTD_Architecture::SensingInterfaceSubsystem
 [Breakpoints]

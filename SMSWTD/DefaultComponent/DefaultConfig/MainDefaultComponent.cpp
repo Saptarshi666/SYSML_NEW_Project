@@ -20,8 +20,6 @@
 #include "SMSWTD_Architecture.h"
 //## auto_generated
 #include "UseCases.h"
-//## auto_generated
-#include "SensingInterfaceSubsystem.h"
 DefaultComponent::DefaultComponent(void) {
     SMSWTD_Architecture_initRelations();
     (void) SMSWTD_Architecture_startBehavior();
@@ -32,10 +30,7 @@ RhpInteger main( void) {
     try {
         if(OXF::initialize(0,NULL))
             {
-                SensingInterfaceSubsystem p_SensingInterfaceSubsystem;
-                p_SensingInterfaceSubsystem.setShouldDelete(false);
                 DefaultComponent initializer_DefaultComponent;
-                (void) p_SensingInterfaceSubsystem.startBehavior();
                 //#[ configuration DefaultComponent::DefaultConfig 
                 //#]
                 OXF::start();

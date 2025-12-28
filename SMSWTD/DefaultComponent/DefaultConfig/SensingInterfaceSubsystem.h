@@ -85,40 +85,52 @@ public :
     port_2_C* get_port_2(void) const;
     
     //## auto_generated
-    const FloatArray getValueproperty_1(void) const;
+    const FloatArray getCurrEQD(void) const;
     
     //## auto_generated
-    void setValueproperty_1(const FloatArray p_valueproperty_1);
+    void setCurrEQD(const FloatArray p_CurrEQD);
     
     //## auto_generated
-    const FloatArray getValueproperty_3(void) const;
+    const FloatArray getCurrEQM(void) const;
     
     //## auto_generated
-    void setValueproperty_3(const FloatArray p_valueproperty_3);
+    void setCurrEQM(const FloatArray p_CurrEQM);
     
     //## auto_generated
-    const FloatArray getValueproperty_4(void) const;
+    const FloatArray getCurrHealth(void) const;
     
     //## auto_generated
-    void setValueproperty_4(const FloatArray p_valueproperty_4);
+    void setCurrHealth(const FloatArray p_CurrHealth);
     
     //## auto_generated
-    const FloatArray getValueproperty_5(void) const;
+    const FloatArray getCurrSCM(void) const;
     
     //## auto_generated
-    void setValueproperty_5(const FloatArray p_valueproperty_5);
+    void setCurrSCM(const FloatArray p_CurrSCM);
     
     //## auto_generated
-    const int getValueproperty_6(void) const;
+    const FloatArray getCurrWPM(void) const;
     
     //## auto_generated
-    void setValueproperty_6(const int p_valueproperty_6);
+    void setCurrWPM(const FloatArray p_CurrWPM);
     
     //## auto_generated
-    const FloatArray getValueproperty_7(void) const;
+    const STNData getCurr_STN(void) const;
     
     //## auto_generated
-    void setValueproperty_7(const FloatArray p_valueproperty_7);
+    void setCurr_STN(const STNData p_Curr_STN);
+    
+    //## auto_generated
+    const STNData getPrev_STN_Final(void) const;
+    
+    //## auto_generated
+    void setPrev_STN_Final(const STNData p_Prev_STN_Final);
+    
+    //## auto_generated
+    const int getSTNStatus(void) const;
+    
+    //## auto_generated
+    void setSTNStatus(const int p_STNStatus);
     
     //## auto_generated
     const DataIngestionSubsystem* getItsDataIngestionSubsystem(void) const;
@@ -150,17 +162,21 @@ protected :
 
 private :
 
-    FloatArray valueproperty_1;		//## attribute valueproperty_1
+    FloatArray CurrEQD;		//## attribute CurrEQD
     
-    FloatArray valueproperty_3;		//## attribute valueproperty_3
+    FloatArray CurrEQM;		//## attribute CurrEQM
     
-    FloatArray valueproperty_4;		//## attribute valueproperty_4
+    FloatArray CurrHealth;		//## attribute CurrHealth
     
-    FloatArray valueproperty_5;		//## attribute valueproperty_5
+    FloatArray CurrSCM;		//## attribute CurrSCM
     
-    int valueproperty_6;		//## attribute valueproperty_6
+    FloatArray CurrWPM;		//## attribute CurrWPM
     
-    FloatArray valueproperty_7;		//## attribute valueproperty_7
+    STNData Curr_STN;		//## attribute Curr_STN
+    
+    STNData Prev_STN_Final;		//## attribute Prev_STN_Final
+    
+    int STNStatus;		//## attribute STNStatus
     
     ////    Relations and components    ////
     

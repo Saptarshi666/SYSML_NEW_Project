@@ -92,8 +92,8 @@ I-Logix-RPY-Archive version 8.15.0 * 202002261110
 	"DefaultComponent\\DefaultConfig\\SatelliteCluster.h" 12.28.2025::15:54:11
 	"DefaultComponent\\DefaultConfig\\SeismicTsunamiNetwork.cpp" 12.28.2025::16:2:13
 	"DefaultComponent\\DefaultConfig\\SeismicTsunamiNetwork.h" 12.28.2025::15:54:12
-	"DefaultComponent\\DefaultConfig\\SensingInterfaceSubsystem.cpp" 12.28.2025::16:19:34
-	"DefaultComponent\\DefaultConfig\\SensingInterfaceSubsystem.h" 12.28.2025::16:19:34
+	"DefaultComponent\\DefaultConfig\\SensingInterfaceSubsystem.cpp" 12.28.2025::17:32:55
+	"DefaultComponent\\DefaultConfig\\SensingInterfaceSubsystem.h" 12.28.2025::16:56:29
 	"DefaultComponent\\DefaultConfig\\SensorObservation.cpp" 12.28.2025::15:54:10
 	"DefaultComponent\\DefaultConfig\\SensorObservation.h" 12.28.2025::15:54:10
 	"DefaultComponent\\DefaultConfig\\SirenPASystem.cpp" 12.28.2025::15:54:9
@@ -135,7 +135,7 @@ I-Logix-RPY-Archive version 8.15.0 * 202002261110
 	- _name = "SMSWTD_Architecture";
 	- _id = GUID e23c64b9-081b-424b-b550-ee00e998897b;
 }
-- genTime = 12.28.2025::16:21:28;
+- genTime = 12.28.2025::17:32:55;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\SMSWTD_rpy\\SMSWTD_Architecture.sbsx";
@@ -359,7 +359,7 @@ I-Logix-RPY-Archive version 8.15.0 * 202002261110
 	- _name = "SensingInterfaceSubsystem";
 	- _id = GUID ecf56354-82a6-4705-8d79-2f69354be707;
 }
-- genTime = 12.28.2025::16:21:28;
+- genTime = 12.28.2025::17:32:55;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\SMSWTD_rpy\\Context.sbsx";
@@ -486,7 +486,7 @@ I-Logix-RPY-Archive version 8.15.0 * 202002261110
 	- _name = "DefaultComponent\\DefaultConfig";
 	- _id = GUID 782ed838-5672-40a4-8614-e24d67d5204b;
 }
-- genTime = 12.28.2025::16:21:28;
+- genTime = 12.28.2025::17:32:55;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\SMSWTD_rpy\\SMSWTD_Architecture.sbsx";
