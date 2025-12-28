@@ -12,10 +12,10 @@
 			<_id type="a">GUID e23c64b9-081b-424b-b550-ee00e998897b</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">SMSWTD_Architecture</_name>
-			<_modifiedTimeWeak type="a">12.28.2025::17:32:41</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.28.2025::17:27:24</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.28.2025::17:56:19</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.28.2025::17:56:19</_modifiedTime>
 			<_lastID type="a">20</_lastID>
-			<weakCGTime type="a">12.28.2025::17:32:41</weakCGTime>
+			<weakCGTime type="a">12.28.2025::17:56:19</weakCGTime>
 			<strongCGTime type="a">12.28.2025::15:51:36</strongCGTime>
 			<_defaultComposite type="s">GUID 098630c7-f493-48d7-bde3-353e7e7507bf</_defaultComposite>
 			<_eventsBaseID type="a">3401</_eventsBaseID>
@@ -4301,7 +4301,9 @@
 			<m_displayOption type="a">All</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">30</_itemValueOfFontPropertiesMapCount>
+			<_itemValueOfFontPropertiesMapCount type="a">32</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
@@ -5459,7 +5461,9 @@
 			<m_displayOption type="a">Public</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">30</_itemValueOfFontPropertiesMapCount>
+			<_itemValueOfFontPropertiesMapCount type="a">32</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
@@ -11311,7 +11315,7 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.28.2025::15:54:8</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.28.2025::17:58:47</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -11321,9 +11325,9 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 					<_hid type="a">GUID cc956a1c-f7d5-4400-9247-b3b01a382f58</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">12.28.2025::15:54:8</_modifiedTime>
-			<_lastID type="a">35</_lastID>
-			<weakCGTime type="a">12.28.2025::15:54:8</weakCGTime>
+			<_modifiedTime type="a">12.28.2025::17:57:14</_modifiedTime>
+			<_lastID type="a">37</_lastID>
+			<weakCGTime type="a">12.28.2025::17:58:47</weakCGTime>
 			<strongCGTime type="a">12.28.2025::15:48:40</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -11365,6 +11369,8 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 				<value>GUID e959e960-4842-4b23-a56e-b2053d80d116</value>
 				<value>GUID 060f86d2-a583-4863-bbe9-26896e0eb92d</value>
 				<value>GUID e2816280-e7a6-43b6-af2d-449c2a9e020b</value>
+				<value>GUID 9df998a1-e47b-4fb8-922e-3ff13c4fb824</value>
+				<value>GUID ae01a57e-a1bf-4231-a7f6-197599b4f8cb</value>
 				<value>GUID a13a937c-a9b2-453e-aca7-47793b825f8a</value>
 			</AggregatesList>
 		</IClass>
@@ -11780,8 +11786,8 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.27.2025::17:41:18</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.27.2025::17:41:18</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.28.2025::17:56:19</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.28.2025::17:56:19</_modifiedTime>
 			<_typeOf type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IType</_hm2Class>
@@ -12491,14 +12497,78 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 			<_modifiedTime type="a">12.28.2025::13:27:49</_modifiedTime>
 			<_value type="a">{30,2,60,80}</_value>
 		</ILiteralSpecification>
+		<IAttribute type="e">
+			<_id type="a">GUID 9df998a1-e47b-4fb8-922e-3ff13c4fb824</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">RecStormSize3</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">ValueProperty</_hname>
+							<_hid type="a">GUID 04164f8c-01a3-4eab-b4a4-c37aae7a46e9</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.28.2025::17:56:40</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.28.2025::17:56:40</_modifiedTime>
+			<_typeOf type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IType</_hm2Class>
+					<_hid type="a">GUID 2dd7a675-7bcf-4d16-980e-fa17e724556b</_hid>
+				</IHandle>
+			</_typeOf>
+			<_isOrdered type="a">0</_isOrdered>
+			<_protection type="a">iPublic</_protection>
+			<_static type="a">0</_static>
+			<_isReferenceAttr type="a">0</_isReferenceAttr>
+			<_isConstant type="a">0</_isConstant>
+		</IAttribute>
+		<IAttribute type="e">
+			<_id type="a">GUID ae01a57e-a1bf-4231-a7f6-197599b4f8cb</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">PrevMetO</_name>
+			<Stereotypes type="c">
+				<IRPYRawContainer type="e">
+					
+						<IHandle type="e">
+							<_hm2Class type="a">IStereotype</_hm2Class>
+							<_hfilename type="a">$OMROOT\Profiles\SysML\SysMLProfile_rpy\SysML.sbs</_hfilename>
+							<_hsubsystem type="a">SysML::Blocks</_hsubsystem>
+							<_hname type="a">ValueProperty</_hname>
+							<_hid type="a">GUID 04164f8c-01a3-4eab-b4a4-c37aae7a46e9</_hid>
+						</IHandle>
+					
+				</IRPYRawContainer>
+			</Stereotypes>
+			<_modifiedTimeWeak type="a">12.28.2025::17:57:14</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.28.2025::17:57:14</_modifiedTime>
+			<_typeOf type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IType</_hm2Class>
+					<_hsubsystem type="a">PredefinedTypesCpp</_hsubsystem>
+					<_hname type="a">int</_hname>
+					<_hid type="a">GUID 6024c6ab-fe9e-402e-954f-27aca6d3b5e4</_hid>
+				</IHandle>
+			</_typeOf>
+			<_isOrdered type="a">0</_isOrdered>
+			<_protection type="a">iPublic</_protection>
+			<_static type="a">0</_static>
+			<_isReferenceAttr type="a">0</_isReferenceAttr>
+			<_isConstant type="a">0</_isConstant>
+		</IAttribute>
 		<IStateChart type="e">
 			<_id type="a">GUID a13a937c-a9b2-453e-aca7-47793b825f8a</_id>
 			<_myState type="a">10240</_myState>
 			<_name type="a">statechart_4</_name>
-			<_modifiedTimeWeak type="a">12.28.2025::15:16:41</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.28.2025::15:16:41</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.28.2025::17:58:47</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.28.2025::17:58:47</_modifiedTime>
 			<_lastID type="a">4</_lastID>
-			<weakCGTime type="a">12.28.2025::15:16:41</weakCGTime>
+			<weakCGTime type="a">12.28.2025::17:58:47</weakCGTime>
 			<strongCGTime type="a">12.27.2025::12:45:56</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -12506,7 +12576,7 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
 			<_defNumber type="a">2</_defNumber>
-			<_version type="a">12.28.2025::16:16:41</_version>
+			<_version type="a">12.28.2025::18:58:47</_version>
 			<_baseVersion type="a">1.2.1990::0:0:0</_baseVersion>
 			<_diagram type="s">GUID 5b863b07-6dac-4c61-ba65-056c77e26d75</_diagram>
 			<AggregatesList type="e">
@@ -12616,7 +12686,7 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 		<IState type="e">
 			<_id type="a">GUID a9a87e40-7d47-4365-8aa3-e55cba8f4351</_id>
 			<_name type="a">Idle</_name>
-			<_modifiedTimeWeak type="a">12.28.2025::15:16:41</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.28.2025::17:58:47</_modifiedTimeWeak>
 			<_description type="p"><IDescription type="e">
 				<_text type="a">State Local Variables%0D
 =====================%0D
@@ -12655,7 +12725,7 @@ Satellite Data%0D
 </_text>
 			</IDescription>
 			</_description>
-			<_modifiedTime type="a">12.28.2025::15:16:41</_modifiedTime>
+			<_modifiedTime type="a">12.28.2025::17:58:47</_modifiedTime>
 			<_parent type="s">GUID 1d59dee1-9a3e-42c1-8ad3-1141dcf97192</_parent>
 			<_defaultTrans type="s"></_defaultTrans>
 			<_entryAction type="p"><IAction type="e">
@@ -12678,8 +12748,8 @@ SimData RecStormSize1,RecStormSize2;%0D
 			</_entryAction>
 			<_exitAction type="p"><IAction type="e">
 				<_id type="a">GUID 90922291-e437-4120-b96d-67725fb8518b</_id>
-				<_modifiedTimeWeak type="a">12.28.2025::15:16:41</_modifiedTimeWeak>
-				<_modifiedTime type="a">12.28.2025::15:16:41</_modifiedTime>
+				<_modifiedTimeWeak type="a">12.28.2025::17:58:47</_modifiedTimeWeak>
+				<_modifiedTime type="a">12.28.2025::17:58:47</_modifiedTime>
 				<_body type="a">//AirCarft Location and Sensor Diagnostics data%0D
 RecAMC1 = fillHistSineWave(4,2,95); // good certainty of measurement%0D
 RecAMC2 = fillHistSineWave(4,2,65); // questionable certainty of measurement%0D
@@ -12697,10 +12767,10 @@ RecAP1 = fillHistSineWave(90,2,960); // normal Air Pressure in Hbars%0D
 %0D
 //AirCarft Weather Data - Alert Case (Storm) %0D
 //(Change location based on emergency)%0D
-RecWS1 = fillHistSineWave(4,2,30); //  high wind speed%0D
-RecHumd1 = fillHistSineWave(4,1,88); // high humidity%0D
-RecTemp1 = fillHistSineWave(5,1,12.0); // low temperature from Airplane%0D
-RecAP1 = fillHistSineWave(90,2,1200); // high Air Pressure in Hbars (&lt;1100)%0D
+RecWS2 = fillHistSineWave(4,2,30); //  high wind speed%0D
+RecHumd2 = fillHistSineWave(4,1,88); // high humidity%0D
+RecTemp2 = fillHistSineWave(5,1,12.0); // low temperature from Airplane%0D
+RecAP2 = fillHistSineWave(90,2,1200); // high Air Pressure in Hbars (&lt;1100)%0D
 %0D
 //AirCarft Weather Data - Alert Case (Heat Wave)%0D
 //(Change location based on emergency)%0D
@@ -12722,7 +12792,7 @@ RecStormSize1 = fillHistSineWave(0,2,0); // no storm = zeros%0D
 //RecSatLoc2 = ; // closeby%0D
 RecSatTempGrad2 = fillHistSineWave(1,2,10); // sudden temp changes%0D
 RecStormSize2 = fillHistSineWave(0.16,2,5); // storm = Class 5 (Medium)%0D
-RecStormSize2 = fillHistSineWave(0.16,2,9); // storm = Class 9 (Dangerous)%0D
+RecStormSize3 = fillHistSineWave(0.16,2,9); // storm = Class 9 (Dangerous)%0D
 %0D
 //Satellite Data - Predict Case %0D
 // RecSatLoc3 = ; A bit far (Medium Emergency)%0D
@@ -12734,10 +12804,142 @@ RecStormSize2 = fillHistSineWave(0.16,2,9); // storm = Class 9 (Dangerous)%0D
 		<IState type="e">
 			<_id type="a">GUID 616d121c-a3a6-48d2-82cf-7e0bb82f23ff</_id>
 			<_name type="a">SendData</_name>
-			<_modifiedTimeWeak type="a">12.27.2025::12:47:47</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.27.2025::12:47:47</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.28.2025::17:58:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.28.2025::17:58:0</_modifiedTime>
 			<_parent type="s">GUID 1d59dee1-9a3e-42c1-8ad3-1141dcf97192</_parent>
 			<_defaultTrans type="s"></_defaultTrans>
+			<_entryAction type="p"><IAction type="e">
+				<_id type="a">GUID e5f3bd1d-5f38-40ed-9240-117b132afa09</_id>
+				<_myState type="a">4096</_myState>
+				<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+				<_modifiedTime type="a">1.1.1970::1:0:0</_modifiedTime>
+				<_body type="a">if(PrevMetO &gt;= 18) {%0D
+	printf(&quot;Resetting timeline to continue...\t\t&quot;);%0D
+	PrevMetO = 0;%0D
+	}%0D
+ %0D
+// Assign correct plane location (Cases - 1,2,3)%0D
+switch(CasePlaneLoc) {%0D
+    case 1:%0D
+        // update location 1%0D
+        CurrPlaneData.LocX = RecAirLoc1.x;%0D
+        CurrPlaneData.LocY = RecAirLoc1.y;%0D
+        break;%0D
+    case 2:%0D
+        // update location 2%0D
+        CurrPlaneData.LocX = RecAirLoc2.x;%0D
+        CurrPlaneData.LocY = RecAirLoc2.y;%0D
+        break;%0D
+    case 3:%0D
+        // update location 3%0D
+        CurrPlaneData.LocX = RecAirLoc3.x;%0D
+        CurrPlaneData.LocY = RecAirLoc3.y;%0D
+        break;%0D
+    default:%0D
+        // default action - location 1%0D
+        CurrPlaneData.LocX = RecAirLoc1.x;%0D
+        CurrPlaneData.LocY = RecAirLoc1.y;%0D
+        break;%0D
+}%0D
+// Assign correct plane MesC (Cases - 1,2,3)%0D
+switch(CasePlaneMC) {%0D
+    case 1:%0D
+        // assign Measurement Certainty type 1%0D
+        CurrPlaneData.MesC = RecAMC1.data[PrevMetO];%0D
+        break;%0D
+    case 2:%0D
+        // assign Measurement Certainty type 2%0D
+        CurrPlaneData.MesC = RecAMC2.data[PrevMetO];%0D
+        break;%0D
+    case 3:%0D
+        // assign Measurement Certainty type 3%0D
+        CurrPlaneData.MesC = RecAMC3.data[PrevMetO];%0D
+        break;%0D
+    default:%0D
+        // default action - Measurement Certainty type 1%0D
+        CurrPlaneData.MesC = RecAMC1.data[PrevMetO];%0D
+        break;%0D
+}%0D
+// Assign correct plane weather data (Cases - 1,2,3)%0D
+switch(CasePlaneData) {%0D
+    case 1: // AirCarft Weather Data - Normal Case%0D
+        // assign Data set 1%0D
+        CurrPlaneData.Temp = RecTemp1.data[PrevMetO]; // Temperature%0D
+        CurrPlaneData.Humd = RecHumd1.data[PrevMetO]; // Humidity%0D
+        CurrPlaneData.AirP = RecAP1.data[PrevMetO]; // air pressure%0D
+        CurrPlaneData.WinS = RecWS1.data[PrevMetO]; // Wind Speed%0D
+        break;%0D
+    case 2: // AirCarft Weather Data - Alert Case (Storm) %0D
+        // assign Data set 2%0D
+        CurrPlaneData.Temp = RecTemp2.data[PrevMetO]; // Temperature%0D
+        CurrPlaneData.Humd = RecHumd2.data[PrevMetO]; // Humidity%0D
+        CurrPlaneData.AirP = RecAP2.data[PrevMetO]; // air pressure%0D
+        CurrPlaneData.WinS = RecWS2.data[PrevMetO]; // Wind Speed%0D
+        break;%0D
+    case 3: //AirCarft Weather Data - Alert Case (Heat Wave)%0D
+        // assign Data set - MIXED%0D
+        CurrPlaneData.Temp = RecTemp3.data[PrevMetO]; // Temperature%0D
+        CurrPlaneData.Humd = RecHumd3.data[PrevMetO]; // Humidity%0D
+        CurrPlaneData.AirP = RecAP1.data[PrevMetO]; // air pressure%0D
+        CurrPlaneData.WinS = RecWS1.data[PrevMetO]; // Wind Speed%0D
+        break;%0D
+    default:%0D
+        // default action - assign Data set 1%0D
+        CurrPlaneData.Temp = RecTemp1.data[PrevMetO]; // Temperature%0D
+        CurrPlaneData.Humd = RecHumd1.data[PrevMetO]; // Humidity%0D
+        CurrPlaneData.AirP = RecAP1.data[PrevMetO]; // air pressure%0D
+        CurrPlaneData.WinS = RecWS1.data[PrevMetO]; // Wind Speed%0D
+        break;%0D
+}%0D
+// Assign correct Storm location from Satellite (Cases - 1,2,3)%0D
+switch(CaseSatStormLoc) {%0D
+    case 1:%0D
+        // update location 1 - closeby storm/phenomenon%0D
+        CurrSatData.StLocX = RecAirLoc1.x;%0D
+        CurrSatData.StLocY = RecAirLoc1.y;%0D
+        break;%0D
+    case 2:%0D
+        // update location 2 - distant storm/phenomenon%0D
+        CurrSatData.StLocX = RecAirLoc2.x;%0D
+        CurrSatData.StLocY = RecAirLoc2.y;%0D
+        break;%0D
+    case 3:%0D
+        // update location 3 - far away storm/phenomenon%0D
+        CurrSatData.StLocX = RecAirLoc3.x;%0D
+        CurrSatData.StLocY = RecAirLoc3.y;%0D
+        break;%0D
+    default:%0D
+        // default action - location 1%0D
+        CurrSatData.StLocX = RecAirLoc1.x;%0D
+        CurrSatData.StLocY = RecAirLoc1.y;%0D
+        break;%0D
+}%0D
+// Assign correct storm data from Satellite (Cases - 1,2,3)%0D
+switch(CaseSatStormData) {%0D
+    case 1: // Satellite Storm Data - Normal Case%0D
+        // assign Data set 1%0D
+        CurrSatData.TempG = RecSatTempGrad1.data[PrevMetO]; // Temperature Gradrient%0D
+        CurrSatData.StSize = RecStormSize1.data[PrevMetO]; // Storm Size - Zero%0D
+        break;%0D
+    case 2: // AirCarft Weather Data - Alert Case (Storm Class 3) %0D
+        // assign Data set 2%0D
+        CurrSatData.TempG = RecSatTempGrad2.data[PrevMetO]; // Temperature Gradrient%0D
+        CurrSatData.StSize = RecStormSize2.data[PrevMetO]; // Storm Size - Zero%0D
+        break;%0D
+    case 3: //AirCarft Weather Data - Alert Case (Storm Class 3)%0D
+        // assign Data set 3%0D
+        CurrSatData.TempG = RecSatTempGrad2.data[PrevMetO]; // Temperature Gradrient%0D
+        CurrSatData.StSize = RecStormSize3.data[PrevMetO]; // Storm Size - Zero%0D
+        break;%0D
+    default:%0D
+        // default action - assign Data set 1%0D
+        CurrSatData.TempG = RecSatTempGrad1.data[PrevMetO]; // Temperature Gradrient%0D
+        CurrSatData.StSize = RecStormSize1.data[PrevMetO]; // Storm Size - Zero%0D
+        break;%0D
+}%0D
+PrevMetO++;</_body>
+			</IAction>
+			</_entryAction>
 		</IState>
 		<IStateChartDiagram type="e">
 			<_id type="a">GUID 5b863b07-6dac-4c61-ba65-056c77e26d75</_id>
@@ -12922,9 +13124,9 @@ RecStormSize2 = fillHistSineWave(0.16,2,9); // storm = Class 9 (Dangerous)%0D
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">statechartdiagram_0</_name>
-			<_modifiedTimeWeak type="a">12.28.2025::15:16:41</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.28.2025::17:58:0</_modifiedTimeWeak>
 			<_modifiedTime type="a">12.27.2025::13:20:39</_modifiedTime>
-			<_lastModifiedTime type="a">12.28.2025::15:16:41</_lastModifiedTime>
+			<_lastModifiedTime type="a">12.28.2025::17:58:47</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>

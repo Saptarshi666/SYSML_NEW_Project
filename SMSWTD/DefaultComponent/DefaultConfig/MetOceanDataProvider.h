@@ -124,6 +124,12 @@ public :
     void setCurrSatData(const SatData p_CurrSatData);
     
     //## auto_generated
+    const int getPrevMetO(void) const;
+    
+    //## auto_generated
+    void setPrevMetO(const int p_PrevMetO);
+    
+    //## auto_generated
     const SimData getRecAMC1(void) const;
     
     //## auto_generated
@@ -232,6 +238,12 @@ public :
     void setRecStormSize2(const SimData p_RecStormSize2);
     
     //## auto_generated
+    const SimData getRecStormSize3(void) const;
+    
+    //## auto_generated
+    void setRecStormSize3(const SimData p_RecStormSize3);
+    
+    //## auto_generated
     const SimData getRecTemp1(void) const;
     
     //## auto_generated
@@ -297,6 +309,8 @@ private :
     
     SatData CurrSatData;		//## attribute CurrSatData
     
+    int PrevMetO;		//## attribute PrevMetO
+    
     SimData RecAMC1;		//## attribute RecAMC1
     
     SimData RecAMC2;		//## attribute RecAMC2
@@ -332,6 +346,8 @@ private :
     SimData RecStormSize1;		//## attribute RecStormSize1
     
     SimData RecStormSize2;		//## attribute RecStormSize2
+    
+    SimData RecStormSize3;		//## attribute RecStormSize3
     
     SimData RecTemp1;		//## attribute RecTemp1
     

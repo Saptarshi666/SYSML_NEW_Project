@@ -113,6 +113,14 @@ void MetOceanDataProvider::setCurrSatData(const SatData p_CurrSatData) {
     CurrSatData = p_CurrSatData;
 }
 
+const int MetOceanDataProvider::getPrevMetO(void) const {
+    return PrevMetO;
+}
+
+void MetOceanDataProvider::setPrevMetO(const int p_PrevMetO) {
+    PrevMetO = p_PrevMetO;
+}
+
 const SimData MetOceanDataProvider::getRecAMC1(void) const {
     return RecAMC1;
 }
@@ -255,6 +263,14 @@ const SimData MetOceanDataProvider::getRecStormSize2(void) const {
 
 void MetOceanDataProvider::setRecStormSize2(const SimData p_RecStormSize2) {
     RecStormSize2 = p_RecStormSize2;
+}
+
+const SimData MetOceanDataProvider::getRecStormSize3(void) const {
+    return RecStormSize3;
+}
+
+void MetOceanDataProvider::setRecStormSize3(const SimData p_RecStormSize3) {
+    RecStormSize3 = p_RecStormSize3;
 }
 
 const SimData MetOceanDataProvider::getRecTemp1(void) const {
@@ -415,10 +431,10 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
                     
                     //AirCarft Weather Data - Alert Case (Storm) 
                     //(Change location based on emergency)
-                    RecWS1 = fillHistSineWave(4,2,30); //  high wind speed
-                    RecHumd1 = fillHistSineWave(4,1,88); // high humidity
-                    RecTemp1 = fillHistSineWave(5,1,12.0); // low temperature from Airplane
-                    RecAP1 = fillHistSineWave(90,2,1200); // high Air Pressure in Hbars (<1100)
+                    RecWS2 = fillHistSineWave(4,2,30); //  high wind speed
+                    RecHumd2 = fillHistSineWave(4,1,88); // high humidity
+                    RecTemp2 = fillHistSineWave(5,1,12.0); // low temperature from Airplane
+                    RecAP2 = fillHistSineWave(90,2,1200); // high Air Pressure in Hbars (<1100)
                     
                     //AirCarft Weather Data - Alert Case (Heat Wave)
                     //(Change location based on emergency)
@@ -440,7 +456,7 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
                     //RecSatLoc2 = ; // closeby
                     RecSatTempGrad2 = fillHistSineWave(1,2,10); // sudden temp changes
                     RecStormSize2 = fillHistSineWave(0.16,2,5); // storm = Class 5 (Medium)
-                    RecStormSize2 = fillHistSineWave(0.16,2,9); // storm = Class 9 (Dangerous)
+                    RecStormSize3 = fillHistSineWave(0.16,2,9); // storm = Class 9 (Dangerous)
                     
                     //Satellite Data - Predict Case 
                     // RecSatLoc3 = ; A bit far (Medium Emergency)
@@ -451,6 +467,133 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
                     NOTIFY_STATE_ENTERED("ROOT.SendData");
                     rootState_subState = SendData;
                     rootState_active = SendData;
+                    //#[ state SendData.(Entry) 
+                    if(PrevMetO >= 18) {
+                    	printf("Resetting timeline to continue...\t\t");
+                    	PrevMetO = 0;
+                    	}
+                     
+                    // Assign correct plane location (Cases - 1,2,3)
+                    switch(CasePlaneLoc) {
+                        case 1:
+                            // update location 1
+                            CurrPlaneData.LocX = RecAirLoc1.x;
+                            CurrPlaneData.LocY = RecAirLoc1.y;
+                            break;
+                        case 2:
+                            // update location 2
+                            CurrPlaneData.LocX = RecAirLoc2.x;
+                            CurrPlaneData.LocY = RecAirLoc2.y;
+                            break;
+                        case 3:
+                            // update location 3
+                            CurrPlaneData.LocX = RecAirLoc3.x;
+                            CurrPlaneData.LocY = RecAirLoc3.y;
+                            break;
+                        default:
+                            // default action - location 1
+                            CurrPlaneData.LocX = RecAirLoc1.x;
+                            CurrPlaneData.LocY = RecAirLoc1.y;
+                            break;
+                    }
+                    // Assign correct plane MesC (Cases - 1,2,3)
+                    switch(CasePlaneMC) {
+                        case 1:
+                            // assign Measurement Certainty type 1
+                            CurrPlaneData.MesC = RecAMC1.data[PrevMetO];
+                            break;
+                        case 2:
+                            // assign Measurement Certainty type 2
+                            CurrPlaneData.MesC = RecAMC2.data[PrevMetO];
+                            break;
+                        case 3:
+                            // assign Measurement Certainty type 3
+                            CurrPlaneData.MesC = RecAMC3.data[PrevMetO];
+                            break;
+                        default:
+                            // default action - Measurement Certainty type 1
+                            CurrPlaneData.MesC = RecAMC1.data[PrevMetO];
+                            break;
+                    }
+                    // Assign correct plane weather data (Cases - 1,2,3)
+                    switch(CasePlaneData) {
+                        case 1: // AirCarft Weather Data - Normal Case
+                            // assign Data set 1
+                            CurrPlaneData.Temp = RecTemp1.data[PrevMetO]; // Temperature
+                            CurrPlaneData.Humd = RecHumd1.data[PrevMetO]; // Humidity
+                            CurrPlaneData.AirP = RecAP1.data[PrevMetO]; // air pressure
+                            CurrPlaneData.WinS = RecWS1.data[PrevMetO]; // Wind Speed
+                            break;
+                        case 2: // AirCarft Weather Data - Alert Case (Storm) 
+                            // assign Data set 2
+                            CurrPlaneData.Temp = RecTemp2.data[PrevMetO]; // Temperature
+                            CurrPlaneData.Humd = RecHumd2.data[PrevMetO]; // Humidity
+                            CurrPlaneData.AirP = RecAP2.data[PrevMetO]; // air pressure
+                            CurrPlaneData.WinS = RecWS2.data[PrevMetO]; // Wind Speed
+                            break;
+                        case 3: //AirCarft Weather Data - Alert Case (Heat Wave)
+                            // assign Data set - MIXED
+                            CurrPlaneData.Temp = RecTemp3.data[PrevMetO]; // Temperature
+                            CurrPlaneData.Humd = RecHumd3.data[PrevMetO]; // Humidity
+                            CurrPlaneData.AirP = RecAP1.data[PrevMetO]; // air pressure
+                            CurrPlaneData.WinS = RecWS1.data[PrevMetO]; // Wind Speed
+                            break;
+                        default:
+                            // default action - assign Data set 1
+                            CurrPlaneData.Temp = RecTemp1.data[PrevMetO]; // Temperature
+                            CurrPlaneData.Humd = RecHumd1.data[PrevMetO]; // Humidity
+                            CurrPlaneData.AirP = RecAP1.data[PrevMetO]; // air pressure
+                            CurrPlaneData.WinS = RecWS1.data[PrevMetO]; // Wind Speed
+                            break;
+                    }
+                    // Assign correct Storm location from Satellite (Cases - 1,2,3)
+                    switch(CaseSatStormLoc) {
+                        case 1:
+                            // update location 1 - closeby storm/phenomenon
+                            CurrSatData.StLocX = RecAirLoc1.x;
+                            CurrSatData.StLocY = RecAirLoc1.y;
+                            break;
+                        case 2:
+                            // update location 2 - distant storm/phenomenon
+                            CurrSatData.StLocX = RecAirLoc2.x;
+                            CurrSatData.StLocY = RecAirLoc2.y;
+                            break;
+                        case 3:
+                            // update location 3 - far away storm/phenomenon
+                            CurrSatData.StLocX = RecAirLoc3.x;
+                            CurrSatData.StLocY = RecAirLoc3.y;
+                            break;
+                        default:
+                            // default action - location 1
+                            CurrSatData.StLocX = RecAirLoc1.x;
+                            CurrSatData.StLocY = RecAirLoc1.y;
+                            break;
+                    }
+                    // Assign correct storm data from Satellite (Cases - 1,2,3)
+                    switch(CaseSatStormData) {
+                        case 1: // Satellite Storm Data - Normal Case
+                            // assign Data set 1
+                            CurrSatData.TempG = RecSatTempGrad1.data[PrevMetO]; // Temperature Gradrient
+                            CurrSatData.StSize = RecStormSize1.data[PrevMetO]; // Storm Size - Zero
+                            break;
+                        case 2: // AirCarft Weather Data - Alert Case (Storm Class 3) 
+                            // assign Data set 2
+                            CurrSatData.TempG = RecSatTempGrad2.data[PrevMetO]; // Temperature Gradrient
+                            CurrSatData.StSize = RecStormSize2.data[PrevMetO]; // Storm Size - Zero
+                            break;
+                        case 3: //AirCarft Weather Data - Alert Case (Storm Class 3)
+                            // assign Data set 3
+                            CurrSatData.TempG = RecSatTempGrad2.data[PrevMetO]; // Temperature Gradrient
+                            CurrSatData.StSize = RecStormSize3.data[PrevMetO]; // Storm Size - Zero
+                            break;
+                        default:
+                            // default action - assign Data set 1
+                            CurrSatData.TempG = RecSatTempGrad1.data[PrevMetO]; // Temperature Gradrient
+                            CurrSatData.StSize = RecStormSize1.data[PrevMetO]; // Storm Size - Zero
+                            break;
+                    }
+                    PrevMetO++;
+                    //#]
                     rootState_timeout = scheduleTimeout(3000, "ROOT.SendData");
                     NOTIFY_TRANSITION_TERMINATED("2");
                     res = eventConsumed;
@@ -471,6 +614,133 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
                             NOTIFY_STATE_ENTERED("ROOT.SendData");
                             rootState_subState = SendData;
                             rootState_active = SendData;
+                            //#[ state SendData.(Entry) 
+                            if(PrevMetO >= 18) {
+                            	printf("Resetting timeline to continue...\t\t");
+                            	PrevMetO = 0;
+                            	}
+                             
+                            // Assign correct plane location (Cases - 1,2,3)
+                            switch(CasePlaneLoc) {
+                                case 1:
+                                    // update location 1
+                                    CurrPlaneData.LocX = RecAirLoc1.x;
+                                    CurrPlaneData.LocY = RecAirLoc1.y;
+                                    break;
+                                case 2:
+                                    // update location 2
+                                    CurrPlaneData.LocX = RecAirLoc2.x;
+                                    CurrPlaneData.LocY = RecAirLoc2.y;
+                                    break;
+                                case 3:
+                                    // update location 3
+                                    CurrPlaneData.LocX = RecAirLoc3.x;
+                                    CurrPlaneData.LocY = RecAirLoc3.y;
+                                    break;
+                                default:
+                                    // default action - location 1
+                                    CurrPlaneData.LocX = RecAirLoc1.x;
+                                    CurrPlaneData.LocY = RecAirLoc1.y;
+                                    break;
+                            }
+                            // Assign correct plane MesC (Cases - 1,2,3)
+                            switch(CasePlaneMC) {
+                                case 1:
+                                    // assign Measurement Certainty type 1
+                                    CurrPlaneData.MesC = RecAMC1.data[PrevMetO];
+                                    break;
+                                case 2:
+                                    // assign Measurement Certainty type 2
+                                    CurrPlaneData.MesC = RecAMC2.data[PrevMetO];
+                                    break;
+                                case 3:
+                                    // assign Measurement Certainty type 3
+                                    CurrPlaneData.MesC = RecAMC3.data[PrevMetO];
+                                    break;
+                                default:
+                                    // default action - Measurement Certainty type 1
+                                    CurrPlaneData.MesC = RecAMC1.data[PrevMetO];
+                                    break;
+                            }
+                            // Assign correct plane weather data (Cases - 1,2,3)
+                            switch(CasePlaneData) {
+                                case 1: // AirCarft Weather Data - Normal Case
+                                    // assign Data set 1
+                                    CurrPlaneData.Temp = RecTemp1.data[PrevMetO]; // Temperature
+                                    CurrPlaneData.Humd = RecHumd1.data[PrevMetO]; // Humidity
+                                    CurrPlaneData.AirP = RecAP1.data[PrevMetO]; // air pressure
+                                    CurrPlaneData.WinS = RecWS1.data[PrevMetO]; // Wind Speed
+                                    break;
+                                case 2: // AirCarft Weather Data - Alert Case (Storm) 
+                                    // assign Data set 2
+                                    CurrPlaneData.Temp = RecTemp2.data[PrevMetO]; // Temperature
+                                    CurrPlaneData.Humd = RecHumd2.data[PrevMetO]; // Humidity
+                                    CurrPlaneData.AirP = RecAP2.data[PrevMetO]; // air pressure
+                                    CurrPlaneData.WinS = RecWS2.data[PrevMetO]; // Wind Speed
+                                    break;
+                                case 3: //AirCarft Weather Data - Alert Case (Heat Wave)
+                                    // assign Data set - MIXED
+                                    CurrPlaneData.Temp = RecTemp3.data[PrevMetO]; // Temperature
+                                    CurrPlaneData.Humd = RecHumd3.data[PrevMetO]; // Humidity
+                                    CurrPlaneData.AirP = RecAP1.data[PrevMetO]; // air pressure
+                                    CurrPlaneData.WinS = RecWS1.data[PrevMetO]; // Wind Speed
+                                    break;
+                                default:
+                                    // default action - assign Data set 1
+                                    CurrPlaneData.Temp = RecTemp1.data[PrevMetO]; // Temperature
+                                    CurrPlaneData.Humd = RecHumd1.data[PrevMetO]; // Humidity
+                                    CurrPlaneData.AirP = RecAP1.data[PrevMetO]; // air pressure
+                                    CurrPlaneData.WinS = RecWS1.data[PrevMetO]; // Wind Speed
+                                    break;
+                            }
+                            // Assign correct Storm location from Satellite (Cases - 1,2,3)
+                            switch(CaseSatStormLoc) {
+                                case 1:
+                                    // update location 1 - closeby storm/phenomenon
+                                    CurrSatData.StLocX = RecAirLoc1.x;
+                                    CurrSatData.StLocY = RecAirLoc1.y;
+                                    break;
+                                case 2:
+                                    // update location 2 - distant storm/phenomenon
+                                    CurrSatData.StLocX = RecAirLoc2.x;
+                                    CurrSatData.StLocY = RecAirLoc2.y;
+                                    break;
+                                case 3:
+                                    // update location 3 - far away storm/phenomenon
+                                    CurrSatData.StLocX = RecAirLoc3.x;
+                                    CurrSatData.StLocY = RecAirLoc3.y;
+                                    break;
+                                default:
+                                    // default action - location 1
+                                    CurrSatData.StLocX = RecAirLoc1.x;
+                                    CurrSatData.StLocY = RecAirLoc1.y;
+                                    break;
+                            }
+                            // Assign correct storm data from Satellite (Cases - 1,2,3)
+                            switch(CaseSatStormData) {
+                                case 1: // Satellite Storm Data - Normal Case
+                                    // assign Data set 1
+                                    CurrSatData.TempG = RecSatTempGrad1.data[PrevMetO]; // Temperature Gradrient
+                                    CurrSatData.StSize = RecStormSize1.data[PrevMetO]; // Storm Size - Zero
+                                    break;
+                                case 2: // AirCarft Weather Data - Alert Case (Storm Class 3) 
+                                    // assign Data set 2
+                                    CurrSatData.TempG = RecSatTempGrad2.data[PrevMetO]; // Temperature Gradrient
+                                    CurrSatData.StSize = RecStormSize2.data[PrevMetO]; // Storm Size - Zero
+                                    break;
+                                case 3: //AirCarft Weather Data - Alert Case (Storm Class 3)
+                                    // assign Data set 3
+                                    CurrSatData.TempG = RecSatTempGrad2.data[PrevMetO]; // Temperature Gradrient
+                                    CurrSatData.StSize = RecStormSize3.data[PrevMetO]; // Storm Size - Zero
+                                    break;
+                                default:
+                                    // default action - assign Data set 1
+                                    CurrSatData.TempG = RecSatTempGrad1.data[PrevMetO]; // Temperature Gradrient
+                                    CurrSatData.StSize = RecStormSize1.data[PrevMetO]; // Storm Size - Zero
+                                    break;
+                            }
+                            PrevMetO++;
+                            //#]
                             rootState_timeout = scheduleTimeout(3000, "ROOT.SendData");
                             NOTIFY_TRANSITION_TERMINATED("1");
                             res = eventConsumed;
@@ -518,6 +788,8 @@ void OMAnimatedMetOceanDataProvider::serializeAttributes(AOMSAttributes* aomsAtt
     aomsAttributes->addAttribute("CasePlaneMC", x2String(myReal->CasePlaneMC));
     aomsAttributes->addAttribute("CurrPlaneData", UNKNOWN2STRING(myReal->CurrPlaneData));
     aomsAttributes->addAttribute("CurrSatData", UNKNOWN2STRING(myReal->CurrSatData));
+    aomsAttributes->addAttribute("RecStormSize3", UNKNOWN2STRING(myReal->RecStormSize3));
+    aomsAttributes->addAttribute("PrevMetO", x2String(myReal->PrevMetO));
 }
 
 void OMAnimatedMetOceanDataProvider::rootState_serializeStates(AOMSState* aomsState) const {
