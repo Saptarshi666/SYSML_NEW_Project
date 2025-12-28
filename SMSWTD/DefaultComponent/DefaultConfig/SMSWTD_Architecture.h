@@ -1,6 +1,6 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
@@ -90,7 +90,7 @@ struct AirData {
     double Humd;		//## attribute Humd
     double AirP;		//## attribute AirP
     double WinS;		//## attribute WinS
-    double MesU;		//## attribute MesU
+    double MesC;		//## attribute MesC
     double LocX;		//## attribute LocX
     double LocY;		//## attribute LocY
 };
@@ -101,6 +101,16 @@ struct SatData {
     double StSize;		//## attribute StSize
     double StLocX;		//## attribute StLocX
     double StLocY;		//## attribute StLocY
+};
+
+// Stores final data selected from currData of STN with Data Confidence (DataC) in boolean.
+//## type STNData
+struct STNData {
+    double EQM;		//## attribute EQM
+    double EQD;		//## attribute EQD
+    double SCM;		//## attribute SCM
+    double WPM;		//## attribute WPM
+    bool DataC;		//## attribute DataC
 };
 
 //## classInstance itsMetOceanDataProvider
@@ -259,6 +269,91 @@ class OMAnimatedevStartDataMet : virtual public AOMEvent {
 
 //#[ ignore
 extern const IOxfEvent::ID evStartDataMet_SMSWTD_Architecture_id;
+//#]
+
+//## event evSeismicUpdate(FloatArray,FloatArray,FloatArray,FloatArray,int,FloatArray)
+class evSeismicUpdate : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedevSeismicUpdate;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    evSeismicUpdate(void);
+    
+    //## auto_generated
+    evSeismicUpdate(const FloatArray p_CurrEQD, const FloatArray p_CurrEQM, const FloatArray p_CurrSCM, const FloatArray p_CurrWPM, const int p_STNStatus, const FloatArray p_CurrHealth);
+    
+    ////    Additional operations    ////
+    
+    //## auto_generated
+    FloatArray getCurrEQD(void) const;
+    
+    //## auto_generated
+    void setCurrEQD(const FloatArray p_CurrEQD);
+    
+    //## auto_generated
+    FloatArray getCurrEQM(void) const;
+    
+    //## auto_generated
+    void setCurrEQM(const FloatArray p_CurrEQM);
+    
+    //## auto_generated
+    FloatArray getCurrSCM(void) const;
+    
+    //## auto_generated
+    void setCurrSCM(const FloatArray p_CurrSCM);
+    
+    //## auto_generated
+    FloatArray getCurrWPM(void) const;
+    
+    //## auto_generated
+    void setCurrWPM(const FloatArray p_CurrWPM);
+    
+    //## auto_generated
+    int getSTNStatus(void) const;
+    
+    //## auto_generated
+    void setSTNStatus(const int p_STNStatus);
+    
+    //## auto_generated
+    FloatArray getCurrHealth(void) const;
+    
+    //## auto_generated
+    void setCurrHealth(const FloatArray p_CurrHealth);
+    
+    ////    Framework    ////
+
+private :
+
+    FloatArray CurrEQD;		//## auto_generated
+    
+    FloatArray CurrEQM;		//## auto_generated
+    
+    FloatArray CurrSCM;		//## auto_generated
+    
+    FloatArray CurrWPM;		//## auto_generated
+    
+    int STNStatus;		//## auto_generated
+    
+    FloatArray CurrHealth;		//## auto_generated
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedevSeismicUpdate : virtual public AOMEvent {
+    DECLARE_META_EVENT(evSeismicUpdate)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//#[ ignore
+extern const IOxfEvent::ID evSeismicUpdate_SMSWTD_Architecture_id;
 //#]
 
 #endif

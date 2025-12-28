@@ -1,10 +1,10 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SensingInterfaceSubsystem
-//!	Generated Date	: Thu, 25, Dec 2025  
+//!	Generated Date	: Sun, 28, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SensingInterfaceSubsystem.cpp
 *********************************************************************/
 
@@ -25,9 +25,24 @@
 //## package SMSWTD_Architecture
 
 //## class SensingInterfaceSubsystem
+//#[ ignore
+SensingInterfaceSubsystem::port_2_C::port_2_C(void) : OMDefaultMulticastReactivePort(), _p_(0) {
+}
+
+SensingInterfaceSubsystem::port_2_C::~port_2_C(void) {
+}
+
+void SensingInterfaceSubsystem::port_2_C::connectSensingInterfaceSubsystem(SensingInterfaceSubsystem* part) {
+    InBound.addItsDefaultProvidedInterface(part);
+    InBound.setPort(this); // for IS_PORT macro support
+    
+}
+//#]
+
 SensingInterfaceSubsystem::SensingInterfaceSubsystem(IOxfActive* const theActiveContext) : OMReactive(), itsDataIngestionSubsystem(NULL) {
     NOTIFY_REACTIVE_CONSTRUCTOR(SensingInterfaceSubsystem, SensingInterfaceSubsystem(), 0, SMSWTD_Architecture_SensingInterfaceSubsystem_SensingInterfaceSubsystem_SERIALIZE);
     setActiveContext(theActiveContext, false);
+    initRelations();
     initStatechart();
 }
 
@@ -37,12 +52,60 @@ SensingInterfaceSubsystem::~SensingInterfaceSubsystem(void) {
     cancelTimeouts();
 }
 
-const int SensingInterfaceSubsystem::getValueproperty_1(void) const {
+SensingInterfaceSubsystem::port_2_C* SensingInterfaceSubsystem::getPort_2(void) const {
+    return (SensingInterfaceSubsystem::port_2_C*) &port_2;
+}
+
+SensingInterfaceSubsystem::port_2_C* SensingInterfaceSubsystem::get_port_2(void) const {
+    return (SensingInterfaceSubsystem::port_2_C*) &port_2;
+}
+
+const FloatArray SensingInterfaceSubsystem::getValueproperty_1(void) const {
     return valueproperty_1;
 }
 
-void SensingInterfaceSubsystem::setValueproperty_1(const int p_valueproperty_1) {
+void SensingInterfaceSubsystem::setValueproperty_1(const FloatArray p_valueproperty_1) {
     valueproperty_1 = p_valueproperty_1;
+}
+
+const FloatArray SensingInterfaceSubsystem::getValueproperty_3(void) const {
+    return valueproperty_3;
+}
+
+void SensingInterfaceSubsystem::setValueproperty_3(const FloatArray p_valueproperty_3) {
+    valueproperty_3 = p_valueproperty_3;
+}
+
+const FloatArray SensingInterfaceSubsystem::getValueproperty_4(void) const {
+    return valueproperty_4;
+}
+
+void SensingInterfaceSubsystem::setValueproperty_4(const FloatArray p_valueproperty_4) {
+    valueproperty_4 = p_valueproperty_4;
+}
+
+const FloatArray SensingInterfaceSubsystem::getValueproperty_5(void) const {
+    return valueproperty_5;
+}
+
+void SensingInterfaceSubsystem::setValueproperty_5(const FloatArray p_valueproperty_5) {
+    valueproperty_5 = p_valueproperty_5;
+}
+
+const int SensingInterfaceSubsystem::getValueproperty_6(void) const {
+    return valueproperty_6;
+}
+
+void SensingInterfaceSubsystem::setValueproperty_6(const int p_valueproperty_6) {
+    valueproperty_6 = p_valueproperty_6;
+}
+
+const FloatArray SensingInterfaceSubsystem::getValueproperty_7(void) const {
+    return valueproperty_7;
+}
+
+void SensingInterfaceSubsystem::setValueproperty_7(const FloatArray p_valueproperty_7) {
+    valueproperty_7 = p_valueproperty_7;
 }
 
 const DataIngestionSubsystem* SensingInterfaceSubsystem::getItsDataIngestionSubsystem(void) const {
@@ -71,6 +134,12 @@ bool SensingInterfaceSubsystem::startBehavior(void) {
     bool done = false;
     done = OMReactive::startBehavior();
     return done;
+}
+
+void SensingInterfaceSubsystem::initRelations(void) {
+    if (get_port_2() != NULL) {
+        get_port_2()->connectSensingInterfaceSubsystem(this);
+    }
 }
 
 void SensingInterfaceSubsystem::initStatechart(void) {
@@ -129,7 +198,7 @@ void SensingInterfaceSubsystem::CheckDataStatus_entDef(void) {
     NOTIFY_STATE_ENTERED("ROOT.CheckDataStatus");
     rootState_subState = CheckDataStatus;
     rootState_active = CheckDataStatus;
-    rootState_timeout = scheduleTimeout(5000, "ROOT.CheckDataStatus");
+    rootState_timeout = scheduleTimeout(3000, "ROOT.CheckDataStatus");
     state_4_entDef();
     state_5_entDef();
 }
@@ -185,8 +254,7 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::CheckDataStatus_handleE
                     rootState_subState = CollectData;
                     rootState_active = CollectData;
                     //#[ state CollectData.(Entry) 
-                    GEN(evCheckData());
-                    GEN(evStartDataSend(), itsSeismicTsunamiNetwork);
+                    
                     
                     //#]
                     NOTIFY_TRANSITION_TERMINATED("5");
@@ -290,8 +358,7 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::rootState_processEvent(
                     rootState_subState = CollectData;
                     rootState_active = CollectData;
                     //#[ state CollectData.(Entry) 
-                    GEN(evCheckData());
-                    GEN(evStartDataSend(), itsSeismicTsunamiNetwork);
+                    
                     
                     //#]
                     NOTIFY_TRANSITION_TERMINATED("1");
@@ -311,6 +378,37 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::rootState_processEvent(
                     NOTIFY_TRANSITION_TERMINATED("2");
                     res = eventConsumed;
                 }
+            else {
+                if(IS_EVENT_TYPE_OF(evSeismicUpdate_SMSWTD_Architecture_id) == 1)
+                    {
+                        OMSETPARAMS(evSeismicUpdate);
+                        NOTIFY_TRANSITION_STARTED("6");
+                        //#[ transition 6 
+                        valueproperty_1 = params->getCurrEQD();
+                        valueproperty_3 = params->getCurrEQM();
+                        valueproperty_4 = params->getCurrSCM();
+                        valueproperty_5 = params->getCurrWPM();
+                        valueproperty_6 = params->getSTNStatus();
+                        valueproperty_7 = params->getCurrHealth();
+                        printArray(valueproperty_1);
+                        std::cout<<std::endl;
+                        printArray(valueproperty_3);
+                        std::cout<<std::endl;
+                        printArray(valueproperty_4);
+                        std::cout<<std::endl;
+                        printArray(valueproperty_5);
+                        std::cout<<std::endl;
+                        std::cout<<valueproperty_6<<std::endl;
+                        printArray(valueproperty_7);
+                        std::cout<<std::endl;
+                        std::cout<<"this all happened in sensinginterfacesubsystem"<<std::endl;
+                        GEN(evCheckData());
+                        //#]
+                        NOTIFY_TRANSITION_TERMINATED("6");
+                        res = eventConsumed;
+                    }
+                }
+                
             
         }
         break;
@@ -329,7 +427,12 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::rootState_processEvent(
 #ifdef _OMINSTRUMENT
 //#[ ignore
 void OMAnimatedSensingInterfaceSubsystem::serializeAttributes(AOMSAttributes* aomsAttributes) const {
-    aomsAttributes->addAttribute("valueproperty_1", x2String(myReal->valueproperty_1));
+    aomsAttributes->addAttribute("valueproperty_1", UNKNOWN2STRING(myReal->valueproperty_1));
+    aomsAttributes->addAttribute("valueproperty_3", UNKNOWN2STRING(myReal->valueproperty_3));
+    aomsAttributes->addAttribute("valueproperty_4", UNKNOWN2STRING(myReal->valueproperty_4));
+    aomsAttributes->addAttribute("valueproperty_5", UNKNOWN2STRING(myReal->valueproperty_5));
+    aomsAttributes->addAttribute("valueproperty_6", x2String(myReal->valueproperty_6));
+    aomsAttributes->addAttribute("valueproperty_7", UNKNOWN2STRING(myReal->valueproperty_7));
 }
 
 void OMAnimatedSensingInterfaceSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {

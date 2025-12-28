@@ -1,6 +1,6 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SeismicTsunamiNetwork
@@ -349,6 +349,9 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                     		break;
                     	}
                     printf("Success: Data will be set for STN Data Case = %d .\n", CaseSeismic);
+                    OUT_PORT(out)->GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,CurrHealth));
+                    
+                    
                     //#]
                     rootState_timeout = scheduleTimeout(3000, "ROOT.SendData");
                     NOTIFY_TRANSITION_TERMINATED("1");
@@ -434,6 +437,9 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                             		break;
                             	}
                             printf("Success: Data will be set for STN Data Case = %d .\n", CaseSeismic);
+                            OUT_PORT(out)->GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,CurrHealth));
+                            
+                            
                             //#]
                             rootState_timeout = scheduleTimeout(3000, "ROOT.SendData");
                             NOTIFY_TRANSITION_TERMINATED("2");

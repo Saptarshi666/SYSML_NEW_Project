@@ -1,6 +1,6 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MetOceanDataProvider
@@ -94,10 +94,10 @@ public :
     void setCasePlaneLoc(const int p_CasePlaneLoc);
     
     //## auto_generated
-    const int getCasePlaneMU(void) const;
+    const int getCasePlaneMC(void) const;
     
     //## auto_generated
-    void setCasePlaneMU(const int p_CasePlaneMU);
+    void setCasePlaneMC(const int p_CasePlaneMC);
     
     //## auto_generated
     const int getCaseSatStormData(void) const;
@@ -124,22 +124,22 @@ public :
     void setCurrSatData(const SatData p_CurrSatData);
     
     //## auto_generated
-    const SimData getRecAMU1(void) const;
+    const SimData getRecAMC1(void) const;
     
     //## auto_generated
-    void setRecAMU1(const SimData p_RecAMU1);
+    void setRecAMC1(const SimData p_RecAMC1);
     
     //## auto_generated
-    const SimData getRecAMU2(void) const;
+    const SimData getRecAMC2(void) const;
     
     //## auto_generated
-    void setRecAMU2(const SimData p_RecAMU2);
+    void setRecAMC2(const SimData p_RecAMC2);
     
     //## auto_generated
-    const SimData getRecAMU3(void) const;
+    const SimData getRecAMC3(void) const;
     
     //## auto_generated
-    void setRecAMU3(const SimData p_RecAMU3);
+    void setRecAMC3(const SimData p_RecAMC3);
     
     //## auto_generated
     const SimData getRecAP1(void) const;
@@ -287,7 +287,7 @@ private :
     // Dictates Planes Location and Measurement Uncertainty.
     int CasePlaneLoc;		//## attribute CasePlaneLoc
     
-    int CasePlaneMU;		//## attribute CasePlaneMU
+    int CasePlaneMC;		//## attribute CasePlaneMC
     
     int CaseSatStormData;		//## attribute CaseSatStormData
     
@@ -297,11 +297,11 @@ private :
     
     SatData CurrSatData;		//## attribute CurrSatData
     
-    SimData RecAMU1;		//## attribute RecAMU1
+    SimData RecAMC1;		//## attribute RecAMC1
     
-    SimData RecAMU2;		//## attribute RecAMU2
+    SimData RecAMC2;		//## attribute RecAMC2
     
-    SimData RecAMU3;		//## attribute RecAMU3
+    SimData RecAMC3;		//## attribute RecAMC3
     
     SimData RecAP1;		//## attribute RecAP1
     

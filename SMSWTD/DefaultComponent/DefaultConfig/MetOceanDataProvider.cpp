@@ -1,6 +1,6 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MetOceanDataProvider
@@ -37,7 +37,7 @@ void MetOceanDataProvider::out_C::connectMetOceanDataProvider(MetOceanDataProvid
 }
 //#]
 
-MetOceanDataProvider::MetOceanDataProvider(IOxfActive* const theActiveContext) : OMReactive(), CasePlaneData(1), CasePlaneLoc(1), CasePlaneMU(1), CaseSatStormData(1), CaseSatStormLoc(1), CurrPlaneData({35,15,1033,20,85,40,65}), CurrSatData({30,2,60,80}), RecAirLoc1({0,0}), RecAirLoc2({0,0}), RecAirLoc3({0,0}), RecSatLoc1({0,0}), RecSatLoc2({0,0}), RecSatLoc3({0,0}) {
+MetOceanDataProvider::MetOceanDataProvider(IOxfActive* const theActiveContext) : OMReactive(), CasePlaneData(1), CasePlaneLoc(1), CasePlaneMC(1), CaseSatStormData(1), CaseSatStormLoc(1), CurrPlaneData({35,15,1033,20,85,40,65}), CurrSatData({30,2,60,80}), RecAirLoc1({0,0}), RecAirLoc2({0,0}), RecAirLoc3({0,0}), RecSatLoc1({0,0}), RecSatLoc2({0,0}), RecSatLoc3({0,0}) {
     NOTIFY_REACTIVE_CONSTRUCTOR(MetOceanDataProvider, MetOceanDataProvider(), 0, SMSWTD_Architecture_MetOceanDataProvider_MetOceanDataProvider_SERIALIZE);
     setActiveContext(theActiveContext, false);
     initRelations();
@@ -73,12 +73,12 @@ void MetOceanDataProvider::setCasePlaneLoc(const int p_CasePlaneLoc) {
     CasePlaneLoc = p_CasePlaneLoc;
 }
 
-const int MetOceanDataProvider::getCasePlaneMU(void) const {
-    return CasePlaneMU;
+const int MetOceanDataProvider::getCasePlaneMC(void) const {
+    return CasePlaneMC;
 }
 
-void MetOceanDataProvider::setCasePlaneMU(const int p_CasePlaneMU) {
-    CasePlaneMU = p_CasePlaneMU;
+void MetOceanDataProvider::setCasePlaneMC(const int p_CasePlaneMC) {
+    CasePlaneMC = p_CasePlaneMC;
 }
 
 const int MetOceanDataProvider::getCaseSatStormData(void) const {
@@ -113,28 +113,28 @@ void MetOceanDataProvider::setCurrSatData(const SatData p_CurrSatData) {
     CurrSatData = p_CurrSatData;
 }
 
-const SimData MetOceanDataProvider::getRecAMU1(void) const {
-    return RecAMU1;
+const SimData MetOceanDataProvider::getRecAMC1(void) const {
+    return RecAMC1;
 }
 
-void MetOceanDataProvider::setRecAMU1(const SimData p_RecAMU1) {
-    RecAMU1 = p_RecAMU1;
+void MetOceanDataProvider::setRecAMC1(const SimData p_RecAMC1) {
+    RecAMC1 = p_RecAMC1;
 }
 
-const SimData MetOceanDataProvider::getRecAMU2(void) const {
-    return RecAMU2;
+const SimData MetOceanDataProvider::getRecAMC2(void) const {
+    return RecAMC2;
 }
 
-void MetOceanDataProvider::setRecAMU2(const SimData p_RecAMU2) {
-    RecAMU2 = p_RecAMU2;
+void MetOceanDataProvider::setRecAMC2(const SimData p_RecAMC2) {
+    RecAMC2 = p_RecAMC2;
 }
 
-const SimData MetOceanDataProvider::getRecAMU3(void) const {
-    return RecAMU3;
+const SimData MetOceanDataProvider::getRecAMC3(void) const {
+    return RecAMC3;
 }
 
-void MetOceanDataProvider::setRecAMU3(const SimData p_RecAMU3) {
-    RecAMU3 = p_RecAMU3;
+void MetOceanDataProvider::setRecAMC3(const SimData p_RecAMC3) {
+    RecAMC3 = p_RecAMC3;
 }
 
 const SimData MetOceanDataProvider::getRecAP1(void) const {
@@ -399,9 +399,9 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
                     NOTIFY_TRANSITION_STARTED("2");
                     //#[ state Idle.(Exit) 
                     //AirCarft Location and Sensor Diagnostics data
-                    RecAMU1 = fillHistSineWave(4,2,95); // good certainty of measurement
-                    RecAMU2 = fillHistSineWave(4,2,65); // questionable certainty of measurement
-                    RecAMU3 = fillHistSineWave(4,2,35); // uncertain measurement
+                    RecAMC1 = fillHistSineWave(4,2,95); // good certainty of measurement
+                    RecAMC2 = fillHistSineWave(4,2,65); // questionable certainty of measurement
+                    RecAMC3 = fillHistSineWave(4,2,35); // uncertain measurement
                     RecAirLoc1 = {37.7749, -122.4194};
                     RecAirLoc2 = {37.7749, -122.4194};
                     RecAirLoc3 = {37.7749, -122.4194};
@@ -498,9 +498,9 @@ void OMAnimatedMetOceanDataProvider::serializeAttributes(AOMSAttributes* aomsAtt
     aomsAttributes->addAttribute("RecSatTempGrad2", UNKNOWN2STRING(myReal->RecSatTempGrad2));
     aomsAttributes->addAttribute("RecStormSize1", UNKNOWN2STRING(myReal->RecStormSize1));
     aomsAttributes->addAttribute("RecStormSize2", UNKNOWN2STRING(myReal->RecStormSize2));
-    aomsAttributes->addAttribute("RecAMU1", UNKNOWN2STRING(myReal->RecAMU1));
-    aomsAttributes->addAttribute("RecAMU2", UNKNOWN2STRING(myReal->RecAMU2));
-    aomsAttributes->addAttribute("RecAMU3", UNKNOWN2STRING(myReal->RecAMU3));
+    aomsAttributes->addAttribute("RecAMC1", UNKNOWN2STRING(myReal->RecAMC1));
+    aomsAttributes->addAttribute("RecAMC2", UNKNOWN2STRING(myReal->RecAMC2));
+    aomsAttributes->addAttribute("RecAMC3", UNKNOWN2STRING(myReal->RecAMC3));
     aomsAttributes->addAttribute("RecAP1", UNKNOWN2STRING(myReal->RecAP1));
     aomsAttributes->addAttribute("RecAP2", UNKNOWN2STRING(myReal->RecAP2));
     aomsAttributes->addAttribute("RecWS1", UNKNOWN2STRING(myReal->RecWS1));
@@ -515,7 +515,7 @@ void OMAnimatedMetOceanDataProvider::serializeAttributes(AOMSAttributes* aomsAtt
     aomsAttributes->addAttribute("CaseSatStormData", x2String(myReal->CaseSatStormData));
     aomsAttributes->addAttribute("CasePlaneLoc", x2String(myReal->CasePlaneLoc));
     aomsAttributes->addAttribute("CaseSatStormLoc", x2String(myReal->CaseSatStormLoc));
-    aomsAttributes->addAttribute("CasePlaneMU", x2String(myReal->CasePlaneMU));
+    aomsAttributes->addAttribute("CasePlaneMC", x2String(myReal->CasePlaneMC));
     aomsAttributes->addAttribute("CurrPlaneData", UNKNOWN2STRING(myReal->CurrPlaneData));
     aomsAttributes->addAttribute("CurrSatData", UNKNOWN2STRING(myReal->CurrSatData));
 }

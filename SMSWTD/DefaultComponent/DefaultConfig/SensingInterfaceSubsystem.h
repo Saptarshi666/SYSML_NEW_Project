@@ -1,10 +1,10 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SensingInterfaceSubsystem
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Sun, 28, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SensingInterfaceSubsystem.h
 *********************************************************************/
 
@@ -25,6 +25,8 @@
 #include <state.h>
 //## auto_generated
 #include <event.h>
+//## auto_generated
+#include <OMDefaultMulticastReactivePort.h>
 //## link itsDataIngestionSubsystem
 class DataIngestionSubsystem;
 
@@ -32,10 +34,36 @@ class DataIngestionSubsystem;
 
 //## class SensingInterfaceSubsystem
 class SensingInterfaceSubsystem : public OMReactive {
-    ////    Friends    ////
-    
 public :
 
+//#[ ignore
+    //## package SMSWTD_Architecture
+    class port_2_C : public OMDefaultMulticastReactivePort {
+        ////    Constructors and destructors    ////
+        
+    public :
+    
+        //## auto_generated
+        port_2_C(void);
+        
+        //## auto_generated
+        virtual ~port_2_C(void);
+        
+        ////    Operations    ////
+        
+        //## auto_generated
+        void connectSensingInterfaceSubsystem(SensingInterfaceSubsystem* part);
+        
+        ////    Attributes    ////
+    
+    private :
+    
+        RhpInteger _p_;		//## attribute _p_
+    };
+//#]
+
+    ////    Friends    ////
+    
 #ifdef _OMINSTRUMENT
     friend class OMAnimatedSensingInterfaceSubsystem;
 #endif // _OMINSTRUMENT
@@ -51,10 +79,46 @@ public :
     ////    Additional operations    ////
     
     //## auto_generated
-    const int getValueproperty_1(void) const;
+    port_2_C* getPort_2(void) const;
     
     //## auto_generated
-    void setValueproperty_1(const int p_valueproperty_1);
+    port_2_C* get_port_2(void) const;
+    
+    //## auto_generated
+    const FloatArray getValueproperty_1(void) const;
+    
+    //## auto_generated
+    void setValueproperty_1(const FloatArray p_valueproperty_1);
+    
+    //## auto_generated
+    const FloatArray getValueproperty_3(void) const;
+    
+    //## auto_generated
+    void setValueproperty_3(const FloatArray p_valueproperty_3);
+    
+    //## auto_generated
+    const FloatArray getValueproperty_4(void) const;
+    
+    //## auto_generated
+    void setValueproperty_4(const FloatArray p_valueproperty_4);
+    
+    //## auto_generated
+    const FloatArray getValueproperty_5(void) const;
+    
+    //## auto_generated
+    void setValueproperty_5(const FloatArray p_valueproperty_5);
+    
+    //## auto_generated
+    const int getValueproperty_6(void) const;
+    
+    //## auto_generated
+    void setValueproperty_6(const int p_valueproperty_6);
+    
+    //## auto_generated
+    const FloatArray getValueproperty_7(void) const;
+    
+    //## auto_generated
+    void setValueproperty_7(const FloatArray p_valueproperty_7);
     
     //## auto_generated
     const DataIngestionSubsystem* getItsDataIngestionSubsystem(void) const;
@@ -71,6 +135,9 @@ public :
 protected :
 
     //## auto_generated
+    void initRelations(void);
+    
+    //## auto_generated
     void initStatechart(void);
     
     //## auto_generated
@@ -83,10 +150,24 @@ protected :
 
 private :
 
-    int valueproperty_1;		//## attribute valueproperty_1
+    FloatArray valueproperty_1;		//## attribute valueproperty_1
+    
+    FloatArray valueproperty_3;		//## attribute valueproperty_3
+    
+    FloatArray valueproperty_4;		//## attribute valueproperty_4
+    
+    FloatArray valueproperty_5;		//## attribute valueproperty_5
+    
+    int valueproperty_6;		//## attribute valueproperty_6
+    
+    FloatArray valueproperty_7;		//## attribute valueproperty_7
     
     ////    Relations and components    ////
     
+//#[ ignore
+    port_2_C port_2;
+//#]
+
     DataIngestionSubsystem* itsDataIngestionSubsystem;		//## link itsDataIngestionSubsystem
     
     ////    Framework operations    ////

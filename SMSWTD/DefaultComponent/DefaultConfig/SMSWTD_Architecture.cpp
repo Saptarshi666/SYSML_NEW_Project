@@ -1,10 +1,10 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
-//!	Generated Date	: Sat, 27, Dec 2025  
+//!	Generated Date	: Sun, 28, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.cpp
 *********************************************************************/
 
@@ -46,6 +46,20 @@
     aomsmethod->addAttribute("maxAmplitude", x2String(maxAmplitude));\
     aomsmethod->addAttribute("frequency", x2String(frequency));\
     aomsmethod->addAttribute("offset_Ydir", x2String(offset_Ydir));
+#define evSeismicUpdate_SERIALIZE \
+    OMADD_SER(CurrEQD, UNKNOWN2STRING(myEvent->CurrEQD))\
+    OMADD_SER(CurrEQM, UNKNOWN2STRING(myEvent->CurrEQM))\
+    OMADD_SER(CurrSCM, UNKNOWN2STRING(myEvent->CurrSCM))\
+    OMADD_SER(CurrWPM, UNKNOWN2STRING(myEvent->CurrWPM))\
+    OMADD_SER(STNStatus, x2String(myEvent->STNStatus))\
+    OMADD_SER(CurrHealth, UNKNOWN2STRING(myEvent->CurrHealth))
+#define evSeismicUpdate_UNSERIALIZE \
+    OMADD_UNSER(FloatArray, CurrEQD, OMDestructiveString2X)\
+    OMADD_UNSER(FloatArray, CurrEQM, OMDestructiveString2X)\
+    OMADD_UNSER(FloatArray, CurrSCM, OMDestructiveString2X)\
+    OMADD_UNSER(FloatArray, CurrWPM, OMDestructiveString2X)\
+    OMADD_UNSER(int, STNStatus, OMDestructiveString2X)\
+    OMADD_UNSER(FloatArray, CurrHealth, OMDestructiveString2X)
 #define SMSWTD_Architecture_fillHistRamp_SERIALIZE aomsmethod->addAttribute("maxAmplitude", x2String(maxAmplitude));
 
 #define SMSWTD_Architecture_printArray_SERIALIZE aomsmethod->addAttribute("curr_data", UNKNOWN2STRING(curr_data));
@@ -75,6 +89,8 @@
 #define evStartDataMet_UNSERIALIZE OM_NO_OP
 
 #define evStartDataMet_CONSTRUCTOR evStartDataMet()
+
+#define evSeismicUpdate_CONSTRUCTOR evSeismicUpdate(CurrEQD, CurrEQM, CurrSCM, CurrWPM, STNStatus, CurrHealth)
 //#]
 
 //## package SMSWTD_Architecture
@@ -204,6 +220,24 @@ void SMSWTD_Architecture_initRelations(void) {
             itsMetOceanDataProvider.setShouldDelete(false);
         }
     }
+    {
+        
+        itsSeismicTsunamiNetwork.get_out()->setItsDefaultRequiredInterface(itsSensingInterfaceSubsystem.get_port_2()->getItsDefaultProvidedInterface());
+        
+    }{
+        
+        itsSensingInterfaceSubsystem.get_port_2()->addItsDefaultRequiredInterface(itsSeismicTsunamiNetwork.get_out()->getItsDefaultProvidedInterface());
+        
+    }
+    {
+        
+        itsMetOceanDataProvider.get_out()->setItsDefaultRequiredInterface(itsSensingInterfaceSubsystem.get_port_2()->getItsDefaultProvidedInterface());
+        
+    }{
+        
+        itsSensingInterfaceSubsystem.get_port_2()->addItsDefaultRequiredInterface(itsMetOceanDataProvider.get_out()->getItsDefaultProvidedInterface());
+        
+    }
     
     #ifdef _OMINSTRUMENT
     RenameGlobalInstances();
@@ -295,6 +329,71 @@ const IOxfEvent::ID evStartDataMet_SMSWTD_Architecture_id(3404);
 //#]
 
 IMPLEMENT_META_EVENT_P(evStartDataMet, SMSWTD_Architecture, SMSWTD_Architecture, evStartDataMet())
+
+//## event evSeismicUpdate(FloatArray,FloatArray,FloatArray,FloatArray,int,FloatArray)
+evSeismicUpdate::evSeismicUpdate(void) {
+    NOTIFY_EVENT_CONSTRUCTOR(evSeismicUpdate)
+    setId(evSeismicUpdate_SMSWTD_Architecture_id);
+}
+
+evSeismicUpdate::evSeismicUpdate(const FloatArray p_CurrEQD, const FloatArray p_CurrEQM, const FloatArray p_CurrSCM, const FloatArray p_CurrWPM, const int p_STNStatus, const FloatArray p_CurrHealth) : OMEvent() ,CurrEQD(p_CurrEQD),CurrEQM(p_CurrEQM),CurrSCM(p_CurrSCM),CurrWPM(p_CurrWPM),STNStatus(p_STNStatus),CurrHealth(p_CurrHealth) {
+    NOTIFY_EVENT_CONSTRUCTOR(evSeismicUpdate)
+    setId(evSeismicUpdate_SMSWTD_Architecture_id);
+}
+
+FloatArray evSeismicUpdate::getCurrEQD(void) const {
+    return CurrEQD;
+}
+
+void evSeismicUpdate::setCurrEQD(const FloatArray p_CurrEQD) {
+    CurrEQD = p_CurrEQD;
+}
+
+FloatArray evSeismicUpdate::getCurrEQM(void) const {
+    return CurrEQM;
+}
+
+void evSeismicUpdate::setCurrEQM(const FloatArray p_CurrEQM) {
+    CurrEQM = p_CurrEQM;
+}
+
+FloatArray evSeismicUpdate::getCurrSCM(void) const {
+    return CurrSCM;
+}
+
+void evSeismicUpdate::setCurrSCM(const FloatArray p_CurrSCM) {
+    CurrSCM = p_CurrSCM;
+}
+
+FloatArray evSeismicUpdate::getCurrWPM(void) const {
+    return CurrWPM;
+}
+
+void evSeismicUpdate::setCurrWPM(const FloatArray p_CurrWPM) {
+    CurrWPM = p_CurrWPM;
+}
+
+int evSeismicUpdate::getSTNStatus(void) const {
+    return STNStatus;
+}
+
+void evSeismicUpdate::setSTNStatus(const int p_STNStatus) {
+    STNStatus = p_STNStatus;
+}
+
+FloatArray evSeismicUpdate::getCurrHealth(void) const {
+    return CurrHealth;
+}
+
+void evSeismicUpdate::setCurrHealth(const FloatArray p_CurrHealth) {
+    CurrHealth = p_CurrHealth;
+}
+
+//#[ ignore
+const IOxfEvent::ID evSeismicUpdate_SMSWTD_Architecture_id(3405);
+//#]
+
+IMPLEMENT_META_EVENT_NO_UNSERIALIZE_P(evSeismicUpdate, SMSWTD_Architecture, SMSWTD_Architecture, evSeismicUpdate(FloatArray,FloatArray,FloatArray,FloatArray,int,FloatArray))
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.cpp

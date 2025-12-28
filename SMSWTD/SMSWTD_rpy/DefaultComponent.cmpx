@@ -12,8 +12,8 @@
 			<_id type="a">GUID 2b948c50-6e5c-4901-996d-4803539639d1</_id>
 			<_myState type="a">139264</_myState>
 			<_name type="a">DefaultComponent</_name>
-			<_modifiedTimeWeak type="a">12.19.2025::16:5:35</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.19.2025::16:5:35</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.28.2025::16:24:47</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.28.2025::16:24:47</_modifiedTime>
 			<m_buildType type="a">Executable</m_buildType>
 			<m_configActive type="r">
 				<ICodeGenConfigInfoHandle type="e">
@@ -125,7 +125,7 @@
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
 			</SelectedVariants>
-			<weakCGTime type="a">12.19.2025::16:5:35</weakCGTime>
+			<weakCGTime type="a">12.28.2025::16:24:47</weakCGTime>
 			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
 			<AggregatesList type="e">
 				<value>GUID bab9ecd1-500d-4a91-af1e-3f839df26910</value>
@@ -151,8 +151,8 @@
 			<_id type="a">GUID 782ed838-5672-40a4-8614-e24d67d5204b</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">DefaultConfig</_name>
-			<_modifiedTimeWeak type="a">12.19.2025::16:5:49</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.19.2025::16:5:49</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.28.2025::16:24:47</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.28.2025::16:24:47</_modifiedTime>
 			<_scopeType type="a">Explicit</_scopeType>
 			<_instrumentation type="a">Animation</_instrumentation>
 			<_timeModel type="a">RealTime</_timeModel>
@@ -166,18 +166,9 @@
 			</ScopeElements>
 			<InitialInstances type="c">
 				<IRPYRawContainer type="e">
-					
-						<IHandle type="e">
-							<_hm2Class type="a">IClass</_hm2Class>
-							<_hfilename type="a">.\SMSWTD_Architecture.sbsx</_hfilename>
-							<_hsubsystem type="a">SMSWTD_Architecture</_hsubsystem>
-							<_hname type="a">SensingInterfaceSubsystem</_hname>
-							<_hid type="a">GUID ecf56354-82a6-4705-8d79-2f69354be707</_hid>
-						</IHandle>
-					
 				</IRPYRawContainer>
 			</InitialInstances>
-			<weakCGTime type="a">12.19.2025::16:5:49</weakCGTime>
+			<weakCGTime type="a">12.28.2025::16:24:47</weakCGTime>
 			<strongCGTime type="a">12.19.2025::16:5:49</strongCGTime>
 			<AnimScopeElements type="c">
 				<IRPYRawContainer type="e">
