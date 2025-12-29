@@ -14,8 +14,6 @@
 
 //## auto_generated
 #include "DataManagementSubsystem.h"
-//## link itsDataIngestionSubsystem
-#include "DataIngestionSubsystem.h"
 //## link itsUserInterfaceSubsystem
 #include "UserInterfaceSubsystem.h"
 //#[ ignore
@@ -25,25 +23,13 @@
 //## package SMSWTD_Architecture
 
 //## class DataManagementSubsystem
-DataManagementSubsystem::DataManagementSubsystem(void) : itsDataIngestionSubsystem(NULL), itsUserInterfaceSubsystem(NULL) {
+DataManagementSubsystem::DataManagementSubsystem(void) : itsUserInterfaceSubsystem(NULL) {
     NOTIFY_CONSTRUCTOR(DataManagementSubsystem, DataManagementSubsystem(), 0, SMSWTD_Architecture_DataManagementSubsystem_DataManagementSubsystem_SERIALIZE);
 }
 
 DataManagementSubsystem::~DataManagementSubsystem(void) {
     NOTIFY_DESTRUCTOR(~DataManagementSubsystem, true);
     cleanUpRelations();
-}
-
-const DataIngestionSubsystem* DataManagementSubsystem::getItsDataIngestionSubsystem(void) const {
-    return itsDataIngestionSubsystem;
-}
-
-void DataManagementSubsystem::setItsDataIngestionSubsystem(DataIngestionSubsystem* const p_DataIngestionSubsystem) {
-    if(p_DataIngestionSubsystem != NULL)
-        {
-            p_DataIngestionSubsystem->_setItsDataManagementSubsystem(this);
-        }
-    _setItsDataIngestionSubsystem(p_DataIngestionSubsystem);
 }
 
 const UserInterfaceSubsystem* DataManagementSubsystem::getItsUserInterfaceSubsystem(void) const {
@@ -59,16 +45,6 @@ void DataManagementSubsystem::setItsUserInterfaceSubsystem(UserInterfaceSubsyste
 }
 
 void DataManagementSubsystem::cleanUpRelations(void) {
-    if(itsDataIngestionSubsystem != NULL)
-        {
-            NOTIFY_RELATION_CLEARED("itsDataIngestionSubsystem");
-            const DataManagementSubsystem* p_DataManagementSubsystem = itsDataIngestionSubsystem->getItsDataManagementSubsystem();
-            if(p_DataManagementSubsystem != NULL)
-                {
-                    itsDataIngestionSubsystem->__setItsDataManagementSubsystem(NULL);
-                }
-            itsDataIngestionSubsystem = NULL;
-        }
     if(itsUserInterfaceSubsystem != NULL)
         {
             NOTIFY_RELATION_CLEARED("itsUserInterfaceSubsystem");
@@ -79,31 +55,6 @@ void DataManagementSubsystem::cleanUpRelations(void) {
                 }
             itsUserInterfaceSubsystem = NULL;
         }
-}
-
-void DataManagementSubsystem::__setItsDataIngestionSubsystem(DataIngestionSubsystem* const p_DataIngestionSubsystem) {
-    itsDataIngestionSubsystem = p_DataIngestionSubsystem;
-    if(p_DataIngestionSubsystem != NULL)
-        {
-            NOTIFY_RELATION_ITEM_ADDED("itsDataIngestionSubsystem", p_DataIngestionSubsystem, false, true);
-        }
-    else
-        {
-            NOTIFY_RELATION_CLEARED("itsDataIngestionSubsystem");
-        }
-}
-
-void DataManagementSubsystem::_setItsDataIngestionSubsystem(DataIngestionSubsystem* const p_DataIngestionSubsystem) {
-    if(itsDataIngestionSubsystem != NULL)
-        {
-            itsDataIngestionSubsystem->__setItsDataManagementSubsystem(NULL);
-        }
-    __setItsDataIngestionSubsystem(p_DataIngestionSubsystem);
-}
-
-void DataManagementSubsystem::_clearItsDataIngestionSubsystem(void) {
-    NOTIFY_RELATION_CLEARED("itsDataIngestionSubsystem");
-    itsDataIngestionSubsystem = NULL;
 }
 
 void DataManagementSubsystem::__setItsUserInterfaceSubsystem(UserInterfaceSubsystem* const p_UserInterfaceSubsystem) {
@@ -134,11 +85,6 @@ void DataManagementSubsystem::_clearItsUserInterfaceSubsystem(void) {
 #ifdef _OMINSTRUMENT
 //#[ ignore
 void OMAnimatedDataManagementSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {
-    aomsRelations->addRelation("itsDataIngestionSubsystem", false, true);
-    if(myReal->itsDataIngestionSubsystem)
-        {
-            aomsRelations->ADD_ITEM(myReal->itsDataIngestionSubsystem);
-        }
     aomsRelations->addRelation("itsUserInterfaceSubsystem", false, true);
     if(myReal->itsUserInterfaceSubsystem)
         {

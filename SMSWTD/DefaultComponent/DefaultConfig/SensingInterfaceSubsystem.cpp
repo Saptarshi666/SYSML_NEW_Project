@@ -16,8 +16,8 @@
 
 //## auto_generated
 #include "SensingInterfaceSubsystem.h"
-//## link itsDataIngestionSubsystem
-#include "DataIngestionSubsystem.h"
+//## link itsRiskAssessmentSubsystem
+#include "RiskAssessmentSubsystem.h"
 //#[ ignore
 #define SMSWTD_Architecture_SensingInterfaceSubsystem_SensingInterfaceSubsystem_SERIALIZE OM_NO_OP
 //#]
@@ -51,7 +51,7 @@ void SensingInterfaceSubsystem::out_C::connectSensingInterfaceSubsystem(SensingI
 }
 //#]
 
-SensingInterfaceSubsystem::SensingInterfaceSubsystem(IOxfActive* const theActiveContext) : OMReactive(), PrevPlaneData({-1,-1,-1,-1,-1,-1,-1,false}), PrevSatData({-1,-1,-1,-1,false}), Prev_STN_Final({-1,-1,-1,-1,false}), itsDataIngestionSubsystem(NULL) {
+SensingInterfaceSubsystem::SensingInterfaceSubsystem(IOxfActive* const theActiveContext) : OMReactive(), PrevPlaneData({-1,-1,-1,-1,-1,-1,-1,false}), PrevSatData({-1,-1,-1,-1,false}), Prev_STN_Final({-1,-1,-1,-1,false}), itsRiskAssessmentSubsystem(NULL) {
     NOTIFY_REACTIVE_CONSTRUCTOR(SensingInterfaceSubsystem, SensingInterfaceSubsystem(), 0, SMSWTD_Architecture_SensingInterfaceSubsystem_SensingInterfaceSubsystem_SERIALIZE);
     setActiveContext(theActiveContext, false);
     initRelations();
@@ -208,16 +208,16 @@ void SensingInterfaceSubsystem::setObtainedSeismic(const bool p_obtainedSeismic)
     obtainedSeismic = p_obtainedSeismic;
 }
 
-const DataIngestionSubsystem* SensingInterfaceSubsystem::getItsDataIngestionSubsystem(void) const {
-    return itsDataIngestionSubsystem;
+const RiskAssessmentSubsystem* SensingInterfaceSubsystem::getItsRiskAssessmentSubsystem(void) const {
+    return itsRiskAssessmentSubsystem;
 }
 
-void SensingInterfaceSubsystem::setItsDataIngestionSubsystem(DataIngestionSubsystem* const p_DataIngestionSubsystem) {
-    if(p_DataIngestionSubsystem != NULL)
+void SensingInterfaceSubsystem::setItsRiskAssessmentSubsystem(RiskAssessmentSubsystem* const p_RiskAssessmentSubsystem) {
+    if(p_RiskAssessmentSubsystem != NULL)
         {
-            p_DataIngestionSubsystem->_setItsSensingInterfaceSubsystem(this);
+            p_RiskAssessmentSubsystem->_setItsSensingInterfaceSubsystem(this);
         }
-    _setItsDataIngestionSubsystem(p_DataIngestionSubsystem);
+    _setItsRiskAssessmentSubsystem(p_RiskAssessmentSubsystem);
 }
 
 bool SensingInterfaceSubsystem::cancelTimeout(const IOxfTimeout* arg) {
@@ -256,15 +256,15 @@ void SensingInterfaceSubsystem::initStatechart(void) {
 }
 
 void SensingInterfaceSubsystem::cleanUpRelations(void) {
-    if(itsDataIngestionSubsystem != NULL)
+    if(itsRiskAssessmentSubsystem != NULL)
         {
-            NOTIFY_RELATION_CLEARED("itsDataIngestionSubsystem");
-            const SensingInterfaceSubsystem* p_SensingInterfaceSubsystem = itsDataIngestionSubsystem->getItsSensingInterfaceSubsystem();
+            NOTIFY_RELATION_CLEARED("itsRiskAssessmentSubsystem");
+            const SensingInterfaceSubsystem* p_SensingInterfaceSubsystem = itsRiskAssessmentSubsystem->getItsSensingInterfaceSubsystem();
             if(p_SensingInterfaceSubsystem != NULL)
                 {
-                    itsDataIngestionSubsystem->__setItsSensingInterfaceSubsystem(NULL);
+                    itsRiskAssessmentSubsystem->__setItsSensingInterfaceSubsystem(NULL);
                 }
-            itsDataIngestionSubsystem = NULL;
+            itsRiskAssessmentSubsystem = NULL;
         }
 }
 
@@ -272,29 +272,29 @@ void SensingInterfaceSubsystem::cancelTimeouts(void) {
     cancel(rootState_timeout);
 }
 
-void SensingInterfaceSubsystem::__setItsDataIngestionSubsystem(DataIngestionSubsystem* const p_DataIngestionSubsystem) {
-    itsDataIngestionSubsystem = p_DataIngestionSubsystem;
-    if(p_DataIngestionSubsystem != NULL)
+void SensingInterfaceSubsystem::__setItsRiskAssessmentSubsystem(RiskAssessmentSubsystem* const p_RiskAssessmentSubsystem) {
+    itsRiskAssessmentSubsystem = p_RiskAssessmentSubsystem;
+    if(p_RiskAssessmentSubsystem != NULL)
         {
-            NOTIFY_RELATION_ITEM_ADDED("itsDataIngestionSubsystem", p_DataIngestionSubsystem, false, true);
+            NOTIFY_RELATION_ITEM_ADDED("itsRiskAssessmentSubsystem", p_RiskAssessmentSubsystem, false, true);
         }
     else
         {
-            NOTIFY_RELATION_CLEARED("itsDataIngestionSubsystem");
+            NOTIFY_RELATION_CLEARED("itsRiskAssessmentSubsystem");
         }
 }
 
-void SensingInterfaceSubsystem::_setItsDataIngestionSubsystem(DataIngestionSubsystem* const p_DataIngestionSubsystem) {
-    if(itsDataIngestionSubsystem != NULL)
+void SensingInterfaceSubsystem::_setItsRiskAssessmentSubsystem(RiskAssessmentSubsystem* const p_RiskAssessmentSubsystem) {
+    if(itsRiskAssessmentSubsystem != NULL)
         {
-            itsDataIngestionSubsystem->__setItsSensingInterfaceSubsystem(NULL);
+            itsRiskAssessmentSubsystem->__setItsSensingInterfaceSubsystem(NULL);
         }
-    __setItsDataIngestionSubsystem(p_DataIngestionSubsystem);
+    __setItsRiskAssessmentSubsystem(p_RiskAssessmentSubsystem);
 }
 
-void SensingInterfaceSubsystem::_clearItsDataIngestionSubsystem(void) {
-    NOTIFY_RELATION_CLEARED("itsDataIngestionSubsystem");
-    itsDataIngestionSubsystem = NULL;
+void SensingInterfaceSubsystem::_clearItsRiskAssessmentSubsystem(void) {
+    NOTIFY_RELATION_CLEARED("itsRiskAssessmentSubsystem");
+    itsRiskAssessmentSubsystem = NULL;
 }
 
 IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::CollectData_handleEvent(void) {
@@ -624,10 +624,10 @@ void OMAnimatedSensingInterfaceSubsystem::serializeAttributes(AOMSAttributes* ao
 }
 
 void OMAnimatedSensingInterfaceSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {
-    aomsRelations->addRelation("itsDataIngestionSubsystem", false, true);
-    if(myReal->itsDataIngestionSubsystem)
+    aomsRelations->addRelation("itsRiskAssessmentSubsystem", false, true);
+    if(myReal->itsRiskAssessmentSubsystem)
         {
-            aomsRelations->ADD_ITEM(myReal->itsDataIngestionSubsystem);
+            aomsRelations->ADD_ITEM(myReal->itsRiskAssessmentSubsystem);
         }
 }
 

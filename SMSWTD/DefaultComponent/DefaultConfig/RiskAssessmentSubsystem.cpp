@@ -16,6 +16,10 @@
 
 //## auto_generated
 #include "RiskAssessmentSubsystem.h"
+//## link itsAlertingSubsystem
+#include "AlertingSubsystem.h"
+//## link itsSensingInterfaceSubsystem
+#include "SensingInterfaceSubsystem.h"
 //#[ ignore
 #define SMSWTD_Architecture_RiskAssessmentSubsystem_RiskAssessmentSubsystem_SERIALIZE OM_NO_OP
 //#]
@@ -35,9 +39,21 @@ void RiskAssessmentSubsystem::in_C::connectRiskAssessmentSubsystem(RiskAssessmen
     InBound.setPort(this); // for IS_PORT macro support
     
 }
+
+RiskAssessmentSubsystem::out_C::out_C(void) : OMDefaultReactivePort(), _p_(0) {
+}
+
+RiskAssessmentSubsystem::out_C::~out_C(void) {
+}
+
+void RiskAssessmentSubsystem::out_C::connectRiskAssessmentSubsystem(RiskAssessmentSubsystem* part) {
+    InBound.setItsDefaultProvidedInterface(part);
+    InBound.setPort(this); // for IS_PORT macro support
+    
+}
 //#]
 
-RiskAssessmentSubsystem::RiskAssessmentSubsystem(IOxfActive* const theActiveContext) : OMReactive() {
+RiskAssessmentSubsystem::RiskAssessmentSubsystem(IOxfActive* const theActiveContext) : OMReactive(), itsAlertingSubsystem(NULL), itsSensingInterfaceSubsystem(NULL) {
     NOTIFY_REACTIVE_CONSTRUCTOR(RiskAssessmentSubsystem, RiskAssessmentSubsystem(), 0, SMSWTD_Architecture_RiskAssessmentSubsystem_RiskAssessmentSubsystem_SERIALIZE);
     setActiveContext(theActiveContext, false);
     initRelations();
@@ -46,6 +62,7 @@ RiskAssessmentSubsystem::RiskAssessmentSubsystem(IOxfActive* const theActiveCont
 
 RiskAssessmentSubsystem::~RiskAssessmentSubsystem(void) {
     NOTIFY_DESTRUCTOR(~RiskAssessmentSubsystem, true);
+    cleanUpRelations();
     cancelTimeouts();
 }
 
@@ -55,6 +72,14 @@ RiskAssessmentSubsystem::in_C* RiskAssessmentSubsystem::getIn(void) const {
 
 RiskAssessmentSubsystem::in_C* RiskAssessmentSubsystem::get_in(void) const {
     return (RiskAssessmentSubsystem::in_C*) &in;
+}
+
+RiskAssessmentSubsystem::out_C* RiskAssessmentSubsystem::getOut(void) const {
+    return (RiskAssessmentSubsystem::out_C*) &out;
+}
+
+RiskAssessmentSubsystem::out_C* RiskAssessmentSubsystem::get_out(void) const {
+    return (RiskAssessmentSubsystem::out_C*) &out;
 }
 
 const AirData RiskAssessmentSubsystem::getCurrPlaneDataFinal(void) const {
@@ -97,6 +122,30 @@ void RiskAssessmentSubsystem::setReceivedSTN(const bool p_ReceivedSTN) {
     ReceivedSTN = p_ReceivedSTN;
 }
 
+const AlertingSubsystem* RiskAssessmentSubsystem::getItsAlertingSubsystem(void) const {
+    return itsAlertingSubsystem;
+}
+
+void RiskAssessmentSubsystem::setItsAlertingSubsystem(AlertingSubsystem* const p_AlertingSubsystem) {
+    if(p_AlertingSubsystem != NULL)
+        {
+            p_AlertingSubsystem->_setItsRiskAssessmentSubsystem(this);
+        }
+    _setItsAlertingSubsystem(p_AlertingSubsystem);
+}
+
+const SensingInterfaceSubsystem* RiskAssessmentSubsystem::getItsSensingInterfaceSubsystem(void) const {
+    return itsSensingInterfaceSubsystem;
+}
+
+void RiskAssessmentSubsystem::setItsSensingInterfaceSubsystem(SensingInterfaceSubsystem* const p_SensingInterfaceSubsystem) {
+    if(p_SensingInterfaceSubsystem != NULL)
+        {
+            p_SensingInterfaceSubsystem->_setItsRiskAssessmentSubsystem(this);
+        }
+    _setItsSensingInterfaceSubsystem(p_SensingInterfaceSubsystem);
+}
+
 bool RiskAssessmentSubsystem::cancelTimeout(const IOxfTimeout* arg) {
     bool res = false;
     if(rootState_timeout == arg)
@@ -117,6 +166,9 @@ void RiskAssessmentSubsystem::initRelations(void) {
     if (get_in() != NULL) {
         get_in()->connectRiskAssessmentSubsystem(this);
     }
+    if (get_out() != NULL) {
+        get_out()->connectRiskAssessmentSubsystem(this);
+    }
 }
 
 void RiskAssessmentSubsystem::initStatechart(void) {
@@ -125,8 +177,81 @@ void RiskAssessmentSubsystem::initStatechart(void) {
     rootState_timeout = NULL;
 }
 
+void RiskAssessmentSubsystem::cleanUpRelations(void) {
+    if(itsAlertingSubsystem != NULL)
+        {
+            NOTIFY_RELATION_CLEARED("itsAlertingSubsystem");
+            const RiskAssessmentSubsystem* p_RiskAssessmentSubsystem = itsAlertingSubsystem->getItsRiskAssessmentSubsystem();
+            if(p_RiskAssessmentSubsystem != NULL)
+                {
+                    itsAlertingSubsystem->__setItsRiskAssessmentSubsystem(NULL);
+                }
+            itsAlertingSubsystem = NULL;
+        }
+    if(itsSensingInterfaceSubsystem != NULL)
+        {
+            NOTIFY_RELATION_CLEARED("itsSensingInterfaceSubsystem");
+            const RiskAssessmentSubsystem* p_RiskAssessmentSubsystem = itsSensingInterfaceSubsystem->getItsRiskAssessmentSubsystem();
+            if(p_RiskAssessmentSubsystem != NULL)
+                {
+                    itsSensingInterfaceSubsystem->__setItsRiskAssessmentSubsystem(NULL);
+                }
+            itsSensingInterfaceSubsystem = NULL;
+        }
+}
+
 void RiskAssessmentSubsystem::cancelTimeouts(void) {
     cancel(rootState_timeout);
+}
+
+void RiskAssessmentSubsystem::__setItsAlertingSubsystem(AlertingSubsystem* const p_AlertingSubsystem) {
+    itsAlertingSubsystem = p_AlertingSubsystem;
+    if(p_AlertingSubsystem != NULL)
+        {
+            NOTIFY_RELATION_ITEM_ADDED("itsAlertingSubsystem", p_AlertingSubsystem, false, true);
+        }
+    else
+        {
+            NOTIFY_RELATION_CLEARED("itsAlertingSubsystem");
+        }
+}
+
+void RiskAssessmentSubsystem::_setItsAlertingSubsystem(AlertingSubsystem* const p_AlertingSubsystem) {
+    if(itsAlertingSubsystem != NULL)
+        {
+            itsAlertingSubsystem->__setItsRiskAssessmentSubsystem(NULL);
+        }
+    __setItsAlertingSubsystem(p_AlertingSubsystem);
+}
+
+void RiskAssessmentSubsystem::_clearItsAlertingSubsystem(void) {
+    NOTIFY_RELATION_CLEARED("itsAlertingSubsystem");
+    itsAlertingSubsystem = NULL;
+}
+
+void RiskAssessmentSubsystem::__setItsSensingInterfaceSubsystem(SensingInterfaceSubsystem* const p_SensingInterfaceSubsystem) {
+    itsSensingInterfaceSubsystem = p_SensingInterfaceSubsystem;
+    if(p_SensingInterfaceSubsystem != NULL)
+        {
+            NOTIFY_RELATION_ITEM_ADDED("itsSensingInterfaceSubsystem", p_SensingInterfaceSubsystem, false, true);
+        }
+    else
+        {
+            NOTIFY_RELATION_CLEARED("itsSensingInterfaceSubsystem");
+        }
+}
+
+void RiskAssessmentSubsystem::_setItsSensingInterfaceSubsystem(SensingInterfaceSubsystem* const p_SensingInterfaceSubsystem) {
+    if(itsSensingInterfaceSubsystem != NULL)
+        {
+            itsSensingInterfaceSubsystem->__setItsRiskAssessmentSubsystem(NULL);
+        }
+    __setItsSensingInterfaceSubsystem(p_SensingInterfaceSubsystem);
+}
+
+void RiskAssessmentSubsystem::_clearItsSensingInterfaceSubsystem(void) {
+    NOTIFY_RELATION_CLEARED("itsSensingInterfaceSubsystem");
+    itsSensingInterfaceSubsystem = NULL;
 }
 
 void RiskAssessmentSubsystem::rootState_entDef(void) {
@@ -255,6 +380,19 @@ void OMAnimatedRiskAssessmentSubsystem::serializeAttributes(AOMSAttributes* aoms
     aomsAttributes->addAttribute("CurrSatDataFinal", UNKNOWN2STRING(myReal->CurrSatDataFinal));
     aomsAttributes->addAttribute("ReceivedSTN", x2String(myReal->ReceivedSTN));
     aomsAttributes->addAttribute("ReceivedMetOcean", x2String(myReal->ReceivedMetOcean));
+}
+
+void OMAnimatedRiskAssessmentSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {
+    aomsRelations->addRelation("itsSensingInterfaceSubsystem", false, true);
+    if(myReal->itsSensingInterfaceSubsystem)
+        {
+            aomsRelations->ADD_ITEM(myReal->itsSensingInterfaceSubsystem);
+        }
+    aomsRelations->addRelation("itsAlertingSubsystem", false, true);
+    if(myReal->itsAlertingSubsystem)
+        {
+            aomsRelations->ADD_ITEM(myReal->itsAlertingSubsystem);
+        }
 }
 
 void OMAnimatedRiskAssessmentSubsystem::rootState_serializeStates(AOMSState* aomsState) const {

@@ -27,6 +27,12 @@
 #include <event.h>
 //## auto_generated
 #include <OMDefaultReactivePort.h>
+//## link itsAlertingSubsystem
+class AlertingSubsystem;
+
+//## link itsSensingInterfaceSubsystem
+class SensingInterfaceSubsystem;
+
 //## package SMSWTD_Architecture
 
 //## class RiskAssessmentSubsystem
@@ -45,6 +51,30 @@ public :
         
         //## auto_generated
         virtual ~in_C(void);
+        
+        ////    Operations    ////
+        
+        //## auto_generated
+        void connectRiskAssessmentSubsystem(RiskAssessmentSubsystem* part);
+        
+        ////    Attributes    ////
+    
+    private :
+    
+        RhpInteger _p_;		//## attribute _p_
+    };
+    
+    //## package SMSWTD_Architecture
+    class out_C : public OMDefaultReactivePort {
+        ////    Constructors and destructors    ////
+        
+    public :
+    
+        //## auto_generated
+        out_C(void);
+        
+        //## auto_generated
+        virtual ~out_C(void);
         
         ////    Operations    ////
         
@@ -82,6 +112,12 @@ public :
     in_C* get_in(void) const;
     
     //## auto_generated
+    out_C* getOut(void) const;
+    
+    //## auto_generated
+    out_C* get_out(void) const;
+    
+    //## auto_generated
     const AirData getCurrPlaneDataFinal(void) const;
     
     //## auto_generated
@@ -112,6 +148,18 @@ public :
     void setReceivedSTN(const bool p_ReceivedSTN);
     
     //## auto_generated
+    const AlertingSubsystem* getItsAlertingSubsystem(void) const;
+    
+    //## auto_generated
+    void setItsAlertingSubsystem(AlertingSubsystem* const p_AlertingSubsystem);
+    
+    //## auto_generated
+    const SensingInterfaceSubsystem* getItsSensingInterfaceSubsystem(void) const;
+    
+    //## auto_generated
+    void setItsSensingInterfaceSubsystem(SensingInterfaceSubsystem* const p_SensingInterfaceSubsystem);
+    
+    //## auto_generated
     virtual bool cancelTimeout(const IOxfTimeout* arg);
     
     //## auto_generated
@@ -124,6 +172,9 @@ protected :
     
     //## auto_generated
     void initStatechart(void);
+    
+    //## auto_generated
+    void cleanUpRelations(void);
     
     //## auto_generated
     void cancelTimeouts(void);
@@ -146,12 +197,36 @@ private :
     
 //#[ ignore
     in_C in;
+    
+    out_C out;
 //#]
 
+    AlertingSubsystem* itsAlertingSubsystem;		//## link itsAlertingSubsystem
+    
+    SensingInterfaceSubsystem* itsSensingInterfaceSubsystem;		//## link itsSensingInterfaceSubsystem
+    
     ////    Framework operations    ////
 
 public :
 
+    //## auto_generated
+    void __setItsAlertingSubsystem(AlertingSubsystem* const p_AlertingSubsystem);
+    
+    //## auto_generated
+    void _setItsAlertingSubsystem(AlertingSubsystem* const p_AlertingSubsystem);
+    
+    //## auto_generated
+    void _clearItsAlertingSubsystem(void);
+    
+    //## auto_generated
+    void __setItsSensingInterfaceSubsystem(SensingInterfaceSubsystem* const p_SensingInterfaceSubsystem);
+    
+    //## auto_generated
+    void _setItsSensingInterfaceSubsystem(SensingInterfaceSubsystem* const p_SensingInterfaceSubsystem);
+    
+    //## auto_generated
+    void _clearItsSensingInterfaceSubsystem(void);
+    
     // rootState:
     //## statechart_method
     inline RhpBoolean rootState_IN(void) const;
@@ -208,6 +283,8 @@ class OMAnimatedRiskAssessmentSubsystem : virtual public AOMInstance {
 public :
 
     virtual void serializeAttributes(AOMSAttributes* aomsAttributes) const;
+    
+    virtual void serializeRelations(AOMSRelations* aomsRelations) const;
     
     //## statechart_method
     void rootState_serializeStates(AOMSState* aomsState) const;

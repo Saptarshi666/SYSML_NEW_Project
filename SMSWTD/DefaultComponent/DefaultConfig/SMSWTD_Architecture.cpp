@@ -14,6 +14,8 @@
 
 //## auto_generated
 #include "SMSWTD_Architecture.h"
+//## classInstance itsAlertingSubsystem
+#include "AlertingSubsystem.h"
 //## classInstance itsMetOceanDataProvider
 #include "MetOceanDataProvider.h"
 //## classInstance itsRiskAssessmentSubsystem
@@ -22,12 +24,6 @@
 #include "SeismicTsunamiNetwork.h"
 //## classInstance itsSensingInterfaceSubsystem
 #include "SensingInterfaceSubsystem.h"
-//## auto_generated
-#include "AlertingSubsystem.h"
-//## auto_generated
-#include "AnalyticsSubsystem.h"
-//## auto_generated
-#include "DataIngestionSubsystem.h"
 //## auto_generated
 #include "DataManagementSubsystem.h"
 //## auto_generated
@@ -133,10 +129,25 @@
 #define startAnalysis_UNSERIALIZE OM_NO_OP
 
 #define startAnalysis_CONSTRUCTOR startAnalysis()
+
+#define StartAS_SERIALIZE OM_NO_OP
+
+#define StartAS_UNSERIALIZE OM_NO_OP
+
+#define StartAS_CONSTRUCTOR StartAS()
+
+#define StartAlertGen_SERIALIZE OM_NO_OP
+
+#define StartAlertGen_UNSERIALIZE OM_NO_OP
+
+#define StartAlertGen_CONSTRUCTOR StartAlertGen()
 //#]
 
 //## package SMSWTD_Architecture
 
+
+//## classInstance itsAlertingSubsystem
+AlertingSubsystem itsAlertingSubsystem;
 
 //## classInstance itsMetOceanDataProvider
 MetOceanDataProvider itsMetOceanDataProvider;
@@ -319,6 +330,9 @@ void SMSWTD_Architecture_initRelations(void) {
         {
             itsRiskAssessmentSubsystem.setShouldDelete(false);
         }
+        {
+            itsAlertingSubsystem.setShouldDelete(false);
+        }
     }
     {
         
@@ -347,6 +361,15 @@ void SMSWTD_Architecture_initRelations(void) {
         itsRiskAssessmentSubsystem.get_in()->setItsDefaultRequiredInterface(itsSensingInterfaceSubsystem.get_out()->getItsDefaultProvidedInterface());
         
     }
+    {
+        
+        itsRiskAssessmentSubsystem.get_out()->setItsDefaultRequiredInterface(itsAlertingSubsystem.get_in()->getItsDefaultProvidedInterface());
+        
+    }{
+        
+        itsAlertingSubsystem.get_in()->setItsDefaultRequiredInterface(itsRiskAssessmentSubsystem.get_out()->getItsDefaultProvidedInterface());
+        
+    }
     
     #ifdef _OMINSTRUMENT
     RenameGlobalInstances();
@@ -355,6 +378,10 @@ void SMSWTD_Architecture_initRelations(void) {
 
 bool SMSWTD_Architecture_startBehavior(void) {
     bool done = true;
+    if(done == true)
+        {
+            done = itsAlertingSubsystem.startBehavior();
+        }
     if(done == true)
         {
             done = itsMetOceanDataProvider.startBehavior();
@@ -383,6 +410,7 @@ static void RenameGlobalInstances(void) {
     OM_SET_INSTANCE_NAME(&itsSensingInterfaceSubsystem, SensingInterfaceSubsystem, "itsSensingInterfaceSubsystem", AOMNoMultiplicity);
     OM_SET_INSTANCE_NAME(&itsMetOceanDataProvider, MetOceanDataProvider, "itsMetOceanDataProvider", AOMNoMultiplicity);
     OM_SET_INSTANCE_NAME(&itsRiskAssessmentSubsystem, RiskAssessmentSubsystem, "itsRiskAssessmentSubsystem", AOMNoMultiplicity);
+    OM_SET_INSTANCE_NAME(&itsAlertingSubsystem, AlertingSubsystem, "itsAlertingSubsystem", AOMNoMultiplicity);
 }
 #endif // _OMINSTRUMENT
 
@@ -623,6 +651,30 @@ const IOxfEvent::ID startAnalysis_SMSWTD_Architecture_id(3410);
 //#]
 
 IMPLEMENT_META_EVENT_P(startAnalysis, SMSWTD_Architecture, SMSWTD_Architecture, startAnalysis())
+
+//## event StartAS()
+StartAS::StartAS(void) : OMEvent() {
+    NOTIFY_EVENT_CONSTRUCTOR(StartAS)
+    setId(StartAS_SMSWTD_Architecture_id);
+}
+
+//#[ ignore
+const IOxfEvent::ID StartAS_SMSWTD_Architecture_id(3411);
+//#]
+
+IMPLEMENT_META_EVENT_P(StartAS, SMSWTD_Architecture, SMSWTD_Architecture, StartAS())
+
+//## event StartAlertGen()
+StartAlertGen::StartAlertGen(void) : OMEvent() {
+    NOTIFY_EVENT_CONSTRUCTOR(StartAlertGen)
+    setId(StartAlertGen_SMSWTD_Architecture_id);
+}
+
+//#[ ignore
+const IOxfEvent::ID StartAlertGen_SMSWTD_Architecture_id(3412);
+//#]
+
+IMPLEMENT_META_EVENT_P(StartAlertGen, SMSWTD_Architecture, SMSWTD_Architecture, StartAlertGen())
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.cpp

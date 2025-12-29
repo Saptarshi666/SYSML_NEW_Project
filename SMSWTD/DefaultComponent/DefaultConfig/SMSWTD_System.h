@@ -27,10 +27,6 @@
 #include <event.h>
 //## classInstance itsAlertingSubsystem
 #include "AlertingSubsystem.h"
-//## classInstance itsAnalyticsSubsystem
-#include "AnalyticsSubsystem.h"
-//## classInstance itsDataIngestionSubsystem
-#include "DataIngestionSubsystem.h"
 //## classInstance itsDataManagementSubsystem
 #include "DataManagementSubsystem.h"
 //## classInstance itsOpsSafetySecuritySubsystem
@@ -67,12 +63,6 @@ public :
     const AlertingSubsystem* getItsAlertingSubsystem(void) const;
     
     //## auto_generated
-    const AnalyticsSubsystem* getItsAnalyticsSubsystem(void) const;
-    
-    //## auto_generated
-    const DataIngestionSubsystem* getItsDataIngestionSubsystem(void) const;
-    
-    //## auto_generated
     const DataManagementSubsystem* getItsDataManagementSubsystem(void) const;
     
     //## auto_generated
@@ -95,10 +85,6 @@ public :
 private :
 
     AlertingSubsystem itsAlertingSubsystem;		//## classInstance itsAlertingSubsystem
-    
-    AnalyticsSubsystem itsAnalyticsSubsystem;		//## classInstance itsAnalyticsSubsystem
-    
-    DataIngestionSubsystem itsDataIngestionSubsystem;		//## classInstance itsDataIngestionSubsystem
     
     DataManagementSubsystem itsDataManagementSubsystem;		//## classInstance itsDataManagementSubsystem
     

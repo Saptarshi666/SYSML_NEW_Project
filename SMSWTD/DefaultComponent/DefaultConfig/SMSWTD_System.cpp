@@ -26,6 +26,9 @@ SMSWTD_System::SMSWTD_System(IOxfActive* const theActiveContext) : OMReactive() 
     setActiveContext(theActiveContext, false);
     {
         {
+            itsAlertingSubsystem.setShouldDelete(false);
+        }
+        {
             itsRiskAssessmentSubsystem.setShouldDelete(false);
         }
         {
@@ -40,14 +43,6 @@ SMSWTD_System::~SMSWTD_System(void) {
 
 const AlertingSubsystem* SMSWTD_System::getItsAlertingSubsystem(void) const {
     return &itsAlertingSubsystem;
-}
-
-const AnalyticsSubsystem* SMSWTD_System::getItsAnalyticsSubsystem(void) const {
-    return &itsAnalyticsSubsystem;
-}
-
-const DataIngestionSubsystem* SMSWTD_System::getItsDataIngestionSubsystem(void) const {
-    return &itsDataIngestionSubsystem;
 }
 
 const DataManagementSubsystem* SMSWTD_System::getItsDataManagementSubsystem(void) const {
@@ -74,6 +69,10 @@ bool SMSWTD_System::startBehavior(void) {
     bool done = true;
     if(done == true)
         {
+            done = itsAlertingSubsystem.startBehavior();
+        }
+    if(done == true)
+        {
             done = itsRiskAssessmentSubsystem.startBehavior();
         }
     if(done == true)
@@ -90,12 +89,14 @@ bool SMSWTD_System::startBehavior(void) {
 void SMSWTD_System::setActiveContext(IOxfActive* const theActiveContext, bool activeInstance) {
     OMReactive::setActiveContext(theActiveContext, activeInstance);
     {
+        itsAlertingSubsystem.setActiveContext(theActiveContext, false);
         itsRiskAssessmentSubsystem.setActiveContext(theActiveContext, false);
         itsSensingInterfaceSubsystem.setActiveContext(theActiveContext, false);
     }
 }
 
 void SMSWTD_System::destroy(void) {
+    itsAlertingSubsystem.destroy();
     itsRiskAssessmentSubsystem.destroy();
     itsSensingInterfaceSubsystem.destroy();
     OMReactive::destroy();
@@ -106,8 +107,6 @@ void SMSWTD_System::destroy(void) {
 void OMAnimatedSMSWTD_System::serializeRelations(AOMSRelations* aomsRelations) const {
     aomsRelations->addRelation("itsAlertingSubsystem", true, true);
     aomsRelations->ADD_ITEM(&myReal->itsAlertingSubsystem);
-    aomsRelations->addRelation("itsDataIngestionSubsystem", true, true);
-    aomsRelations->ADD_ITEM(&myReal->itsDataIngestionSubsystem);
     aomsRelations->addRelation("itsDataManagementSubsystem", true, true);
     aomsRelations->ADD_ITEM(&myReal->itsDataManagementSubsystem);
     aomsRelations->addRelation("itsOpsSafetySecuritySubsystem", true, true);
@@ -116,8 +115,6 @@ void OMAnimatedSMSWTD_System::serializeRelations(AOMSRelations* aomsRelations) c
     aomsRelations->ADD_ITEM(&myReal->itsUserInterfaceSubsystem);
     aomsRelations->addRelation("itsRiskAssessmentSubsystem", true, true);
     aomsRelations->ADD_ITEM(&myReal->itsRiskAssessmentSubsystem);
-    aomsRelations->addRelation("itsAnalyticsSubsystem", true, true);
-    aomsRelations->ADD_ITEM(&myReal->itsAnalyticsSubsystem);
     aomsRelations->addRelation("itsSensingInterfaceSubsystem", true, true);
     aomsRelations->ADD_ITEM(&myReal->itsSensingInterfaceSubsystem);
 }

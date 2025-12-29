@@ -17,14 +17,8 @@
 #include <aom.h>
 //## auto_generated
 #include <event.h>
-//## auto_generated
+//## classInstance itsAlertingSubsystem
 class AlertingSubsystem;
-
-//## auto_generated
-class AnalyticsSubsystem;
-
-//## auto_generated
-class DataIngestionSubsystem;
 
 //## auto_generated
 class DataManagementSubsystem;
@@ -114,6 +108,9 @@ struct STNData {
     double WPM;		//## attribute WPM
     bool DataC;		//## attribute DataC
 };
+
+//## classInstance itsAlertingSubsystem
+extern AlertingSubsystem itsAlertingSubsystem;
 
 //## classInstance itsMetOceanDataProvider
 extern MetOceanDataProvider itsMetOceanDataProvider;
@@ -578,6 +575,62 @@ class OMAnimatedstartAnalysis : virtual public AOMEvent {
 
 //#[ ignore
 extern const IOxfEvent::ID startAnalysis_SMSWTD_Architecture_id;
+//#]
+
+//## event StartAS()
+class StartAS : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedStartAS;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    StartAS(void);
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedStartAS : virtual public AOMEvent {
+    DECLARE_META_EVENT(StartAS)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//#[ ignore
+extern const IOxfEvent::ID StartAS_SMSWTD_Architecture_id;
+//#]
+
+//## event StartAlertGen()
+class StartAlertGen : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedStartAlertGen;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    StartAlertGen(void);
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedStartAlertGen : virtual public AOMEvent {
+    DECLARE_META_EVENT(StartAlertGen)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//#[ ignore
+extern const IOxfEvent::ID StartAlertGen_SMSWTD_Architecture_id;
 //#]
 
 #endif

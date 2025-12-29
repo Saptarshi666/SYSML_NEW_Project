@@ -29,8 +29,8 @@
 #include <OMDefaultMulticastReactivePort.h>
 //## auto_generated
 #include <OMDefaultReactivePort.h>
-//## link itsDataIngestionSubsystem
-class DataIngestionSubsystem;
+//## link itsRiskAssessmentSubsystem
+class RiskAssessmentSubsystem;
 
 //## package SMSWTD_Architecture
 
@@ -213,10 +213,10 @@ public :
     void setObtainedSeismic(const bool p_obtainedSeismic);
     
     //## auto_generated
-    const DataIngestionSubsystem* getItsDataIngestionSubsystem(void) const;
+    const RiskAssessmentSubsystem* getItsRiskAssessmentSubsystem(void) const;
     
     //## auto_generated
-    void setItsDataIngestionSubsystem(DataIngestionSubsystem* const p_DataIngestionSubsystem);
+    void setItsRiskAssessmentSubsystem(RiskAssessmentSubsystem* const p_RiskAssessmentSubsystem);
     
     //## auto_generated
     virtual bool cancelTimeout(const IOxfTimeout* arg);
@@ -282,20 +282,20 @@ private :
     out_C out;
 //#]
 
-    DataIngestionSubsystem* itsDataIngestionSubsystem;		//## link itsDataIngestionSubsystem
+    RiskAssessmentSubsystem* itsRiskAssessmentSubsystem;		//## link itsRiskAssessmentSubsystem
     
     ////    Framework operations    ////
 
 public :
 
     //## auto_generated
-    void __setItsDataIngestionSubsystem(DataIngestionSubsystem* const p_DataIngestionSubsystem);
+    void __setItsRiskAssessmentSubsystem(RiskAssessmentSubsystem* const p_RiskAssessmentSubsystem);
     
     //## auto_generated
-    void _setItsDataIngestionSubsystem(DataIngestionSubsystem* const p_DataIngestionSubsystem);
+    void _setItsRiskAssessmentSubsystem(RiskAssessmentSubsystem* const p_RiskAssessmentSubsystem);
     
     //## auto_generated
-    void _clearItsDataIngestionSubsystem(void);
+    void _clearItsRiskAssessmentSubsystem(void);
     
     // rootState:
     //## statechart_method

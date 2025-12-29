@@ -123,8 +123,6 @@ OBJS= \
   EAOperator.obj \
   SMSWTD_System.obj \
   SensingInterfaceSubsystem.obj \
-  DataIngestionSubsystem.obj \
-  AnalyticsSubsystem.obj \
   RiskAssessmentSubsystem.obj \
   AlertingSubsystem.obj \
   UserInterfaceSubsystem.obj \
@@ -436,37 +434,25 @@ EAOperator.obj : EAOperator.cpp EAOperator.h    UseCases.h
 
 
 
-SMSWTD_System.obj : SMSWTD_System.cpp SMSWTD_System.h    SMSWTD_Architecture.h AlertingSubsystem.h DataIngestionSubsystem.h DataManagementSubsystem.h OpsSafetySecuritySubsystem.h UserInterfaceSubsystem.h RiskAssessmentSubsystem.h AnalyticsSubsystem.h SensingInterfaceSubsystem.h 
+SMSWTD_System.obj : SMSWTD_System.cpp SMSWTD_System.h    SMSWTD_Architecture.h AlertingSubsystem.h DataManagementSubsystem.h OpsSafetySecuritySubsystem.h UserInterfaceSubsystem.h RiskAssessmentSubsystem.h SensingInterfaceSubsystem.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SMSWTD_System.obj" "SMSWTD_System.cpp" 
 
 
 
-SensingInterfaceSubsystem.obj : SensingInterfaceSubsystem.cpp SensingInterfaceSubsystem.h    SMSWTD_Architecture.h DataIngestionSubsystem.h 
+SensingInterfaceSubsystem.obj : SensingInterfaceSubsystem.cpp SensingInterfaceSubsystem.h    SMSWTD_Architecture.h RiskAssessmentSubsystem.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SensingInterfaceSubsystem.obj" "SensingInterfaceSubsystem.cpp" 
 
 
 
-DataIngestionSubsystem.obj : DataIngestionSubsystem.cpp DataIngestionSubsystem.h    SMSWTD_Architecture.h SensingInterfaceSubsystem.h DataManagementSubsystem.h 
-	$(CREATE_OBJ_DIR)
-	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"DataIngestionSubsystem.obj" "DataIngestionSubsystem.cpp" 
-
-
-
-AnalyticsSubsystem.obj : AnalyticsSubsystem.cpp AnalyticsSubsystem.h    SMSWTD_Architecture.h 
-	$(CREATE_OBJ_DIR)
-	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"AnalyticsSubsystem.obj" "AnalyticsSubsystem.cpp" 
-
-
-
-RiskAssessmentSubsystem.obj : RiskAssessmentSubsystem.cpp RiskAssessmentSubsystem.h    SMSWTD_Architecture.h 
+RiskAssessmentSubsystem.obj : RiskAssessmentSubsystem.cpp RiskAssessmentSubsystem.h    SMSWTD_Architecture.h SensingInterfaceSubsystem.h AlertingSubsystem.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"RiskAssessmentSubsystem.obj" "RiskAssessmentSubsystem.cpp" 
 
 
 
-AlertingSubsystem.obj : AlertingSubsystem.cpp AlertingSubsystem.h    SMSWTD_Architecture.h 
+AlertingSubsystem.obj : AlertingSubsystem.cpp AlertingSubsystem.h    SMSWTD_Architecture.h RiskAssessmentSubsystem.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"AlertingSubsystem.obj" "AlertingSubsystem.cpp" 
 
@@ -484,7 +470,7 @@ OpsSafetySecuritySubsystem.obj : OpsSafetySecuritySubsystem.cpp OpsSafetySecurit
 
 
 
-DataManagementSubsystem.obj : DataManagementSubsystem.cpp DataManagementSubsystem.h    SMSWTD_Architecture.h DataIngestionSubsystem.h UserInterfaceSubsystem.h 
+DataManagementSubsystem.obj : DataManagementSubsystem.cpp DataManagementSubsystem.h    SMSWTD_Architecture.h UserInterfaceSubsystem.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"DataManagementSubsystem.obj" "DataManagementSubsystem.cpp" 
 
@@ -532,7 +518,7 @@ UseCases.obj : UseCases.cpp UseCases.h
 
 
 
-SMSWTD_Architecture.obj : SMSWTD_Architecture.cpp SMSWTD_Architecture.h    SMSWTD_System.h SensingInterfaceSubsystem.h DataIngestionSubsystem.h AnalyticsSubsystem.h RiskAssessmentSubsystem.h AlertingSubsystem.h UserInterfaceSubsystem.h OpsSafetySecuritySubsystem.h DataManagementSubsystem.h SeismicTsunamiNetwork.h Public.h MetOceanDataProvider.h 
+SMSWTD_Architecture.obj : SMSWTD_Architecture.cpp SMSWTD_Architecture.h    SMSWTD_System.h SensingInterfaceSubsystem.h RiskAssessmentSubsystem.h AlertingSubsystem.h UserInterfaceSubsystem.h OpsSafetySecuritySubsystem.h DataManagementSubsystem.h SeismicTsunamiNetwork.h Public.h MetOceanDataProvider.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SMSWTD_Architecture.obj" "SMSWTD_Architecture.cpp" 
 
@@ -603,8 +589,6 @@ clean:
 	if exist EAOperator.obj erase EAOperator.obj
 	if exist SMSWTD_System.obj erase SMSWTD_System.obj
 	if exist SensingInterfaceSubsystem.obj erase SensingInterfaceSubsystem.obj
-	if exist DataIngestionSubsystem.obj erase DataIngestionSubsystem.obj
-	if exist AnalyticsSubsystem.obj erase AnalyticsSubsystem.obj
 	if exist RiskAssessmentSubsystem.obj erase RiskAssessmentSubsystem.obj
 	if exist AlertingSubsystem.obj erase AlertingSubsystem.obj
 	if exist UserInterfaceSubsystem.obj erase UserInterfaceSubsystem.obj

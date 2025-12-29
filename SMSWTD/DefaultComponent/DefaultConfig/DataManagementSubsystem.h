@@ -17,9 +17,6 @@
 #include <aom.h>
 //## auto_generated
 #include "SMSWTD_Architecture.h"
-//## link itsDataIngestionSubsystem
-class DataIngestionSubsystem;
-
 //## link itsUserInterfaceSubsystem
 class UserInterfaceSubsystem;
 
@@ -46,12 +43,6 @@ public :
     ////    Additional operations    ////
     
     //## auto_generated
-    const DataIngestionSubsystem* getItsDataIngestionSubsystem(void) const;
-    
-    //## auto_generated
-    void setItsDataIngestionSubsystem(DataIngestionSubsystem* const p_DataIngestionSubsystem);
-    
-    //## auto_generated
     const UserInterfaceSubsystem* getItsUserInterfaceSubsystem(void) const;
     
     //## auto_generated
@@ -66,23 +57,12 @@ protected :
 
 private :
 
-    DataIngestionSubsystem* itsDataIngestionSubsystem;		//## link itsDataIngestionSubsystem
-    
     UserInterfaceSubsystem* itsUserInterfaceSubsystem;		//## link itsUserInterfaceSubsystem
     
     ////    Framework operations    ////
 
 public :
 
-    //## auto_generated
-    void __setItsDataIngestionSubsystem(DataIngestionSubsystem* const p_DataIngestionSubsystem);
-    
-    //## auto_generated
-    void _setItsDataIngestionSubsystem(DataIngestionSubsystem* const p_DataIngestionSubsystem);
-    
-    //## auto_generated
-    void _clearItsDataIngestionSubsystem(void);
-    
     //## auto_generated
     void __setItsUserInterfaceSubsystem(UserInterfaceSubsystem* const p_UserInterfaceSubsystem);
     
