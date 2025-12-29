@@ -26,6 +26,9 @@ SMSWTD_System::SMSWTD_System(IOxfActive* const theActiveContext) : OMReactive() 
     setActiveContext(theActiveContext, false);
     {
         {
+            itsRiskAssessmentSubsystem.setShouldDelete(false);
+        }
+        {
             itsSensingInterfaceSubsystem.setShouldDelete(false);
         }
     }
@@ -71,6 +74,10 @@ bool SMSWTD_System::startBehavior(void) {
     bool done = true;
     if(done == true)
         {
+            done = itsRiskAssessmentSubsystem.startBehavior();
+        }
+    if(done == true)
+        {
             done = itsSensingInterfaceSubsystem.startBehavior();
         }
     if(done == true)
@@ -83,11 +90,13 @@ bool SMSWTD_System::startBehavior(void) {
 void SMSWTD_System::setActiveContext(IOxfActive* const theActiveContext, bool activeInstance) {
     OMReactive::setActiveContext(theActiveContext, activeInstance);
     {
+        itsRiskAssessmentSubsystem.setActiveContext(theActiveContext, false);
         itsSensingInterfaceSubsystem.setActiveContext(theActiveContext, false);
     }
 }
 
 void SMSWTD_System::destroy(void) {
+    itsRiskAssessmentSubsystem.destroy();
     itsSensingInterfaceSubsystem.destroy();
     OMReactive::destroy();
 }

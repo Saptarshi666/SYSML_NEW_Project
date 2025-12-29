@@ -17,14 +17,50 @@
 #include <aom.h>
 //## auto_generated
 #include "SMSWTD_Architecture.h"
+//## auto_generated
+#include <omthread.h>
+//## auto_generated
+#include <omreactive.h>
+//## auto_generated
+#include <state.h>
+//## auto_generated
+#include <event.h>
+//## auto_generated
+#include <OMDefaultReactivePort.h>
 //## package SMSWTD_Architecture
 
 //## class RiskAssessmentSubsystem
-class RiskAssessmentSubsystem {
-    ////    Friends    ////
-    
+class RiskAssessmentSubsystem : public OMReactive {
 public :
 
+//#[ ignore
+    //## package SMSWTD_Architecture
+    class in_C : public OMDefaultReactivePort {
+        ////    Constructors and destructors    ////
+        
+    public :
+    
+        //## auto_generated
+        in_C(void);
+        
+        //## auto_generated
+        virtual ~in_C(void);
+        
+        ////    Operations    ////
+        
+        //## auto_generated
+        void connectRiskAssessmentSubsystem(RiskAssessmentSubsystem* part);
+        
+        ////    Attributes    ////
+    
+    private :
+    
+        RhpInteger _p_;		//## attribute _p_
+    };
+//#]
+
+    ////    Friends    ////
+    
 #ifdef _OMINSTRUMENT
     friend class OMAnimatedRiskAssessmentSubsystem;
 #endif // _OMINSTRUMENT
@@ -32,19 +68,177 @@ public :
     ////    Constructors and destructors    ////
     
     //## auto_generated
-    RiskAssessmentSubsystem(void);
+    explicit RiskAssessmentSubsystem(IOxfActive* const theActiveContext = NULL);
     
     //## auto_generated
     ~RiskAssessmentSubsystem(void);
+    
+    ////    Additional operations    ////
+    
+    //## auto_generated
+    in_C* getIn(void) const;
+    
+    //## auto_generated
+    in_C* get_in(void) const;
+    
+    //## auto_generated
+    const AirData getCurrPlaneDataFinal(void) const;
+    
+    //## auto_generated
+    void setCurrPlaneDataFinal(const AirData p_CurrPlaneDataFinal);
+    
+    //## auto_generated
+    const SatData getCurrSatDataFinal(void) const;
+    
+    //## auto_generated
+    void setCurrSatDataFinal(const SatData p_CurrSatDataFinal);
+    
+    //## auto_generated
+    const STNData getCurr_STN(void) const;
+    
+    //## auto_generated
+    void setCurr_STN(const STNData p_Curr_STN);
+    
+    //## auto_generated
+    const bool getReceivedMetOcean(void) const;
+    
+    //## auto_generated
+    void setReceivedMetOcean(const bool p_ReceivedMetOcean);
+    
+    //## auto_generated
+    const bool getReceivedSTN(void) const;
+    
+    //## auto_generated
+    void setReceivedSTN(const bool p_ReceivedSTN);
+    
+    //## auto_generated
+    virtual bool cancelTimeout(const IOxfTimeout* arg);
+    
+    //## auto_generated
+    virtual bool startBehavior(void);
+
+protected :
+
+    //## auto_generated
+    void initRelations(void);
+    
+    //## auto_generated
+    void initStatechart(void);
+    
+    //## auto_generated
+    void cancelTimeouts(void);
+    
+    ////    Attributes    ////
+
+private :
+
+    AirData CurrPlaneDataFinal;		//## attribute CurrPlaneDataFinal
+    
+    SatData CurrSatDataFinal;		//## attribute CurrSatDataFinal
+    
+    STNData Curr_STN;		//## attribute Curr_STN
+    
+    bool ReceivedMetOcean;		//## attribute ReceivedMetOcean
+    
+    bool ReceivedSTN;		//## attribute ReceivedSTN
+    
+    ////    Relations and components    ////
+    
+//#[ ignore
+    in_C in;
+//#]
+
+    ////    Framework operations    ////
+
+public :
+
+    // rootState:
+    //## statechart_method
+    inline RhpBoolean rootState_IN(void) const;
+    
+    // Idle:
+    //## statechart_method
+    inline RhpBoolean Idle_IN(void) const;
+    
+    // CollectData:
+    //## statechart_method
+    inline RhpBoolean CollectData_IN(void) const;
+    
+    // Analysis:
+    //## statechart_method
+    inline RhpBoolean Analysis_IN(void) const;
+
+protected :
+
+    //## statechart_method
+    virtual void rootState_entDef(void);
+    
+    //## statechart_method
+    virtual IOxfReactive::TakeEventStatus rootState_processEvent(void);
+    
+    ////    Framework    ////
+    
+//#[ ignore
+    enum RiskAssessmentSubsystem_Enum {
+        OMNonState = 0,
+        Idle = 1,
+        CollectData = 2,
+        Analysis = 3
+    };
+//#]
+
+private :
+
+//#[ ignore
+    RiskAssessmentSubsystem_Enum rootState_subState;
+    
+    RiskAssessmentSubsystem_Enum rootState_active;
+    
+    IOxfTimeout* rootState_timeout;
+//#]
 };
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
 class OMAnimatedRiskAssessmentSubsystem : virtual public AOMInstance {
-    DECLARE_META(RiskAssessmentSubsystem, OMAnimatedRiskAssessmentSubsystem)
+    DECLARE_REACTIVE_META(RiskAssessmentSubsystem, OMAnimatedRiskAssessmentSubsystem)
+    
+    ////    Framework operations    ////
+    
+public :
+
+    virtual void serializeAttributes(AOMSAttributes* aomsAttributes) const;
+    
+    //## statechart_method
+    void rootState_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
+    void Idle_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
+    void CollectData_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
+    void Analysis_serializeStates(AOMSState* aomsState) const;
 };
 //#]
 #endif // _OMINSTRUMENT
+
+inline RhpBoolean RiskAssessmentSubsystem::rootState_IN(void) const {
+    return true;
+}
+
+inline RhpBoolean RiskAssessmentSubsystem::Idle_IN(void) const {
+    return rootState_subState == Idle;
+}
+
+inline RhpBoolean RiskAssessmentSubsystem::CollectData_IN(void) const {
+    return rootState_subState == CollectData;
+}
+
+inline RhpBoolean RiskAssessmentSubsystem::Analysis_IN(void) const {
+    return rootState_subState == Analysis;
+}
 
 #endif
 /*********************************************************************

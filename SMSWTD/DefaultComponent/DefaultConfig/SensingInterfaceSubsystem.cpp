@@ -37,6 +37,18 @@ void SensingInterfaceSubsystem::in_C::connectSensingInterfaceSubsystem(SensingIn
     InBound.setPort(this); // for IS_PORT macro support
     
 }
+
+SensingInterfaceSubsystem::out_C::out_C(void) : OMDefaultReactivePort(), _p_(0) {
+}
+
+SensingInterfaceSubsystem::out_C::~out_C(void) {
+}
+
+void SensingInterfaceSubsystem::out_C::connectSensingInterfaceSubsystem(SensingInterfaceSubsystem* part) {
+    InBound.setItsDefaultProvidedInterface(part);
+    InBound.setPort(this); // for IS_PORT macro support
+    
+}
 //#]
 
 SensingInterfaceSubsystem::SensingInterfaceSubsystem(IOxfActive* const theActiveContext) : OMReactive(), PrevPlaneData({-1,-1,-1,-1,-1,-1,-1,false}), PrevSatData({-1,-1,-1,-1,false}), Prev_STN_Final({-1,-1,-1,-1,false}), itsDataIngestionSubsystem(NULL) {
@@ -58,6 +70,14 @@ SensingInterfaceSubsystem::in_C* SensingInterfaceSubsystem::getIn(void) const {
 
 SensingInterfaceSubsystem::in_C* SensingInterfaceSubsystem::get_in(void) const {
     return (SensingInterfaceSubsystem::in_C*) &in;
+}
+
+SensingInterfaceSubsystem::out_C* SensingInterfaceSubsystem::getOut(void) const {
+    return (SensingInterfaceSubsystem::out_C*) &out;
+}
+
+SensingInterfaceSubsystem::out_C* SensingInterfaceSubsystem::get_out(void) const {
+    return (SensingInterfaceSubsystem::out_C*) &out;
 }
 
 const FloatArray SensingInterfaceSubsystem::getCurrEQD(void) const {
@@ -219,6 +239,9 @@ bool SensingInterfaceSubsystem::startBehavior(void) {
 void SensingInterfaceSubsystem::initRelations(void) {
     if (get_in() != NULL) {
         get_in()->connectSensingInterfaceSubsystem(this);
+    }
+    if (get_out() != NULL) {
+        get_out()->connectSensingInterfaceSubsystem(this);
     }
 }
 
@@ -441,10 +464,7 @@ void SensingInterfaceSubsystem::state_5_entDef(void) {
     CurrSatDataFinal = CurrSatData;
     PrevSatData = CurrSatData;
     }
-    std::cout<<"The Final Plane data is"<<std::endl;
-    printAirData(CurrPlaneDataFinal);
-    std::cout<<"The final sat data is "<<std::endl;
-    printSatData(CurrSatDataFinal);
+    OUT_PORT(out)->GEN(evPushMetOceanRA(CurrPlaneDataFinal,CurrSatDataFinal));
     //#]
     NOTIFY_TRANSITION_TERMINATED("4");
 }
@@ -502,6 +522,7 @@ void SensingInterfaceSubsystem::state_4_entDef(void) {
      }
     }
     }
+    OUT_PORT(out)->GEN(evPushSeismicRA(Curr_STN));
     //#]
     NOTIFY_TRANSITION_TERMINATED("3");
 }

@@ -27,6 +27,8 @@
 #include <event.h>
 //## auto_generated
 #include <OMDefaultMulticastReactivePort.h>
+//## auto_generated
+#include <OMDefaultReactivePort.h>
 //## link itsDataIngestionSubsystem
 class DataIngestionSubsystem;
 
@@ -48,6 +50,30 @@ public :
         
         //## auto_generated
         virtual ~in_C(void);
+        
+        ////    Operations    ////
+        
+        //## auto_generated
+        void connectSensingInterfaceSubsystem(SensingInterfaceSubsystem* part);
+        
+        ////    Attributes    ////
+    
+    private :
+    
+        RhpInteger _p_;		//## attribute _p_
+    };
+    
+    //## package SMSWTD_Architecture
+    class out_C : public OMDefaultReactivePort {
+        ////    Constructors and destructors    ////
+        
+    public :
+    
+        //## auto_generated
+        out_C(void);
+        
+        //## auto_generated
+        virtual ~out_C(void);
         
         ////    Operations    ////
         
@@ -83,6 +109,12 @@ public :
     
     //## auto_generated
     in_C* get_in(void) const;
+    
+    //## auto_generated
+    out_C* getOut(void) const;
+    
+    //## auto_generated
+    out_C* get_out(void) const;
     
     //## auto_generated
     const FloatArray getCurrEQD(void) const;
@@ -246,6 +278,8 @@ private :
     
 //#[ ignore
     in_C in;
+    
+    out_C out;
 //#]
 
     DataIngestionSubsystem* itsDataIngestionSubsystem;		//## link itsDataIngestionSubsystem

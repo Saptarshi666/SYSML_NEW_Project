@@ -38,7 +38,7 @@ class OpsSafetySecuritySubsystem;
 //## auto_generated
 class Public;
 
-//## auto_generated
+//## classInstance itsRiskAssessmentSubsystem
 class RiskAssessmentSubsystem;
 
 //## auto_generated
@@ -117,6 +117,9 @@ struct STNData {
 
 //## classInstance itsMetOceanDataProvider
 extern MetOceanDataProvider itsMetOceanDataProvider;
+
+//## classInstance itsRiskAssessmentSubsystem
+extern RiskAssessmentSubsystem itsRiskAssessmentSubsystem;
 
 //## classInstance itsSeismicTsunamiNetwork
 extern SeismicTsunamiNetwork itsSeismicTsunamiNetwork;
@@ -421,6 +424,160 @@ class OMAnimatedevMetOceanUpdate : virtual public AOMEvent {
 
 //#[ ignore
 extern const IOxfEvent::ID evMetOceanUpdate_SMSWTD_Architecture_id;
+//#]
+
+//## event evStartRA()
+class evStartRA : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedevStartRA;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    evStartRA(void);
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedevStartRA : virtual public AOMEvent {
+    DECLARE_META_EVENT(evStartRA)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//#[ ignore
+extern const IOxfEvent::ID evStartRA_SMSWTD_Architecture_id;
+//#]
+
+//## event evPushSeismicRA(STNData)
+class evPushSeismicRA : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedevPushSeismicRA;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    evPushSeismicRA(void);
+    
+    //## auto_generated
+    evPushSeismicRA(const STNData p_Curr_STN);
+    
+    ////    Additional operations    ////
+    
+    //## auto_generated
+    STNData getCurr_STN(void) const;
+    
+    //## auto_generated
+    void setCurr_STN(const STNData p_Curr_STN);
+    
+    ////    Framework    ////
+
+private :
+
+    STNData Curr_STN;		//## auto_generated
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedevPushSeismicRA : virtual public AOMEvent {
+    DECLARE_META_EVENT(evPushSeismicRA)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//#[ ignore
+extern const IOxfEvent::ID evPushSeismicRA_SMSWTD_Architecture_id;
+//#]
+
+//## event evPushMetOceanRA(AirData,SatData)
+class evPushMetOceanRA : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedevPushMetOceanRA;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    evPushMetOceanRA(void);
+    
+    //## auto_generated
+    evPushMetOceanRA(const AirData p_CurrPlaneDataFinal, const SatData p_CurrSatDataFinal);
+    
+    ////    Additional operations    ////
+    
+    //## auto_generated
+    AirData getCurrPlaneDataFinal(void) const;
+    
+    //## auto_generated
+    void setCurrPlaneDataFinal(const AirData p_CurrPlaneDataFinal);
+    
+    //## auto_generated
+    SatData getCurrSatDataFinal(void) const;
+    
+    //## auto_generated
+    void setCurrSatDataFinal(const SatData p_CurrSatDataFinal);
+    
+    ////    Framework    ////
+
+private :
+
+    AirData CurrPlaneDataFinal;		//## auto_generated
+    
+    SatData CurrSatDataFinal;		//## auto_generated
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedevPushMetOceanRA : virtual public AOMEvent {
+    DECLARE_META_EVENT(evPushMetOceanRA)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//#[ ignore
+extern const IOxfEvent::ID evPushMetOceanRA_SMSWTD_Architecture_id;
+//#]
+
+//## event startAnalysis()
+class startAnalysis : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedstartAnalysis;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    startAnalysis(void);
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedstartAnalysis : virtual public AOMEvent {
+    DECLARE_META_EVENT(startAnalysis)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//#[ ignore
+extern const IOxfEvent::ID startAnalysis_SMSWTD_Architecture_id;
 //#]
 
 #endif

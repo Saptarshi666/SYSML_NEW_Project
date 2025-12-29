@@ -16,6 +16,8 @@
 #include "SMSWTD_Architecture.h"
 //## classInstance itsMetOceanDataProvider
 #include "MetOceanDataProvider.h"
+//## classInstance itsRiskAssessmentSubsystem
+#include "RiskAssessmentSubsystem.h"
 //## classInstance itsSeismicTsunamiNetwork
 #include "SeismicTsunamiNetwork.h"
 //## classInstance itsSensingInterfaceSubsystem
@@ -32,8 +34,6 @@
 #include "OpsSafetySecuritySubsystem.h"
 //## auto_generated
 #include "Public.h"
-//## auto_generated
-#include "RiskAssessmentSubsystem.h"
 //## auto_generated
 #include "SMSWTD_System.h"
 //## auto_generated
@@ -66,6 +66,12 @@
 #define evMetOceanUpdate_UNSERIALIZE \
     OMADD_UNSER(AirData, CurrPlaneData, OMDestructiveString2X)\
     OMADD_UNSER(SatData, CurrSatData, OMDestructiveString2X)
+#define evPushMetOceanRA_SERIALIZE \
+    OMADD_SER(CurrPlaneDataFinal, UNKNOWN2STRING(myEvent->CurrPlaneDataFinal))\
+    OMADD_SER(CurrSatDataFinal, UNKNOWN2STRING(myEvent->CurrSatDataFinal))
+#define evPushMetOceanRA_UNSERIALIZE \
+    OMADD_UNSER(AirData, CurrPlaneDataFinal, OMDestructiveString2X)\
+    OMADD_UNSER(SatData, CurrSatDataFinal, OMDestructiveString2X)
 #define SMSWTD_Architecture_fillHistRamp_SERIALIZE aomsmethod->addAttribute("maxAmplitude", x2String(maxAmplitude));
 
 #define SMSWTD_Architecture_printAirData_SERIALIZE aomsmethod->addAttribute("curr_air", UNKNOWN2STRING(curr_air));
@@ -107,6 +113,26 @@
 #define evSeismicUpdate_CONSTRUCTOR evSeismicUpdate(CurrEQD, CurrEQM, CurrSCM, CurrWPM, STNStatus, CurrHealth)
 
 #define evMetOceanUpdate_CONSTRUCTOR evMetOceanUpdate(CurrPlaneData, CurrSatData)
+
+#define evStartRA_SERIALIZE OM_NO_OP
+
+#define evStartRA_UNSERIALIZE OM_NO_OP
+
+#define evStartRA_CONSTRUCTOR evStartRA()
+
+#define evPushSeismicRA_SERIALIZE OMADD_SER(Curr_STN, UNKNOWN2STRING(myEvent->Curr_STN))
+
+#define evPushSeismicRA_UNSERIALIZE OMADD_UNSER(STNData, Curr_STN, OMDestructiveString2X)
+
+#define evPushSeismicRA_CONSTRUCTOR evPushSeismicRA(Curr_STN)
+
+#define evPushMetOceanRA_CONSTRUCTOR evPushMetOceanRA(CurrPlaneDataFinal, CurrSatDataFinal)
+
+#define startAnalysis_SERIALIZE OM_NO_OP
+
+#define startAnalysis_UNSERIALIZE OM_NO_OP
+
+#define startAnalysis_CONSTRUCTOR startAnalysis()
 //#]
 
 //## package SMSWTD_Architecture
@@ -114,6 +140,9 @@
 
 //## classInstance itsMetOceanDataProvider
 MetOceanDataProvider itsMetOceanDataProvider;
+
+//## classInstance itsRiskAssessmentSubsystem
+RiskAssessmentSubsystem itsRiskAssessmentSubsystem;
 
 //## classInstance itsSeismicTsunamiNetwork
 SeismicTsunamiNetwork itsSeismicTsunamiNetwork;
@@ -287,6 +316,9 @@ void SMSWTD_Architecture_initRelations(void) {
         {
             itsMetOceanDataProvider.setShouldDelete(false);
         }
+        {
+            itsRiskAssessmentSubsystem.setShouldDelete(false);
+        }
     }
     {
         
@@ -306,6 +338,15 @@ void SMSWTD_Architecture_initRelations(void) {
         itsSensingInterfaceSubsystem.get_in()->addItsDefaultRequiredInterface(itsMetOceanDataProvider.get_out()->getItsDefaultProvidedInterface());
         
     }
+    {
+        
+        itsSensingInterfaceSubsystem.get_out()->setItsDefaultRequiredInterface(itsRiskAssessmentSubsystem.get_in()->getItsDefaultProvidedInterface());
+        
+    }{
+        
+        itsRiskAssessmentSubsystem.get_in()->setItsDefaultRequiredInterface(itsSensingInterfaceSubsystem.get_out()->getItsDefaultProvidedInterface());
+        
+    }
     
     #ifdef _OMINSTRUMENT
     RenameGlobalInstances();
@@ -317,6 +358,10 @@ bool SMSWTD_Architecture_startBehavior(void) {
     if(done == true)
         {
             done = itsMetOceanDataProvider.startBehavior();
+        }
+    if(done == true)
+        {
+            done = itsRiskAssessmentSubsystem.startBehavior();
         }
     if(done == true)
         {
@@ -337,6 +382,7 @@ static void RenameGlobalInstances(void) {
     OM_SET_INSTANCE_NAME(&itsSeismicTsunamiNetwork, SeismicTsunamiNetwork, "itsSeismicTsunamiNetwork", AOMNoMultiplicity);
     OM_SET_INSTANCE_NAME(&itsSensingInterfaceSubsystem, SensingInterfaceSubsystem, "itsSensingInterfaceSubsystem", AOMNoMultiplicity);
     OM_SET_INSTANCE_NAME(&itsMetOceanDataProvider, MetOceanDataProvider, "itsMetOceanDataProvider", AOMNoMultiplicity);
+    OM_SET_INSTANCE_NAME(&itsRiskAssessmentSubsystem, RiskAssessmentSubsystem, "itsRiskAssessmentSubsystem", AOMNoMultiplicity);
 }
 #endif // _OMINSTRUMENT
 
@@ -495,6 +541,88 @@ const IOxfEvent::ID evMetOceanUpdate_SMSWTD_Architecture_id(3406);
 //#]
 
 IMPLEMENT_META_EVENT_NO_UNSERIALIZE_P(evMetOceanUpdate, SMSWTD_Architecture, SMSWTD_Architecture, evMetOceanUpdate(AirData,SatData))
+
+//## event evStartRA()
+evStartRA::evStartRA(void) : OMEvent() {
+    NOTIFY_EVENT_CONSTRUCTOR(evStartRA)
+    setId(evStartRA_SMSWTD_Architecture_id);
+}
+
+//#[ ignore
+const IOxfEvent::ID evStartRA_SMSWTD_Architecture_id(3407);
+//#]
+
+IMPLEMENT_META_EVENT_P(evStartRA, SMSWTD_Architecture, SMSWTD_Architecture, evStartRA())
+
+//## event evPushSeismicRA(STNData)
+evPushSeismicRA::evPushSeismicRA(void) {
+    NOTIFY_EVENT_CONSTRUCTOR(evPushSeismicRA)
+    setId(evPushSeismicRA_SMSWTD_Architecture_id);
+}
+
+evPushSeismicRA::evPushSeismicRA(const STNData p_Curr_STN) : OMEvent() ,Curr_STN(p_Curr_STN) {
+    NOTIFY_EVENT_CONSTRUCTOR(evPushSeismicRA)
+    setId(evPushSeismicRA_SMSWTD_Architecture_id);
+}
+
+STNData evPushSeismicRA::getCurr_STN(void) const {
+    return Curr_STN;
+}
+
+void evPushSeismicRA::setCurr_STN(const STNData p_Curr_STN) {
+    Curr_STN = p_Curr_STN;
+}
+
+//#[ ignore
+const IOxfEvent::ID evPushSeismicRA_SMSWTD_Architecture_id(3408);
+//#]
+
+IMPLEMENT_META_EVENT_NO_UNSERIALIZE_P(evPushSeismicRA, SMSWTD_Architecture, SMSWTD_Architecture, evPushSeismicRA(STNData))
+
+//## event evPushMetOceanRA(AirData,SatData)
+evPushMetOceanRA::evPushMetOceanRA(void) {
+    NOTIFY_EVENT_CONSTRUCTOR(evPushMetOceanRA)
+    setId(evPushMetOceanRA_SMSWTD_Architecture_id);
+}
+
+evPushMetOceanRA::evPushMetOceanRA(const AirData p_CurrPlaneDataFinal, const SatData p_CurrSatDataFinal) : OMEvent() ,CurrPlaneDataFinal(p_CurrPlaneDataFinal),CurrSatDataFinal(p_CurrSatDataFinal) {
+    NOTIFY_EVENT_CONSTRUCTOR(evPushMetOceanRA)
+    setId(evPushMetOceanRA_SMSWTD_Architecture_id);
+}
+
+AirData evPushMetOceanRA::getCurrPlaneDataFinal(void) const {
+    return CurrPlaneDataFinal;
+}
+
+void evPushMetOceanRA::setCurrPlaneDataFinal(const AirData p_CurrPlaneDataFinal) {
+    CurrPlaneDataFinal = p_CurrPlaneDataFinal;
+}
+
+SatData evPushMetOceanRA::getCurrSatDataFinal(void) const {
+    return CurrSatDataFinal;
+}
+
+void evPushMetOceanRA::setCurrSatDataFinal(const SatData p_CurrSatDataFinal) {
+    CurrSatDataFinal = p_CurrSatDataFinal;
+}
+
+//#[ ignore
+const IOxfEvent::ID evPushMetOceanRA_SMSWTD_Architecture_id(3409);
+//#]
+
+IMPLEMENT_META_EVENT_NO_UNSERIALIZE_P(evPushMetOceanRA, SMSWTD_Architecture, SMSWTD_Architecture, evPushMetOceanRA(AirData,SatData))
+
+//## event startAnalysis()
+startAnalysis::startAnalysis(void) : OMEvent() {
+    NOTIFY_EVENT_CONSTRUCTOR(startAnalysis)
+    setId(startAnalysis_SMSWTD_Architecture_id);
+}
+
+//#[ ignore
+const IOxfEvent::ID startAnalysis_SMSWTD_Architecture_id(3410);
+//#]
+
+IMPLEMENT_META_EVENT_P(startAnalysis, SMSWTD_Architecture, SMSWTD_Architecture, startAnalysis())
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.cpp
