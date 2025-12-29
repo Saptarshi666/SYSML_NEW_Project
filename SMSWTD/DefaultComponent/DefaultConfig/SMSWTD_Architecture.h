@@ -1,10 +1,10 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
-//!	Generated Date	: Sun, 28, Dec 2025  
+//!	Generated Date	: Mon, 29, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.h
 *********************************************************************/
 
@@ -93,6 +93,7 @@ struct AirData {
     double MesC;		//## attribute MesC
     double LocX;		//## attribute LocX
     double LocY;		//## attribute LocY
+    bool FinalC;		//## attribute FinalC
 };
 
 //## type SatData
@@ -101,6 +102,7 @@ struct SatData {
     double StSize;		//## attribute StSize
     double StLocX;		//## attribute StLocX
     double StLocY;		//## attribute StLocY
+    bool FinalC;		//## attribute FinalC
 };
 
 // Stores final data selected from currData of STN with Data Confidence (DataC) in boolean.
@@ -366,6 +368,59 @@ class OMAnimatedevSeismicUpdate : virtual public AOMEvent {
 
 //#[ ignore
 extern const IOxfEvent::ID evSeismicUpdate_SMSWTD_Architecture_id;
+//#]
+
+//## event evMetOceanUpdate(AirData,SatData)
+class evMetOceanUpdate : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedevMetOceanUpdate;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    evMetOceanUpdate(void);
+    
+    //## auto_generated
+    evMetOceanUpdate(const AirData p_CurrPlaneData, const SatData p_CurrSatData);
+    
+    ////    Additional operations    ////
+    
+    //## auto_generated
+    AirData getCurrPlaneData(void) const;
+    
+    //## auto_generated
+    void setCurrPlaneData(const AirData p_CurrPlaneData);
+    
+    //## auto_generated
+    SatData getCurrSatData(void) const;
+    
+    //## auto_generated
+    void setCurrSatData(const SatData p_CurrSatData);
+    
+    ////    Framework    ////
+
+private :
+
+    AirData CurrPlaneData;		//## auto_generated
+    
+    SatData CurrSatData;		//## auto_generated
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedevMetOceanUpdate : virtual public AOMEvent {
+    DECLARE_META_EVENT(evMetOceanUpdate)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//#[ ignore
+extern const IOxfEvent::ID evMetOceanUpdate_SMSWTD_Architecture_id;
 //#]
 
 #endif

@@ -1,10 +1,10 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SensingInterfaceSubsystem
-//!	Generated Date	: Sun, 28, Dec 2025  
+//!	Generated Date	: Mon, 29, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SensingInterfaceSubsystem.h
 *********************************************************************/
 
@@ -38,16 +38,16 @@ public :
 
 //#[ ignore
     //## package SMSWTD_Architecture
-    class port_2_C : public OMDefaultMulticastReactivePort {
+    class in_C : public OMDefaultMulticastReactivePort {
         ////    Constructors and destructors    ////
         
     public :
     
         //## auto_generated
-        port_2_C(void);
+        in_C(void);
         
         //## auto_generated
-        virtual ~port_2_C(void);
+        virtual ~in_C(void);
         
         ////    Operations    ////
         
@@ -79,10 +79,10 @@ public :
     ////    Additional operations    ////
     
     //## auto_generated
-    port_2_C* getPort_2(void) const;
+    in_C* getIn(void) const;
     
     //## auto_generated
-    port_2_C* get_port_2(void) const;
+    in_C* get_in(void) const;
     
     //## auto_generated
     const FloatArray getCurrEQD(void) const;
@@ -103,10 +103,34 @@ public :
     void setCurrHealth(const FloatArray p_CurrHealth);
     
     //## auto_generated
+    const AirData getCurrPlaneData(void) const;
+    
+    //## auto_generated
+    void setCurrPlaneData(const AirData p_CurrPlaneData);
+    
+    //## auto_generated
+    const AirData getCurrPlaneDataFinal(void) const;
+    
+    //## auto_generated
+    void setCurrPlaneDataFinal(const AirData p_CurrPlaneDataFinal);
+    
+    //## auto_generated
     const FloatArray getCurrSCM(void) const;
     
     //## auto_generated
     void setCurrSCM(const FloatArray p_CurrSCM);
+    
+    //## auto_generated
+    const SatData getCurrSatData(void) const;
+    
+    //## auto_generated
+    void setCurrSatData(const SatData p_CurrSatData);
+    
+    //## auto_generated
+    const SatData getCurrSatDataFinal(void) const;
+    
+    //## auto_generated
+    void setCurrSatDataFinal(const SatData p_CurrSatDataFinal);
     
     //## auto_generated
     const FloatArray getCurrWPM(void) const;
@@ -121,6 +145,18 @@ public :
     void setCurr_STN(const STNData p_Curr_STN);
     
     //## auto_generated
+    const AirData getPrevPlaneData(void) const;
+    
+    //## auto_generated
+    void setPrevPlaneData(const AirData p_PrevPlaneData);
+    
+    //## auto_generated
+    const SatData getPrevSatData(void) const;
+    
+    //## auto_generated
+    void setPrevSatData(const SatData p_PrevSatData);
+    
+    //## auto_generated
     const STNData getPrev_STN_Final(void) const;
     
     //## auto_generated
@@ -131,6 +167,18 @@ public :
     
     //## auto_generated
     void setSTNStatus(const int p_STNStatus);
+    
+    //## auto_generated
+    const bool getObtainedMetOcean(void) const;
+    
+    //## auto_generated
+    void setObtainedMetOcean(const bool p_obtainedMetOcean);
+    
+    //## auto_generated
+    const bool getObtainedSeismic(void) const;
+    
+    //## auto_generated
+    void setObtainedSeismic(const bool p_obtainedSeismic);
     
     //## auto_generated
     const DataIngestionSubsystem* getItsDataIngestionSubsystem(void) const;
@@ -168,20 +216,36 @@ private :
     
     FloatArray CurrHealth;		//## attribute CurrHealth
     
+    AirData CurrPlaneData;		//## attribute CurrPlaneData
+    
+    AirData CurrPlaneDataFinal;		//## attribute CurrPlaneDataFinal
+    
     FloatArray CurrSCM;		//## attribute CurrSCM
+    
+    SatData CurrSatData;		//## attribute CurrSatData
+    
+    SatData CurrSatDataFinal;		//## attribute CurrSatDataFinal
     
     FloatArray CurrWPM;		//## attribute CurrWPM
     
     STNData Curr_STN;		//## attribute Curr_STN
     
+    AirData PrevPlaneData;		//## attribute PrevPlaneData
+    
+    SatData PrevSatData;		//## attribute PrevSatData
+    
     STNData Prev_STN_Final;		//## attribute Prev_STN_Final
     
     int STNStatus;		//## attribute STNStatus
     
+    bool obtainedMetOcean;		//## attribute obtainedMetOcean
+    
+    bool obtainedSeismic;		//## attribute obtainedSeismic
+    
     ////    Relations and components    ////
     
 //#[ ignore
-    port_2_C port_2;
+    in_C in;
 //#]
 
     DataIngestionSubsystem* itsDataIngestionSubsystem;		//## link itsDataIngestionSubsystem
@@ -210,6 +274,9 @@ public :
     // CollectData:
     //## statechart_method
     inline RhpBoolean CollectData_IN(void) const;
+    
+    //## statechart_method
+    IOxfReactive::TakeEventStatus CollectData_handleEvent(void);
     
     // CheckDataStatus:
     //## statechart_method

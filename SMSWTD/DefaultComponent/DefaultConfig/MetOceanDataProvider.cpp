@@ -1,10 +1,10 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MetOceanDataProvider
-//!	Generated Date	: Sun, 28, Dec 2025  
+//!	Generated Date	: Mon, 29, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\MetOceanDataProvider.cpp
 *********************************************************************/
 
@@ -593,6 +593,7 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
                             break;
                     }
                     PrevMetO++;
+                    OUT_PORT(out)->GEN(evMetOceanUpdate(CurrPlaneData, CurrSatData));
                     //#]
                     rootState_timeout = scheduleTimeout(3000, "ROOT.SendData");
                     NOTIFY_TRANSITION_TERMINATED("2");
@@ -740,6 +741,7 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
                                     break;
                             }
                             PrevMetO++;
+                            OUT_PORT(out)->GEN(evMetOceanUpdate(CurrPlaneData, CurrSatData));
                             //#]
                             rootState_timeout = scheduleTimeout(3000, "ROOT.SendData");
                             NOTIFY_TRANSITION_TERMINATED("1");

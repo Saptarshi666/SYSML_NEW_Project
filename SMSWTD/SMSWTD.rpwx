@@ -26,108 +26,10 @@
 								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
 								<m_ptMaxPositionX type="a">-9</m_ptMaxPositionX>
 								<m_ptMaxPositionY type="a">-38</m_ptMaxPositionY>
-								<m_nLeft type="a">0</m_nLeft>
-								<m_nTop type="a">0</m_nTop>
-								<m_nRight type="a">1101</m_nRight>
-								<m_nBottom type="a">389</m_nBottom>
-							</CCommon_WINDOWPLACEMENT>
-						</_placement>
-						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
-						<_theDiagram type="r">
-							<IHandle type="e">
-								<_hm2Class type="a">IStructureDiagram</_hm2Class>
-								<_hfilename type="a">.\SMSWTD_rpy\Context.sbsx</_hfilename>
-								<_hsubsystem type="a">Context</_hsubsystem>
-								<_hclass type="a">SMSWTD_Context</_hclass>
-								<_hname type="a">ibd Present _Context</_hname>
-								<_hid type="a">GUID 6f7f57cb-993f-4a41-b589-06c165f199ec</_hid>
-							</IHandle>
-						</_theDiagram>
-						<_UpLeft type="a">0 0 </_UpLeft>
-						<_DownRight type="a">1532 465 </_DownRight>
-						<m_nDiagramIndex type="a">11</m_nDiagramIndex>
-						<m_bIsActiveView type="a">0</m_bIsActiveView>
-					</CGEMdiDiagramParams>
-					
-					<CGEMdiDiagramParams type="e">
-						<_placement type="p">
-							<CCommon_WINDOWPLACEMENT type="e">
-								<m_nLength type="a">44</m_nLength>
-								<m_nFlags type="a">0</m_nFlags>
-								<m_showCmd type="a">1</m_showCmd>
-								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
-								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
-								<m_ptMaxPositionX type="a">-9</m_ptMaxPositionX>
-								<m_ptMaxPositionY type="a">-38</m_ptMaxPositionY>
 								<m_nLeft type="a">96</m_nLeft>
 								<m_nTop type="a">96</m_nTop>
-								<m_nRight type="a">1248</m_nRight>
-								<m_nBottom type="a">668</m_nBottom>
-							</CCommon_WINDOWPLACEMENT>
-						</_placement>
-						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
-						<_theDiagram type="r">
-							<IHandle type="e">
-								<_hm2Class type="a">IStructureDiagram</_hm2Class>
-								<_hfilename type="a">.\SMSWTD_rpy\Context.sbsx</_hfilename>
-								<_hsubsystem type="a">Context</_hsubsystem>
-								<_hclass type="a">SMSWTD_Context</_hclass>
-								<_hname type="a">present context ibd</_hname>
-								<_hid type="a">GUID 179e06e6-ec0f-4696-b913-8d80c01ec49b</_hid>
-							</IHandle>
-						</_theDiagram>
-						<_UpLeft type="a">0 0 </_UpLeft>
-						<_DownRight type="a">1109 504 </_DownRight>
-						<m_nDiagramIndex type="a">10</m_nDiagramIndex>
-						<m_bIsActiveView type="a">0</m_bIsActiveView>
-					</CGEMdiDiagramParams>
-					
-					<CGEMdiDiagramParams type="e">
-						<_placement type="p">
-							<CCommon_WINDOWPLACEMENT type="e">
-								<m_nLength type="a">44</m_nLength>
-								<m_nFlags type="a">0</m_nFlags>
-								<m_showCmd type="a">1</m_showCmd>
-								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
-								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
-								<m_ptMaxPositionX type="a">-9</m_ptMaxPositionX>
-								<m_ptMaxPositionY type="a">-38</m_ptMaxPositionY>
-								<m_nLeft type="a">64</m_nLeft>
-								<m_nTop type="a">64</m_nTop>
-								<m_nRight type="a">1319</m_nRight>
-								<m_nBottom type="a">453</m_nBottom>
-							</CCommon_WINDOWPLACEMENT>
-						</_placement>
-						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
-						<_theDiagram type="r">
-							<IHandle type="e">
-								<_hm2Class type="a">IDiagram</_hm2Class>
-								<_hfilename type="a">.\SMSWTD_rpy\Context.sbsx</_hfilename>
-								<_hsubsystem type="a">Context</_hsubsystem>
-								<_hname type="a">System_Context</_hname>
-								<_hid type="a">GUID cc956a1c-f7d5-4400-9247-b3b01a382f58</_hid>
-							</IHandle>
-						</_theDiagram>
-						<_UpLeft type="a">0 0 </_UpLeft>
-						<_DownRight type="a">1554 412 </_DownRight>
-						<m_nDiagramIndex type="a">12</m_nDiagramIndex>
-						<m_bIsActiveView type="a">0</m_bIsActiveView>
-					</CGEMdiDiagramParams>
-					
-					<CGEMdiDiagramParams type="e">
-						<_placement type="p">
-							<CCommon_WINDOWPLACEMENT type="e">
-								<m_nLength type="a">44</m_nLength>
-								<m_nFlags type="a">2</m_nFlags>
-								<m_showCmd type="a">3</m_showCmd>
-								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
-								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
-								<m_ptMaxPositionX type="a">-9</m_ptMaxPositionX>
-								<m_ptMaxPositionY type="a">-35</m_ptMaxPositionY>
-								<m_nLeft type="a">128</m_nLeft>
-								<m_nTop type="a">128</m_nTop>
-								<m_nRight type="a">1408</m_nRight>
-								<m_nBottom type="a">474</m_nBottom>
+								<m_nRight type="a">1376</m_nRight>
+								<m_nBottom type="a">442</m_nBottom>
 							</CCommon_WINDOWPLACEMENT>
 						</_placement>
 						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
@@ -142,41 +44,9 @@
 							</IHandle>
 						</_theDiagram>
 						<_UpLeft type="a">0 0 </_UpLeft>
-						<_DownRight type="a">1218 526 </_DownRight>
-						<m_nDiagramIndex type="a">2</m_nDiagramIndex>
-						<m_bIsActiveView type="a">1</m_bIsActiveView>
-					</CGEMdiDiagramParams>
-					
-					<CGEMdiDiagramParams type="e">
-						<_placement type="p">
-							<CCommon_WINDOWPLACEMENT type="e">
-								<m_nLength type="a">44</m_nLength>
-								<m_nFlags type="a">0</m_nFlags>
-								<m_showCmd type="a">1</m_showCmd>
-								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
-								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
-								<m_ptMaxPositionX type="a">-9</m_ptMaxPositionX>
-								<m_ptMaxPositionY type="a">-38</m_ptMaxPositionY>
-								<m_nLeft type="a">128</m_nLeft>
-								<m_nTop type="a">128</m_nTop>
-								<m_nRight type="a">1280</m_nRight>
-								<m_nBottom type="a">700</m_nBottom>
-							</CCommon_WINDOWPLACEMENT>
-						</_placement>
-						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
-						<_theDiagram type="r">
-							<IHandle type="e">
-								<_hm2Class type="a">IStateChartDiagram</_hm2Class>
-								<_hfilename type="a">.\SMSWTD_rpy\SMSWTD_Architecture.sbsx</_hfilename>
-								<_hsubsystem type="a">SMSWTD_Architecture</_hsubsystem>
-								<_hclass type="a">SeismicTsunamiNetwork</_hclass>
-								<_hname type="a">StatechartDiagram</_hname>
-								<_hid type="a">GUID 62995a96-7bdb-4d71-9507-3c62f5f60e37</_hid>
-							</IHandle>
-						</_theDiagram>
-						<_UpLeft type="a">0 0 </_UpLeft>
-						<_DownRight type="a">1109 504 </_DownRight>
-						<m_nDiagramIndex type="a">3</m_nDiagramIndex>
+						<_DownRight type="a">1237 274 </_DownRight>
+						<_instanceName type="a">itsMetOceanDataProvider</_instanceName>
+						<m_nDiagramIndex type="a">1</m_nDiagramIndex>
 						<m_bIsActiveView type="a">0</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
@@ -208,9 +78,9 @@
 							</IHandle>
 						</_theDiagram>
 						<_UpLeft type="a">0 0 </_UpLeft>
-						<_DownRight type="a">1237 278 </_DownRight>
+						<_DownRight type="a">1254 278 </_DownRight>
 						<_instanceName type="a">itsSeismicTsunamiNetwork</_instanceName>
-						<m_nDiagramIndex type="a">5</m_nDiagramIndex>
+						<m_nDiagramIndex type="a">4</m_nDiagramIndex>
 						<m_bIsActiveView type="a">0</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
@@ -242,8 +112,8 @@
 							</IHandle>
 						</_theDiagram>
 						<_UpLeft type="a">0 0 </_UpLeft>
-						<_DownRight type="a">1351 614 </_DownRight>
-						<m_nDiagramIndex type="a">6</m_nDiagramIndex>
+						<_DownRight type="a">1369 617 </_DownRight>
+						<m_nDiagramIndex type="a">0</m_nDiagramIndex>
 						<m_bIsActiveView type="a">0</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
@@ -274,10 +144,10 @@
 								<_hid type="a">GUID 31087404-9c0b-431e-9e93-e82ef35a9f2a</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">0 0 </_UpLeft>
-						<_DownRight type="a">1237 278 </_DownRight>
+						<_UpLeft type="a">170 109 </_UpLeft>
+						<_DownRight type="a">1424 387 </_DownRight>
 						<_instanceName type="a">itsSensingInterfaceSubsystem</_instanceName>
-						<m_nDiagramIndex type="a">4</m_nDiagramIndex>
+						<m_nDiagramIndex type="a">3</m_nDiagramIndex>
 						<m_bIsActiveView type="a">0</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
@@ -285,12 +155,12 @@
 						<_placement type="p">
 							<CCommon_WINDOWPLACEMENT type="e">
 								<m_nLength type="a">44</m_nLength>
-								<m_nFlags type="a">0</m_nFlags>
-								<m_showCmd type="a">1</m_showCmd>
+								<m_nFlags type="a">2</m_nFlags>
+								<m_showCmd type="a">3</m_showCmd>
 								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
 								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
 								<m_ptMaxPositionX type="a">-9</m_ptMaxPositionX>
-								<m_ptMaxPositionY type="a">-35</m_ptMaxPositionY>
+								<m_ptMaxPositionY type="a">-38</m_ptMaxPositionY>
 								<m_nLeft type="a">96</m_nLeft>
 								<m_nTop type="a">96</m_nTop>
 								<m_nRight type="a">1248</m_nRight>
@@ -307,111 +177,15 @@
 								<_hid type="a">GUID e68b409f-9d1c-4c52-ad84-8761fd57610c</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">0 257 </_UpLeft>
-						<_DownRight type="a">2128 1224 </_DownRight>
-						<m_nDiagramIndex type="a">1</m_nDiagramIndex>
-						<m_bIsActiveView type="a">0</m_bIsActiveView>
-					</CGEMdiDiagramParams>
-					
-					<CGEMdiDiagramParams type="e">
-						<_placement type="p">
-							<CCommon_WINDOWPLACEMENT type="e">
-								<m_nLength type="a">44</m_nLength>
-								<m_nFlags type="a">0</m_nFlags>
-								<m_showCmd type="a">1</m_showCmd>
-								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
-								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
-								<m_ptMaxPositionX type="a">-9</m_ptMaxPositionX>
-								<m_ptMaxPositionY type="a">-38</m_ptMaxPositionY>
-								<m_nLeft type="a">128</m_nLeft>
-								<m_nTop type="a">128</m_nTop>
-								<m_nRight type="a">1280</m_nRight>
-								<m_nBottom type="a">700</m_nBottom>
-							</CCommon_WINDOWPLACEMENT>
-						</_placement>
-						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
-						<_theDiagram type="r">
-							<IHandle type="e">
-								<_hm2Class type="a">IDiagram</_hm2Class>
-								<_hfilename type="a">.\SMSWTD_rpy\SMSWTD_Requirements.sbsx</_hfilename>
-								<_hsubsystem type="a">SMSWTD_Requirements</_hsubsystem>
-								<_hname type="a">SMSWTD_Requirements_Top</_hname>
-								<_hid type="a">GUID 6a8bfac1-a886-4459-8a84-1ec1116f417d</_hid>
-							</IHandle>
-						</_theDiagram>
-						<_UpLeft type="a">0 0 </_UpLeft>
-						<_DownRight type="a">1109 504 </_DownRight>
-						<m_nDiagramIndex type="a">7</m_nDiagramIndex>
-						<m_bIsActiveView type="a">0</m_bIsActiveView>
-					</CGEMdiDiagramParams>
-					
-					<CGEMdiDiagramParams type="e">
-						<_placement type="p">
-							<CCommon_WINDOWPLACEMENT type="e">
-								<m_nLength type="a">44</m_nLength>
-								<m_nFlags type="a">0</m_nFlags>
-								<m_showCmd type="a">1</m_showCmd>
-								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
-								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
-								<m_ptMaxPositionX type="a">-9</m_ptMaxPositionX>
-								<m_ptMaxPositionY type="a">-38</m_ptMaxPositionY>
-								<m_nLeft type="a">64</m_nLeft>
-								<m_nTop type="a">64</m_nTop>
-								<m_nRight type="a">1181</m_nRight>
-								<m_nBottom type="a">563</m_nBottom>
-							</CCommon_WINDOWPLACEMENT>
-						</_placement>
-						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
-						<_theDiagram type="r">
-							<IHandle type="e">
-								<_hm2Class type="a">IUCDiagram</_hm2Class>
-								<_hfilename type="a">.\SMSWTD_rpy\UseCases.sbsx</_hfilename>
-								<_hsubsystem type="a">UseCases</_hsubsystem>
-								<_hname type="a">UCD_DataFlow</_hname>
-								<_hid type="a">GUID bbaf9b9f-8f77-490c-a674-9328965135e0</_hid>
-							</IHandle>
-						</_theDiagram>
-						<_UpLeft type="a">0 -4 </_UpLeft>
-						<_DownRight type="a">1084 431 </_DownRight>
-						<m_nDiagramIndex type="a">9</m_nDiagramIndex>
-						<m_bIsActiveView type="a">0</m_bIsActiveView>
-					</CGEMdiDiagramParams>
-					
-					<CGEMdiDiagramParams type="e">
-						<_placement type="p">
-							<CCommon_WINDOWPLACEMENT type="e">
-								<m_nLength type="a">44</m_nLength>
-								<m_nFlags type="a">0</m_nFlags>
-								<m_showCmd type="a">1</m_showCmd>
-								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
-								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
-								<m_ptMaxPositionX type="a">-9</m_ptMaxPositionX>
-								<m_ptMaxPositionY type="a">-38</m_ptMaxPositionY>
-								<m_nLeft type="a">128</m_nLeft>
-								<m_nTop type="a">128</m_nTop>
-								<m_nRight type="a">1245</m_nRight>
-								<m_nBottom type="a">627</m_nBottom>
-							</CCommon_WINDOWPLACEMENT>
-						</_placement>
-						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
-						<_theDiagram type="r">
-							<IHandle type="e">
-								<_hm2Class type="a">IUCDiagram</_hm2Class>
-								<_hfilename type="a">.\SMSWTD_rpy\UseCases.sbsx</_hfilename>
-								<_hsubsystem type="a">UseCases</_hsubsystem>
-								<_hname type="a">UCD_Primary</_hname>
-								<_hid type="a">GUID 6940c490-d50c-4b5d-af04-a75584ead759</_hid>
-							</IHandle>
-						</_theDiagram>
-						<_UpLeft type="a">0 0 </_UpLeft>
-						<_DownRight type="a">1206 484 </_DownRight>
-						<m_nDiagramIndex type="a">8</m_nDiagramIndex>
-						<m_bIsActiveView type="a">0</m_bIsActiveView>
+						<_UpLeft type="a">0 439 </_UpLeft>
+						<_DownRight type="a">1440 1275 </_DownRight>
+						<m_nDiagramIndex type="a">2</m_nDiagramIndex>
+						<m_bIsActiveView type="a">1</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
 				</IRPYRawContainer>
 			</myViewsWithID>
-			<_fullName type="a">C:\Users\20190977\Documents\SysML-Course\Github Project\SYSML_NEW_Project\SMSWTD\SMSWTD</_fullName>
+			<_fullName type="a">C:\Users\20255590\Documents\EngD_rhapsody_folder\SMSWTD\SMSWTD</_fullName>
 			<m_SearchScopeList type="c">
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
@@ -437,7 +211,7 @@
 				<name type="a">StatechartDiagram</name>
 				<idOrFolder type="a">#startHnd# INObjectHandle 
 	- _m2Class = &quot;IStateChartDiagram&quot;#hndSem#
-	- _filename = &quot;C:\\Users\\20190977\\Documents\\SysML-Course\\Github Project\\SYSML_NEW_Project\\SMSWTD\\SMSWTD_rpy\\SMSWTD_Architecture.sbsx&quot;#hndSem#
+	- _filename = &quot;C:\\Users\\20255590\\Documents\\EngD_rhapsody_folder\\SMSWTD\\SMSWTD_rpy\\SMSWTD_Architecture.sbsx&quot;#hndSem#
 	- _subsystem = &quot;SMSWTD_Architecture&quot;#hndSem#
 	- _class = &quot;SeismicTsunamiNetwork&quot;#hndSem#
 	- _name = &quot;StatechartDiagram&quot;#hndSem#

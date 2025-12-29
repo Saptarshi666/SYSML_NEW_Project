@@ -1,10 +1,10 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SensingInterfaceSubsystem
-//!	Generated Date	: Sun, 28, Dec 2025  
+//!	Generated Date	: Mon, 29, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SensingInterfaceSubsystem.cpp
 *********************************************************************/
 
@@ -26,20 +26,20 @@
 
 //## class SensingInterfaceSubsystem
 //#[ ignore
-SensingInterfaceSubsystem::port_2_C::port_2_C(void) : OMDefaultMulticastReactivePort(), _p_(0) {
+SensingInterfaceSubsystem::in_C::in_C(void) : OMDefaultMulticastReactivePort(), _p_(0) {
 }
 
-SensingInterfaceSubsystem::port_2_C::~port_2_C(void) {
+SensingInterfaceSubsystem::in_C::~in_C(void) {
 }
 
-void SensingInterfaceSubsystem::port_2_C::connectSensingInterfaceSubsystem(SensingInterfaceSubsystem* part) {
+void SensingInterfaceSubsystem::in_C::connectSensingInterfaceSubsystem(SensingInterfaceSubsystem* part) {
     InBound.addItsDefaultProvidedInterface(part);
     InBound.setPort(this); // for IS_PORT macro support
     
 }
 //#]
 
-SensingInterfaceSubsystem::SensingInterfaceSubsystem(IOxfActive* const theActiveContext) : OMReactive(), Prev_STN_Final({-1,-1,-1,-1,false}), itsDataIngestionSubsystem(NULL) {
+SensingInterfaceSubsystem::SensingInterfaceSubsystem(IOxfActive* const theActiveContext) : OMReactive(), PrevPlaneData({-1,-1,-1,-1,-1,-1,-1,false}), PrevSatData({-1,-1,-1,-1,false}), Prev_STN_Final({-1,-1,-1,-1,false}), itsDataIngestionSubsystem(NULL) {
     NOTIFY_REACTIVE_CONSTRUCTOR(SensingInterfaceSubsystem, SensingInterfaceSubsystem(), 0, SMSWTD_Architecture_SensingInterfaceSubsystem_SensingInterfaceSubsystem_SERIALIZE);
     setActiveContext(theActiveContext, false);
     initRelations();
@@ -52,12 +52,12 @@ SensingInterfaceSubsystem::~SensingInterfaceSubsystem(void) {
     cancelTimeouts();
 }
 
-SensingInterfaceSubsystem::port_2_C* SensingInterfaceSubsystem::getPort_2(void) const {
-    return (SensingInterfaceSubsystem::port_2_C*) &port_2;
+SensingInterfaceSubsystem::in_C* SensingInterfaceSubsystem::getIn(void) const {
+    return (SensingInterfaceSubsystem::in_C*) &in;
 }
 
-SensingInterfaceSubsystem::port_2_C* SensingInterfaceSubsystem::get_port_2(void) const {
-    return (SensingInterfaceSubsystem::port_2_C*) &port_2;
+SensingInterfaceSubsystem::in_C* SensingInterfaceSubsystem::get_in(void) const {
+    return (SensingInterfaceSubsystem::in_C*) &in;
 }
 
 const FloatArray SensingInterfaceSubsystem::getCurrEQD(void) const {
@@ -84,12 +84,44 @@ void SensingInterfaceSubsystem::setCurrHealth(const FloatArray p_CurrHealth) {
     CurrHealth = p_CurrHealth;
 }
 
+const AirData SensingInterfaceSubsystem::getCurrPlaneData(void) const {
+    return CurrPlaneData;
+}
+
+void SensingInterfaceSubsystem::setCurrPlaneData(const AirData p_CurrPlaneData) {
+    CurrPlaneData = p_CurrPlaneData;
+}
+
+const AirData SensingInterfaceSubsystem::getCurrPlaneDataFinal(void) const {
+    return CurrPlaneDataFinal;
+}
+
+void SensingInterfaceSubsystem::setCurrPlaneDataFinal(const AirData p_CurrPlaneDataFinal) {
+    CurrPlaneDataFinal = p_CurrPlaneDataFinal;
+}
+
 const FloatArray SensingInterfaceSubsystem::getCurrSCM(void) const {
     return CurrSCM;
 }
 
 void SensingInterfaceSubsystem::setCurrSCM(const FloatArray p_CurrSCM) {
     CurrSCM = p_CurrSCM;
+}
+
+const SatData SensingInterfaceSubsystem::getCurrSatData(void) const {
+    return CurrSatData;
+}
+
+void SensingInterfaceSubsystem::setCurrSatData(const SatData p_CurrSatData) {
+    CurrSatData = p_CurrSatData;
+}
+
+const SatData SensingInterfaceSubsystem::getCurrSatDataFinal(void) const {
+    return CurrSatDataFinal;
+}
+
+void SensingInterfaceSubsystem::setCurrSatDataFinal(const SatData p_CurrSatDataFinal) {
+    CurrSatDataFinal = p_CurrSatDataFinal;
 }
 
 const FloatArray SensingInterfaceSubsystem::getCurrWPM(void) const {
@@ -108,6 +140,22 @@ void SensingInterfaceSubsystem::setCurr_STN(const STNData p_Curr_STN) {
     Curr_STN = p_Curr_STN;
 }
 
+const AirData SensingInterfaceSubsystem::getPrevPlaneData(void) const {
+    return PrevPlaneData;
+}
+
+void SensingInterfaceSubsystem::setPrevPlaneData(const AirData p_PrevPlaneData) {
+    PrevPlaneData = p_PrevPlaneData;
+}
+
+const SatData SensingInterfaceSubsystem::getPrevSatData(void) const {
+    return PrevSatData;
+}
+
+void SensingInterfaceSubsystem::setPrevSatData(const SatData p_PrevSatData) {
+    PrevSatData = p_PrevSatData;
+}
+
 const STNData SensingInterfaceSubsystem::getPrev_STN_Final(void) const {
     return Prev_STN_Final;
 }
@@ -122,6 +170,22 @@ const int SensingInterfaceSubsystem::getSTNStatus(void) const {
 
 void SensingInterfaceSubsystem::setSTNStatus(const int p_STNStatus) {
     STNStatus = p_STNStatus;
+}
+
+const bool SensingInterfaceSubsystem::getObtainedMetOcean(void) const {
+    return obtainedMetOcean;
+}
+
+void SensingInterfaceSubsystem::setObtainedMetOcean(const bool p_obtainedMetOcean) {
+    obtainedMetOcean = p_obtainedMetOcean;
+}
+
+const bool SensingInterfaceSubsystem::getObtainedSeismic(void) const {
+    return obtainedSeismic;
+}
+
+void SensingInterfaceSubsystem::setObtainedSeismic(const bool p_obtainedSeismic) {
+    obtainedSeismic = p_obtainedSeismic;
 }
 
 const DataIngestionSubsystem* SensingInterfaceSubsystem::getItsDataIngestionSubsystem(void) const {
@@ -153,8 +217,8 @@ bool SensingInterfaceSubsystem::startBehavior(void) {
 }
 
 void SensingInterfaceSubsystem::initRelations(void) {
-    if (get_port_2() != NULL) {
-        get_port_2()->connectSensingInterfaceSubsystem(this);
+    if (get_in() != NULL) {
+        get_in()->connectSensingInterfaceSubsystem(this);
     }
 }
 
@@ -208,6 +272,62 @@ void SensingInterfaceSubsystem::_setItsDataIngestionSubsystem(DataIngestionSubsy
 void SensingInterfaceSubsystem::_clearItsDataIngestionSubsystem(void) {
     NOTIFY_RELATION_CLEARED("itsDataIngestionSubsystem");
     itsDataIngestionSubsystem = NULL;
+}
+
+IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::CollectData_handleEvent(void) {
+    IOxfReactive::TakeEventStatus res = eventNotConsumed;
+    if(IS_EVENT_TYPE_OF(evMetOceanUpdate_SMSWTD_Architecture_id) == 1)
+        {
+            OMSETPARAMS(evMetOceanUpdate);
+            NOTIFY_TRANSITION_STARTED("7");
+            //#[ transition 7 
+            CurrPlaneData = params->getCurrPlaneData();
+            CurrSatData = params->getCurrSatData();
+            obtainedMetOcean = true;
+            if(obtainedMetOcean && obtainedSeismic)
+            {
+            GEN(evCheckData());
+            }
+            //#]
+            NOTIFY_TRANSITION_TERMINATED("7");
+            res = eventConsumed;
+        }
+    else {
+        if(IS_EVENT_TYPE_OF(evCheckData_SMSWTD_Architecture_id) == 1)
+            {
+                NOTIFY_TRANSITION_STARTED("2");
+                NOTIFY_STATE_EXITED("ROOT.CollectData");
+                CheckDataStatus_entDef();
+                NOTIFY_TRANSITION_TERMINATED("2");
+                res = eventConsumed;
+            }
+        else {
+            if(IS_EVENT_TYPE_OF(evSeismicUpdate_SMSWTD_Architecture_id) == 1)
+                {
+                    OMSETPARAMS(evSeismicUpdate);
+                    NOTIFY_TRANSITION_STARTED("6");
+                    //#[ transition 6 
+                    CurrEQD = params->getCurrEQD();
+                    CurrEQM = params->getCurrEQM();
+                    CurrSCM = params->getCurrSCM();
+                    CurrWPM = params->getCurrWPM();
+                    STNStatus = params->getSTNStatus();
+                    CurrHealth = params->getCurrHealth();
+                    obtainedSeismic = true;
+                    if (obtainedMetOcean && obtainedSeismic)
+                    {
+                    GEN(evCheckData());
+                    }
+                    //#]
+                    NOTIFY_TRANSITION_TERMINATED("6");
+                    res = eventConsumed;
+                }
+            }
+            
+        }
+        
+    
+    return res;
 }
 
 void SensingInterfaceSubsystem::CheckDataStatus_entDef(void) {
@@ -270,7 +390,8 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::CheckDataStatus_handleE
                     rootState_subState = CollectData;
                     rootState_active = CollectData;
                     //#[ state CollectData.(Entry) 
-                    
+                    obtainedSeismic = false;
+                    obtainedMetOcean = false;
                     
                     //#]
                     NOTIFY_TRANSITION_TERMINATED("5");
@@ -288,7 +409,42 @@ void SensingInterfaceSubsystem::state_5_entDef(void) {
     state_5_subState = checkMetOcean;
     state_5_active = checkMetOcean;
     //#[ state CheckDataStatus.state_5.checkMetOcean.(Entry) 
-    //std::cout<<"Hello i am in status metOcean\n";
+    if(CurrPlaneData.MesC <=0.5)
+    {
+    CurrPlaneDataFinal = PrevPlaneData;
+    }
+    else if (CurrPlaneData.MesC > 0.5 && CurrPlaneData.MesC <= 0.7)
+    {
+    CurrPlaneData.FinalC = false;
+    CurrPlaneDataFinal = CurrPlaneData;
+    PrevPlaneData = CurrPlaneData;
+    }
+    else
+    {
+    CurrPlaneData.FinalC = true;
+    CurrPlaneDataFinal = CurrPlaneData;
+    PrevPlaneData = CurrPlaneData;
+    }
+    if(CurrSatData.TempG <= 0.5)
+    {
+    CurrSatDataFinal = PrevSatData;
+    }
+    else if(CurrSatData.TempG > 0.5 && CurrSatData.TempG <= 0.7)
+    {
+    CurrSatData.FinalC = false;
+    CurrSatDataFinal = CurrSatData;
+    PrevSatData = CurrSatData;
+    }
+    else
+    {
+    CurrSatData.FinalC = true;
+    CurrSatDataFinal = CurrSatData;
+    PrevSatData = CurrSatData;
+    }
+    std::cout<<"The Final Plane data is"<<std::endl;
+    printAirData(CurrPlaneDataFinal);
+    std::cout<<"The final sat data is "<<std::endl;
+    printSatData(CurrSatDataFinal);
     //#]
     NOTIFY_TRANSITION_TERMINATED("4");
 }
@@ -346,12 +502,6 @@ void SensingInterfaceSubsystem::state_4_entDef(void) {
      }
     }
     }
-    std::cout<<"I AM IN STATUSSEISMIC AND HERE IS ALL THE DATA"<<std::endl;
-    std::cout<<Curr_STN.EQM<<" IS EQM"<<std::endl;
-    std::cout<<Curr_STN.EQD<<" IS EQD"<<std::endl;
-    std::cout<<Curr_STN.SCM<<" IS SCM"<<std::endl;
-    std::cout<<Curr_STN.WPM<<" IS WPM"<<std::endl;
-    std::cout<<Curr_STN.DataC<<" IS DataC"<<std::endl;
     //#]
     NOTIFY_TRANSITION_TERMINATED("3");
 }
@@ -370,53 +520,7 @@ void SensingInterfaceSubsystem::state_4_exit(void) {
 IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::state_4_processEvent(void) {
     IOxfReactive::TakeEventStatus res = eventNotConsumed;
     // State StatusSeismic
-    if(state_4_active == StatusSeismic)
-        {
-            if(IS_EVENT_TYPE_OF(evCheckData_SMSWTD_Architecture_id) == 1)
-                {
-                    NOTIFY_TRANSITION_STARTED("7");
-                    //#[ transition 7 
-                    if(STNStatus == 0)
-                    {
-                    for(int i = 5; i >=0; i--)
-                    {
-                     if (CurrHealth.data[i]> 0.85)
-                     {
-                       Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};	
-                       Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};	
-                       break;
-                     }
-                    }
-                    }
-                    else if(STNStatus == -1)
-                    {
-                    Curr_STN = Prev_STN_Final ;
-                    }
-                    else
-                    {
-                    for(int i = 5; i >=0; i--)
-                    {
-                     if (CurrHealth.data[i]> 0.85)
-                     {
-                       Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
-                       Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
-                       break;
-                     }
-                    }
-                    }
-                    std::cout<<"I AM IN STATUSSEISMIC AND HERE IS ALL THE DATA"<<std::endl;
-                    std::cout<<Curr_STN.EQM<<" IS EQM"<<std::endl;
-                    std::cout<<Curr_STN.EQD<<" IS EQD"<<std::endl;
-                    std::cout<<Curr_STN.SCM<<" IS SCM"<<std::endl;
-                    std::cout<<Curr_STN.WPM<<" IS WPM"<<std::endl;
-                    std::cout<<Curr_STN.DataC<<" IS DataC"<<std::endl;
-                    //#]
-                    NOTIFY_TRANSITION_TERMINATED("7");
-                    res = eventConsumed;
-                }
-            
-            
-        }
+    
     return res;
 }
 
@@ -449,7 +553,8 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::rootState_processEvent(
                     rootState_subState = CollectData;
                     rootState_active = CollectData;
                     //#[ state CollectData.(Entry) 
-                    
+                    obtainedSeismic = false;
+                    obtainedMetOcean = false;
                     
                     //#]
                     NOTIFY_TRANSITION_TERMINATED("1");
@@ -461,34 +566,7 @@ IOxfReactive::TakeEventStatus SensingInterfaceSubsystem::rootState_processEvent(
         // State CollectData
         case CollectData:
         {
-            if(IS_EVENT_TYPE_OF(evCheckData_SMSWTD_Architecture_id) == 1)
-                {
-                    NOTIFY_TRANSITION_STARTED("2");
-                    NOTIFY_STATE_EXITED("ROOT.CollectData");
-                    CheckDataStatus_entDef();
-                    NOTIFY_TRANSITION_TERMINATED("2");
-                    res = eventConsumed;
-                }
-            else {
-                if(IS_EVENT_TYPE_OF(evSeismicUpdate_SMSWTD_Architecture_id) == 1)
-                    {
-                        OMSETPARAMS(evSeismicUpdate);
-                        NOTIFY_TRANSITION_STARTED("6");
-                        //#[ transition 6 
-                        CurrEQD = params->getCurrEQD();
-                        CurrEQM = params->getCurrEQM();
-                        CurrSCM = params->getCurrSCM();
-                        CurrWPM = params->getCurrWPM();
-                        STNStatus = params->getSTNStatus();
-                        CurrHealth = params->getCurrHealth();
-                        GEN(evCheckData());
-                        //#]
-                        NOTIFY_TRANSITION_TERMINATED("6");
-                        res = eventConsumed;
-                    }
-                }
-                
-            
+            res = CollectData_handleEvent();
         }
         break;
         // State CheckDataStatus
@@ -514,6 +592,14 @@ void OMAnimatedSensingInterfaceSubsystem::serializeAttributes(AOMSAttributes* ao
     aomsAttributes->addAttribute("CurrHealth", UNKNOWN2STRING(myReal->CurrHealth));
     aomsAttributes->addAttribute("Prev_STN_Final", UNKNOWN2STRING(myReal->Prev_STN_Final));
     aomsAttributes->addAttribute("Curr_STN", UNKNOWN2STRING(myReal->Curr_STN));
+    aomsAttributes->addAttribute("obtainedSeismic", x2String(myReal->obtainedSeismic));
+    aomsAttributes->addAttribute("obtainedMetOcean", x2String(myReal->obtainedMetOcean));
+    aomsAttributes->addAttribute("CurrPlaneData", UNKNOWN2STRING(myReal->CurrPlaneData));
+    aomsAttributes->addAttribute("CurrSatData", UNKNOWN2STRING(myReal->CurrSatData));
+    aomsAttributes->addAttribute("PrevPlaneData", UNKNOWN2STRING(myReal->PrevPlaneData));
+    aomsAttributes->addAttribute("PrevSatData", UNKNOWN2STRING(myReal->PrevSatData));
+    aomsAttributes->addAttribute("CurrPlaneDataFinal", UNKNOWN2STRING(myReal->CurrPlaneDataFinal));
+    aomsAttributes->addAttribute("CurrSatDataFinal", UNKNOWN2STRING(myReal->CurrSatDataFinal));
 }
 
 void OMAnimatedSensingInterfaceSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {

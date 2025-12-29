@@ -1,10 +1,10 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
-//!	Generated Date	: Sun, 28, Dec 2025  
+//!	Generated Date	: Mon, 29, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.cpp
 *********************************************************************/
 
@@ -60,6 +60,12 @@
     OMADD_UNSER(FloatArray, CurrWPM, OMDestructiveString2X)\
     OMADD_UNSER(int, STNStatus, OMDestructiveString2X)\
     OMADD_UNSER(FloatArray, CurrHealth, OMDestructiveString2X)
+#define evMetOceanUpdate_SERIALIZE \
+    OMADD_SER(CurrPlaneData, UNKNOWN2STRING(myEvent->CurrPlaneData))\
+    OMADD_SER(CurrSatData, UNKNOWN2STRING(myEvent->CurrSatData))
+#define evMetOceanUpdate_UNSERIALIZE \
+    OMADD_UNSER(AirData, CurrPlaneData, OMDestructiveString2X)\
+    OMADD_UNSER(SatData, CurrSatData, OMDestructiveString2X)
 #define SMSWTD_Architecture_fillHistRamp_SERIALIZE aomsmethod->addAttribute("maxAmplitude", x2String(maxAmplitude));
 
 #define SMSWTD_Architecture_printAirData_SERIALIZE aomsmethod->addAttribute("curr_air", UNKNOWN2STRING(curr_air));
@@ -99,6 +105,8 @@
 #define evStartDataMet_CONSTRUCTOR evStartDataMet()
 
 #define evSeismicUpdate_CONSTRUCTOR evSeismicUpdate(CurrEQD, CurrEQM, CurrSCM, CurrWPM, STNStatus, CurrHealth)
+
+#define evMetOceanUpdate_CONSTRUCTOR evMetOceanUpdate(CurrPlaneData, CurrSatData)
 //#]
 
 //## package SMSWTD_Architecture
@@ -206,6 +214,7 @@ void printAirData(const AirData& curr_air) {
         std::cout << "  Measurement Certainty (MesC) = " << curr_air.MesC << std::endl;
         std::cout << "  Location X (LocX) = " << curr_air.LocX << std::endl;
         std::cout << "  Location Y (LocY) = " << curr_air.LocY << std::endl;
+        std::cout <<" Final Certainity = "<<curr_air.FinalC <<std::endl;
     //#]
 }
 
@@ -263,6 +272,7 @@ void printSatData(const SatData& curr_sat) {
         std::cout << "  Storm Size (StSize) = " << curr_sat.StSize << std::endl;
         std::cout << "  Storm Location X (StLocX) = " << curr_sat.StLocX << std::endl;
         std::cout << "  Storm Location Y (StLocY) = " << curr_sat.StLocY << std::endl;
+        std::cout <<" Final Certainity = "<<curr_sat.FinalC <<std::endl;
     //#]
 }
 
@@ -280,20 +290,20 @@ void SMSWTD_Architecture_initRelations(void) {
     }
     {
         
-        itsSeismicTsunamiNetwork.get_out()->setItsDefaultRequiredInterface(itsSensingInterfaceSubsystem.get_port_2()->getItsDefaultProvidedInterface());
+        itsSeismicTsunamiNetwork.get_out()->setItsDefaultRequiredInterface(itsSensingInterfaceSubsystem.get_in()->getItsDefaultProvidedInterface());
         
     }{
         
-        itsSensingInterfaceSubsystem.get_port_2()->addItsDefaultRequiredInterface(itsSeismicTsunamiNetwork.get_out()->getItsDefaultProvidedInterface());
+        itsSensingInterfaceSubsystem.get_in()->addItsDefaultRequiredInterface(itsSeismicTsunamiNetwork.get_out()->getItsDefaultProvidedInterface());
         
     }
     {
         
-        itsMetOceanDataProvider.get_out()->setItsDefaultRequiredInterface(itsSensingInterfaceSubsystem.get_port_2()->getItsDefaultProvidedInterface());
+        itsMetOceanDataProvider.get_out()->setItsDefaultRequiredInterface(itsSensingInterfaceSubsystem.get_in()->getItsDefaultProvidedInterface());
         
     }{
         
-        itsSensingInterfaceSubsystem.get_port_2()->addItsDefaultRequiredInterface(itsMetOceanDataProvider.get_out()->getItsDefaultProvidedInterface());
+        itsSensingInterfaceSubsystem.get_in()->addItsDefaultRequiredInterface(itsMetOceanDataProvider.get_out()->getItsDefaultProvidedInterface());
         
     }
     
@@ -452,6 +462,39 @@ const IOxfEvent::ID evSeismicUpdate_SMSWTD_Architecture_id(3405);
 //#]
 
 IMPLEMENT_META_EVENT_NO_UNSERIALIZE_P(evSeismicUpdate, SMSWTD_Architecture, SMSWTD_Architecture, evSeismicUpdate(FloatArray,FloatArray,FloatArray,FloatArray,int,FloatArray))
+
+//## event evMetOceanUpdate(AirData,SatData)
+evMetOceanUpdate::evMetOceanUpdate(void) {
+    NOTIFY_EVENT_CONSTRUCTOR(evMetOceanUpdate)
+    setId(evMetOceanUpdate_SMSWTD_Architecture_id);
+}
+
+evMetOceanUpdate::evMetOceanUpdate(const AirData p_CurrPlaneData, const SatData p_CurrSatData) : OMEvent() ,CurrPlaneData(p_CurrPlaneData),CurrSatData(p_CurrSatData) {
+    NOTIFY_EVENT_CONSTRUCTOR(evMetOceanUpdate)
+    setId(evMetOceanUpdate_SMSWTD_Architecture_id);
+}
+
+AirData evMetOceanUpdate::getCurrPlaneData(void) const {
+    return CurrPlaneData;
+}
+
+void evMetOceanUpdate::setCurrPlaneData(const AirData p_CurrPlaneData) {
+    CurrPlaneData = p_CurrPlaneData;
+}
+
+SatData evMetOceanUpdate::getCurrSatData(void) const {
+    return CurrSatData;
+}
+
+void evMetOceanUpdate::setCurrSatData(const SatData p_CurrSatData) {
+    CurrSatData = p_CurrSatData;
+}
+
+//#[ ignore
+const IOxfEvent::ID evMetOceanUpdate_SMSWTD_Architecture_id(3406);
+//#]
+
+IMPLEMENT_META_EVENT_NO_UNSERIALIZE_P(evMetOceanUpdate, SMSWTD_Architecture, SMSWTD_Architecture, evMetOceanUpdate(AirData,SatData))
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.cpp
