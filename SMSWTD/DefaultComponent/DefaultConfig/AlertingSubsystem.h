@@ -85,6 +85,66 @@ public :
     in_C* get_in(void) const;
     
     //## auto_generated
+    const bool getAlert(void) const;
+    
+    //## auto_generated
+    void setAlert(const bool p_Alert);
+    
+    //## auto_generated
+    const bool getBroadcastMedia(void) const;
+    
+    //## auto_generated
+    void setBroadcastMedia(const bool p_BroadcastMedia);
+    
+    //## auto_generated
+    const bool getEmergencyAuthorityOperator(void) const;
+    
+    //## auto_generated
+    void setEmergencyAuthorityOperator(const bool p_EmergencyAuthorityOperator);
+    
+    //## auto_generated
+    const bool getGovAlertNetwork(void) const;
+    
+    //## auto_generated
+    void setGovAlertNetwork(const bool p_GovAlertNetwork);
+    
+    //## auto_generated
+    const bool getMaintainer(void) const;
+    
+    //## auto_generated
+    void setMaintainer(const bool p_Maintainer);
+    
+    //## auto_generated
+    const bool getMobilePushService(void) const;
+    
+    //## auto_generated
+    void setMobilePushService(const bool p_MobilePushService);
+    
+    //## auto_generated
+    const bool getPrediction(void) const;
+    
+    //## auto_generated
+    void setPrediction(const bool p_Prediction);
+    
+    //## auto_generated
+    const bool getResearcher(void) const;
+    
+    //## auto_generated
+    void setResearcher(const bool p_Researcher);
+    
+    //## auto_generated
+    const bool getSirenPASystem(void) const;
+    
+    //## auto_generated
+    void setSirenPASystem(const bool p_SirenPASystem);
+    
+    //## auto_generated
+    const bool getTelecomSMSNetwork(void) const;
+    
+    //## auto_generated
+    void setTelecomSMSNetwork(const bool p_TelecomSMSNetwork);
+    
+    //## auto_generated
     const RiskAssessmentSubsystem* getItsRiskAssessmentSubsystem(void) const;
     
     //## auto_generated
@@ -110,10 +170,32 @@ protected :
     //## auto_generated
     void cancelTimeouts(void);
     
-    ////    Relations and components    ////
+    ////    Attributes    ////
 
 private :
 
+    bool Alert;		//## attribute Alert
+    
+    bool BroadcastMedia;		//## attribute BroadcastMedia
+    
+    bool EmergencyAuthorityOperator;		//## attribute EmergencyAuthorityOperator
+    
+    bool GovAlertNetwork;		//## attribute GovAlertNetwork
+    
+    bool Maintainer;		//## attribute Maintainer
+    
+    bool MobilePushService;		//## attribute MobilePushService
+    
+    bool Prediction;		//## attribute Prediction
+    
+    bool Researcher;		//## attribute Researcher
+    
+    bool SirenPASystem;		//## attribute SirenPASystem
+    
+    bool TelecomSMSNetwork;		//## attribute TelecomSMSNetwork
+    
+    ////    Relations and components    ////
+    
 //#[ ignore
     in_C in;
 //#]
@@ -188,6 +270,8 @@ class OMAnimatedAlertingSubsystem : virtual public AOMInstance {
     
 public :
 
+    virtual void serializeAttributes(AOMSAttributes* aomsAttributes) const;
+    
     virtual void serializeRelations(AOMSRelations* aomsRelations) const;
     
     //## statechart_method

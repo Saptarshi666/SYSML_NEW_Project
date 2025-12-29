@@ -39,7 +39,7 @@ void AlertingSubsystem::in_C::connectAlertingSubsystem(AlertingSubsystem* part) 
 }
 //#]
 
-AlertingSubsystem::AlertingSubsystem(IOxfActive* const theActiveContext) : OMReactive(), itsRiskAssessmentSubsystem(NULL) {
+AlertingSubsystem::AlertingSubsystem(IOxfActive* const theActiveContext) : OMReactive(), Alert(false), BroadcastMedia(false), EmergencyAuthorityOperator(false), GovAlertNetwork(false), Maintainer(false), MobilePushService(false), Prediction(false), Researcher(false), SirenPASystem(false), TelecomSMSNetwork(false), itsRiskAssessmentSubsystem(NULL) {
     NOTIFY_REACTIVE_CONSTRUCTOR(AlertingSubsystem, AlertingSubsystem(), 0, SMSWTD_Architecture_AlertingSubsystem_AlertingSubsystem_SERIALIZE);
     setActiveContext(theActiveContext, false);
     initRelations();
@@ -58,6 +58,96 @@ AlertingSubsystem::in_C* AlertingSubsystem::getIn(void) const {
 
 AlertingSubsystem::in_C* AlertingSubsystem::get_in(void) const {
     return (AlertingSubsystem::in_C*) &in;
+}
+
+const bool AlertingSubsystem::getAlert(void) const {
+    return Alert;
+}
+
+void AlertingSubsystem::setAlert(const bool p_Alert) {
+    Alert = p_Alert;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getBroadcastMedia(void) const {
+    return BroadcastMedia;
+}
+
+void AlertingSubsystem::setBroadcastMedia(const bool p_BroadcastMedia) {
+    BroadcastMedia = p_BroadcastMedia;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getEmergencyAuthorityOperator(void) const {
+    return EmergencyAuthorityOperator;
+}
+
+void AlertingSubsystem::setEmergencyAuthorityOperator(const bool p_EmergencyAuthorityOperator) {
+    EmergencyAuthorityOperator = p_EmergencyAuthorityOperator;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getGovAlertNetwork(void) const {
+    return GovAlertNetwork;
+}
+
+void AlertingSubsystem::setGovAlertNetwork(const bool p_GovAlertNetwork) {
+    GovAlertNetwork = p_GovAlertNetwork;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getMaintainer(void) const {
+    return Maintainer;
+}
+
+void AlertingSubsystem::setMaintainer(const bool p_Maintainer) {
+    Maintainer = p_Maintainer;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getMobilePushService(void) const {
+    return MobilePushService;
+}
+
+void AlertingSubsystem::setMobilePushService(const bool p_MobilePushService) {
+    MobilePushService = p_MobilePushService;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getPrediction(void) const {
+    return Prediction;
+}
+
+void AlertingSubsystem::setPrediction(const bool p_Prediction) {
+    Prediction = p_Prediction;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getResearcher(void) const {
+    return Researcher;
+}
+
+void AlertingSubsystem::setResearcher(const bool p_Researcher) {
+    Researcher = p_Researcher;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getSirenPASystem(void) const {
+    return SirenPASystem;
+}
+
+void AlertingSubsystem::setSirenPASystem(const bool p_SirenPASystem) {
+    SirenPASystem = p_SirenPASystem;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getTelecomSMSNetwork(void) const {
+    return TelecomSMSNetwork;
+}
+
+void AlertingSubsystem::setTelecomSMSNetwork(const bool p_TelecomSMSNetwork) {
+    TelecomSMSNetwork = p_TelecomSMSNetwork;
+    NOTIFY_SET_OPERATION;
 }
 
 const RiskAssessmentSubsystem* AlertingSubsystem::getItsRiskAssessmentSubsystem(void) const {
@@ -217,6 +307,19 @@ IOxfReactive::TakeEventStatus AlertingSubsystem::rootState_processEvent(void) {
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
+void OMAnimatedAlertingSubsystem::serializeAttributes(AOMSAttributes* aomsAttributes) const {
+    aomsAttributes->addAttribute("SirenPASystem", x2String(myReal->SirenPASystem));
+    aomsAttributes->addAttribute("BroadcastMedia", x2String(myReal->BroadcastMedia));
+    aomsAttributes->addAttribute("MobilePushService", x2String(myReal->MobilePushService));
+    aomsAttributes->addAttribute("GovAlertNetwork", x2String(myReal->GovAlertNetwork));
+    aomsAttributes->addAttribute("TelecomSMSNetwork", x2String(myReal->TelecomSMSNetwork));
+    aomsAttributes->addAttribute("EmergencyAuthorityOperator", x2String(myReal->EmergencyAuthorityOperator));
+    aomsAttributes->addAttribute("Maintainer", x2String(myReal->Maintainer));
+    aomsAttributes->addAttribute("Researcher", x2String(myReal->Researcher));
+    aomsAttributes->addAttribute("Alert", x2String(myReal->Alert));
+    aomsAttributes->addAttribute("Prediction", x2String(myReal->Prediction));
+}
+
 void OMAnimatedAlertingSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {
     aomsRelations->addRelation("itsRiskAssessmentSubsystem", false, true);
     if(myReal->itsRiskAssessmentSubsystem)

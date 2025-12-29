@@ -27,6 +27,18 @@
 #include <event.h>
 //## auto_generated
 #include <OMDefaultReactivePort.h>
+//#[ ignore
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneData_int_ARGS_DECLARATION int p_CasePlaneData;
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneLoc_int_ARGS_DECLARATION int p_CasePlaneLoc;
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneMC_int_ARGS_DECLARATION int p_CasePlaneMC;
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormData_int_ARGS_DECLARATION int p_CaseSatStormData;
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormLoc_int_ARGS_DECLARATION int p_CaseSatStormLoc;
+//#]
+
 //## package SMSWTD_Architecture
 
 //## class MetOceanDataProvider
@@ -411,9 +423,29 @@ private :
 };
 
 #ifdef _OMINSTRUMENT
+DECLARE_OPERATION_CLASS(SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneData_int)
+
+DECLARE_OPERATION_CLASS(SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneLoc_int)
+
+DECLARE_OPERATION_CLASS(SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneMC_int)
+
+DECLARE_OPERATION_CLASS(SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormData_int)
+
+DECLARE_OPERATION_CLASS(SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormLoc_int)
+
 //#[ ignore
 class OMAnimatedMetOceanDataProvider : virtual public AOMInstance {
     DECLARE_REACTIVE_META(MetOceanDataProvider, OMAnimatedMetOceanDataProvider)
+    
+    DECLARE_META_OP(SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneData_int)
+    
+    DECLARE_META_OP(SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneLoc_int)
+    
+    DECLARE_META_OP(SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneMC_int)
+    
+    DECLARE_META_OP(SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormData_int)
+    
+    DECLARE_META_OP(SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormLoc_int)
     
     ////    Framework operations    ////
     

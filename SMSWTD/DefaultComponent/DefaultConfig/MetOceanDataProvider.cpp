@@ -18,6 +18,26 @@
 #include "MetOceanDataProvider.h"
 //#[ ignore
 #define SMSWTD_Architecture_MetOceanDataProvider_MetOceanDataProvider_SERIALIZE OM_NO_OP
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneData_int_UNSERIALIZE_ARGS OP_UNSER(OMDestructiveString2X,p_CasePlaneData)
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneData_int_SERIALIZE_RET_VAL
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneLoc_int_UNSERIALIZE_ARGS OP_UNSER(OMDestructiveString2X,p_CasePlaneLoc)
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneLoc_int_SERIALIZE_RET_VAL
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneMC_int_UNSERIALIZE_ARGS OP_UNSER(OMDestructiveString2X,p_CasePlaneMC)
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneMC_int_SERIALIZE_RET_VAL
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormData_int_UNSERIALIZE_ARGS OP_UNSER(OMDestructiveString2X,p_CaseSatStormData)
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormData_int_SERIALIZE_RET_VAL
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormLoc_int_UNSERIALIZE_ARGS OP_UNSER(OMDestructiveString2X,p_CaseSatStormLoc)
+
+#define OMAnim_SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormLoc_int_SERIALIZE_RET_VAL
 //#]
 
 //## package SMSWTD_Architecture
@@ -63,6 +83,7 @@ const int MetOceanDataProvider::getCasePlaneData(void) const {
 
 void MetOceanDataProvider::setCasePlaneData(const int p_CasePlaneData) {
     CasePlaneData = p_CasePlaneData;
+    NOTIFY_SET_OPERATION;
 }
 
 const int MetOceanDataProvider::getCasePlaneLoc(void) const {
@@ -71,6 +92,7 @@ const int MetOceanDataProvider::getCasePlaneLoc(void) const {
 
 void MetOceanDataProvider::setCasePlaneLoc(const int p_CasePlaneLoc) {
     CasePlaneLoc = p_CasePlaneLoc;
+    NOTIFY_SET_OPERATION;
 }
 
 const int MetOceanDataProvider::getCasePlaneMC(void) const {
@@ -79,6 +101,7 @@ const int MetOceanDataProvider::getCasePlaneMC(void) const {
 
 void MetOceanDataProvider::setCasePlaneMC(const int p_CasePlaneMC) {
     CasePlaneMC = p_CasePlaneMC;
+    NOTIFY_SET_OPERATION;
 }
 
 const int MetOceanDataProvider::getCaseSatStormData(void) const {
@@ -87,6 +110,7 @@ const int MetOceanDataProvider::getCaseSatStormData(void) const {
 
 void MetOceanDataProvider::setCaseSatStormData(const int p_CaseSatStormData) {
     CaseSatStormData = p_CaseSatStormData;
+    NOTIFY_SET_OPERATION;
 }
 
 const int MetOceanDataProvider::getCaseSatStormLoc(void) const {
@@ -95,6 +119,7 @@ const int MetOceanDataProvider::getCaseSatStormLoc(void) const {
 
 void MetOceanDataProvider::setCaseSatStormLoc(const int p_CaseSatStormLoc) {
     CaseSatStormLoc = p_CaseSatStormLoc;
+    NOTIFY_SET_OPERATION;
 }
 
 const AirData MetOceanDataProvider::getCurrPlaneData(void) const {
@@ -822,6 +847,26 @@ void OMAnimatedMetOceanDataProvider::Idle_serializeStates(AOMSState* aomsState) 
 //#]
 
 IMPLEMENT_REACTIVE_META_P(MetOceanDataProvider, SMSWTD_Architecture, SMSWTD_Architecture, false, OMAnimatedMetOceanDataProvider)
+
+IMPLEMENT_META_OP(OMAnimatedMetOceanDataProvider, SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneData_int, "setCasePlaneData", FALSE, "setCasePlaneData(int)", 1)
+
+IMPLEMENT_OP_CALL(SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneData_int, MetOceanDataProvider, setCasePlaneData(p_CasePlaneData), NO_OP())
+
+IMPLEMENT_META_OP(OMAnimatedMetOceanDataProvider, SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneLoc_int, "setCasePlaneLoc", FALSE, "setCasePlaneLoc(int)", 1)
+
+IMPLEMENT_OP_CALL(SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneLoc_int, MetOceanDataProvider, setCasePlaneLoc(p_CasePlaneLoc), NO_OP())
+
+IMPLEMENT_META_OP(OMAnimatedMetOceanDataProvider, SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneMC_int, "setCasePlaneMC", FALSE, "setCasePlaneMC(int)", 1)
+
+IMPLEMENT_OP_CALL(SMSWTD_Architecture_MetOceanDataProvider_setCasePlaneMC_int, MetOceanDataProvider, setCasePlaneMC(p_CasePlaneMC), NO_OP())
+
+IMPLEMENT_META_OP(OMAnimatedMetOceanDataProvider, SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormData_int, "setCaseSatStormData", FALSE, "setCaseSatStormData(int)", 1)
+
+IMPLEMENT_OP_CALL(SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormData_int, MetOceanDataProvider, setCaseSatStormData(p_CaseSatStormData), NO_OP())
+
+IMPLEMENT_META_OP(OMAnimatedMetOceanDataProvider, SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormLoc_int, "setCaseSatStormLoc", FALSE, "setCaseSatStormLoc(int)", 1)
+
+IMPLEMENT_OP_CALL(SMSWTD_Architecture_MetOceanDataProvider_setCaseSatStormLoc_int, MetOceanDataProvider, setCaseSatStormLoc(p_CaseSatStormLoc), NO_OP())
 #endif // _OMINSTRUMENT
 
 /*********************************************************************

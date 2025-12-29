@@ -1,10 +1,10 @@
 [Op Calls]
 [Events]
-itsMetOceanDataProvider->GEN(evStartDataMet())`MetOceanDataProvider
 itsSeismicTsunamiNetwork->GEN(evStartDataSend())`SeismicTsunamiNetwork
+itsSensingInterfaceSubsystem->GEN(evStartDataCollector())`SMSWTD_Architecture::SensingInterfaceSubsystem
+itsMetOceanDataProvider->GEN(evStartDataMet())`MetOceanDataProvider
 itsSensingInterfaceSubsystem->GEN(evStartDataCollector())`SensingInterfaceSubsystem
 itsRiskAssessmentSubsystem->GEN(evStartRA())`SMSWTD_Architecture::RiskAssessmentSubsystem
-itsSensingInterfaceSubsystem->GEN(evStartDataCollector())`SMSWTD_Architecture::SensingInterfaceSubsystem
 itsSeismicTsunamiNetwork->GEN(evStartDataSend())`SMSWTD_Architecture::SeismicTsunamiNetwork
 SensingInterfaceSubsystem[1]->GEN(evStartDataCollector())`SMSWTD_Architecture::SensingInterfaceSubsystem
 [Breakpoints]

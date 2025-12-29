@@ -446,7 +446,7 @@ SensingInterfaceSubsystem.obj : SensingInterfaceSubsystem.cpp SensingInterfaceSu
 
 
 
-RiskAssessmentSubsystem.obj : RiskAssessmentSubsystem.cpp RiskAssessmentSubsystem.h    SMSWTD_Architecture.h SensingInterfaceSubsystem.h AlertingSubsystem.h 
+RiskAssessmentSubsystem.obj : RiskAssessmentSubsystem.cpp RiskAssessmentSubsystem.h    SMSWTD_Architecture.h AlertingSubsystem.h SensingInterfaceSubsystem.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"RiskAssessmentSubsystem.obj" "RiskAssessmentSubsystem.cpp" 
 

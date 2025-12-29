@@ -383,15 +383,15 @@ void OMAnimatedRiskAssessmentSubsystem::serializeAttributes(AOMSAttributes* aoms
 }
 
 void OMAnimatedRiskAssessmentSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {
-    aomsRelations->addRelation("itsSensingInterfaceSubsystem", false, true);
-    if(myReal->itsSensingInterfaceSubsystem)
-        {
-            aomsRelations->ADD_ITEM(myReal->itsSensingInterfaceSubsystem);
-        }
     aomsRelations->addRelation("itsAlertingSubsystem", false, true);
     if(myReal->itsAlertingSubsystem)
         {
             aomsRelations->ADD_ITEM(myReal->itsAlertingSubsystem);
+        }
+    aomsRelations->addRelation("itsSensingInterfaceSubsystem", false, true);
+    if(myReal->itsSensingInterfaceSubsystem)
+        {
+            aomsRelations->ADD_ITEM(myReal->itsSensingInterfaceSubsystem);
         }
 }
 

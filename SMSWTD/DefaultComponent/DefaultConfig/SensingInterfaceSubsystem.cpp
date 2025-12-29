@@ -51,7 +51,7 @@ void SensingInterfaceSubsystem::out_C::connectSensingInterfaceSubsystem(SensingI
 }
 //#]
 
-SensingInterfaceSubsystem::SensingInterfaceSubsystem(IOxfActive* const theActiveContext) : OMReactive(), PrevPlaneData({-1,-1,-1,-1,-1,-1,-1,false}), PrevSatData({-1,-1,-1,-1,false}), Prev_STN_Final({-1,-1,-1,-1,false}), itsRiskAssessmentSubsystem(NULL) {
+SensingInterfaceSubsystem::SensingInterfaceSubsystem(IOxfActive* const theActiveContext) : OMReactive(), FlagPrevSTN(false), PrevPlaneData({-1,-1,-1,-1,-1,-1,-1,false}), PrevSatData({-1,-1,-1,-1,false}), Prev_STN_Final({-1,-1,-1,-1,false}), itsRiskAssessmentSubsystem(NULL) {
     NOTIFY_REACTIVE_CONSTRUCTOR(SensingInterfaceSubsystem, SensingInterfaceSubsystem(), 0, SMSWTD_Architecture_SensingInterfaceSubsystem_SensingInterfaceSubsystem_SERIALIZE);
     setActiveContext(theActiveContext, false);
     initRelations();
@@ -158,6 +158,14 @@ const STNData SensingInterfaceSubsystem::getCurr_STN(void) const {
 
 void SensingInterfaceSubsystem::setCurr_STN(const STNData p_Curr_STN) {
     Curr_STN = p_Curr_STN;
+}
+
+const bool SensingInterfaceSubsystem::getFlagPrevSTN(void) const {
+    return FlagPrevSTN;
+}
+
+void SensingInterfaceSubsystem::setFlagPrevSTN(const bool p_FlagPrevSTN) {
+    FlagPrevSTN = p_FlagPrevSTN;
 }
 
 const AirData SensingInterfaceSubsystem::getPrevPlaneData(void) const {
@@ -494,34 +502,46 @@ void SensingInterfaceSubsystem::state_4_entDef(void) {
     state_4_subState = StatusSeismic;
     state_4_active = StatusSeismic;
     //#[ state CheckDataStatus.state_4.StatusSeismic.(Entry) 
-    if(STNStatus == 0)
+    if(STNStatus == 0) // STN is working well
     {
     for(int i = 5; i >=0; i--)
     {
-     if (CurrHealth.data[i]> 0.85)
-     {
+    if (CurrHealth.data[i]> 0.85) // When data health is good
+    {
        Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};	
-       Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};	
+       Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};
+       FlagPrevSTN = false; // NOT sending old data
        break;
-     }
     }
-    }
-    else if(STNStatus == -1)
+    else  // When data health is bad - send prev data
     {
-    Curr_STN = Prev_STN_Final ;
+         Curr_STN = Prev_STN_Final;
+         FlagPrevSTN = true; // Sending old data
     }
-    else
+    }
+    }
+    else if(STNStatus == -1) // STN under maintenance
+    {
+    Curr_STN = Prev_STN_Final; // send prev data
+    }
+    else // STN status UNKNOWN
     {
     for(int i = 5; i >=0; i--)
     {
-     if (CurrHealth.data[i]> 0.85)
-     {
-       Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
+    if (CurrHealth.data[i]> 0.85) //Send Data but not change Prev
+    {
+       // Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
        Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
        break;
-     }
+    }
+    else  // When data health is bad - send prev data
+    {
+         Curr_STN = Prev_STN_Final;
+         FlagPrevSTN = true; // Sending old data
     }
     }
+    }
+    // sending data forward for Risk Assesment...
     OUT_PORT(out)->GEN(evPushSeismicRA(Curr_STN));
     //#]
     NOTIFY_TRANSITION_TERMINATED("3");
@@ -621,6 +641,7 @@ void OMAnimatedSensingInterfaceSubsystem::serializeAttributes(AOMSAttributes* ao
     aomsAttributes->addAttribute("PrevSatData", UNKNOWN2STRING(myReal->PrevSatData));
     aomsAttributes->addAttribute("CurrPlaneDataFinal", UNKNOWN2STRING(myReal->CurrPlaneDataFinal));
     aomsAttributes->addAttribute("CurrSatDataFinal", UNKNOWN2STRING(myReal->CurrSatDataFinal));
+    aomsAttributes->addAttribute("FlagPrevSTN", x2String(myReal->FlagPrevSTN));
 }
 
 void OMAnimatedSensingInterfaceSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {

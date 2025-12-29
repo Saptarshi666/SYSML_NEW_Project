@@ -177,6 +177,12 @@ public :
     void setCurr_STN(const STNData p_Curr_STN);
     
     //## auto_generated
+    const bool getFlagPrevSTN(void) const;
+    
+    //## auto_generated
+    void setFlagPrevSTN(const bool p_FlagPrevSTN);
+    
+    //## auto_generated
     const AirData getPrevPlaneData(void) const;
     
     //## auto_generated
@@ -261,6 +267,8 @@ private :
     FloatArray CurrWPM;		//## attribute CurrWPM
     
     STNData Curr_STN;		//## attribute Curr_STN
+    
+    bool FlagPrevSTN;		//## attribute FlagPrevSTN
     
     AirData PrevPlaneData;		//## attribute PrevPlaneData
     

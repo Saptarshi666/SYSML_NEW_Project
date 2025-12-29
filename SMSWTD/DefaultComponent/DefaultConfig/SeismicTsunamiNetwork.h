@@ -27,6 +27,12 @@
 #include <event.h>
 //## auto_generated
 #include <OMDefaultReactivePort.h>
+//#[ ignore
+#define OMAnim_SMSWTD_Architecture_SeismicTsunamiNetwork_setCaseSTNHealth_int_ARGS_DECLARATION int p_CaseSTNHealth;
+
+#define OMAnim_SMSWTD_Architecture_SeismicTsunamiNetwork_setCaseSeismic_int_ARGS_DECLARATION int p_CaseSeismic;
+//#]
+
 //## package SMSWTD_Architecture
 
 //## class SeismicTsunamiNetwork
@@ -307,9 +313,17 @@ private :
 };
 
 #ifdef _OMINSTRUMENT
+DECLARE_OPERATION_CLASS(SMSWTD_Architecture_SeismicTsunamiNetwork_setCaseSTNHealth_int)
+
+DECLARE_OPERATION_CLASS(SMSWTD_Architecture_SeismicTsunamiNetwork_setCaseSeismic_int)
+
 //#[ ignore
 class OMAnimatedSeismicTsunamiNetwork : virtual public AOMInstance {
     DECLARE_REACTIVE_META(SeismicTsunamiNetwork, OMAnimatedSeismicTsunamiNetwork)
+    
+    DECLARE_META_OP(SMSWTD_Architecture_SeismicTsunamiNetwork_setCaseSTNHealth_int)
+    
+    DECLARE_META_OP(SMSWTD_Architecture_SeismicTsunamiNetwork_setCaseSeismic_int)
     
     ////    Framework operations    ////
     
