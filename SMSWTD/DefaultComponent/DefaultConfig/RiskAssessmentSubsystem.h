@@ -136,6 +136,24 @@ public :
     void setCurr_STN(const STNData p_Curr_STN);
     
     //## auto_generated
+    const bool getFlagPrevAir(void) const;
+    
+    //## auto_generated
+    void setFlagPrevAir(const bool p_FlagPrevAir);
+    
+    //## auto_generated
+    const bool getFlagPrevSTN(void) const;
+    
+    //## auto_generated
+    void setFlagPrevSTN(const bool p_FlagPrevSTN);
+    
+    //## auto_generated
+    const int getFlagPrevSat(void) const;
+    
+    //## auto_generated
+    void setFlagPrevSat(const int p_FlagPrevSat);
+    
+    //## auto_generated
     const bool getReceivedMetOcean(void) const;
     
     //## auto_generated
@@ -188,6 +206,12 @@ private :
     SatData CurrSatDataFinal;		//## attribute CurrSatDataFinal
     
     STNData Curr_STN;		//## attribute Curr_STN
+    
+    bool FlagPrevAir;		//## attribute FlagPrevAir
+    
+    bool FlagPrevSTN;		//## attribute FlagPrevSTN
+    
+    int FlagPrevSat;		//## attribute FlagPrevSat
     
     bool ReceivedMetOcean;		//## attribute ReceivedMetOcean
     

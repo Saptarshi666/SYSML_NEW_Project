@@ -62,12 +62,22 @@
 #define evMetOceanUpdate_UNSERIALIZE \
     OMADD_UNSER(AirData, CurrPlaneData, OMDestructiveString2X)\
     OMADD_UNSER(SatData, CurrSatData, OMDestructiveString2X)
+#define evPushSeismicRA_SERIALIZE \
+    OMADD_SER(Curr_STN, UNKNOWN2STRING(myEvent->Curr_STN))\
+    OMADD_SER(FlagPrevSTN, x2String(myEvent->FlagPrevSTN))
+#define evPushSeismicRA_UNSERIALIZE \
+    OMADD_UNSER(STNData, Curr_STN, OMDestructiveString2X)\
+    OMADD_UNSER(bool, FlagPrevSTN, OMDestructiveString2X)
 #define evPushMetOceanRA_SERIALIZE \
     OMADD_SER(CurrPlaneDataFinal, UNKNOWN2STRING(myEvent->CurrPlaneDataFinal))\
-    OMADD_SER(CurrSatDataFinal, UNKNOWN2STRING(myEvent->CurrSatDataFinal))
+    OMADD_SER(CurrSatDataFinal, UNKNOWN2STRING(myEvent->CurrSatDataFinal))\
+    OMADD_SER(FlagPrevSat, x2String(myEvent->FlagPrevSat))\
+    OMADD_SER(FlagPrevAir, x2String(myEvent->FlagPrevAir))
 #define evPushMetOceanRA_UNSERIALIZE \
     OMADD_UNSER(AirData, CurrPlaneDataFinal, OMDestructiveString2X)\
-    OMADD_UNSER(SatData, CurrSatDataFinal, OMDestructiveString2X)
+    OMADD_UNSER(SatData, CurrSatDataFinal, OMDestructiveString2X)\
+    OMADD_UNSER(bool, FlagPrevSat, OMDestructiveString2X)\
+    OMADD_UNSER(bool, FlagPrevAir, OMDestructiveString2X)
 #define SMSWTD_Architecture_fillHistRamp_SERIALIZE aomsmethod->addAttribute("maxAmplitude", x2String(maxAmplitude));
 
 #define SMSWTD_Architecture_printAirData_SERIALIZE aomsmethod->addAttribute("curr_air", UNKNOWN2STRING(curr_air));
@@ -116,13 +126,9 @@
 
 #define evStartRA_CONSTRUCTOR evStartRA()
 
-#define evPushSeismicRA_SERIALIZE OMADD_SER(Curr_STN, UNKNOWN2STRING(myEvent->Curr_STN))
+#define evPushSeismicRA_CONSTRUCTOR evPushSeismicRA(Curr_STN, FlagPrevSTN)
 
-#define evPushSeismicRA_UNSERIALIZE OMADD_UNSER(STNData, Curr_STN, OMDestructiveString2X)
-
-#define evPushSeismicRA_CONSTRUCTOR evPushSeismicRA(Curr_STN)
-
-#define evPushMetOceanRA_CONSTRUCTOR evPushMetOceanRA(CurrPlaneDataFinal, CurrSatDataFinal)
+#define evPushMetOceanRA_CONSTRUCTOR evPushMetOceanRA(CurrPlaneDataFinal, CurrSatDataFinal, FlagPrevSat, FlagPrevAir)
 
 #define startAnalysis_SERIALIZE OM_NO_OP
 
@@ -582,13 +588,13 @@ const IOxfEvent::ID evStartRA_SMSWTD_Architecture_id(3407);
 
 IMPLEMENT_META_EVENT_P(evStartRA, SMSWTD_Architecture, SMSWTD_Architecture, evStartRA())
 
-//## event evPushSeismicRA(STNData)
+//## event evPushSeismicRA(STNData,bool)
 evPushSeismicRA::evPushSeismicRA(void) {
     NOTIFY_EVENT_CONSTRUCTOR(evPushSeismicRA)
     setId(evPushSeismicRA_SMSWTD_Architecture_id);
 }
 
-evPushSeismicRA::evPushSeismicRA(const STNData p_Curr_STN) : OMEvent() ,Curr_STN(p_Curr_STN) {
+evPushSeismicRA::evPushSeismicRA(const STNData p_Curr_STN, const bool p_FlagPrevSTN) : OMEvent() ,Curr_STN(p_Curr_STN),FlagPrevSTN(p_FlagPrevSTN) {
     NOTIFY_EVENT_CONSTRUCTOR(evPushSeismicRA)
     setId(evPushSeismicRA_SMSWTD_Architecture_id);
 }
@@ -601,19 +607,27 @@ void evPushSeismicRA::setCurr_STN(const STNData p_Curr_STN) {
     Curr_STN = p_Curr_STN;
 }
 
+bool evPushSeismicRA::getFlagPrevSTN(void) const {
+    return FlagPrevSTN;
+}
+
+void evPushSeismicRA::setFlagPrevSTN(const bool p_FlagPrevSTN) {
+    FlagPrevSTN = p_FlagPrevSTN;
+}
+
 //#[ ignore
 const IOxfEvent::ID evPushSeismicRA_SMSWTD_Architecture_id(3408);
 //#]
 
-IMPLEMENT_META_EVENT_NO_UNSERIALIZE_P(evPushSeismicRA, SMSWTD_Architecture, SMSWTD_Architecture, evPushSeismicRA(STNData))
+IMPLEMENT_META_EVENT_NO_UNSERIALIZE_P(evPushSeismicRA, SMSWTD_Architecture, SMSWTD_Architecture, evPushSeismicRA(STNData,bool))
 
-//## event evPushMetOceanRA(AirData,SatData)
+//## event evPushMetOceanRA(AirData,SatData,bool,bool)
 evPushMetOceanRA::evPushMetOceanRA(void) {
     NOTIFY_EVENT_CONSTRUCTOR(evPushMetOceanRA)
     setId(evPushMetOceanRA_SMSWTD_Architecture_id);
 }
 
-evPushMetOceanRA::evPushMetOceanRA(const AirData p_CurrPlaneDataFinal, const SatData p_CurrSatDataFinal) : OMEvent() ,CurrPlaneDataFinal(p_CurrPlaneDataFinal),CurrSatDataFinal(p_CurrSatDataFinal) {
+evPushMetOceanRA::evPushMetOceanRA(const AirData p_CurrPlaneDataFinal, const SatData p_CurrSatDataFinal, const bool p_FlagPrevSat, const bool p_FlagPrevAir) : OMEvent() ,CurrPlaneDataFinal(p_CurrPlaneDataFinal),CurrSatDataFinal(p_CurrSatDataFinal),FlagPrevSat(p_FlagPrevSat),FlagPrevAir(p_FlagPrevAir) {
     NOTIFY_EVENT_CONSTRUCTOR(evPushMetOceanRA)
     setId(evPushMetOceanRA_SMSWTD_Architecture_id);
 }
@@ -634,11 +648,27 @@ void evPushMetOceanRA::setCurrSatDataFinal(const SatData p_CurrSatDataFinal) {
     CurrSatDataFinal = p_CurrSatDataFinal;
 }
 
+bool evPushMetOceanRA::getFlagPrevSat(void) const {
+    return FlagPrevSat;
+}
+
+void evPushMetOceanRA::setFlagPrevSat(const bool p_FlagPrevSat) {
+    FlagPrevSat = p_FlagPrevSat;
+}
+
+bool evPushMetOceanRA::getFlagPrevAir(void) const {
+    return FlagPrevAir;
+}
+
+void evPushMetOceanRA::setFlagPrevAir(const bool p_FlagPrevAir) {
+    FlagPrevAir = p_FlagPrevAir;
+}
+
 //#[ ignore
 const IOxfEvent::ID evPushMetOceanRA_SMSWTD_Architecture_id(3409);
 //#]
 
-IMPLEMENT_META_EVENT_NO_UNSERIALIZE_P(evPushMetOceanRA, SMSWTD_Architecture, SMSWTD_Architecture, evPushMetOceanRA(AirData,SatData))
+IMPLEMENT_META_EVENT_NO_UNSERIALIZE_P(evPushMetOceanRA, SMSWTD_Architecture, SMSWTD_Architecture, evPushMetOceanRA(AirData,SatData,bool,bool))
 
 //## event startAnalysis()
 startAnalysis::startAnalysis(void) : OMEvent() {

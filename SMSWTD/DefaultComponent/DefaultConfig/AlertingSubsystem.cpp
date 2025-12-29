@@ -96,6 +96,14 @@ void AlertingSubsystem::setGovAlertNetwork(const bool p_GovAlertNetwork) {
     NOTIFY_SET_OPERATION;
 }
 
+const int AlertingSubsystem::getLedcase(void) const {
+    return Ledcase;
+}
+
+void AlertingSubsystem::setLedcase(const int p_Ledcase) {
+    Ledcase = p_Ledcase;
+}
+
 const bool AlertingSubsystem::getMaintainer(void) const {
     return Maintainer;
 }
@@ -272,6 +280,12 @@ IOxfReactive::TakeEventStatus AlertingSubsystem::rootState_processEvent(void) {
                     NOTIFY_STATE_ENTERED("ROOT.AlertGeneration");
                     rootState_subState = AlertGeneration;
                     rootState_active = AlertGeneration;
+                    //#[ state AlertGeneration.(Entry) 
+                    /*switch(Ledcase):
+                    {
+                    
+                    }*/
+                    //#]
                     rootState_timeout = scheduleTimeout(3000, "ROOT.AlertGeneration");
                     NOTIFY_TRANSITION_TERMINATED("2");
                     res = eventConsumed;
@@ -318,6 +332,7 @@ void OMAnimatedAlertingSubsystem::serializeAttributes(AOMSAttributes* aomsAttrib
     aomsAttributes->addAttribute("Researcher", x2String(myReal->Researcher));
     aomsAttributes->addAttribute("Alert", x2String(myReal->Alert));
     aomsAttributes->addAttribute("Prediction", x2String(myReal->Prediction));
+    aomsAttributes->addAttribute("Ledcase", x2String(myReal->Ledcase));
 }
 
 void OMAnimatedAlertingSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {

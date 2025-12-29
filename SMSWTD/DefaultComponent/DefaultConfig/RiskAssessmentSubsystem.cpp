@@ -106,6 +106,30 @@ void RiskAssessmentSubsystem::setCurr_STN(const STNData p_Curr_STN) {
     Curr_STN = p_Curr_STN;
 }
 
+const bool RiskAssessmentSubsystem::getFlagPrevAir(void) const {
+    return FlagPrevAir;
+}
+
+void RiskAssessmentSubsystem::setFlagPrevAir(const bool p_FlagPrevAir) {
+    FlagPrevAir = p_FlagPrevAir;
+}
+
+const bool RiskAssessmentSubsystem::getFlagPrevSTN(void) const {
+    return FlagPrevSTN;
+}
+
+void RiskAssessmentSubsystem::setFlagPrevSTN(const bool p_FlagPrevSTN) {
+    FlagPrevSTN = p_FlagPrevSTN;
+}
+
+const int RiskAssessmentSubsystem::getFlagPrevSat(void) const {
+    return FlagPrevSat;
+}
+
+void RiskAssessmentSubsystem::setFlagPrevSat(const int p_FlagPrevSat) {
+    FlagPrevSat = p_FlagPrevSat;
+}
+
 const bool RiskAssessmentSubsystem::getReceivedMetOcean(void) const {
     return ReceivedMetOcean;
 }
@@ -310,6 +334,8 @@ IOxfReactive::TakeEventStatus RiskAssessmentSubsystem::rootState_processEvent(vo
                         //#[ transition 3 
                         CurrPlaneDataFinal = params->getCurrPlaneDataFinal();
                         CurrSatDataFinal = params->getCurrSatDataFinal();
+                        FlagPrevAir = params->getFlagPrevAir();
+                        FlagPrevSat = params->getFlagPrevSat();
                         ReceivedMetOcean = true;
                         if (ReceivedMetOcean && ReceivedSTN)
                         {
@@ -326,6 +352,7 @@ IOxfReactive::TakeEventStatus RiskAssessmentSubsystem::rootState_processEvent(vo
                             NOTIFY_TRANSITION_STARTED("2");
                             //#[ transition 2 
                             Curr_STN = params->getCurr_STN();
+                            FlagPrevSTN = params->getFlagPrevSTN();
                             ReceivedSTN = true;
                             if (ReceivedMetOcean && ReceivedSTN)
                             {
@@ -380,6 +407,9 @@ void OMAnimatedRiskAssessmentSubsystem::serializeAttributes(AOMSAttributes* aoms
     aomsAttributes->addAttribute("CurrSatDataFinal", UNKNOWN2STRING(myReal->CurrSatDataFinal));
     aomsAttributes->addAttribute("ReceivedSTN", x2String(myReal->ReceivedSTN));
     aomsAttributes->addAttribute("ReceivedMetOcean", x2String(myReal->ReceivedMetOcean));
+    aomsAttributes->addAttribute("FlagPrevAir", x2String(myReal->FlagPrevAir));
+    aomsAttributes->addAttribute("FlagPrevSTN", x2String(myReal->FlagPrevSTN));
+    aomsAttributes->addAttribute("FlagPrevSat", x2String(myReal->FlagPrevSat));
 }
 
 void OMAnimatedRiskAssessmentSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {

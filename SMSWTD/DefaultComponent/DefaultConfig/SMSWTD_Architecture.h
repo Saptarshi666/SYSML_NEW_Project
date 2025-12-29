@@ -451,7 +451,7 @@ class OMAnimatedevStartRA : virtual public AOMEvent {
 extern const IOxfEvent::ID evStartRA_SMSWTD_Architecture_id;
 //#]
 
-//## event evPushSeismicRA(STNData)
+//## event evPushSeismicRA(STNData,bool)
 class evPushSeismicRA : public OMEvent {
     ////    Friends    ////
     
@@ -467,7 +467,7 @@ public :
     evPushSeismicRA(void);
     
     //## auto_generated
-    evPushSeismicRA(const STNData p_Curr_STN);
+    evPushSeismicRA(const STNData p_Curr_STN, const bool p_FlagPrevSTN);
     
     ////    Additional operations    ////
     
@@ -477,11 +477,19 @@ public :
     //## auto_generated
     void setCurr_STN(const STNData p_Curr_STN);
     
+    //## auto_generated
+    bool getFlagPrevSTN(void) const;
+    
+    //## auto_generated
+    void setFlagPrevSTN(const bool p_FlagPrevSTN);
+    
     ////    Framework    ////
 
 private :
 
     STNData Curr_STN;		//## auto_generated
+    
+    bool FlagPrevSTN;		//## auto_generated
 };
 
 #ifdef _OMINSTRUMENT
@@ -496,7 +504,7 @@ class OMAnimatedevPushSeismicRA : virtual public AOMEvent {
 extern const IOxfEvent::ID evPushSeismicRA_SMSWTD_Architecture_id;
 //#]
 
-//## event evPushMetOceanRA(AirData,SatData)
+//## event evPushMetOceanRA(AirData,SatData,bool,bool)
 class evPushMetOceanRA : public OMEvent {
     ////    Friends    ////
     
@@ -512,7 +520,7 @@ public :
     evPushMetOceanRA(void);
     
     //## auto_generated
-    evPushMetOceanRA(const AirData p_CurrPlaneDataFinal, const SatData p_CurrSatDataFinal);
+    evPushMetOceanRA(const AirData p_CurrPlaneDataFinal, const SatData p_CurrSatDataFinal, const bool p_FlagPrevSat, const bool p_FlagPrevAir);
     
     ////    Additional operations    ////
     
@@ -528,6 +536,18 @@ public :
     //## auto_generated
     void setCurrSatDataFinal(const SatData p_CurrSatDataFinal);
     
+    //## auto_generated
+    bool getFlagPrevSat(void) const;
+    
+    //## auto_generated
+    void setFlagPrevSat(const bool p_FlagPrevSat);
+    
+    //## auto_generated
+    bool getFlagPrevAir(void) const;
+    
+    //## auto_generated
+    void setFlagPrevAir(const bool p_FlagPrevAir);
+    
     ////    Framework    ////
 
 private :
@@ -535,6 +555,10 @@ private :
     AirData CurrPlaneDataFinal;		//## auto_generated
     
     SatData CurrSatDataFinal;		//## auto_generated
+    
+    bool FlagPrevSat;		//## auto_generated
+    
+    bool FlagPrevAir;		//## auto_generated
 };
 
 #ifdef _OMINSTRUMENT

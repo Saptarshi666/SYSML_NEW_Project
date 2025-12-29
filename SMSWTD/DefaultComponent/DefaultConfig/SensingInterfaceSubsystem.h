@@ -177,10 +177,22 @@ public :
     void setCurr_STN(const STNData p_Curr_STN);
     
     //## auto_generated
+    const bool getFlagPrevAir(void) const;
+    
+    //## auto_generated
+    void setFlagPrevAir(const bool p_FlagPrevAir);
+    
+    //## auto_generated
     const bool getFlagPrevSTN(void) const;
     
     //## auto_generated
     void setFlagPrevSTN(const bool p_FlagPrevSTN);
+    
+    //## auto_generated
+    const bool getFlagPrevSat(void) const;
+    
+    //## auto_generated
+    void setFlagPrevSat(const bool p_FlagPrevSat);
     
     //## auto_generated
     const AirData getPrevPlaneData(void) const;
@@ -268,7 +280,11 @@ private :
     
     STNData Curr_STN;		//## attribute Curr_STN
     
+    bool FlagPrevAir;		//## attribute FlagPrevAir
+    
     bool FlagPrevSTN;		//## attribute FlagPrevSTN
+    
+    bool FlagPrevSat;		//## attribute FlagPrevSat
     
     AirData PrevPlaneData;		//## attribute PrevPlaneData
     

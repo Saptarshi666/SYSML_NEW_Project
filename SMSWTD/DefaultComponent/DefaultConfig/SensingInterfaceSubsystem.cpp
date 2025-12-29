@@ -51,7 +51,7 @@ void SensingInterfaceSubsystem::out_C::connectSensingInterfaceSubsystem(SensingI
 }
 //#]
 
-SensingInterfaceSubsystem::SensingInterfaceSubsystem(IOxfActive* const theActiveContext) : OMReactive(), FlagPrevSTN(false), PrevPlaneData({-1,-1,-1,-1,-1,-1,-1,false}), PrevSatData({-1,-1,-1,-1,false}), Prev_STN_Final({-1,-1,-1,-1,false}), itsRiskAssessmentSubsystem(NULL) {
+SensingInterfaceSubsystem::SensingInterfaceSubsystem(IOxfActive* const theActiveContext) : OMReactive(), FlagPrevAir(false), FlagPrevSTN(false), FlagPrevSat(false), PrevPlaneData({-1,-1,-1,-1,-1,-1,-1,false}), PrevSatData({-1,-1,-1,-1,false}), Prev_STN_Final({-1,-1,-1,-1,false}), itsRiskAssessmentSubsystem(NULL) {
     NOTIFY_REACTIVE_CONSTRUCTOR(SensingInterfaceSubsystem, SensingInterfaceSubsystem(), 0, SMSWTD_Architecture_SensingInterfaceSubsystem_SensingInterfaceSubsystem_SERIALIZE);
     setActiveContext(theActiveContext, false);
     initRelations();
@@ -160,12 +160,28 @@ void SensingInterfaceSubsystem::setCurr_STN(const STNData p_Curr_STN) {
     Curr_STN = p_Curr_STN;
 }
 
+const bool SensingInterfaceSubsystem::getFlagPrevAir(void) const {
+    return FlagPrevAir;
+}
+
+void SensingInterfaceSubsystem::setFlagPrevAir(const bool p_FlagPrevAir) {
+    FlagPrevAir = p_FlagPrevAir;
+}
+
 const bool SensingInterfaceSubsystem::getFlagPrevSTN(void) const {
     return FlagPrevSTN;
 }
 
 void SensingInterfaceSubsystem::setFlagPrevSTN(const bool p_FlagPrevSTN) {
     FlagPrevSTN = p_FlagPrevSTN;
+}
+
+const bool SensingInterfaceSubsystem::getFlagPrevSat(void) const {
+    return FlagPrevSat;
+}
+
+void SensingInterfaceSubsystem::setFlagPrevSat(const bool p_FlagPrevSat) {
+    FlagPrevSat = p_FlagPrevSat;
 }
 
 const AirData SensingInterfaceSubsystem::getPrevPlaneData(void) const {
@@ -440,39 +456,52 @@ void SensingInterfaceSubsystem::state_5_entDef(void) {
     state_5_subState = checkMetOcean;
     state_5_active = checkMetOcean;
     //#[ state CheckDataStatus.state_5.checkMetOcean.(Entry) 
+    // Two Thresholds for AirData are used in validation
     if(CurrPlaneData.MesC <=0.5)
     {
-    CurrPlaneDataFinal = PrevPlaneData;
+    	// Print that Curr data was discarded.
+    	CurrPlaneDataFinal = PrevPlaneData;
+    	FlagPrevAir = true; // send a signal for using old data.
     }
     else if (CurrPlaneData.MesC > 0.5 && CurrPlaneData.MesC <= 0.7)
     {
-    CurrPlaneData.FinalC = false;
-    CurrPlaneDataFinal = CurrPlaneData;
-    PrevPlaneData = CurrPlaneData;
+    	CurrPlaneData.FinalC = false; // signalling data in question (?)
+    	CurrPlaneDataFinal = CurrPlaneData;
+    	// PrevPlaneData = CurrPlaneData; // Not updating old good data
+    	// "FlagPrev = true/false; doesn't matter when FinalC == false"
     }
     else
     {
-    CurrPlaneData.FinalC = true;
-    CurrPlaneDataFinal = CurrPlaneData;
-    PrevPlaneData = CurrPlaneData;
+    	CurrPlaneData.FinalC = true; // signalling data Good
+    	CurrPlaneDataFinal = CurrPlaneData;
+    	PrevPlaneData = CurrPlaneData;
+    	FlagPrevAir = false; // using new data & prev data updated (FinalC == true)
     }
-    if(CurrSatData.TempG <= 0.5)
+    
+    // Filteration based on TempG and Distance of (Predicted) Storm
+    double TempDist = fabs(CurrSatData.StLocX) + fabs(CurrSatData.StLocY);
+    if(CurrSatData.TempG <= 0.3 && TempDist > 500)
     {
-    CurrSatDataFinal = PrevSatData;
+    	// Print that Curr data was discarded.
+    	CurrSatDataFinal = PrevSatData;
+    	FlagPrevSat = true; // send a signal for using old data.
     }
-    else if(CurrSatData.TempG > 0.5 && CurrSatData.TempG <= 0.7)
+    else if(CurrSatData.TempG > 0.3 && CurrSatData.TempG < 0.7 && TempDist > 200)
     {
-    CurrSatData.FinalC = false;
-    CurrSatDataFinal = CurrSatData;
-    PrevSatData = CurrSatData;
+    	CurrSatData.FinalC = false; // signalling data in question (?)
+    	CurrSatDataFinal = CurrSatData;
+    	// PrevSatData = CurrSatData;
+    	// "FlagPrev = true/false; doesn't matter when FinalC == false"
     }
     else
     {
-    CurrSatData.FinalC = true;
-    CurrSatDataFinal = CurrSatData;
-    PrevSatData = CurrSatData;
+    	CurrSatData.FinalC = true; // signalling data Good
+    	CurrSatDataFinal = CurrSatData;
+    	PrevSatData = CurrSatData;
+    	FlagPrevSat = false; // using new data & prev data updated (FinalC == true)
     }
-    OUT_PORT(out)->GEN(evPushMetOceanRA(CurrPlaneDataFinal,CurrSatDataFinal));
+    // sending data forward for Risk Assesment...
+    OUT_PORT(out)->GEN(evPushMetOceanRA(CurrPlaneDataFinal,CurrSatDataFinal,FlagPrevSat,FlagPrevAir));
     //#]
     NOTIFY_TRANSITION_TERMINATED("4");
 }
@@ -504,45 +533,47 @@ void SensingInterfaceSubsystem::state_4_entDef(void) {
     //#[ state CheckDataStatus.state_4.StatusSeismic.(Entry) 
     if(STNStatus == 0) // STN is working well
     {
-    for(int i = 5; i >=0; i--)
-    {
-    if (CurrHealth.data[i]> 0.85) // When data health is good
-    {
-       Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};	
-       Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};
-       FlagPrevSTN = false; // NOT sending old data
-       break;
-    }
-    else  // When data health is bad - send prev data
-    {
-         Curr_STN = Prev_STN_Final;
-         FlagPrevSTN = true; // Sending old data
-    }
-    }
+    	for(int i = 5; i >=0; i--)
+    	{
+    		if (CurrHealth.data[i]> 0.85) // When data health is good
+    		{
+    			Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};
+    			Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],true};
+    			FlagPrevSTN = false; // Sending NEW data AND updating Prev Data
+    			break;
+    		}
+    		else  // When data health is bad - send prev data
+    		{
+    			Curr_STN = Prev_STN_Final;
+    			FlagPrevSTN = true; // Sending OLD data AND NOT updating Prev Data
+    		}
+    	}
     }
     else if(STNStatus == -1) // STN under maintenance
     {
-    Curr_STN = Prev_STN_Final; // send prev data
+    	Curr_STN = Prev_STN_Final; // send prev data
+    	FlagPrevSTN = true; // Sending OLD data AND NOT updating Prev Data
     }
     else // STN status UNKNOWN
     {
-    for(int i = 5; i >=0; i--)
-    {
-    if (CurrHealth.data[i]> 0.85) //Send Data but not change Prev
-    {
-       // Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
-       Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
-       break;
-    }
-    else  // When data health is bad - send prev data
-    {
-         Curr_STN = Prev_STN_Final;
-         FlagPrevSTN = true; // Sending old data
-    }
-    }
+    	for(int i = 5; i >=0; i--)
+    	{
+    		if (CurrHealth.data[i]> 0.85) //Send Data but not change Prev
+    		{
+    			// Prev_STN_Final = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
+    			Curr_STN = {CurrEQM.data[i],CurrEQD.data[i],CurrSCM.data[i],CurrWPM.data[i],false};
+    			FlagPrevSTN = false; // Sending new data but NOT updating Prev Data (STNStatus == 1)
+    			break;
+    		}
+    		else  // When data health is bad - send prev data
+    		{
+    			Curr_STN = Prev_STN_Final;
+    			FlagPrevSTN = true; // Sending OLD data AND NOT updating Prev Data
+    		}
+    	}
     }
     // sending data forward for Risk Assesment...
-    OUT_PORT(out)->GEN(evPushSeismicRA(Curr_STN));
+    OUT_PORT(out)->GEN(evPushSeismicRA(Curr_STN,FlagPrevSTN));
     //#]
     NOTIFY_TRANSITION_TERMINATED("3");
 }
@@ -642,6 +673,8 @@ void OMAnimatedSensingInterfaceSubsystem::serializeAttributes(AOMSAttributes* ao
     aomsAttributes->addAttribute("CurrPlaneDataFinal", UNKNOWN2STRING(myReal->CurrPlaneDataFinal));
     aomsAttributes->addAttribute("CurrSatDataFinal", UNKNOWN2STRING(myReal->CurrSatDataFinal));
     aomsAttributes->addAttribute("FlagPrevSTN", x2String(myReal->FlagPrevSTN));
+    aomsAttributes->addAttribute("FlagPrevSat", x2String(myReal->FlagPrevSat));
+    aomsAttributes->addAttribute("FlagPrevAir", x2String(myReal->FlagPrevAir));
 }
 
 void OMAnimatedSensingInterfaceSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {

@@ -109,6 +109,12 @@ public :
     void setGovAlertNetwork(const bool p_GovAlertNetwork);
     
     //## auto_generated
+    const int getLedcase(void) const;
+    
+    //## auto_generated
+    void setLedcase(const int p_Ledcase);
+    
+    //## auto_generated
     const bool getMaintainer(void) const;
     
     //## auto_generated
@@ -181,6 +187,8 @@ private :
     bool EmergencyAuthorityOperator;		//## attribute EmergencyAuthorityOperator
     
     bool GovAlertNetwork;		//## attribute GovAlertNetwork
+    
+    int Ledcase;		//## attribute Ledcase
     
     bool Maintainer;		//## attribute Maintainer
     
