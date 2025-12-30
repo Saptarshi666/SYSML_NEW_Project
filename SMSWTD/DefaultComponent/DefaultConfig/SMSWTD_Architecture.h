@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
-//!	Generated Date	: Mon, 29, Dec 2025  
+//!	Generated Date	: Tue, 30, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.h
 *********************************************************************/
 
@@ -655,6 +655,107 @@ class OMAnimatedStartAlertGen : virtual public AOMEvent {
 
 //#[ ignore
 extern const IOxfEvent::ID StartAlertGen_SMSWTD_Architecture_id;
+//#]
+
+//## event evPushSeismicAlert(RhpString,bool,RhpString,bool,int,RhpString,bool,RhpString)
+class evPushSeismicAlert : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedevPushSeismicAlert;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    evPushSeismicAlert(void);
+    
+    //## auto_generated
+    evPushSeismicAlert(const RhpString p_HealthStatusMessage, const bool p_Manual_Verification, const RhpString p_CurrSTNMessage, const bool p_Alert, const int p_LedCase, const RhpString p_AlertMessage, const bool p_Prediction, const RhpString p_PredMessage);
+    
+    ////    Additional operations    ////
+    
+    //## auto_generated
+    RhpString getHealthStatusMessage(void) const;
+    
+    //## auto_generated
+    void setHealthStatusMessage(const RhpString p_HealthStatusMessage);
+    
+    //## auto_generated
+    bool getManual_Verification(void) const;
+    
+    //## auto_generated
+    void setManual_Verification(const bool p_Manual_Verification);
+    
+    //## auto_generated
+    RhpString getCurrSTNMessage(void) const;
+    
+    //## auto_generated
+    void setCurrSTNMessage(const RhpString p_CurrSTNMessage);
+    
+    //## auto_generated
+    bool getAlert(void) const;
+    
+    //## auto_generated
+    void setAlert(const bool p_Alert);
+    
+    //## auto_generated
+    int getLedCase(void) const;
+    
+    //## auto_generated
+    void setLedCase(const int p_LedCase);
+    
+    //## auto_generated
+    RhpString getAlertMessage(void) const;
+    
+    //## auto_generated
+    void setAlertMessage(const RhpString p_AlertMessage);
+    
+    //## auto_generated
+    bool getPrediction(void) const;
+    
+    //## auto_generated
+    void setPrediction(const bool p_Prediction);
+    
+    //## auto_generated
+    RhpString getPredMessage(void) const;
+    
+    //## auto_generated
+    void setPredMessage(const RhpString p_PredMessage);
+    
+    ////    Framework    ////
+
+private :
+
+    RhpString HealthStatusMessage;		//## auto_generated
+    
+    bool Manual_Verification;		//## auto_generated
+    
+    RhpString CurrSTNMessage;		//## auto_generated
+    
+    bool Alert;		//## auto_generated
+    
+    int LedCase;		//## auto_generated
+    
+    RhpString AlertMessage;		//## auto_generated
+    
+    bool Prediction;		//## auto_generated
+    
+    RhpString PredMessage;		//## auto_generated
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedevPushSeismicAlert : virtual public AOMEvent {
+    DECLARE_META_EVENT(evPushSeismicAlert)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//#[ ignore
+extern const IOxfEvent::ID evPushSeismicAlert_SMSWTD_Architecture_id;
 //#]
 
 #endif

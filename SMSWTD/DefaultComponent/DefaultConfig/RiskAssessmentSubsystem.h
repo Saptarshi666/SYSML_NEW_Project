@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: RiskAssessmentSubsystem
-//!	Generated Date	: Mon, 29, Dec 2025  
+//!	Generated Date	: Tue, 30, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\RiskAssessmentSubsystem.h
 *********************************************************************/
 
@@ -118,10 +118,28 @@ public :
     out_C* get_out(void) const;
     
     //## auto_generated
+    const bool getAlert(void) const;
+    
+    //## auto_generated
+    void setAlert(const bool p_Alert);
+    
+    //## auto_generated
+    const RhpString getAlertMessage(void) const;
+    
+    //## auto_generated
+    void setAlertMessage(const RhpString p_AlertMessage);
+    
+    //## auto_generated
     const AirData getCurrPlaneDataFinal(void) const;
     
     //## auto_generated
     void setCurrPlaneDataFinal(const AirData p_CurrPlaneDataFinal);
+    
+    //## auto_generated
+    const RhpString getCurrSTNMessage(void) const;
+    
+    //## auto_generated
+    void setCurrSTNMessage(const RhpString p_CurrSTNMessage);
     
     //## auto_generated
     const SatData getCurrSatDataFinal(void) const;
@@ -152,6 +170,36 @@ public :
     
     //## auto_generated
     void setFlagPrevSat(const int p_FlagPrevSat);
+    
+    //## auto_generated
+    const RhpString getHealthStatusMessage(void) const;
+    
+    //## auto_generated
+    void setHealthStatusMessage(const RhpString p_HealthStatusMessage);
+    
+    //## auto_generated
+    const int getLedCase(void) const;
+    
+    //## auto_generated
+    void setLedCase(const int p_LedCase);
+    
+    //## auto_generated
+    const bool getManual_Verification(void) const;
+    
+    //## auto_generated
+    void setManual_Verification(const bool p_Manual_Verification);
+    
+    //## auto_generated
+    const RhpString getPredMessage(void) const;
+    
+    //## auto_generated
+    void setPredMessage(const RhpString p_PredMessage);
+    
+    //## auto_generated
+    const bool getPrediction(void) const;
+    
+    //## auto_generated
+    void setPrediction(const bool p_Prediction);
     
     //## auto_generated
     const bool getReceivedMetOcean(void) const;
@@ -201,7 +249,13 @@ protected :
 
 private :
 
+    bool Alert;		//## attribute Alert
+    
+    RhpString AlertMessage;		//## attribute AlertMessage
+    
     AirData CurrPlaneDataFinal;		//## attribute CurrPlaneDataFinal
+    
+    RhpString CurrSTNMessage;		//## attribute CurrSTNMessage
     
     SatData CurrSatDataFinal;		//## attribute CurrSatDataFinal
     
@@ -212,6 +266,16 @@ private :
     bool FlagPrevSTN;		//## attribute FlagPrevSTN
     
     int FlagPrevSat;		//## attribute FlagPrevSat
+    
+    RhpString HealthStatusMessage;		//## attribute HealthStatusMessage
+    
+    int LedCase;		//## attribute LedCase
+    
+    bool Manual_Verification;		//## attribute Manual_Verification
+    
+    RhpString PredMessage;		//## attribute PredMessage
+    
+    bool Prediction;		//## attribute Prediction
     
     bool ReceivedMetOcean;		//## attribute ReceivedMetOcean
     
@@ -263,9 +327,58 @@ public :
     //## statechart_method
     inline RhpBoolean CollectData_IN(void) const;
     
+    //## statechart_method
+    IOxfReactive::TakeEventStatus CollectData_handleEvent(void);
+    
     // Analysis:
     //## statechart_method
     inline RhpBoolean Analysis_IN(void) const;
+    
+    //## statechart_method
+    void Analysis_entDef(void);
+    
+    //## statechart_method
+    void Analysis_exit(void);
+    
+    //## statechart_method
+    IOxfReactive::TakeEventStatus Analysis_processEvent(void);
+    
+    //## statechart_method
+    IOxfReactive::TakeEventStatus Analysis_handleEvent(void);
+    
+    // state_4:
+    //## statechart_method
+    inline RhpBoolean state_4_IN(void) const;
+    
+    //## statechart_method
+    void state_4_entDef(void);
+    
+    //## statechart_method
+    void state_4_exit(void);
+    
+    //## statechart_method
+    IOxfReactive::TakeEventStatus state_4_processEvent(void);
+    
+    // AnalyzeMetO:
+    //## statechart_method
+    inline RhpBoolean AnalyzeMetO_IN(void) const;
+    
+    // state_3:
+    //## statechart_method
+    inline RhpBoolean state_3_IN(void) const;
+    
+    //## statechart_method
+    void state_3_entDef(void);
+    
+    //## statechart_method
+    void state_3_exit(void);
+    
+    //## statechart_method
+    IOxfReactive::TakeEventStatus state_3_processEvent(void);
+    
+    // AnalyzeSeismic:
+    //## statechart_method
+    inline RhpBoolean AnalyzeSeismic_IN(void) const;
 
 protected :
 
@@ -282,7 +395,11 @@ protected :
         OMNonState = 0,
         Idle = 1,
         CollectData = 2,
-        Analysis = 3
+        Analysis = 3,
+        state_4 = 4,
+        AnalyzeMetO = 5,
+        state_3 = 6,
+        AnalyzeSeismic = 7
     };
 //#]
 
@@ -294,6 +411,14 @@ private :
     RiskAssessmentSubsystem_Enum rootState_active;
     
     IOxfTimeout* rootState_timeout;
+    
+    RiskAssessmentSubsystem_Enum state_4_subState;
+    
+    RiskAssessmentSubsystem_Enum state_4_active;
+    
+    RiskAssessmentSubsystem_Enum state_3_subState;
+    
+    RiskAssessmentSubsystem_Enum state_3_active;
 //#]
 };
 
@@ -321,6 +446,18 @@ public :
     
     //## statechart_method
     void Analysis_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
+    void state_4_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
+    void AnalyzeMetO_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
+    void state_3_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
+    void AnalyzeSeismic_serializeStates(AOMSState* aomsState) const;
 };
 //#]
 #endif // _OMINSTRUMENT
@@ -339,6 +476,22 @@ inline RhpBoolean RiskAssessmentSubsystem::CollectData_IN(void) const {
 
 inline RhpBoolean RiskAssessmentSubsystem::Analysis_IN(void) const {
     return rootState_subState == Analysis;
+}
+
+inline RhpBoolean RiskAssessmentSubsystem::state_4_IN(void) const {
+    return Analysis_IN();
+}
+
+inline RhpBoolean RiskAssessmentSubsystem::AnalyzeMetO_IN(void) const {
+    return state_4_subState == AnalyzeMetO;
+}
+
+inline RhpBoolean RiskAssessmentSubsystem::state_3_IN(void) const {
+    return Analysis_IN();
+}
+
+inline RhpBoolean RiskAssessmentSubsystem::AnalyzeSeismic_IN(void) const {
+    return state_3_subState == AnalyzeSeismic;
 }
 
 #endif

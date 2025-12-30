@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
-//!	Generated Date	: Mon, 29, Dec 2025  
+//!	Generated Date	: Tue, 30, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.cpp
 *********************************************************************/
 
@@ -78,6 +78,24 @@
     OMADD_UNSER(SatData, CurrSatDataFinal, OMDestructiveString2X)\
     OMADD_UNSER(bool, FlagPrevSat, OMDestructiveString2X)\
     OMADD_UNSER(bool, FlagPrevAir, OMDestructiveString2X)
+#define evPushSeismicAlert_SERIALIZE \
+    OMADD_SER(HealthStatusMessage, x2String(myEvent->HealthStatusMessage))\
+    OMADD_SER(Manual_Verification, x2String(myEvent->Manual_Verification))\
+    OMADD_SER(CurrSTNMessage, x2String(myEvent->CurrSTNMessage))\
+    OMADD_SER(Alert, x2String(myEvent->Alert))\
+    OMADD_SER(LedCase, x2String(myEvent->LedCase))\
+    OMADD_SER(AlertMessage, x2String(myEvent->AlertMessage))\
+    OMADD_SER(Prediction, x2String(myEvent->Prediction))\
+    OMADD_SER(PredMessage, x2String(myEvent->PredMessage))
+#define evPushSeismicAlert_UNSERIALIZE \
+    OMADD_UNSER(RhpString, HealthStatusMessage, OMDestructiveString2X)\
+    OMADD_UNSER(bool, Manual_Verification, OMDestructiveString2X)\
+    OMADD_UNSER(RhpString, CurrSTNMessage, OMDestructiveString2X)\
+    OMADD_UNSER(bool, Alert, OMDestructiveString2X)\
+    OMADD_UNSER(int, LedCase, OMDestructiveString2X)\
+    OMADD_UNSER(RhpString, AlertMessage, OMDestructiveString2X)\
+    OMADD_UNSER(bool, Prediction, OMDestructiveString2X)\
+    OMADD_UNSER(RhpString, PredMessage, OMDestructiveString2X)
 #define SMSWTD_Architecture_fillHistRamp_SERIALIZE aomsmethod->addAttribute("maxAmplitude", x2String(maxAmplitude));
 
 #define SMSWTD_Architecture_printAirData_SERIALIZE aomsmethod->addAttribute("curr_air", UNKNOWN2STRING(curr_air));
@@ -147,6 +165,8 @@
 #define StartAlertGen_UNSERIALIZE OM_NO_OP
 
 #define StartAlertGen_CONSTRUCTOR StartAlertGen()
+
+#define evPushSeismicAlert_CONSTRUCTOR evPushSeismicAlert(HealthStatusMessage, Manual_Verification, CurrSTNMessage, Alert, LedCase, AlertMessage, Prediction, PredMessage)
 //#]
 
 //## package SMSWTD_Architecture
@@ -705,6 +725,87 @@ const IOxfEvent::ID StartAlertGen_SMSWTD_Architecture_id(3412);
 //#]
 
 IMPLEMENT_META_EVENT_P(StartAlertGen, SMSWTD_Architecture, SMSWTD_Architecture, StartAlertGen())
+
+//## event evPushSeismicAlert(RhpString,bool,RhpString,bool,int,RhpString,bool,RhpString)
+evPushSeismicAlert::evPushSeismicAlert(void) {
+    NOTIFY_EVENT_CONSTRUCTOR(evPushSeismicAlert)
+    setId(evPushSeismicAlert_SMSWTD_Architecture_id);
+}
+
+evPushSeismicAlert::evPushSeismicAlert(const RhpString p_HealthStatusMessage, const bool p_Manual_Verification, const RhpString p_CurrSTNMessage, const bool p_Alert, const int p_LedCase, const RhpString p_AlertMessage, const bool p_Prediction, const RhpString p_PredMessage) : OMEvent() ,HealthStatusMessage(p_HealthStatusMessage),Manual_Verification(p_Manual_Verification),CurrSTNMessage(p_CurrSTNMessage),Alert(p_Alert),LedCase(p_LedCase),AlertMessage(p_AlertMessage),Prediction(p_Prediction),PredMessage(p_PredMessage) {
+    NOTIFY_EVENT_CONSTRUCTOR(evPushSeismicAlert)
+    setId(evPushSeismicAlert_SMSWTD_Architecture_id);
+}
+
+RhpString evPushSeismicAlert::getHealthStatusMessage(void) const {
+    return HealthStatusMessage;
+}
+
+void evPushSeismicAlert::setHealthStatusMessage(const RhpString p_HealthStatusMessage) {
+    HealthStatusMessage = p_HealthStatusMessage;
+}
+
+bool evPushSeismicAlert::getManual_Verification(void) const {
+    return Manual_Verification;
+}
+
+void evPushSeismicAlert::setManual_Verification(const bool p_Manual_Verification) {
+    Manual_Verification = p_Manual_Verification;
+}
+
+RhpString evPushSeismicAlert::getCurrSTNMessage(void) const {
+    return CurrSTNMessage;
+}
+
+void evPushSeismicAlert::setCurrSTNMessage(const RhpString p_CurrSTNMessage) {
+    CurrSTNMessage = p_CurrSTNMessage;
+}
+
+bool evPushSeismicAlert::getAlert(void) const {
+    return Alert;
+}
+
+void evPushSeismicAlert::setAlert(const bool p_Alert) {
+    Alert = p_Alert;
+}
+
+int evPushSeismicAlert::getLedCase(void) const {
+    return LedCase;
+}
+
+void evPushSeismicAlert::setLedCase(const int p_LedCase) {
+    LedCase = p_LedCase;
+}
+
+RhpString evPushSeismicAlert::getAlertMessage(void) const {
+    return AlertMessage;
+}
+
+void evPushSeismicAlert::setAlertMessage(const RhpString p_AlertMessage) {
+    AlertMessage = p_AlertMessage;
+}
+
+bool evPushSeismicAlert::getPrediction(void) const {
+    return Prediction;
+}
+
+void evPushSeismicAlert::setPrediction(const bool p_Prediction) {
+    Prediction = p_Prediction;
+}
+
+RhpString evPushSeismicAlert::getPredMessage(void) const {
+    return PredMessage;
+}
+
+void evPushSeismicAlert::setPredMessage(const RhpString p_PredMessage) {
+    PredMessage = p_PredMessage;
+}
+
+//#[ ignore
+const IOxfEvent::ID evPushSeismicAlert_SMSWTD_Architecture_id(3413);
+//#]
+
+IMPLEMENT_META_EVENT_P(evPushSeismicAlert, SMSWTD_Architecture, SMSWTD_Architecture, evPushSeismicAlert(RhpString,bool,RhpString,bool,int,RhpString,bool,RhpString))
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.cpp

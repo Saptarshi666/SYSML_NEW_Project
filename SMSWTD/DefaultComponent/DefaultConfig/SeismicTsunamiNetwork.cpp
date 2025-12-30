@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SeismicTsunamiNetwork
-//!	Generated Date	: Mon, 29, Dec 2025  
+//!	Generated Date	: Tue, 30, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SeismicTsunamiNetwork.cpp
 *********************************************************************/
 
@@ -287,7 +287,7 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                     // Generate worst case data for Energency scenario
                     RecEQM2 = fillHistSineWave(2.0,5,6);
                     RecEQD2 = fillHistSineWave();
-                    RecSCM2 = fillHistRamp(1.6);
+                    RecSCM2 = fillHistSineWave(0.2,2,1.6); 
                     RecWPM2 = fillHistSineWave(5.4,2,1.1);
                     
                     // Generate Measurement Certainty (Health) Data
