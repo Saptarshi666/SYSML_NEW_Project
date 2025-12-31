@@ -1,6 +1,6 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
@@ -96,6 +96,26 @@
     OMADD_UNSER(RhpString, AlertMessage, OMDestructiveString2X)\
     OMADD_UNSER(bool, Prediction, OMDestructiveString2X)\
     OMADD_UNSER(RhpString, PredMessage, OMDestructiveString2X)
+#define evPushMetOceanAlert_SERIALIZE \
+    OMADD_SER(Manual_Verification_MetO, x2String(myEvent->Manual_Verification_MetO))\
+    OMADD_SER(HealthStatusMessageMetO, x2String(myEvent->HealthStatusMessageMetO))\
+    OMADD_SER(AlertMetO, x2String(myEvent->AlertMetO))\
+    OMADD_SER(LedCaseMetO, x2String(myEvent->LedCaseMetO))\
+    OMADD_SER(AlertMessageMetO, x2String(myEvent->AlertMessageMetO))\
+    OMADD_SER(PlaneDataMessage, x2String(myEvent->PlaneDataMessage))\
+    OMADD_SER(SatDataMessage, x2String(myEvent->SatDataMessage))\
+    OMADD_SER(PredictionMetO, x2String(myEvent->PredictionMetO))\
+    OMADD_SER(PredMessageMetO, x2String(myEvent->PredMessageMetO))
+#define evPushMetOceanAlert_UNSERIALIZE \
+    OMADD_UNSER(bool, Manual_Verification_MetO, OMDestructiveString2X)\
+    OMADD_UNSER(RhpString, HealthStatusMessageMetO, OMDestructiveString2X)\
+    OMADD_UNSER(bool, AlertMetO, OMDestructiveString2X)\
+    OMADD_UNSER(int, LedCaseMetO, OMDestructiveString2X)\
+    OMADD_UNSER(RhpString, AlertMessageMetO, OMDestructiveString2X)\
+    OMADD_UNSER(RhpString, PlaneDataMessage, OMDestructiveString2X)\
+    OMADD_UNSER(RhpString, SatDataMessage, OMDestructiveString2X)\
+    OMADD_UNSER(bool, PredictionMetO, OMDestructiveString2X)\
+    OMADD_UNSER(RhpString, PredMessageMetO, OMDestructiveString2X)
 #define SMSWTD_Architecture_fillHistRamp_SERIALIZE aomsmethod->addAttribute("maxAmplitude", x2String(maxAmplitude));
 
 #define SMSWTD_Architecture_printAirData_SERIALIZE aomsmethod->addAttribute("curr_air", UNKNOWN2STRING(curr_air));
@@ -167,6 +187,8 @@
 #define StartAlertGen_CONSTRUCTOR StartAlertGen()
 
 #define evPushSeismicAlert_CONSTRUCTOR evPushSeismicAlert(HealthStatusMessage, Manual_Verification, CurrSTNMessage, Alert, LedCase, AlertMessage, Prediction, PredMessage)
+
+#define evPushMetOceanAlert_CONSTRUCTOR evPushMetOceanAlert(Manual_Verification_MetO, HealthStatusMessageMetO, AlertMetO, LedCaseMetO, AlertMessageMetO, PlaneDataMessage, SatDataMessage, PredictionMetO, PredMessageMetO)
 //#]
 
 //## package SMSWTD_Architecture
@@ -806,6 +828,95 @@ const IOxfEvent::ID evPushSeismicAlert_SMSWTD_Architecture_id(3413);
 //#]
 
 IMPLEMENT_META_EVENT_P(evPushSeismicAlert, SMSWTD_Architecture, SMSWTD_Architecture, evPushSeismicAlert(RhpString,bool,RhpString,bool,int,RhpString,bool,RhpString))
+
+//## event evPushMetOceanAlert(bool,RhpString,bool,int,RhpString,RhpString,RhpString,bool,RhpString)
+evPushMetOceanAlert::evPushMetOceanAlert(void) {
+    NOTIFY_EVENT_CONSTRUCTOR(evPushMetOceanAlert)
+    setId(evPushMetOceanAlert_SMSWTD_Architecture_id);
+}
+
+evPushMetOceanAlert::evPushMetOceanAlert(const bool p_Manual_Verification_MetO, const RhpString p_HealthStatusMessageMetO, const bool p_AlertMetO, const int p_LedCaseMetO, const RhpString p_AlertMessageMetO, const RhpString p_PlaneDataMessage, const RhpString p_SatDataMessage, const bool p_PredictionMetO, const RhpString p_PredMessageMetO) : OMEvent() ,Manual_Verification_MetO(p_Manual_Verification_MetO),HealthStatusMessageMetO(p_HealthStatusMessageMetO),AlertMetO(p_AlertMetO),LedCaseMetO(p_LedCaseMetO),AlertMessageMetO(p_AlertMessageMetO),PlaneDataMessage(p_PlaneDataMessage),SatDataMessage(p_SatDataMessage),PredictionMetO(p_PredictionMetO),PredMessageMetO(p_PredMessageMetO) {
+    NOTIFY_EVENT_CONSTRUCTOR(evPushMetOceanAlert)
+    setId(evPushMetOceanAlert_SMSWTD_Architecture_id);
+}
+
+bool evPushMetOceanAlert::getManual_Verification_MetO(void) const {
+    return Manual_Verification_MetO;
+}
+
+void evPushMetOceanAlert::setManual_Verification_MetO(const bool p_Manual_Verification_MetO) {
+    Manual_Verification_MetO = p_Manual_Verification_MetO;
+}
+
+RhpString evPushMetOceanAlert::getHealthStatusMessageMetO(void) const {
+    return HealthStatusMessageMetO;
+}
+
+void evPushMetOceanAlert::setHealthStatusMessageMetO(const RhpString p_HealthStatusMessageMetO) {
+    HealthStatusMessageMetO = p_HealthStatusMessageMetO;
+}
+
+bool evPushMetOceanAlert::getAlertMetO(void) const {
+    return AlertMetO;
+}
+
+void evPushMetOceanAlert::setAlertMetO(const bool p_AlertMetO) {
+    AlertMetO = p_AlertMetO;
+}
+
+int evPushMetOceanAlert::getLedCaseMetO(void) const {
+    return LedCaseMetO;
+}
+
+void evPushMetOceanAlert::setLedCaseMetO(const int p_LedCaseMetO) {
+    LedCaseMetO = p_LedCaseMetO;
+}
+
+RhpString evPushMetOceanAlert::getAlertMessageMetO(void) const {
+    return AlertMessageMetO;
+}
+
+void evPushMetOceanAlert::setAlertMessageMetO(const RhpString p_AlertMessageMetO) {
+    AlertMessageMetO = p_AlertMessageMetO;
+}
+
+RhpString evPushMetOceanAlert::getPlaneDataMessage(void) const {
+    return PlaneDataMessage;
+}
+
+void evPushMetOceanAlert::setPlaneDataMessage(const RhpString p_PlaneDataMessage) {
+    PlaneDataMessage = p_PlaneDataMessage;
+}
+
+RhpString evPushMetOceanAlert::getSatDataMessage(void) const {
+    return SatDataMessage;
+}
+
+void evPushMetOceanAlert::setSatDataMessage(const RhpString p_SatDataMessage) {
+    SatDataMessage = p_SatDataMessage;
+}
+
+bool evPushMetOceanAlert::getPredictionMetO(void) const {
+    return PredictionMetO;
+}
+
+void evPushMetOceanAlert::setPredictionMetO(const bool p_PredictionMetO) {
+    PredictionMetO = p_PredictionMetO;
+}
+
+RhpString evPushMetOceanAlert::getPredMessageMetO(void) const {
+    return PredMessageMetO;
+}
+
+void evPushMetOceanAlert::setPredMessageMetO(const RhpString p_PredMessageMetO) {
+    PredMessageMetO = p_PredMessageMetO;
+}
+
+//#[ ignore
+const IOxfEvent::ID evPushMetOceanAlert_SMSWTD_Architecture_id(3414);
+//#]
+
+IMPLEMENT_META_EVENT_P(evPushMetOceanAlert, SMSWTD_Architecture, SMSWTD_Architecture, evPushMetOceanAlert(bool,RhpString,bool,int,RhpString,RhpString,RhpString,bool,RhpString))
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Architecture.cpp

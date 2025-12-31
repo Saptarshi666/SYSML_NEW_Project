@@ -1,6 +1,6 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: RiskAssessmentSubsystem
@@ -130,6 +130,18 @@ public :
     void setAlertMessage(const RhpString p_AlertMessage);
     
     //## auto_generated
+    const RhpString getAlertMessageMetO(void) const;
+    
+    //## auto_generated
+    void setAlertMessageMetO(const RhpString p_AlertMessageMetO);
+    
+    //## auto_generated
+    const bool getAlertMetO(void) const;
+    
+    //## auto_generated
+    void setAlertMetO(const bool p_AlertMetO);
+    
+    //## auto_generated
     const AirData getCurrPlaneDataFinal(void) const;
     
     //## auto_generated
@@ -178,10 +190,22 @@ public :
     void setHealthStatusMessage(const RhpString p_HealthStatusMessage);
     
     //## auto_generated
+    const RhpString getHealthStatusMessageMetO(void) const;
+    
+    //## auto_generated
+    void setHealthStatusMessageMetO(const RhpString p_HealthStatusMessageMetO);
+    
+    //## auto_generated
     const int getLedCase(void) const;
     
     //## auto_generated
     void setLedCase(const int p_LedCase);
+    
+    //## auto_generated
+    const int getLedCaseMetO(void) const;
+    
+    //## auto_generated
+    void setLedCaseMetO(const int p_LedCaseMetO);
     
     //## auto_generated
     const bool getManual_Verification(void) const;
@@ -190,16 +214,40 @@ public :
     void setManual_Verification(const bool p_Manual_Verification);
     
     //## auto_generated
+    const bool getManual_Verification_MetO(void) const;
+    
+    //## auto_generated
+    void setManual_Verification_MetO(const bool p_Manual_Verification_MetO);
+    
+    //## auto_generated
+    const RhpString getPlaneDataMessage(void) const;
+    
+    //## auto_generated
+    void setPlaneDataMessage(const RhpString p_PlaneDataMessage);
+    
+    //## auto_generated
     const RhpString getPredMessage(void) const;
     
     //## auto_generated
     void setPredMessage(const RhpString p_PredMessage);
     
     //## auto_generated
+    const RhpString getPredMessageMetO(void) const;
+    
+    //## auto_generated
+    void setPredMessageMetO(const RhpString p_PredMessageMetO);
+    
+    //## auto_generated
     const bool getPrediction(void) const;
     
     //## auto_generated
     void setPrediction(const bool p_Prediction);
+    
+    //## auto_generated
+    const bool getPredictionMetO(void) const;
+    
+    //## auto_generated
+    void setPredictionMetO(const bool p_PredictionMetO);
     
     //## auto_generated
     const bool getReceivedMetOcean(void) const;
@@ -212,6 +260,12 @@ public :
     
     //## auto_generated
     void setReceivedSTN(const bool p_ReceivedSTN);
+    
+    //## auto_generated
+    const RhpString getSatDataMessage(void) const;
+    
+    //## auto_generated
+    void setSatDataMessage(const RhpString p_SatDataMessage);
     
     //## auto_generated
     const AlertingSubsystem* getItsAlertingSubsystem(void) const;
@@ -253,6 +307,10 @@ private :
     
     RhpString AlertMessage;		//## attribute AlertMessage
     
+    RhpString AlertMessageMetO;		//## attribute AlertMessageMetO
+    
+    bool AlertMetO;		//## attribute AlertMetO
+    
     AirData CurrPlaneDataFinal;		//## attribute CurrPlaneDataFinal
     
     RhpString CurrSTNMessage;		//## attribute CurrSTNMessage
@@ -269,17 +327,31 @@ private :
     
     RhpString HealthStatusMessage;		//## attribute HealthStatusMessage
     
+    RhpString HealthStatusMessageMetO;		//## attribute HealthStatusMessageMetO
+    
     int LedCase;		//## attribute LedCase
+    
+    int LedCaseMetO;		//## attribute LedCaseMetO
     
     bool Manual_Verification;		//## attribute Manual_Verification
     
+    bool Manual_Verification_MetO;		//## attribute Manual_Verification_MetO
+    
+    RhpString PlaneDataMessage;		//## attribute PlaneDataMessage
+    
     RhpString PredMessage;		//## attribute PredMessage
     
+    RhpString PredMessageMetO;		//## attribute PredMessageMetO
+    
     bool Prediction;		//## attribute Prediction
+    
+    bool PredictionMetO;		//## attribute PredictionMetO
     
     bool ReceivedMetOcean;		//## attribute ReceivedMetOcean
     
     bool ReceivedSTN;		//## attribute ReceivedSTN
+    
+    RhpString SatDataMessage;		//## attribute SatDataMessage
     
     ////    Relations and components    ////
     

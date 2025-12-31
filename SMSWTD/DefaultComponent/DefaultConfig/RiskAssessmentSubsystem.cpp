@@ -1,6 +1,6 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: RiskAssessmentSubsystem
@@ -98,6 +98,22 @@ void RiskAssessmentSubsystem::setAlertMessage(const RhpString p_AlertMessage) {
     AlertMessage = p_AlertMessage;
 }
 
+const RhpString RiskAssessmentSubsystem::getAlertMessageMetO(void) const {
+    return AlertMessageMetO;
+}
+
+void RiskAssessmentSubsystem::setAlertMessageMetO(const RhpString p_AlertMessageMetO) {
+    AlertMessageMetO = p_AlertMessageMetO;
+}
+
+const bool RiskAssessmentSubsystem::getAlertMetO(void) const {
+    return AlertMetO;
+}
+
+void RiskAssessmentSubsystem::setAlertMetO(const bool p_AlertMetO) {
+    AlertMetO = p_AlertMetO;
+}
+
 const AirData RiskAssessmentSubsystem::getCurrPlaneDataFinal(void) const {
     return CurrPlaneDataFinal;
 }
@@ -162,12 +178,28 @@ void RiskAssessmentSubsystem::setHealthStatusMessage(const RhpString p_HealthSta
     HealthStatusMessage = p_HealthStatusMessage;
 }
 
+const RhpString RiskAssessmentSubsystem::getHealthStatusMessageMetO(void) const {
+    return HealthStatusMessageMetO;
+}
+
+void RiskAssessmentSubsystem::setHealthStatusMessageMetO(const RhpString p_HealthStatusMessageMetO) {
+    HealthStatusMessageMetO = p_HealthStatusMessageMetO;
+}
+
 const int RiskAssessmentSubsystem::getLedCase(void) const {
     return LedCase;
 }
 
 void RiskAssessmentSubsystem::setLedCase(const int p_LedCase) {
     LedCase = p_LedCase;
+}
+
+const int RiskAssessmentSubsystem::getLedCaseMetO(void) const {
+    return LedCaseMetO;
+}
+
+void RiskAssessmentSubsystem::setLedCaseMetO(const int p_LedCaseMetO) {
+    LedCaseMetO = p_LedCaseMetO;
 }
 
 const bool RiskAssessmentSubsystem::getManual_Verification(void) const {
@@ -178,6 +210,22 @@ void RiskAssessmentSubsystem::setManual_Verification(const bool p_Manual_Verific
     Manual_Verification = p_Manual_Verification;
 }
 
+const bool RiskAssessmentSubsystem::getManual_Verification_MetO(void) const {
+    return Manual_Verification_MetO;
+}
+
+void RiskAssessmentSubsystem::setManual_Verification_MetO(const bool p_Manual_Verification_MetO) {
+    Manual_Verification_MetO = p_Manual_Verification_MetO;
+}
+
+const RhpString RiskAssessmentSubsystem::getPlaneDataMessage(void) const {
+    return PlaneDataMessage;
+}
+
+void RiskAssessmentSubsystem::setPlaneDataMessage(const RhpString p_PlaneDataMessage) {
+    PlaneDataMessage = p_PlaneDataMessage;
+}
+
 const RhpString RiskAssessmentSubsystem::getPredMessage(void) const {
     return PredMessage;
 }
@@ -186,12 +234,28 @@ void RiskAssessmentSubsystem::setPredMessage(const RhpString p_PredMessage) {
     PredMessage = p_PredMessage;
 }
 
+const RhpString RiskAssessmentSubsystem::getPredMessageMetO(void) const {
+    return PredMessageMetO;
+}
+
+void RiskAssessmentSubsystem::setPredMessageMetO(const RhpString p_PredMessageMetO) {
+    PredMessageMetO = p_PredMessageMetO;
+}
+
 const bool RiskAssessmentSubsystem::getPrediction(void) const {
     return Prediction;
 }
 
 void RiskAssessmentSubsystem::setPrediction(const bool p_Prediction) {
     Prediction = p_Prediction;
+}
+
+const bool RiskAssessmentSubsystem::getPredictionMetO(void) const {
+    return PredictionMetO;
+}
+
+void RiskAssessmentSubsystem::setPredictionMetO(const bool p_PredictionMetO) {
+    PredictionMetO = p_PredictionMetO;
 }
 
 const bool RiskAssessmentSubsystem::getReceivedMetOcean(void) const {
@@ -208,6 +272,14 @@ const bool RiskAssessmentSubsystem::getReceivedSTN(void) const {
 
 void RiskAssessmentSubsystem::setReceivedSTN(const bool p_ReceivedSTN) {
     ReceivedSTN = p_ReceivedSTN;
+}
+
+const RhpString RiskAssessmentSubsystem::getSatDataMessage(void) const {
+    return SatDataMessage;
+}
+
+void RiskAssessmentSubsystem::setSatDataMessage(const RhpString p_SatDataMessage) {
+    SatDataMessage = p_SatDataMessage;
 }
 
 const AlertingSubsystem* RiskAssessmentSubsystem::getItsAlertingSubsystem(void) const {
@@ -532,30 +604,32 @@ void RiskAssessmentSubsystem::state_4_entDef(void) {
         satHealthCase = 4;
     }
     
-    
+    Manual_Verification_MetO = false;
+    HealthStatusMessageMetO = "";
+    LedCaseMetO = -1;
     // ========== STEP 2: MANUAL APPROVAL CHECK ==========
     if(planeHealthCase == 4 || satHealthCase == 4) {
-        std::cout << "\n!!! MANUAL APPROVAL REQUIRED !!!\n";
-    
+        Manual_Verification_MetO = true;
+    	LedCaseMetO = 1;
         if(planeHealthCase == 4) {
-            std::cout << "Questionable PLANE data:\n";
-            printAirData(CurrPlaneDataFinal);
+            HealthStatusMessageMetO =  "Questionable PLANE data:\n Operator approval recommended.\n\n";
         }
     
         if(satHealthCase == 4) {
-            std::cout << "Questionable SATELLITE data:\n";
-            printSatData(CurrSatDataFinal);
+            HealthStatusMessageMetO = "Questionable SATELLITE data:\n Operator approval recommended.\n\n";
         }
-    
-        std::cout << "Operator approval recommended.\n\n";
     }
     
     
     // ========== STEP 3: METOCEAN RISK ANALYSIS ==========
     bool decisionAlert = false;
     bool decisionPrediction = false;
-    
-    
+    AlertMetO = false;
+    AlertMessageMetO = "";
+    PlaneDataMessage = "";
+    SatDataMessage = "";
+    PredictionMetO = false;
+    PredMessageMetO = "";
     // ---------- Satellite-Based Storm Analysis ----------
     
     // Compute storm distance (km)
@@ -569,25 +643,57 @@ void RiskAssessmentSubsystem::state_4_entDef(void) {
            CurrSatDataFinal.TempG  >= TEMP_GRAD_CRITICAL) {
     
             decisionAlert = true;
+            AlertMetO = true;
+            LedCaseMetO = 2;
+    		AlertMessageMetO = "Severe nearby storm detected\n";
+    		char buf[1024];
+    		std::snprintf(buf, sizeof(buf),
+        "Storm Class = %d\n"
+        "Storm Distance = %.2f km\n"
+        "Satellite Data:\n"
+        "  Temperature Gradient (TempG) = %.2f\n"
+        "  Storm Size (StSize) = %d\n"
+        "  Storm Location X (StLocX) = %.2f\n"
+        "  Storm Location Y (StLocY) = %.2f\n"
+        "  Final Certainty = %.2f\n",
+        (int)CurrSatDataFinal.StSize,
+        (double)stormDistance,
+        (double)CurrSatDataFinal.TempG,
+        (int)CurrSatDataFinal.StSize,
+        (double)CurrSatDataFinal.StLocX,
+        (double)CurrSatDataFinal.StLocY,
+        (double)CurrSatDataFinal.FinalC
+    );
     
-            std::cout << "\n******** METOCEAN ALERT ********\n";
-            std::cout << "Severe nearby storm detected\n";
-            std::cout << "Storm Class = " << CurrSatDataFinal.StSize << "\n";
-            std::cout << "Storm Distance = " << stormDistance << " km\n";
-            printSatData(CurrSatDataFinal);
-            std::cout << "********************************\n\n";
+    SatDataMessage = buf;
         }
         else if(CurrSatDataFinal.StSize >= STORM_CLASS_WARNING &&
                 CurrSatDataFinal.TempG  >= TEMP_GRAD_CRITICAL) {
     
             decisionPrediction = true;
+    		PredictionMetO = true;
+    		LedCaseMetO = 3;
+    		PredMessageMetO = "Storm developing very close\n";
+            char buf[1024];
+    		std::snprintf(buf, sizeof(buf),
+        "Storm Class = %d\n"
+        "Storm Distance = %.2f km\n"
+        "Satellite Data:\n"
+        "  Temperature Gradient (TempG) = %.2f\n"
+        "  Storm Size (StSize) = %d\n"
+        "  Storm Location X (StLocX) = %.2f\n"
+        "  Storm Location Y (StLocY) = %.2f\n"
+        "  Final Certainty = %.2f\n",
+        (int)CurrSatDataFinal.StSize,
+        (double)stormDistance,
+        (double)CurrSatDataFinal.TempG,
+        (int)CurrSatDataFinal.StSize,
+        (double)CurrSatDataFinal.StLocX,
+        (double)CurrSatDataFinal.StLocY,
+        (double)CurrSatDataFinal.FinalC
+    );
     
-            std::cout << "\n====== METOCEAN PREDICTION ======\n";
-            std::cout << "Storm developing very close\n";
-            std::cout << "Storm Class = " << CurrSatDataFinal.StSize << "\n";
-            std::cout << "Storm Distance = " << stormDistance << " km\n";
-            printSatData(CurrSatDataFinal);
-            std::cout << "================================\n\n";
+    SatDataMessage = buf;
         }
     }
     else if(stormDistance < 500.0) {
@@ -596,13 +702,29 @@ void RiskAssessmentSubsystem::state_4_entDef(void) {
            CurrSatDataFinal.TempG  >= TEMP_GRAD_CRITICAL) {
     
             decisionPrediction = true;
+    		PredictionMetO = true;
+    		LedCaseMetO = 3;
+    		PredMessageMetO = "Regional storm detected\n";
+            char buf[1024];
+    		std::snprintf(buf, sizeof(buf),
+        "Storm Class = %d\n"
+        "Storm Distance = %.2f km\n"
+        "Satellite Data:\n"
+        "  Temperature Gradient (TempG) = %.2f\n"
+        "  Storm Size (StSize) = %d\n"
+        "  Storm Location X (StLocX) = %.2f\n"
+        "  Storm Location Y (StLocY) = %.2f\n"
+        "  Final Certainty = %.2f\n",
+        (int)CurrSatDataFinal.StSize,
+        (double)stormDistance,
+        (double)CurrSatDataFinal.TempG,
+        (int)CurrSatDataFinal.StSize,
+        (double)CurrSatDataFinal.StLocX,
+        (double)CurrSatDataFinal.StLocY,
+        (double)CurrSatDataFinal.FinalC
+    );
     
-            std::cout << "\n====== METOCEAN PREDICTION ======\n";
-            std::cout << "Regional storm detected\n";
-            std::cout << "Storm Class = " << CurrSatDataFinal.StSize << "\n";
-            std::cout << "Storm Distance = " << stormDistance << " km\n";
-            printSatData(CurrSatDataFinal);
-            std::cout << "================================\n\n";
+    SatDataMessage = buf;
         }
     }
     
@@ -620,26 +742,92 @@ void RiskAssessmentSubsystem::state_4_entDef(void) {
            CurrPlaneDataFinal.AirP <= LOW_PRESSURE_THRESHOLD) {
     
             decisionAlert = true;
+            AlertMetO = true;
+            LedCaseMetO = 2;
+    		AlertMessageMetO = "Severe storm conditions detected by aircraft (close range)\n";
+    		char buf[1024];
     
-            std::cout << "\n******** WEATHER ALERT ********\n";
-            std::cout << "Severe storm conditions detected by aircraft (close range)\n";
-            std::cout << "Plane Distance = " << planeDistance << " km\n";
-            printAirData(CurrPlaneDataFinal);
-            std::cout << "*******************************\n\n";
+    std::snprintf(buf, sizeof(buf),
+        "Plane Distance = %.2f km\n"
+        "Aircraft Data:\n"
+        "  Temperature (Temp) = %.2f\n"
+        "  Humidity (Humd) = %.2f\n"
+        "  Air Pressure (AirP) = %.2f\n"
+        "  Wind Speed (WinS) = %.2f\n"
+        "  Measurement Certainty (MesC) = %.2f\n"
+        "  Location X (LocX) = %.2f\n"
+        "  Location Y (LocY) = %.2f\n"
+        "  Final Certainty = %.2f\n",
+        (double)planeDistance,
+        (double)CurrPlaneDataFinal.Temp,
+        (double)CurrPlaneDataFinal.Humd,
+        (double)CurrPlaneDataFinal.AirP,
+        (double)CurrPlaneDataFinal.WinS,
+        (double)CurrPlaneDataFinal.MesC,
+        (double)CurrPlaneDataFinal.LocX,
+        (double)CurrPlaneDataFinal.LocY,
+        (double)CurrPlaneDataFinal.FinalC
+    );
+    
+    PlaneDataMessage = buf;   // rhpstring assignment (same pattern as your CurrSTNMessage)
         }
         else if(CurrPlaneDataFinal.Temp >= HEATWAVE_TEMP_THRESHOLD &&
                 CurrPlaneDataFinal.Humd <= HEATWAVE_HUMIDITY_THRESHOLD) {
     
             decisionAlert = true;
+    		AlertMetO = true;
+            LedCaseMetO = 2;
+    		AlertMessageMetO ="Heat wave detected by aircraft (close range)\n";
+            char buf[1024];
     
-            std::cout << "\n******** HEATWAVE ALERT ********\n";
-            std::cout << "Heat wave detected by aircraft (close range)\n";
-            std::cout << "Plane Distance = " << planeDistance << " km\n";
-            printAirData(CurrPlaneDataFinal);
-            std::cout << "*******************************\n\n";
+    std::snprintf(buf, sizeof(buf),
+        "Plane Distance = %.2f km\n"
+        "Aircraft Data:\n"
+        "  Temperature (Temp) = %.2f\n"
+        "  Humidity (Humd) = %.2f\n"
+        "  Air Pressure (AirP) = %.2f\n"
+        "  Wind Speed (WinS) = %.2f\n"
+        "  Measurement Certainty (MesC) = %.2f\n"
+        "  Location X (LocX) = %.2f\n"
+        "  Location Y (LocY) = %.2f\n"
+        "  Final Certainty = %.2f\n",
+        (double)planeDistance,
+        (double)CurrPlaneDataFinal.Temp,
+        (double)CurrPlaneDataFinal.Humd,
+        (double)CurrPlaneDataFinal.AirP,
+        (double)CurrPlaneDataFinal.WinS,
+        (double)CurrPlaneDataFinal.MesC,
+        (double)CurrPlaneDataFinal.LocX,
+        (double)CurrPlaneDataFinal.LocY,
+        (double)CurrPlaneDataFinal.FinalC
+    );
+    
+    PlaneDataMessage = buf;
         }
         else {
-            printAirData(CurrPlaneDataFinal);
+            char buf[1024];
+    
+    std::snprintf(buf, sizeof(buf),
+        "Aircraft Data:\n"
+        "  Temperature (Temp) = %.2f\n"
+        "  Humidity (Humd) = %.2f\n"
+        "  Air Pressure (AirP) = %.2f\n"
+        "  Wind Speed (WinS) = %.2f\n"
+        "  Measurement Certainty (MesC) = %.2f\n"
+        "  Location X (LocX) = %.2f\n"
+        "  Location Y (LocY) = %.2f\n"
+        "  Final Certainty = %.2f\n",
+        (double)CurrPlaneDataFinal.Temp,
+        (double)CurrPlaneDataFinal.Humd,
+        (double)CurrPlaneDataFinal.AirP,
+        (double)CurrPlaneDataFinal.WinS,
+        (double)CurrPlaneDataFinal.MesC,
+        (double)CurrPlaneDataFinal.LocX,
+        (double)CurrPlaneDataFinal.LocY,
+        (double)CurrPlaneDataFinal.FinalC
+    );
+    
+    PlaneDataMessage = buf;
         }
     }
     else if(planeDistance < 250.0) {
@@ -648,41 +836,127 @@ void RiskAssessmentSubsystem::state_4_entDef(void) {
            CurrPlaneDataFinal.AirP <= LOW_PRESSURE_THRESHOLD) {
     
             decisionPrediction = true;
+            PredictionMetO = true;
+    		LedCaseMetO = 3;
+    		PredMessageMetO = "Possible storm conditions detected (mid range)\n";
+            char buf[1024];
     
-            std::cout << "\n====== WEATHER PREDICTION ======\n";
-            std::cout << "Possible storm conditions detected (mid range)\n";
-            std::cout << "Plane Distance = " << planeDistance << " km\n";
-            printAirData(CurrPlaneDataFinal);
-            std::cout << "================================\n\n";
+    std::snprintf(buf, sizeof(buf),
+        "Plane Distance = %.2f km\n"
+        "Aircraft Data:\n"
+        "  Temperature (Temp) = %.2f\n"
+        "  Humidity (Humd) = %.2f\n"
+        "  Air Pressure (AirP) = %.2f\n"
+        "  Wind Speed (WinS) = %.2f\n"
+        "  Measurement Certainty (MesC) = %.2f\n"
+        "  Location X (LocX) = %.2f\n"
+        "  Location Y (LocY) = %.2f\n"
+        "  Final Certainty = %.2f\n",
+        (double)planeDistance,
+        (double)CurrPlaneDataFinal.Temp,
+        (double)CurrPlaneDataFinal.Humd,
+        (double)CurrPlaneDataFinal.AirP,
+        (double)CurrPlaneDataFinal.WinS,
+        (double)CurrPlaneDataFinal.MesC,
+        (double)CurrPlaneDataFinal.LocX,
+        (double)CurrPlaneDataFinal.LocY,
+        (double)CurrPlaneDataFinal.FinalC
+    );
+    
+    PlaneDataMessage = buf;
         }
         else if(CurrPlaneDataFinal.Temp >= HEATWAVE_TEMP_THRESHOLD &&
                 CurrPlaneDataFinal.Humd <= HEATWAVE_HUMIDITY_THRESHOLD) {
     
             decisionPrediction = true;
+    		PredictionMetO = true;
+    		LedCaseMetO = 3;
+    		PredMessageMetO = "Possible heat wave developing (mid range)\n";
+            char buf[1024];
     
-            std::cout << "\n====== HEATWAVE PREDICTION ======\n";
-            std::cout << "Possible heat wave developing (mid range)\n";
-            std::cout << "Plane Distance = " << planeDistance << " km\n";
-            printAirData(CurrPlaneDataFinal);
-            std::cout << "================================\n\n";
+    std::snprintf(buf, sizeof(buf),
+        "Aircraft Data:\n"
+        "  Temperature (Temp) = %.2f\n"
+        "  Humidity (Humd) = %.2f\n"
+        "  Air Pressure (AirP) = %.2f\n"
+        "  Wind Speed (WinS) = %.2f\n"
+        "  Measurement Certainty (MesC) = %.2f\n"
+        "  Location X (LocX) = %.2f\n"
+        "  Location Y (LocY) = %.2f\n"
+        "  Final Certainty = %.2f\n",
+        (double)CurrPlaneDataFinal.Temp,
+        (double)CurrPlaneDataFinal.Humd,
+        (double)CurrPlaneDataFinal.AirP,
+        (double)CurrPlaneDataFinal.WinS,
+        (double)CurrPlaneDataFinal.MesC,
+        (double)CurrPlaneDataFinal.LocX,
+        (double)CurrPlaneDataFinal.LocY,
+        (double)CurrPlaneDataFinal.FinalC
+    );
+    
+    PlaneDataMessage = buf;
         }
         else {
-            printAirData(CurrPlaneDataFinal);
+            char buf[1024];
+    
+    std::snprintf(buf, sizeof(buf),
+        "Aircraft Data:\n"
+        "  Temperature (Temp) = %.2f\n"
+        "  Humidity (Humd) = %.2f\n"
+        "  Air Pressure (AirP) = %.2f\n"
+        "  Wind Speed (WinS) = %.2f\n"
+        "  Measurement Certainty (MesC) = %.2f\n"
+        "  Location X (LocX) = %.2f\n"
+        "  Location Y (LocY) = %.2f\n"
+        "  Final Certainty = %.2f\n",
+        (double)CurrPlaneDataFinal.Temp,
+        (double)CurrPlaneDataFinal.Humd,
+        (double)CurrPlaneDataFinal.AirP,
+        (double)CurrPlaneDataFinal.WinS,
+        (double)CurrPlaneDataFinal.MesC,
+        (double)CurrPlaneDataFinal.LocX,
+        (double)CurrPlaneDataFinal.LocY,
+        (double)CurrPlaneDataFinal.FinalC
+    );
+    
+    PlaneDataMessage = buf;
         }
     }
     else {
         // Too far away – informational only
-        printAirData(CurrPlaneDataFinal);
+        char buf[1024];
+    
+    std::snprintf(buf, sizeof(buf),
+        "Aircraft Data:\n"
+        "  Temperature (Temp) = %.2f\n"
+        "  Humidity (Humd) = %.2f\n"
+        "  Air Pressure (AirP) = %.2f\n"
+        "  Wind Speed (WinS) = %.2f\n"
+        "  Measurement Certainty (MesC) = %.2f\n"
+        "  Location X (LocX) = %.2f\n"
+        "  Location Y (LocY) = %.2f\n"
+        "  Final Certainty = %.2f\n",
+        (double)CurrPlaneDataFinal.Temp,
+        (double)CurrPlaneDataFinal.Humd,
+        (double)CurrPlaneDataFinal.AirP,
+        (double)CurrPlaneDataFinal.WinS,
+        (double)CurrPlaneDataFinal.MesC,
+        (double)CurrPlaneDataFinal.LocX,
+        (double)CurrPlaneDataFinal.LocY,
+        (double)CurrPlaneDataFinal.FinalC
+    );
+    
+    PlaneDataMessage = buf;
     }
     
     
     // ========== STEP 4: FINAL DECISION ==========
     if((decisionAlert || decisionPrediction) &&
        (planeHealthCase == 4 || satHealthCase == 4)) {
-    
-        std::cout << ">>> DECISION BASED ON QUESTIONABLE DATA — MANUAL APPROVAL REQUIRED <<<\n";
+    	Manual_Verification_MetO = true;
+    	LedCaseMetO = 4;
     }
-    
+    OUT_PORT(out)->GEN(evPushMetOceanAlert (Manual_Verification_MetO,HealthStatusMessageMetO, AlertMetO, LedCaseMetO, AlertMessageMetO,PlaneDataMessage,SatDataMessage,PredictionMetO,PredMessageMetO));
     std::cout << "MetOcean risk assessment complete.\n\n";
     
     //#]
@@ -934,6 +1208,15 @@ void OMAnimatedRiskAssessmentSubsystem::serializeAttributes(AOMSAttributes* aoms
     aomsAttributes->addAttribute("AlertMessage", x2String(myReal->AlertMessage));
     aomsAttributes->addAttribute("Prediction", x2String(myReal->Prediction));
     aomsAttributes->addAttribute("PredMessage", x2String(myReal->PredMessage));
+    aomsAttributes->addAttribute("Manual_Verification_MetO", x2String(myReal->Manual_Verification_MetO));
+    aomsAttributes->addAttribute("HealthStatusMessageMetO", x2String(myReal->HealthStatusMessageMetO));
+    aomsAttributes->addAttribute("AlertMetO", x2String(myReal->AlertMetO));
+    aomsAttributes->addAttribute("LedCaseMetO", x2String(myReal->LedCaseMetO));
+    aomsAttributes->addAttribute("AlertMessageMetO", x2String(myReal->AlertMessageMetO));
+    aomsAttributes->addAttribute("PlaneDataMessage", x2String(myReal->PlaneDataMessage));
+    aomsAttributes->addAttribute("SatDataMessage", x2String(myReal->SatDataMessage));
+    aomsAttributes->addAttribute("PredictionMetO", x2String(myReal->PredictionMetO));
+    aomsAttributes->addAttribute("PredMessageMetO", x2String(myReal->PredMessageMetO));
 }
 
 void OMAnimatedRiskAssessmentSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {

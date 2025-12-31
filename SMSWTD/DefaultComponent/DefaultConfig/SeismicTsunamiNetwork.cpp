@@ -1,6 +1,6 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SeismicTsunamiNetwork
@@ -368,7 +368,7 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                     
                     
                     //#]
-                    rootState_timeout = scheduleTimeout(3000, "ROOT.SendData");
+                    rootState_timeout = scheduleTimeout(5000, "ROOT.SendData");
                     NOTIFY_TRANSITION_TERMINATED("1");
                     res = eventConsumed;
                 }
@@ -461,7 +461,7 @@ IOxfReactive::TakeEventStatus SeismicTsunamiNetwork::rootState_processEvent(void
                             
                             
                             //#]
-                            rootState_timeout = scheduleTimeout(3000, "ROOT.SendData");
+                            rootState_timeout = scheduleTimeout(5000, "ROOT.SendData");
                             NOTIFY_TRANSITION_TERMINATED("2");
                             res = eventConsumed;
                         }

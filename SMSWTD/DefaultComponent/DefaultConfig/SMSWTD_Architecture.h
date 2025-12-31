@@ -1,6 +1,6 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Architecture
@@ -756,6 +756,115 @@ class OMAnimatedevPushSeismicAlert : virtual public AOMEvent {
 
 //#[ ignore
 extern const IOxfEvent::ID evPushSeismicAlert_SMSWTD_Architecture_id;
+//#]
+
+//## event evPushMetOceanAlert(bool,RhpString,bool,int,RhpString,RhpString,RhpString,bool,RhpString)
+class evPushMetOceanAlert : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedevPushMetOceanAlert;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    evPushMetOceanAlert(void);
+    
+    //## auto_generated
+    evPushMetOceanAlert(const bool p_Manual_Verification_MetO, const RhpString p_HealthStatusMessageMetO, const bool p_AlertMetO, const int p_LedCaseMetO, const RhpString p_AlertMessageMetO, const RhpString p_PlaneDataMessage, const RhpString p_SatDataMessage, const bool p_PredictionMetO, const RhpString p_PredMessageMetO);
+    
+    ////    Additional operations    ////
+    
+    //## auto_generated
+    bool getManual_Verification_MetO(void) const;
+    
+    //## auto_generated
+    void setManual_Verification_MetO(const bool p_Manual_Verification_MetO);
+    
+    //## auto_generated
+    RhpString getHealthStatusMessageMetO(void) const;
+    
+    //## auto_generated
+    void setHealthStatusMessageMetO(const RhpString p_HealthStatusMessageMetO);
+    
+    //## auto_generated
+    bool getAlertMetO(void) const;
+    
+    //## auto_generated
+    void setAlertMetO(const bool p_AlertMetO);
+    
+    //## auto_generated
+    int getLedCaseMetO(void) const;
+    
+    //## auto_generated
+    void setLedCaseMetO(const int p_LedCaseMetO);
+    
+    //## auto_generated
+    RhpString getAlertMessageMetO(void) const;
+    
+    //## auto_generated
+    void setAlertMessageMetO(const RhpString p_AlertMessageMetO);
+    
+    //## auto_generated
+    RhpString getPlaneDataMessage(void) const;
+    
+    //## auto_generated
+    void setPlaneDataMessage(const RhpString p_PlaneDataMessage);
+    
+    //## auto_generated
+    RhpString getSatDataMessage(void) const;
+    
+    //## auto_generated
+    void setSatDataMessage(const RhpString p_SatDataMessage);
+    
+    //## auto_generated
+    bool getPredictionMetO(void) const;
+    
+    //## auto_generated
+    void setPredictionMetO(const bool p_PredictionMetO);
+    
+    //## auto_generated
+    RhpString getPredMessageMetO(void) const;
+    
+    //## auto_generated
+    void setPredMessageMetO(const RhpString p_PredMessageMetO);
+    
+    ////    Framework    ////
+
+private :
+
+    bool Manual_Verification_MetO;		//## auto_generated
+    
+    RhpString HealthStatusMessageMetO;		//## auto_generated
+    
+    bool AlertMetO;		//## auto_generated
+    
+    int LedCaseMetO;		//## auto_generated
+    
+    RhpString AlertMessageMetO;		//## auto_generated
+    
+    RhpString PlaneDataMessage;		//## auto_generated
+    
+    RhpString SatDataMessage;		//## auto_generated
+    
+    bool PredictionMetO;		//## auto_generated
+    
+    RhpString PredMessageMetO;		//## auto_generated
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedevPushMetOceanAlert : virtual public AOMEvent {
+    DECLARE_META_EVENT(evPushMetOceanAlert)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//#[ ignore
+extern const IOxfEvent::ID evPushMetOceanAlert_SMSWTD_Architecture_id;
 //#]
 
 #endif

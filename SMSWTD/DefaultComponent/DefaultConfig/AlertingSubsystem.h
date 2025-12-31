@@ -1,6 +1,6 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: AlertingSubsystem
@@ -95,6 +95,12 @@ public :
     in_C* get_in(void) const;
     
     //## auto_generated
+    const bool getAMetO(void) const;
+    
+    //## auto_generated
+    void setAMetO(const bool p_AMetO);
+    
+    //## auto_generated
     const bool getAlert(void) const;
     
     //## auto_generated
@@ -105,6 +111,18 @@ public :
     
     //## auto_generated
     void setAlertMessage(const RhpString p_AlertMessage);
+    
+    //## auto_generated
+    const RhpString getAlertMessageMetO(void) const;
+    
+    //## auto_generated
+    void setAlertMessageMetO(const RhpString p_AlertMessageMetO);
+    
+    //## auto_generated
+    const bool getBM(void) const;
+    
+    //## auto_generated
+    void setBM(const bool p_BM);
     
     //## auto_generated
     const bool getBroadcastMedia(void) const;
@@ -119,10 +137,22 @@ public :
     void setCurrSTNMessage(const RhpString p_CurrSTNMessage);
     
     //## auto_generated
+    const bool getEAO(void) const;
+    
+    //## auto_generated
+    void setEAO(const bool p_EAO);
+    
+    //## auto_generated
     const bool getEmergencyAuthorityOperator(void) const;
     
     //## auto_generated
     void setEmergencyAuthorityOperator(const bool p_EmergencyAuthorityOperator);
+    
+    //## auto_generated
+    const bool getGAN(void) const;
+    
+    //## auto_generated
+    void setGAN(const bool p_GAN);
     
     //## auto_generated
     const bool getGovAlertNetwork(void) const;
@@ -137,10 +167,34 @@ public :
     void setHealthStatusMessage(const RhpString p_HealthStatusMessage);
     
     //## auto_generated
+    const RhpString getHealthStatusMessageMetO(void) const;
+    
+    //## auto_generated
+    void setHealthStatusMessageMetO(const RhpString p_HealthStatusMessageMetO);
+    
+    //## auto_generated
     const int getLedCase(void) const;
     
     //## auto_generated
     void setLedCase(const int p_LedCase);
+    
+    //## auto_generated
+    const int getLedCaseMetO(void) const;
+    
+    //## auto_generated
+    void setLedCaseMetO(const int p_LedCaseMetO);
+    
+    //## auto_generated
+    const bool getM(void) const;
+    
+    //## auto_generated
+    void setM(const bool p_M);
+    
+    //## auto_generated
+    const bool getMPS(void) const;
+    
+    //## auto_generated
+    void setMPS(const bool p_MPS);
     
     //## auto_generated
     const bool getMaintainer(void) const;
@@ -155,10 +209,22 @@ public :
     void setManual_Verification(const bool p_Manual_Verification);
     
     //## auto_generated
+    const bool getManual_Verification_MetO(void) const;
+    
+    //## auto_generated
+    void setManual_Verification_MetO(const bool p_Manual_Verification_MetO);
+    
+    //## auto_generated
     const bool getMobilePushService(void) const;
     
     //## auto_generated
     void setMobilePushService(const bool p_MobilePushService);
+    
+    //## auto_generated
+    const RhpString getPlaneDataMessage(void) const;
+    
+    //## auto_generated
+    void setPlaneDataMessage(const RhpString p_PlaneDataMessage);
     
     //## auto_generated
     const RhpString getPredMessage(void) const;
@@ -167,10 +233,28 @@ public :
     void setPredMessage(const RhpString p_PredMessage);
     
     //## auto_generated
+    const RhpString getPredMessageMetO(void) const;
+    
+    //## auto_generated
+    void setPredMessageMetO(const RhpString p_PredMessageMetO);
+    
+    //## auto_generated
     const bool getPrediction(void) const;
     
     //## auto_generated
     void setPrediction(const bool p_Prediction);
+    
+    //## auto_generated
+    const bool getPredictionMetO(void) const;
+    
+    //## auto_generated
+    void setPredictionMetO(const bool p_PredictionMetO);
+    
+    //## auto_generated
+    const bool getR(void) const;
+    
+    //## auto_generated
+    void setR(const bool p_R);
     
     //## auto_generated
     const bool getResearcher(void) const;
@@ -179,16 +263,46 @@ public :
     void setResearcher(const bool p_Researcher);
     
     //## auto_generated
+    const bool getSPS(void) const;
+    
+    //## auto_generated
+    void setSPS(const bool p_SPS);
+    
+    //## auto_generated
+    const RhpString getSatDataMessage(void) const;
+    
+    //## auto_generated
+    void setSatDataMessage(const RhpString p_SatDataMessage);
+    
+    //## auto_generated
     const bool getSirenPASystem(void) const;
     
     //## auto_generated
     void setSirenPASystem(const bool p_SirenPASystem);
     
     //## auto_generated
+    const bool getTSM(void) const;
+    
+    //## auto_generated
+    void setTSM(const bool p_TSM);
+    
+    //## auto_generated
     const bool getTelecomSMSNetwork(void) const;
     
     //## auto_generated
     void setTelecomSMSNetwork(const bool p_TelecomSMSNetwork);
+    
+    //## auto_generated
+    const bool getGotMetO(void) const;
+    
+    //## auto_generated
+    void setGotMetO(const bool p_gotMetO);
+    
+    //## auto_generated
+    const bool getGotSTN(void) const;
+    
+    //## auto_generated
+    void setGotSTN(const bool p_gotSTN);
     
     //## auto_generated
     const RiskAssessmentSubsystem* getItsRiskAssessmentSubsystem(void) const;
@@ -220,37 +334,75 @@ protected :
 
 private :
 
+    bool AMetO;		//## attribute AMetO
+    
     bool Alert;		//## attribute Alert
     
     RhpString AlertMessage;		//## attribute AlertMessage
+    
+    RhpString AlertMessageMetO;		//## attribute AlertMessageMetO
+    
+    bool BM;		//## attribute BM
     
     bool BroadcastMedia;		//## attribute BroadcastMedia
     
     RhpString CurrSTNMessage;		//## attribute CurrSTNMessage
     
+    bool EAO;		//## attribute EAO
+    
     bool EmergencyAuthorityOperator;		//## attribute EmergencyAuthorityOperator
+    
+    bool GAN;		//## attribute GAN
     
     bool GovAlertNetwork;		//## attribute GovAlertNetwork
     
     RhpString HealthStatusMessage;		//## attribute HealthStatusMessage
     
+    RhpString HealthStatusMessageMetO;		//## attribute HealthStatusMessageMetO
+    
     int LedCase;		//## attribute LedCase
+    
+    int LedCaseMetO;		//## attribute LedCaseMetO
+    
+    bool M;		//## attribute M
+    
+    bool MPS;		//## attribute MPS
     
     bool Maintainer;		//## attribute Maintainer
     
     bool Manual_Verification;		//## attribute Manual_Verification
     
+    bool Manual_Verification_MetO;		//## attribute Manual_Verification_MetO
+    
     bool MobilePushService;		//## attribute MobilePushService
+    
+    RhpString PlaneDataMessage;		//## attribute PlaneDataMessage
     
     RhpString PredMessage;		//## attribute PredMessage
     
+    RhpString PredMessageMetO;		//## attribute PredMessageMetO
+    
     bool Prediction;		//## attribute Prediction
+    
+    bool PredictionMetO;		//## attribute PredictionMetO
+    
+    bool R;		//## attribute R
     
     bool Researcher;		//## attribute Researcher
     
+    bool SPS;		//## attribute SPS
+    
+    RhpString SatDataMessage;		//## attribute SatDataMessage
+    
     bool SirenPASystem;		//## attribute SirenPASystem
     
+    bool TSM;		//## attribute TSM
+    
     bool TelecomSMSNetwork;		//## attribute TelecomSMSNetwork
+    
+    bool gotMetO;		//## attribute gotMetO
+    
+    bool gotSTN;		//## attribute gotSTN
     
     ////    Relations and components    ////
     
@@ -285,6 +437,9 @@ public :
     //## statechart_method
     inline RhpBoolean CollectData_IN(void) const;
     
+    //## statechart_method
+    IOxfReactive::TakeEventStatus CollectData_handleEvent(void);
+    
     // AlertGeneration:
     //## statechart_method
     inline RhpBoolean AlertGeneration_IN(void) const;
@@ -306,7 +461,17 @@ public :
     inline RhpBoolean state_4_IN(void) const;
     
     //## statechart_method
+    void state_4_entDef(void);
+    
+    //## statechart_method
+    void state_4_exit(void);
+    
+    //## statechart_method
     IOxfReactive::TakeEventStatus state_4_processEvent(void);
+    
+    // AlertMetO:
+    //## statechart_method
+    inline RhpBoolean AlertMetO_IN(void) const;
     
     // state_3:
     //## statechart_method
@@ -342,8 +507,9 @@ protected :
         CollectData = 2,
         AlertGeneration = 3,
         state_4 = 4,
-        state_3 = 5,
-        AlertSeismic = 6
+        AlertMetO = 5,
+        state_3 = 6,
+        AlertSeismic = 7
     };
 //#]
 
@@ -411,6 +577,9 @@ public :
     void state_4_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
+    void AlertMetO_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
     void state_3_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
@@ -437,6 +606,10 @@ inline RhpBoolean AlertingSubsystem::AlertGeneration_IN(void) const {
 
 inline RhpBoolean AlertingSubsystem::state_4_IN(void) const {
     return AlertGeneration_IN();
+}
+
+inline RhpBoolean AlertingSubsystem::AlertMetO_IN(void) const {
+    return state_4_subState == AlertMetO;
 }
 
 inline RhpBoolean AlertingSubsystem::state_3_IN(void) const {

@@ -1,6 +1,6 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: AlertingSubsystem
@@ -76,6 +76,15 @@ AlertingSubsystem::in_C* AlertingSubsystem::get_in(void) const {
     return (AlertingSubsystem::in_C*) &in;
 }
 
+const bool AlertingSubsystem::getAMetO(void) const {
+    return AMetO;
+}
+
+void AlertingSubsystem::setAMetO(const bool p_AMetO) {
+    AMetO = p_AMetO;
+    NOTIFY_SET_OPERATION;
+}
+
 const bool AlertingSubsystem::getAlert(void) const {
     return Alert;
 }
@@ -91,6 +100,24 @@ const RhpString AlertingSubsystem::getAlertMessage(void) const {
 
 void AlertingSubsystem::setAlertMessage(const RhpString p_AlertMessage) {
     AlertMessage = p_AlertMessage;
+    NOTIFY_SET_OPERATION;
+}
+
+const RhpString AlertingSubsystem::getAlertMessageMetO(void) const {
+    return AlertMessageMetO;
+}
+
+void AlertingSubsystem::setAlertMessageMetO(const RhpString p_AlertMessageMetO) {
+    AlertMessageMetO = p_AlertMessageMetO;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getBM(void) const {
+    return BM;
+}
+
+void AlertingSubsystem::setBM(const bool p_BM) {
+    BM = p_BM;
     NOTIFY_SET_OPERATION;
 }
 
@@ -112,12 +139,30 @@ void AlertingSubsystem::setCurrSTNMessage(const RhpString p_CurrSTNMessage) {
     NOTIFY_SET_OPERATION;
 }
 
+const bool AlertingSubsystem::getEAO(void) const {
+    return EAO;
+}
+
+void AlertingSubsystem::setEAO(const bool p_EAO) {
+    EAO = p_EAO;
+    NOTIFY_SET_OPERATION;
+}
+
 const bool AlertingSubsystem::getEmergencyAuthorityOperator(void) const {
     return EmergencyAuthorityOperator;
 }
 
 void AlertingSubsystem::setEmergencyAuthorityOperator(const bool p_EmergencyAuthorityOperator) {
     EmergencyAuthorityOperator = p_EmergencyAuthorityOperator;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getGAN(void) const {
+    return GAN;
+}
+
+void AlertingSubsystem::setGAN(const bool p_GAN) {
+    GAN = p_GAN;
     NOTIFY_SET_OPERATION;
 }
 
@@ -139,12 +184,47 @@ void AlertingSubsystem::setHealthStatusMessage(const RhpString p_HealthStatusMes
     NOTIFY_SET_OPERATION;
 }
 
+const RhpString AlertingSubsystem::getHealthStatusMessageMetO(void) const {
+    return HealthStatusMessageMetO;
+}
+
+void AlertingSubsystem::setHealthStatusMessageMetO(const RhpString p_HealthStatusMessageMetO) {
+    HealthStatusMessageMetO = p_HealthStatusMessageMetO;
+    NOTIFY_SET_OPERATION;
+}
+
 const int AlertingSubsystem::getLedCase(void) const {
     return LedCase;
 }
 
 void AlertingSubsystem::setLedCase(const int p_LedCase) {
     LedCase = p_LedCase;
+}
+
+const int AlertingSubsystem::getLedCaseMetO(void) const {
+    return LedCaseMetO;
+}
+
+void AlertingSubsystem::setLedCaseMetO(const int p_LedCaseMetO) {
+    LedCaseMetO = p_LedCaseMetO;
+}
+
+const bool AlertingSubsystem::getM(void) const {
+    return M;
+}
+
+void AlertingSubsystem::setM(const bool p_M) {
+    M = p_M;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getMPS(void) const {
+    return MPS;
+}
+
+void AlertingSubsystem::setMPS(const bool p_MPS) {
+    MPS = p_MPS;
+    NOTIFY_SET_OPERATION;
 }
 
 const bool AlertingSubsystem::getMaintainer(void) const {
@@ -165,12 +245,30 @@ void AlertingSubsystem::setManual_Verification(const bool p_Manual_Verification)
     NOTIFY_SET_OPERATION;
 }
 
+const bool AlertingSubsystem::getManual_Verification_MetO(void) const {
+    return Manual_Verification_MetO;
+}
+
+void AlertingSubsystem::setManual_Verification_MetO(const bool p_Manual_Verification_MetO) {
+    Manual_Verification_MetO = p_Manual_Verification_MetO;
+    NOTIFY_SET_OPERATION;
+}
+
 const bool AlertingSubsystem::getMobilePushService(void) const {
     return MobilePushService;
 }
 
 void AlertingSubsystem::setMobilePushService(const bool p_MobilePushService) {
     MobilePushService = p_MobilePushService;
+    NOTIFY_SET_OPERATION;
+}
+
+const RhpString AlertingSubsystem::getPlaneDataMessage(void) const {
+    return PlaneDataMessage;
+}
+
+void AlertingSubsystem::setPlaneDataMessage(const RhpString p_PlaneDataMessage) {
+    PlaneDataMessage = p_PlaneDataMessage;
     NOTIFY_SET_OPERATION;
 }
 
@@ -183,12 +281,39 @@ void AlertingSubsystem::setPredMessage(const RhpString p_PredMessage) {
     NOTIFY_SET_OPERATION;
 }
 
+const RhpString AlertingSubsystem::getPredMessageMetO(void) const {
+    return PredMessageMetO;
+}
+
+void AlertingSubsystem::setPredMessageMetO(const RhpString p_PredMessageMetO) {
+    PredMessageMetO = p_PredMessageMetO;
+    NOTIFY_SET_OPERATION;
+}
+
 const bool AlertingSubsystem::getPrediction(void) const {
     return Prediction;
 }
 
 void AlertingSubsystem::setPrediction(const bool p_Prediction) {
     Prediction = p_Prediction;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getPredictionMetO(void) const {
+    return PredictionMetO;
+}
+
+void AlertingSubsystem::setPredictionMetO(const bool p_PredictionMetO) {
+    PredictionMetO = p_PredictionMetO;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getR(void) const {
+    return R;
+}
+
+void AlertingSubsystem::setR(const bool p_R) {
+    R = p_R;
     NOTIFY_SET_OPERATION;
 }
 
@@ -201,12 +326,39 @@ void AlertingSubsystem::setResearcher(const bool p_Researcher) {
     NOTIFY_SET_OPERATION;
 }
 
+const bool AlertingSubsystem::getSPS(void) const {
+    return SPS;
+}
+
+void AlertingSubsystem::setSPS(const bool p_SPS) {
+    SPS = p_SPS;
+    NOTIFY_SET_OPERATION;
+}
+
+const RhpString AlertingSubsystem::getSatDataMessage(void) const {
+    return SatDataMessage;
+}
+
+void AlertingSubsystem::setSatDataMessage(const RhpString p_SatDataMessage) {
+    SatDataMessage = p_SatDataMessage;
+    NOTIFY_SET_OPERATION;
+}
+
 const bool AlertingSubsystem::getSirenPASystem(void) const {
     return SirenPASystem;
 }
 
 void AlertingSubsystem::setSirenPASystem(const bool p_SirenPASystem) {
     SirenPASystem = p_SirenPASystem;
+    NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getTSM(void) const {
+    return TSM;
+}
+
+void AlertingSubsystem::setTSM(const bool p_TSM) {
+    TSM = p_TSM;
     NOTIFY_SET_OPERATION;
 }
 
@@ -217,6 +369,22 @@ const bool AlertingSubsystem::getTelecomSMSNetwork(void) const {
 void AlertingSubsystem::setTelecomSMSNetwork(const bool p_TelecomSMSNetwork) {
     TelecomSMSNetwork = p_TelecomSMSNetwork;
     NOTIFY_SET_OPERATION;
+}
+
+const bool AlertingSubsystem::getGotMetO(void) const {
+    return gotMetO;
+}
+
+void AlertingSubsystem::setGotMetO(const bool p_gotMetO) {
+    gotMetO = p_gotMetO;
+}
+
+const bool AlertingSubsystem::getGotSTN(void) const {
+    return gotSTN;
+}
+
+void AlertingSubsystem::setGotSTN(const bool p_gotSTN) {
+    gotSTN = p_gotSTN;
 }
 
 const RiskAssessmentSubsystem* AlertingSubsystem::getItsRiskAssessmentSubsystem(void) const {
@@ -305,6 +473,71 @@ void AlertingSubsystem::_clearItsRiskAssessmentSubsystem(void) {
     itsRiskAssessmentSubsystem = NULL;
 }
 
+IOxfReactive::TakeEventStatus AlertingSubsystem::CollectData_handleEvent(void) {
+    IOxfReactive::TakeEventStatus res = eventNotConsumed;
+    if(IS_EVENT_TYPE_OF(StartAlertGen_SMSWTD_Architecture_id) == 1)
+        {
+            NOTIFY_TRANSITION_STARTED("2");
+            NOTIFY_STATE_EXITED("ROOT.CollectData");
+            AlertGeneration_entDef();
+            NOTIFY_TRANSITION_TERMINATED("2");
+            res = eventConsumed;
+        }
+    else {
+        if(IS_EVENT_TYPE_OF(evPushMetOceanAlert_SMSWTD_Architecture_id) == 1)
+            {
+                OMSETPARAMS(evPushMetOceanAlert);
+                NOTIFY_TRANSITION_STARTED("7");
+                //#[ transition 7 
+                Manual_Verification_MetO = params->getManual_Verification_MetO();
+                HealthStatusMessageMetO = params->getHealthStatusMessageMetO();
+                AMetO = params->getAlertMetO();
+                LedCaseMetO = params->getLedCaseMetO();
+                AlertMessageMetO = params->getAlertMessageMetO();
+                PlaneDataMessage = params->getPlaneDataMessage();
+                SatDataMessage = params->getSatDataMessage();
+                PredictionMetO = params->getPredictionMetO();
+                PredMessageMetO = params->getPredMessageMetO();
+                gotMetO = true;
+                if (gotSTN && gotMetO)
+                {
+                GEN(StartAlertGen());
+                }
+                //#]
+                NOTIFY_TRANSITION_TERMINATED("7");
+                res = eventConsumed;
+            }
+        else {
+            if(IS_EVENT_TYPE_OF(evPushSeismicAlert_SMSWTD_Architecture_id) == 1)
+                {
+                    OMSETPARAMS(evPushSeismicAlert);
+                    NOTIFY_TRANSITION_STARTED("5");
+                    //#[ transition 5 
+                    Alert = params->getAlert();
+                    AlertMessage = params->getAlertMessage();
+                    CurrSTNMessage = params->getCurrSTNMessage();
+                    HealthStatusMessage = params->getHealthStatusMessage();
+                    LedCase = params->getLedCase();
+                    Manual_Verification = params->getManual_Verification();
+                    PredMessage = params->getPredMessage();
+                    Prediction = params->getPrediction();
+                    gotSTN = true;
+                    if (gotSTN && gotMetO)
+                    {
+                    GEN(StartAlertGen());
+                    }
+                    //#]
+                    NOTIFY_TRANSITION_TERMINATED("5");
+                    res = eventConsumed;
+                }
+            }
+            
+        }
+        
+    
+    return res;
+}
+
 void AlertingSubsystem::AlertGeneration_entDef(void) {
     NOTIFY_STATE_ENTERED("ROOT.AlertGeneration");
     rootState_subState = AlertGeneration;
@@ -317,13 +550,12 @@ void AlertingSubsystem::AlertGeneration_entDef(void) {
     //#]
     rootState_timeout = scheduleTimeout(3000, "ROOT.AlertGeneration");
     state_3_entDef();
-    NOTIFY_STATE_ENTERED("ROOT.AlertGeneration.state_4");
+    state_4_entDef();
 }
 
 void AlertingSubsystem::AlertGeneration_exit(void) {
     state_3_exit();
-    state_4_subState = OMNonState;
-    NOTIFY_STATE_EXITED("ROOT.AlertGeneration.state_4");
+    state_4_exit();
     cancel(rootState_timeout);
     NOTIFY_STATE_EXITED("ROOT.AlertGeneration");
 }
@@ -344,6 +576,15 @@ IOxfReactive::TakeEventStatus AlertingSubsystem::AlertGeneration_processEvent(vo
                     }
             }
     }
+    if(!dispatchDone)
+        {
+            // State state_4
+            omComponentStatus = state_4_processEvent();
+            if(omComponentStatus != eventNotConsumed)
+                {
+                    res = eventConsumed;
+                }
+        }
     if(res == eventNotConsumed)
         {
             res = AlertGeneration_handleEvent();
@@ -362,6 +603,10 @@ IOxfReactive::TakeEventStatus AlertingSubsystem::AlertGeneration_handleEvent(voi
                     NOTIFY_STATE_ENTERED("ROOT.CollectData");
                     rootState_subState = CollectData;
                     rootState_active = CollectData;
+                    //#[ state CollectData.(Entry) 
+                    gotMetO = false;
+                    gotSTN = false;
+                    //#]
                     NOTIFY_TRANSITION_TERMINATED("3");
                     res = eventConsumed;
                 }
@@ -370,8 +615,85 @@ IOxfReactive::TakeEventStatus AlertingSubsystem::AlertGeneration_handleEvent(voi
     return res;
 }
 
+void AlertingSubsystem::state_4_entDef(void) {
+    NOTIFY_STATE_ENTERED("ROOT.AlertGeneration.state_4");
+    NOTIFY_TRANSITION_STARTED("6");
+    NOTIFY_STATE_ENTERED("ROOT.AlertGeneration.state_4.AlertMetO");
+    state_4_subState = AlertMetO;
+    state_4_active = AlertMetO;
+    //#[ state AlertGeneration.state_4.AlertMetO.(Entry) 
+    switch(LedCaseMetO)
+    {
+    case 1:
+            SPS = false;
+            BM = false;
+            MPS = false;
+            GAN = false;
+            TSM = false;
+            EAO = true;
+            M = true;
+            R = true;
+            break;
+    case 2:
+            SPS = true;
+            BM = true;
+            MPS = true;
+            GAN = true;
+            TSM = true;
+            EAO = true;
+            M = false;
+            R = false;
+            break;
+    case 3:
+            SPS = false;
+            BM = false;
+            MPS = false;
+            GAN = false;
+            TSM = false;
+            EAO = true;
+            M = false;
+            R = false;
+            break;
+    case 4:
+            SPS = false;
+            BM = false;
+            MPS = false;
+            GAN = false;
+            TSM = false;
+            EAO = true;
+            M = false;
+            R = true;
+            break;
+    default:
+            SPS = false;
+            BM = false;
+            MPS = false;
+            GAN = false;
+            TSM = false;
+            EAO = true;
+            M = false;
+            R = false;
+            break; // optional but nice
+    }
+    //#]
+    NOTIFY_TRANSITION_TERMINATED("6");
+}
+
+void AlertingSubsystem::state_4_exit(void) {
+    // State AlertMetO
+    if(state_4_subState == AlertMetO)
+        {
+            NOTIFY_STATE_EXITED("ROOT.AlertGeneration.state_4.AlertMetO");
+        }
+    state_4_subState = OMNonState;
+    
+    NOTIFY_STATE_EXITED("ROOT.AlertGeneration.state_4");
+}
+
 IOxfReactive::TakeEventStatus AlertingSubsystem::state_4_processEvent(void) {
     IOxfReactive::TakeEventStatus res = eventNotConsumed;
+    // State AlertMetO
+    
     return res;
 }
 
@@ -475,6 +797,10 @@ IOxfReactive::TakeEventStatus AlertingSubsystem::rootState_processEvent(void) {
                     NOTIFY_STATE_ENTERED("ROOT.CollectData");
                     rootState_subState = CollectData;
                     rootState_active = CollectData;
+                    //#[ state CollectData.(Entry) 
+                    gotMetO = false;
+                    gotSTN = false;
+                    //#]
                     NOTIFY_TRANSITION_TERMINATED("1");
                     res = eventConsumed;
                 }
@@ -484,36 +810,7 @@ IOxfReactive::TakeEventStatus AlertingSubsystem::rootState_processEvent(void) {
         // State CollectData
         case CollectData:
         {
-            if(IS_EVENT_TYPE_OF(StartAlertGen_SMSWTD_Architecture_id) == 1)
-                {
-                    NOTIFY_TRANSITION_STARTED("2");
-                    NOTIFY_STATE_EXITED("ROOT.CollectData");
-                    AlertGeneration_entDef();
-                    NOTIFY_TRANSITION_TERMINATED("2");
-                    res = eventConsumed;
-                }
-            else {
-                if(IS_EVENT_TYPE_OF(evPushSeismicAlert_SMSWTD_Architecture_id) == 1)
-                    {
-                        OMSETPARAMS(evPushSeismicAlert);
-                        NOTIFY_TRANSITION_STARTED("5");
-                        //#[ transition 5 
-                        Alert = params->getAlert();
-                        AlertMessage = params->getAlertMessage();
-                        CurrSTNMessage = params->getCurrSTNMessage();
-                        HealthStatusMessage = params->getHealthStatusMessage();
-                        LedCase = params->getLedCase();
-                        Manual_Verification = params->getManual_Verification();
-                        PredMessage = params->getPredMessage();
-                        Prediction = params->getPrediction();
-                        GEN(StartAlertGen());
-                        //#]
-                        NOTIFY_TRANSITION_TERMINATED("5");
-                        res = eventConsumed;
-                    }
-                }
-                
-            
+            res = CollectData_handleEvent();
         }
         break;
         // State AlertGeneration
@@ -547,6 +844,25 @@ void OMAnimatedAlertingSubsystem::serializeAttributes(AOMSAttributes* aomsAttrib
     aomsAttributes->addAttribute("CurrSTNMessage", x2String(myReal->CurrSTNMessage));
     aomsAttributes->addAttribute("AlertMessage", x2String(myReal->AlertMessage));
     aomsAttributes->addAttribute("PredMessage", x2String(myReal->PredMessage));
+    aomsAttributes->addAttribute("Manual_Verification_MetO", x2String(myReal->Manual_Verification_MetO));
+    aomsAttributes->addAttribute("HealthStatusMessageMetO", x2String(myReal->HealthStatusMessageMetO));
+    aomsAttributes->addAttribute("AMetO", x2String(myReal->AMetO));
+    aomsAttributes->addAttribute("LedCaseMetO", x2String(myReal->LedCaseMetO));
+    aomsAttributes->addAttribute("AlertMessageMetO", x2String(myReal->AlertMessageMetO));
+    aomsAttributes->addAttribute("PlaneDataMessage", x2String(myReal->PlaneDataMessage));
+    aomsAttributes->addAttribute("SatDataMessage", x2String(myReal->SatDataMessage));
+    aomsAttributes->addAttribute("PredictionMetO", x2String(myReal->PredictionMetO));
+    aomsAttributes->addAttribute("PredMessageMetO", x2String(myReal->PredMessageMetO));
+    aomsAttributes->addAttribute("gotSTN", x2String(myReal->gotSTN));
+    aomsAttributes->addAttribute("gotMetO", x2String(myReal->gotMetO));
+    aomsAttributes->addAttribute("SPS", x2String(myReal->SPS));
+    aomsAttributes->addAttribute("BM", x2String(myReal->BM));
+    aomsAttributes->addAttribute("MPS", x2String(myReal->MPS));
+    aomsAttributes->addAttribute("GAN", x2String(myReal->GAN));
+    aomsAttributes->addAttribute("TSM", x2String(myReal->TSM));
+    aomsAttributes->addAttribute("EAO", x2String(myReal->EAO));
+    aomsAttributes->addAttribute("M", x2String(myReal->M));
+    aomsAttributes->addAttribute("R", x2String(myReal->R));
 }
 
 void OMAnimatedAlertingSubsystem::serializeRelations(AOMSRelations* aomsRelations) const {
@@ -596,6 +912,14 @@ void OMAnimatedAlertingSubsystem::AlertGeneration_serializeStates(AOMSState* aom
 
 void OMAnimatedAlertingSubsystem::state_4_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT.AlertGeneration.state_4");
+    if(myReal->state_4_subState == AlertingSubsystem::AlertMetO)
+        {
+            AlertMetO_serializeStates(aomsState);
+        }
+}
+
+void OMAnimatedAlertingSubsystem::AlertMetO_serializeStates(AOMSState* aomsState) const {
+    aomsState->addState("ROOT.AlertGeneration.state_4.AlertMetO");
 }
 
 void OMAnimatedAlertingSubsystem::state_3_serializeStates(AOMSState* aomsState) const {
