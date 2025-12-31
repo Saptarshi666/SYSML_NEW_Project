@@ -12,10 +12,10 @@
 			<_id type="a">GUID 24cc696e-7c21-40a3-9d8d-1c1319e64787</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Functional</_name>
-			<_modifiedTimeWeak type="a">12.19.2025::15:36:48</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.19.2025::16:4:25</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::12:32:6</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::12:38:22</_modifiedTime>
 			<_lastID type="a">3</_lastID>
-			<weakCGTime type="a">12.19.2025::15:36:48</weakCGTime>
+			<weakCGTime type="a">12.31.2025::12:32:6</weakCGTime>
 			<strongCGTime type="a">12.16.2025::14:15:44</strongCGTime>
 			<_defaultComposite type="s">GUID a6d4535f-3c08-400b-9e19-6e17e4a287ed</_defaultComposite>
 			<_eventsBaseID type="a">-1</_eventsBaseID>
@@ -435,19 +435,19 @@
 												
 												<IProperty type="e">
 													<_Name type="a">Font.Font@Child.AttributeListCompartment</_Name>
-													<_Value type="a">Tahoma%008%00NoBold%00NoItalic</_Value>
+													<_Value type="a">Tahoma</_Value>
 													<_Type type="a">String</_Type>
 												</IProperty>
 												
 												<IProperty type="e">
 													<_Name type="a">Font.Font@Child.OperationListCompartment</_Name>
-													<_Value type="a">Tahoma%008%00NoBold%00NoItalic</_Value>
+													<_Value type="a">Tahoma</_Value>
 													<_Type type="a">String</_Type>
 												</IProperty>
 												
 												<IProperty type="e">
 													<_Name type="a">Font.Font@Child.Template Params</_Name>
-													<_Value type="a">Tahoma%008%00NoBold%00NoItalic</_Value>
+													<_Value type="a">Tahoma</_Value>
 													<_Type type="a">String</_Type>
 												</IProperty>
 												
@@ -633,6 +633,20 @@
 										</Properties>
 									</IPropertyMetaclass>
 									
+									<IPropertyMetaclass type="e">
+										<_Name type="a">ValueProperty</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">DefaultSize</_Name>
+													<_Value type="a">0,0,99,49</_Value>
+													<_Type type="a">String</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
 								</IRPYRawContainer>
 							</Metaclasses>
 						</IPropertySubject>
@@ -678,8 +692,8 @@
 				</IRPYRawContainer>
 			</Stereotypes>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.19.2025::15:36:56</_modifiedTime>
-			<_lastModifiedTime type="a">12.19.2025::15:36:56</_lastModifiedTime>
+			<_modifiedTime type="a">12.31.2025::12:32:6</_modifiedTime>
+			<_lastModifiedTime type="a">12.31.2025::12:32:6</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>

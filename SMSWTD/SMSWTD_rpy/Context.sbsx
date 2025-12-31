@@ -12,10 +12,10 @@
 			<_id type="a">GUID 2e4b8e17-4bda-40de-8ee7-086916ae6240</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Context</_name>
-			<_modifiedTimeWeak type="a">12.29.2025::16:29:34</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.29.2025::16:35:40</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::12:32:6</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::12:38:22</_modifiedTime>
 			<_lastID type="a">36</_lastID>
-			<weakCGTime type="a">12.29.2025::16:29:34</weakCGTime>
+			<weakCGTime type="a">12.31.2025::12:32:6</weakCGTime>
 			<strongCGTime type="a">12.25.2025::16:35:21</strongCGTime>
 			<_defaultComposite type="s">GUID 2e69e687-3e31-43c2-aeb5-958797b7742c</_defaultComposite>
 			<_eventsBaseID type="a">-1</_eventsBaseID>
@@ -644,6 +644,20 @@
 										</Properties>
 									</IPropertyMetaclass>
 									
+									<IPropertyMetaclass type="e">
+										<_Name type="a">ValueProperty</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">DefaultSize</_Name>
+													<_Value type="a">0,0,99,49</_Value>
+													<_Type type="a">String</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
 								</IRPYRawContainer>
 							</Metaclasses>
 						</IPropertySubject>
@@ -667,8 +681,8 @@
 				</IRPYRawContainer>
 			</Stereotypes>
 			<_modifiedTimeWeak type="a">12.25.2025::16:35:21</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.29.2025::16:29:34</_modifiedTime>
-			<_lastModifiedTime type="a">12.29.2025::16:29:34</_lastModifiedTime>
+			<_modifiedTime type="a">12.31.2025::12:32:6</_modifiedTime>
+			<_lastModifiedTime type="a">12.31.2025::12:32:6</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -5869,10 +5883,10 @@
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.29.2025::13:10:24</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.29.2025::13:10:24</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::12:32:6</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::12:32:6</_modifiedTime>
 			<_lastID type="a">18</_lastID>
-			<weakCGTime type="a">12.29.2025::13:10:24</weakCGTime>
+			<weakCGTime type="a">12.31.2025::12:32:6</weakCGTime>
 			<strongCGTime type="a">12.25.2025::16:35:21</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -6395,6 +6409,20 @@
 										</Properties>
 									</IPropertyMetaclass>
 									
+									<IPropertyMetaclass type="e">
+										<_Name type="a">ValueProperty</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">DefaultSize</_Name>
+													<_Value type="a">0,0,99,49</_Value>
+													<_Type type="a">String</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
 								</IRPYRawContainer>
 							</Metaclasses>
 						</IPropertySubject>
@@ -6440,8 +6468,8 @@
 				</IRPYRawContainer>
 			</Stereotypes>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.27.2025::12:45:56</_modifiedTime>
-			<_lastModifiedTime type="a">12.27.2025::12:45:56</_lastModifiedTime>
+			<_modifiedTime type="a">12.31.2025::12:32:6</_modifiedTime>
+			<_lastModifiedTime type="a">12.31.2025::12:32:6</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -14606,6 +14634,20 @@
 										</Properties>
 									</IPropertyMetaclass>
 									
+									<IPropertyMetaclass type="e">
+										<_Name type="a">ValueProperty</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<IProperty type="e">
+													<_Name type="a">DefaultSize</_Name>
+													<_Value type="a">0,0,99,49</_Value>
+													<_Type type="a">String</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
 								</IRPYRawContainer>
 							</Metaclasses>
 						</IPropertySubject>
@@ -14651,8 +14693,8 @@
 				</IRPYRawContainer>
 			</Stereotypes>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.19.2025::15:36:56</_modifiedTime>
-			<_lastModifiedTime type="a">12.19.2025::15:36:56</_lastModifiedTime>
+			<_modifiedTime type="a">12.31.2025::12:32:6</_modifiedTime>
+			<_lastModifiedTime type="a">12.31.2025::12:32:6</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
