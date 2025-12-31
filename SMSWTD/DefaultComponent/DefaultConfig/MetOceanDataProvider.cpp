@@ -1,10 +1,10 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20255590
+	Login		: 20190977
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MetOceanDataProvider
-//!	Generated Date	: Mon, 29, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\MetOceanDataProvider.cpp
 *********************************************************************/
 
@@ -449,21 +449,21 @@ IOxfReactive::TakeEventStatus MetOceanDataProvider::rootState_processEvent(void)
                     // ************* Update Location Values here ************** //
                     
                     //AirCarft Weather Data - Normal Case 
-                    RecWS1 = fillHistRamp(8.0); // wind speed
+                    RecWS1 = fillHistSineWave(4,2,4); // wind speed
                     RecHumd1 = fillHistSineWave(4,1,47); // humidity
                     RecTemp1 = fillHistSineWave(5,1,25.0); // temperature from Airplane
-                    RecAP1 = fillHistSineWave(90,2,960); // normal Air Pressure in Hbars
+                    RecAP1 = fillHistSineWave(20,2,1033); // normal Air Pressure in Hbars
                     
                     //AirCarft Weather Data - Alert Case (Storm) 
                     //(Change location based on emergency)
                     RecWS2 = fillHistSineWave(4,2,30); //  high wind speed
                     RecHumd2 = fillHistSineWave(4,1,88); // high humidity
                     RecTemp2 = fillHistSineWave(5,1,12.0); // low temperature from Airplane
-                    RecAP2 = fillHistSineWave(90,2,1200); // high Air Pressure in Hbars (<1100)
+                    RecAP2 = fillHistSineWave(90,2,900); // low Air Pressure in Hbars (<1100)
                     
                     //AirCarft Weather Data - Alert Case (Heat Wave)
                     //(Change location based on emergency)
-                    RecHumd3 =  fillHistSineWave(2,2,7);
+                    RecHumd3 =  fillHistSineWave(2,2,12);
                     RecTemp3 = fillHistSineWave(5,1,40.0);
                     
                     //(Possible) Storm Locations Sent by Satellite

@@ -12,10 +12,10 @@
 			<_id type="a">GUID e23c64b9-081b-424b-b550-ee00e998897b</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">SMSWTD_Architecture</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::17:16:16</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::17:16:16</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">26</_lastID>
-			<weakCGTime type="a">12.30.2025::17:16:16</weakCGTime>
+			<weakCGTime type="a">12.31.2025::9:26:43</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:9</strongCGTime>
 			<_defaultComposite type="s">GUID 098630c7-f493-48d7-bde3-353e7e7507bf</_defaultComposite>
 			<_eventsBaseID type="a">3401</_eventsBaseID>
@@ -9673,8 +9673,8 @@
 			</_properties>
 			<_name type="a">paneldiagram_25</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::17:16:44</_modifiedTime>
-			<_lastModifiedTime type="a">12.30.2025::17:16:44</_lastModifiedTime>
+			<_modifiedTime type="a">12.30.2025::17:25:35</_modifiedTime>
+			<_lastModifiedTime type="a">12.30.2025::17:25:35</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -9717,7 +9717,7 @@
 			</m_name>
 			<m_drawBehavior type="a">0</m_drawBehavior>
 			<m_bIsPreferencesInitialized type="a">0</m_bIsPreferencesInitialized>
-			<elementList type="a">7</elementList>
+			<elementList type="a">8</elementList>
 			
 			<m_access type="a">'Z'</m_access>
 			<m_modified type="a">'N'</m_modified>
@@ -9737,6 +9737,7 @@
 				<value>GUID 04bef27c-6c62-4321-ba1e-3329707096b0</value>
 				<value>GUID f4717fbd-62cb-4c89-bcce-fd1ea7df3744</value>
 				<value>GUID 2a05062a-b3ef-4498-911d-7d71f9f3d7b7</value>
+				<value>GUID d094671b-04e5-4720-9fb0-50aa8e5cba73</value>
 			</AggregatesList>
 		</CGIClassChart>
 		<CGIBox type="e">
@@ -9796,7 +9797,7 @@
 				</CGIText>
 			</m_name>
 			<m_drawBehavior type="a">4096</m_drawBehavior>
-			<m_transform type="a">4.23611 0 0 4.16667 20 20 </m_transform>
+			<m_transform type="a">5.88426 0 0 4.16667 20 20 </m_transform>
 			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
 			<m_AdditionalLabel type="p">
 				<CGIText type="e">
@@ -10443,14 +10444,51 @@
 				</IRPYRawContainer>
 			</m_PartsArray>
 		</CGIActiveX>
+		<CGIActiveX type="e">
+			<_id type="a">GUID d094671b-04e5-4720-9fb0-50aa8e5cba73</_id>
+			<m_type type="a">219</m_type>
+			<m_pModelObject type="r">
+				<IHandle type="e">
+				</IHandle>
+			</m_pModelObject>
+			<m_pParent type="s">GUID 0c34acc2-d289-49f8-aaba-fffde389cc4a</m_pParent>
+			<m_name type="p">
+				<CGIText type="e">
+					<m_str type="a">led_0</m_str>
+					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
+					<m_color type="p">
+						<IColor type="e">
+							<m_fgColor type="a">0</m_fgColor>
+							<m_bgColor type="a">0</m_bgColor>
+							<m_bgFlag type="a">0</m_bgFlag>
+						</IColor>
+					</m_color>
+					<m_position type="a">1 0 0  </m_position>
+					<m_nIdent type="a">0</m_nIdent>
+					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
+					<m_nOrientationCtrlPt type="a">1</m_nOrientationCtrlPt>
+				</CGIText>
+			</m_name>
+			<m_drawBehavior type="a">4096</m_drawBehavior>
+			<m_transform type="a">0.000126238 0 0 0.000113298 1268 322.126 </m_transform>
+			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
+			<m_polygon type="a">4 0 -1114  0 113628  102980 113628  102980 -1114  </m_polygon>
+			<m_nNameFormat type="a">0</m_nNameFormat>
+			<m_nIsNameFormat type="a">0</m_nIsNameFormat>
+			<m_csName type="a">led_0</m_csName>
+			<m_PartsArray type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</m_PartsArray>
+		</CGIActiveX>
 		<IClass type="e">
 			<_id type="a">GUID 098630c7-f493-48d7-bde3-353e7e7507bf</_id>
 			<_myState type="a">40960</_myState>
 			<_name type="a">TopLevel</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">10</_lastID>
-			<weakCGTime type="a">12.30.2025::15:25:8</weakCGTime>
+			<weakCGTime type="a">12.31.2025::9:26:43</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:9</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -10512,12 +10550,12 @@
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">fillHistRamp</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
 			<_description type="p"><IDescription type="e">
 				<_text type="a">Generate wave data with a certain amplitude.</_text>
 			</IDescription>
 			</_description>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">2</_lastID>
 			<_virtual type="a">1</_virtual>
 			<_returnType type="r">
@@ -10576,8 +10614,8 @@
 			<_id type="a">GUID dd1dda63-a736-47f2-9578-f1ee084b6c28</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">printArray</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">1</_lastID>
 			<_virtual type="a">1</_virtual>
 			<_returnType type="r">
@@ -10624,12 +10662,12 @@
 			<_id type="a">GUID 89292a80-5dae-4450-ad23-337d49557773</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">printHistory</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
 			<_description type="p"><IDescription type="e">
 				<_text type="a">Print all the elements inside the Input variable of SimData datatype</_text>
 			</IDescription>
 			</_description>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">1</_lastID>
 			<_virtual type="a">1</_virtual>
 			<_returnType type="r">
@@ -10706,8 +10744,8 @@
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">fillHistSineWave</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">3</_lastID>
 			<_virtual type="a">1</_virtual>
 			<_returnType type="r">
@@ -10857,8 +10895,8 @@
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">extractCurrData</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">2</_lastID>
 			<_virtual type="a">1</_virtual>
 			<_returnType type="r">
@@ -10939,8 +10977,8 @@
 			<_id type="a">GUID 2e9da321-a4c3-4e07-a44b-e68de6c1be34</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">printSTNData</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">1</_lastID>
 			<_virtual type="a">1</_virtual>
 			<_returnType type="r">
@@ -10989,8 +11027,8 @@
 			<_id type="a">GUID ebc54cb2-8140-49f3-997f-5738da9acadb</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">printSatData</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">1</_lastID>
 			<_virtual type="a">1</_virtual>
 			<_returnType type="r">
@@ -11039,8 +11077,8 @@
 			<_id type="a">GUID c58ec4b6-0703-438e-9efe-3a732b8a4df8</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">printAirData</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">1</_lastID>
 			<_virtual type="a">1</_virtual>
 			<_returnType type="r">
@@ -11092,8 +11130,8 @@
 			<_id type="a">GUID b95b47c2-d3c9-4f61-a81e-7c18a7999df7</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">printLocation</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">1</_lastID>
 			<_virtual type="a">1</_virtual>
 			<_returnType type="r">
@@ -11148,8 +11186,8 @@
 			<_id type="a">GUID 21c3804b-5f1c-4a0b-9dfe-603e11b95b2e</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">itsSeismicTsunamiNetwork</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
@@ -11166,8 +11204,8 @@
 			<_id type="a">GUID 02c55cfe-b9fe-4388-8118-b9bf2cfd8664</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">itsSensingInterfaceSubsystem</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
@@ -11184,8 +11222,8 @@
 			<_id type="a">GUID 3d926368-5c1d-495e-b395-14d2b44f1742</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">itsMetOceanDataProvider</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
@@ -11202,8 +11240,8 @@
 			<_id type="a">GUID 5f27cb33-f9b6-4fda-b6b2-4539907b6702</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">itsRiskAssessmentSubsystem</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
@@ -11220,8 +11258,8 @@
 			<_id type="a">GUID 6a12df73-e868-41c9-bc7c-4f64e36c86d8</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">itsAlertingSubsystem</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
@@ -11451,15 +11489,15 @@
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.29.2025::15:54:6</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:44</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
 					<_hid type="a">GUID b5ce4c8f-8014-4d06-8d86-206f131a0208</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">12.29.2025::15:54:6</_modifiedTime>
-			<weakCGTime type="a">12.29.2025::15:54:6</weakCGTime>
+			<_modifiedTime type="a">12.31.2025::9:26:44</_modifiedTime>
+			<weakCGTime type="a">12.31.2025::9:26:44</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:9</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -11600,16 +11638,16 @@
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.29.2025::18:11:44</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:44</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
 					<_hid type="a">GUID b5ce4c8f-8014-4d06-8d86-206f131a0208</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">12.29.2025::18:6:58</_modifiedTime>
+			<_modifiedTime type="a">12.31.2025::9:26:44</_modifiedTime>
 			<_lastID type="a">23</_lastID>
-			<weakCGTime type="a">12.29.2025::18:11:44</weakCGTime>
+			<weakCGTime type="a">12.31.2025::9:26:44</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:9</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -14387,16 +14425,16 @@ OUT_PORT(out)-&gt;GEN(evPushMetOceanRA(CurrPlaneDataFinal,CurrSatDataFinal,FlagP
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.30.2025::17:6:3</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:28:59</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
 					<_hid type="a">GUID b5ce4c8f-8014-4d06-8d86-206f131a0208</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">12.30.2025::17:3:0</_modifiedTime>
+			<_modifiedTime type="a">12.31.2025::9:26:44</_modifiedTime>
 			<_lastID type="a">20</_lastID>
-			<weakCGTime type="a">12.30.2025::17:6:3</weakCGTime>
+			<weakCGTime type="a">12.31.2025::9:28:59</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:9</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -15189,10 +15227,10 @@ OUT_PORT(out)-&gt;GEN(evPushMetOceanRA(CurrPlaneDataFinal,CurrSatDataFinal,FlagP
 			<_id type="a">GUID f58aa1a1-eef7-45d4-94c6-666695059ce1</_id>
 			<_myState type="a">10240</_myState>
 			<_name type="a">statechart_1</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::17:6:3</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::17:6:3</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:28:59</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:28:59</_modifiedTime>
 			<_lastID type="a">7</_lastID>
-			<weakCGTime type="a">12.30.2025::17:6:3</weakCGTime>
+			<weakCGTime type="a">12.31.2025::9:28:59</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:5</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -15200,7 +15238,7 @@ OUT_PORT(out)-&gt;GEN(evPushMetOceanRA(CurrPlaneDataFinal,CurrSatDataFinal,FlagP
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
 			<_defNumber type="a">7</_defNumber>
-			<_version type="a">12.30.2025::18:6:3</_version>
+			<_version type="a">12.31.2025::10:28:59</_version>
 			<_baseVersion type="a">1.2.1990::0:0:0</_baseVersion>
 			<_diagram type="s">GUID b2fa7038-e302-49ba-a4a9-c15b07d85f5c</_diagram>
 			<AggregatesList type="e">
@@ -15454,7 +15492,7 @@ GEN(startAnalysis());%0D
 		<ILabel type="e">
 			<_id type="a">GUID 553448a4-19b5-4fe1-8d6a-9f02d32c2887</_id>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">1.1.1970::1:0:0</_modifiedTime>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
 			<_itsTrigger>NULL</_itsTrigger>
 			<_itsGuard>NULL</_itsGuard>
 			<_itsAction>NULL</_itsAction>
@@ -15476,7 +15514,7 @@ GEN(startAnalysis());%0D
 		<ILabel type="e">
 			<_id type="a">GUID ccacfbc6-f2c5-42b6-afdb-1da7b5177f58</_id>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">1.1.1970::1:0:0</_modifiedTime>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
 			<_itsTrigger>NULL</_itsTrigger>
 			<_itsGuard>NULL</_itsGuard>
 			<_itsAction>NULL</_itsAction>
@@ -15685,101 +15723,221 @@ std::cout &lt;&lt; &quot;Risk assessment complete.\n\n&quot;;</_body>
 		<IState type="e">
 			<_id type="a">GUID 73da2035-1fda-43fa-b9e5-48ebcb3e0fef</_id>
 			<_name type="a">AnalyzeMetO</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::17:6:3</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::17:6:3</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:28:59</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:28:59</_modifiedTime>
 			<_parent type="s">GUID 39da187b-f9a0-42a1-8e12-9b70f6a46af9</_parent>
 			<_defaultTrans type="s"></_defaultTrans>
 			<_entryAction type="p"><IAction type="e">
 				<_id type="a">GUID fb32d642-e6fd-42ed-9de0-aa322eae6384</_id>
 				<_myState type="a">4096</_myState>
-				<_modifiedTimeWeak type="a">12.30.2025::17:6:3</_modifiedTimeWeak>
-				<_modifiedTime type="a">12.30.2025::17:6:3</_modifiedTime>
-				<_body type="a">// ========== METOCEAN THRESHOLDS ==========%0D
-const double STORM_CLASS_WARNING  = 5.0;%0D
-const double STORM_CLASS_CRITICAL = 9.0;%0D
+				<_modifiedTimeWeak type="a">12.31.2025::9:28:59</_modifiedTimeWeak>
+				<_modifiedTime type="a">12.31.2025::9:28:59</_modifiedTime>
+				<_body type="a">// ********************* METOCEAN RISK ASSESSMENT SUBSYSTEM ************************%0D
 %0D
-const double HEATWAVE_TEMP = 38.0;%0D
-const double HEATWAVE_HUMD = 20.0;%0D
+// INPUT DATA:%0D
+// CurrPlaneDataFinal : AirData%0D
+// CurrSatDataFinal   : SatData%0D
+// FlagPrevAir        : bool%0D
+// FlagPrevSat        : bool%0D
 %0D
-const double STORM_WINDS  = 25.0;%0D
-const double LOW_PRESSURE = 980.0;%0D
 %0D
+// ========== THRESHOLDS ==========%0D
+const double STORM_CLASS_WARNING   = 5.0;%0D
+const double STORM_CLASS_CRITICAL  = 9.0;%0D
+%0D
+const double TEMP_GRAD_CRITICAL    = 8.0;   // single critical threshold%0D
+%0D
+const double STORM_WIND_THRESHOLD  = 25.0;%0D
+const double LOW_PRESSURE_THRESHOLD = 980.0;%0D
+%0D
+const double HEATWAVE_TEMP_THRESHOLD = 38.0;%0D
+const double HEATWAVE_HUMIDITY_THRESHOLD = 20.0;%0D
+%0D
+%0D
+// ========== STEP 1: DETERMINE DATA HEALTH STATUS ==========%0D
 int planeHealthCase = 0;%0D
 int satHealthCase   = 0;%0D
 %0D
 // ---- Plane Data Health ----%0D
-if(CurrPlaneDataFinal.FinalC == true &amp;&amp; FlagPrevAir == true)%0D
-    planeHealthCase = 1;%0D
-else if(CurrPlaneDataFinal.FinalC == false &amp;&amp; FlagPrevAir == true)%0D
-    planeHealthCase = 2;%0D
-else if(CurrPlaneDataFinal.FinalC == true &amp;&amp; FlagPrevAir == false)%0D
-    planeHealthCase = 3;%0D
-else%0D
-    planeHealthCase = 4;%0D
+if(CurrPlaneDataFinal.FinalC == true &amp;&amp; FlagPrevAir == true) {%0D
+    planeHealthCase = 1;   // Not possible%0D
+}%0D
+else if(CurrPlaneDataFinal.FinalC == false &amp;&amp; FlagPrevAir == true) {%0D
+    planeHealthCase = 2;   // Low confidence, prev data%0D
+}%0D
+else if(CurrPlaneDataFinal.FinalC == true &amp;&amp; FlagPrevAir == false) {%0D
+    planeHealthCase = 3;   // High confidence, new data%0D
+}%0D
+else {%0D
+    planeHealthCase = 4;   // Questionable new data%0D
+}%0D
 %0D
 // ---- Satellite Data Health ----%0D
-if(CurrSatDataFinal.FinalC == true &amp;&amp; FlagPrevSat == true)%0D
-    satHealthCase = 1;%0D
-else if(CurrSatDataFinal.FinalC == false &amp;&amp; FlagPrevSat == true)%0D
+if(CurrSatDataFinal.FinalC == true &amp;&amp; FlagPrevSat == true) {%0D
+    satHealthCase = 1;     // Not possible%0D
+}%0D
+else if(CurrSatDataFinal.FinalC == false &amp;&amp; FlagPrevSat == true) {%0D
     satHealthCase = 2;%0D
-else if(CurrSatDataFinal.FinalC == true &amp;&amp; FlagPrevSat == false)%0D
+}%0D
+else if(CurrSatDataFinal.FinalC == true &amp;&amp; FlagPrevSat == false) {%0D
     satHealthCase = 3;%0D
-else%0D
+}%0D
+else {%0D
     satHealthCase = 4;%0D
+}%0D
 %0D
+%0D
+// ========== STEP 2: MANUAL APPROVAL CHECK ==========%0D
 if(planeHealthCase == 4 || satHealthCase == 4) {%0D
     std::cout &lt;&lt; &quot;\n!!! MANUAL APPROVAL REQUIRED !!!\n&quot;;%0D
 %0D
     if(planeHealthCase == 4) {%0D
-        std::cout &lt;&lt; &quot;\nQuestionable PLANE data:\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Questionable PLANE data:\n&quot;;%0D
         printAirData(CurrPlaneDataFinal);%0D
     }%0D
 %0D
     if(satHealthCase == 4) {%0D
-        std::cout &lt;&lt; &quot;\nQuestionable SATELLITE data:\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Questionable SATELLITE data:\n&quot;;%0D
         printSatData(CurrSatDataFinal);%0D
     }%0D
 %0D
-    std::cout &lt;&lt; &quot;&gt;&gt;&gt; Operator approval recommended before action &lt;&lt;&lt;\n\n&quot;;%0D
+    std::cout &lt;&lt; &quot;Operator approval recommended.\n\n&quot;;%0D
 }%0D
 %0D
-if(CurrSatDataFinal.StSize &gt;= STORM_CLASS_CRITICAL) {%0D
 %0D
-    std::cout &lt;&lt; &quot;\n******** METOCEAN ALERT ********\n&quot;;%0D
-    std::cout &lt;&lt; &quot;SEVERE STORM DETECTED (Class &quot;%0D
-              &lt;&lt; CurrSatDataFinal.StSize &lt;&lt; &quot;)\n&quot;;%0D
-    printSatData(CurrSatDataFinal);%0D
-    std::cout &lt;&lt; &quot;********************************\n\n&quot;;%0D
+// ========== STEP 3: METOCEAN RISK ANALYSIS ==========%0D
+bool decisionAlert = false;%0D
+bool decisionPrediction = false;%0D
 %0D
+%0D
+// ---------- Satellite-Based Storm Analysis ----------%0D
+%0D
+// Compute storm distance (km)%0D
+double stormDistance =%0D
+    sqrt((CurrSatDataFinal.StLocX * CurrSatDataFinal.StLocX) +%0D
+         (CurrSatDataFinal.StLocY * CurrSatDataFinal.StLocY));%0D
+%0D
+if(stormDistance &lt; 100.0) {%0D
+%0D
+    if(CurrSatDataFinal.StSize &gt;= STORM_CLASS_CRITICAL &amp;&amp;%0D
+       CurrSatDataFinal.TempG  &gt;= TEMP_GRAD_CRITICAL) {%0D
+%0D
+        decisionAlert = true;%0D
+%0D
+        std::cout &lt;&lt; &quot;\n******** METOCEAN ALERT ********\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Severe nearby storm detected\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Storm Class = &quot; &lt;&lt; CurrSatDataFinal.StSize &lt;&lt; &quot;\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Storm Distance = &quot; &lt;&lt; stormDistance &lt;&lt; &quot; km\n&quot;;%0D
+        printSatData(CurrSatDataFinal);%0D
+        std::cout &lt;&lt; &quot;********************************\n\n&quot;;%0D
+    }%0D
+    else if(CurrSatDataFinal.StSize &gt;= STORM_CLASS_WARNING &amp;&amp;%0D
+            CurrSatDataFinal.TempG  &gt;= TEMP_GRAD_CRITICAL) {%0D
+%0D
+        decisionPrediction = true;%0D
+%0D
+        std::cout &lt;&lt; &quot;\n====== METOCEAN PREDICTION ======\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Storm developing very close\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Storm Class = &quot; &lt;&lt; CurrSatDataFinal.StSize &lt;&lt; &quot;\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Storm Distance = &quot; &lt;&lt; stormDistance &lt;&lt; &quot; km\n&quot;;%0D
+        printSatData(CurrSatDataFinal);%0D
+        std::cout &lt;&lt; &quot;================================\n\n&quot;;%0D
+    }%0D
 }%0D
-else if(CurrSatDataFinal.StSize &gt;= STORM_CLASS_WARNING) {%0D
+else if(stormDistance &lt; 500.0) {%0D
 %0D
-    std::cout &lt;&lt; &quot;\n====== METOCEAN PREDICTION ======\n&quot;;%0D
-    std::cout &lt;&lt; &quot;Storm developing (Class &quot;%0D
-              &lt;&lt; CurrSatDataFinal.StSize &lt;&lt; &quot;)\n&quot;;%0D
-    printSatData(CurrSatDataFinal);%0D
-    std::cout &lt;&lt; &quot;================================\n\n&quot;;%0D
+    if(CurrSatDataFinal.StSize &gt;= STORM_CLASS_WARNING &amp;&amp;%0D
+       CurrSatDataFinal.TempG  &gt;= TEMP_GRAD_CRITICAL) {%0D
+%0D
+        decisionPrediction = true;%0D
+%0D
+        std::cout &lt;&lt; &quot;\n====== METOCEAN PREDICTION ======\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Regional storm detected\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Storm Class = &quot; &lt;&lt; CurrSatDataFinal.StSize &lt;&lt; &quot;\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Storm Distance = &quot; &lt;&lt; stormDistance &lt;&lt; &quot; km\n&quot;;%0D
+        printSatData(CurrSatDataFinal);%0D
+        std::cout &lt;&lt; &quot;================================\n\n&quot;;%0D
+    }%0D
 }%0D
 %0D
-if(CurrPlaneDataFinal.WinS &gt;= STORM_WINDS &amp;&amp;%0D
-   CurrPlaneDataFinal.AirP &lt;= LOW_PRESSURE) {%0D
 %0D
-    std::cout &lt;&lt; &quot;\n******** WEATHER ALERT ********\n&quot;;%0D
-    std::cout &lt;&lt; &quot;Severe storm conditions detected by aircraft\n&quot;;%0D
-    printAirData(CurrPlaneDataFinal);%0D
-    std::cout &lt;&lt; &quot;*******************************\n\n&quot;;%0D
+// ---------- Plane-Based Weather Analysis ----------%0D
+%0D
+// Compute plane distance (km)%0D
+double planeDistance =%0D
+    sqrt((CurrPlaneDataFinal.LocX * CurrPlaneDataFinal.LocX) +%0D
+         (CurrPlaneDataFinal.LocY * CurrPlaneDataFinal.LocY));%0D
+%0D
+if(planeDistance &lt; 100.0) {%0D
+%0D
+    if(CurrPlaneDataFinal.WinS &gt;= STORM_WIND_THRESHOLD &amp;&amp;%0D
+       CurrPlaneDataFinal.AirP &lt;= LOW_PRESSURE_THRESHOLD) {%0D
+%0D
+        decisionAlert = true;%0D
+%0D
+        std::cout &lt;&lt; &quot;\n******** WEATHER ALERT ********\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Severe storm conditions detected by aircraft (close range)\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Plane Distance = &quot; &lt;&lt; planeDistance &lt;&lt; &quot; km\n&quot;;%0D
+        printAirData(CurrPlaneDataFinal);%0D
+        std::cout &lt;&lt; &quot;*******************************\n\n&quot;;%0D
+    }%0D
+    else if(CurrPlaneDataFinal.Temp &gt;= HEATWAVE_TEMP_THRESHOLD &amp;&amp;%0D
+            CurrPlaneDataFinal.Humd &lt;= HEATWAVE_HUMIDITY_THRESHOLD) {%0D
+%0D
+        decisionAlert = true;%0D
+%0D
+        std::cout &lt;&lt; &quot;\n******** HEATWAVE ALERT ********\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Heat wave detected by aircraft (close range)\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Plane Distance = &quot; &lt;&lt; planeDistance &lt;&lt; &quot; km\n&quot;;%0D
+        printAirData(CurrPlaneDataFinal);%0D
+        std::cout &lt;&lt; &quot;*******************************\n\n&quot;;%0D
+    }%0D
+    else {%0D
+        printAirData(CurrPlaneDataFinal);%0D
+    }%0D
 }%0D
-else if(CurrPlaneDataFinal.Temp &gt;= HEATWAVE_TEMP &amp;&amp;%0D
-        CurrPlaneDataFinal.Humd &lt;= HEATWAVE_HUMD) {%0D
+else if(planeDistance &lt; 250.0) {%0D
 %0D
-    std::cout &lt;&lt; &quot;\n====== HEATWAVE PREDICTION ======\n&quot;;%0D
-    printAirData(CurrPlaneDataFinal);%0D
-    std::cout &lt;&lt; &quot;================================\n\n&quot;;%0D
+    if(CurrPlaneDataFinal.WinS &gt;= STORM_WIND_THRESHOLD &amp;&amp;%0D
+       CurrPlaneDataFinal.AirP &lt;= LOW_PRESSURE_THRESHOLD) {%0D
+%0D
+        decisionPrediction = true;%0D
+%0D
+        std::cout &lt;&lt; &quot;\n====== WEATHER PREDICTION ======\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Possible storm conditions detected (mid range)\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Plane Distance = &quot; &lt;&lt; planeDistance &lt;&lt; &quot; km\n&quot;;%0D
+        printAirData(CurrPlaneDataFinal);%0D
+        std::cout &lt;&lt; &quot;================================\n\n&quot;;%0D
+    }%0D
+    else if(CurrPlaneDataFinal.Temp &gt;= HEATWAVE_TEMP_THRESHOLD &amp;&amp;%0D
+            CurrPlaneDataFinal.Humd &lt;= HEATWAVE_HUMIDITY_THRESHOLD) {%0D
+%0D
+        decisionPrediction = true;%0D
+%0D
+        std::cout &lt;&lt; &quot;\n====== HEATWAVE PREDICTION ======\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Possible heat wave developing (mid range)\n&quot;;%0D
+        std::cout &lt;&lt; &quot;Plane Distance = &quot; &lt;&lt; planeDistance &lt;&lt; &quot; km\n&quot;;%0D
+        printAirData(CurrPlaneDataFinal);%0D
+        std::cout &lt;&lt; &quot;================================\n\n&quot;;%0D
+    }%0D
+    else {%0D
+        printAirData(CurrPlaneDataFinal);%0D
+    }%0D
 }%0D
 else {%0D
-    // Normal condition ? print plane weather only%0D
+    // Too far away %96 informational only%0D
     printAirData(CurrPlaneDataFinal);%0D
 }%0D
+%0D
+%0D
+// ========== STEP 4: FINAL DECISION ==========%0D
+if((decisionAlert || decisionPrediction) &amp;&amp;%0D
+   (planeHealthCase == 4 || satHealthCase == 4)) {%0D
+%0D
+    std::cout &lt;&lt; &quot;&gt;&gt;&gt; DECISION BASED ON QUESTIONABLE DATA %97 MANUAL APPROVAL REQUIRED &lt;&lt;&lt;\n&quot;;%0D
+}%0D
+%0D
+std::cout &lt;&lt; &quot;MetOcean risk assessment complete.\n\n&quot;;%0D
 </_body>
 			</IAction>
 			</_entryAction>
@@ -15923,9 +16081,9 @@ else {%0D
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">statechartdiagram_0</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::17:3:0</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:28:59</_modifiedTimeWeak>
 			<_modifiedTime type="a">12.30.2025::17:3:10</_modifiedTime>
-			<_lastModifiedTime type="a">12.30.2025::17:6:3</_lastModifiedTime>
+			<_lastModifiedTime type="a">12.31.2025::9:28:59</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -17059,16 +17217,16 @@ else {%0D
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.30.2025::16:17:18</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:44</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
 					<_hid type="a">GUID b5ce4c8f-8014-4d06-8d86-206f131a0208</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">12.30.2025::16:17:18</_modifiedTime>
+			<_modifiedTime type="a">12.31.2025::9:26:44</_modifiedTime>
 			<_lastID type="a">19</_lastID>
-			<weakCGTime type="a">12.30.2025::16:17:18</weakCGTime>
+			<weakCGTime type="a">12.31.2025::9:26:44</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:9</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -17185,7 +17343,7 @@ else {%0D
 			<_id type="a">GUID 0d5799f8-1255-4cd7-acc5-9b65d9013e06</_id>
 			<_myState type="a">8192</_myState>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">1.1.1970::1:0:0</_modifiedTime>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
 			<_virtual type="a">0</_virtual>
 			<Args type="c">
 				<IRPYRawContainer type="e">
@@ -18008,7 +18166,7 @@ else {%0D
 		<ILabel type="e">
 			<_id type="a">GUID 85159a9f-62b3-4870-a28b-d32420fd1191</_id>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">1.1.1970::1:0:0</_modifiedTime>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
 			<_itsTrigger>NULL</_itsTrigger>
 			<_itsGuard>NULL</_itsGuard>
 			<_itsAction>NULL</_itsAction>
@@ -18037,7 +18195,7 @@ else {%0D
 		<IInterfaceItemTrigger type="e">
 			<_id type="a">GUID 15d23fdb-2ae9-426e-97cd-0ea5d0abe15b</_id>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">1.1.1970::1:0:0</_modifiedTime>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
 			<_body type="a">evPushSeismicAlert</_body>
 			<_itsInterfaceItem type="r">
 				<IHandle type="e">
@@ -19010,7 +19168,6 @@ GEN(StartAlertGen());</_body>
 				</CGIText>
 			</m_name>
 			<m_drawBehavior type="a">4096</m_drawBehavior>
-			<m_transform type="a">1 0 0 1 0 0 </m_transform>
 			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
 			<m_AdditionalLabel type="p">
 				<CGIText type="e">
@@ -19068,7 +19225,6 @@ GEN(StartAlertGen());</_body>
 				</CGIText>
 			</m_name>
 			<m_drawBehavior type="a">4096</m_drawBehavior>
-			<m_transform type="a">1 0 0 1 0 0 </m_transform>
 			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
 			<m_AdditionalLabel type="p">
 				<CGIText type="e">
@@ -19291,15 +19447,15 @@ GEN(StartAlertGen());</_body>
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.29.2025::15:51:9</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:44</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
 					<_hid type="a">GUID b5ce4c8f-8014-4d06-8d86-206f131a0208</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">12.29.2025::13:10:25</_modifiedTime>
-			<weakCGTime type="a">12.29.2025::15:51:9</weakCGTime>
+			<_modifiedTime type="a">12.31.2025::9:26:44</_modifiedTime>
+			<weakCGTime type="a">12.31.2025::9:26:44</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:9</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -19349,15 +19505,15 @@ GEN(StartAlertGen());</_body>
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.29.2025::15:51:9</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:44</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
 					<_hid type="a">GUID b5ce4c8f-8014-4d06-8d86-206f131a0208</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">12.29.2025::13:10:25</_modifiedTime>
-			<weakCGTime type="a">12.29.2025::15:51:9</weakCGTime>
+			<_modifiedTime type="a">12.31.2025::9:26:44</_modifiedTime>
+			<weakCGTime type="a">12.31.2025::9:26:44</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:9</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -19382,15 +19538,15 @@ GEN(StartAlertGen());</_body>
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.29.2025::15:54:6</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:44</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
 					<_hid type="a">GUID b5ce4c8f-8014-4d06-8d86-206f131a0208</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">12.29.2025::15:54:6</_modifiedTime>
-			<weakCGTime type="a">12.29.2025::15:54:6</weakCGTime>
+			<_modifiedTime type="a">12.31.2025::9:26:44</_modifiedTime>
+			<weakCGTime type="a">12.31.2025::9:26:44</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:9</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -19440,7 +19596,7 @@ GEN(StartAlertGen());</_body>
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.30.2025::17:18:26</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:44</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -19450,9 +19606,9 @@ GEN(StartAlertGen());</_body>
 					<_hid type="a">GUID cc956a1c-f7d5-4400-9247-b3b01a382f58</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">12.30.2025::17:18:26</_modifiedTime>
+			<_modifiedTime type="a">12.31.2025::9:26:44</_modifiedTime>
 			<_lastID type="a">23</_lastID>
-			<weakCGTime type="a">12.30.2025::17:18:26</weakCGTime>
+			<weakCGTime type="a">12.31.2025::9:26:44</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:9</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -21115,7 +21271,7 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.29.2025::15:51:9</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:44</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -21125,8 +21281,8 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 					<_hid type="a">GUID cc956a1c-f7d5-4400-9247-b3b01a382f58</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">12.29.2025::13:10:25</_modifiedTime>
-			<weakCGTime type="a">12.29.2025::15:51:9</weakCGTime>
+			<_modifiedTime type="a">12.31.2025::9:26:44</_modifiedTime>
+			<weakCGTime type="a">12.31.2025::9:26:44</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:9</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -21151,7 +21307,7 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.30.2025::17:16:39</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:44</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -21161,9 +21317,9 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 					<_hid type="a">GUID cc956a1c-f7d5-4400-9247-b3b01a382f58</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">12.30.2025::17:16:39</_modifiedTime>
+			<_modifiedTime type="a">12.31.2025::9:26:44</_modifiedTime>
 			<_lastID type="a">37</_lastID>
-			<weakCGTime type="a">12.30.2025::17:16:39</weakCGTime>
+			<weakCGTime type="a">12.31.2025::9:26:44</weakCGTime>
 			<strongCGTime type="a">12.29.2025::15:51:9</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -22401,10 +22557,10 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 			<_id type="a">GUID a13a937c-a9b2-453e-aca7-47793b825f8a</_id>
 			<_myState type="a">10240</_myState>
 			<_name type="a">statechart_4</_name>
-			<_modifiedTimeWeak type="a">12.29.2025::13:21:21</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.29.2025::13:21:21</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:26</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:26</_modifiedTime>
 			<_lastID type="a">4</_lastID>
-			<weakCGTime type="a">12.29.2025::13:21:21</weakCGTime>
+			<weakCGTime type="a">12.31.2025::9:26:26</weakCGTime>
 			<strongCGTime type="a">12.27.2025::12:45:56</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -22412,7 +22568,7 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
 			<_defNumber type="a">2</_defNumber>
-			<_version type="a">12.29.2025::14:21:21</_version>
+			<_version type="a">12.31.2025::10:26:26</_version>
 			<_baseVersion type="a">1.2.1990::0:0:0</_baseVersion>
 			<_diagram type="s">GUID 5b863b07-6dac-4c61-ba65-056c77e26d75</_diagram>
 			<AggregatesList type="e">
@@ -22522,7 +22678,7 @@ OUT_PORT(out)-&gt;GEN(evSeismicUpdate(CurrEQD,CurrEQM,CurrSCM,CurrWPM,STNStatus,
 		<IState type="e">
 			<_id type="a">GUID a9a87e40-7d47-4365-8aa3-e55cba8f4351</_id>
 			<_name type="a">Idle</_name>
-			<_modifiedTimeWeak type="a">12.28.2025::22:18:29</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:26</_modifiedTimeWeak>
 			<_description type="p"><IDescription type="e">
 				<_text type="a">State Local Variables%0D
 =====================%0D
@@ -22561,7 +22717,7 @@ Satellite Data%0D
 </_text>
 			</IDescription>
 			</_description>
-			<_modifiedTime type="a">12.28.2025::22:18:29</_modifiedTime>
+			<_modifiedTime type="a">12.31.2025::9:26:26</_modifiedTime>
 			<_parent type="s">GUID 1d59dee1-9a3e-42c1-8ad3-1141dcf97192</_parent>
 			<_defaultTrans type="s"></_defaultTrans>
 			<_entryAction type="p"><IAction type="e">
@@ -22584,8 +22740,8 @@ SimData RecStormSize1,RecStormSize2;%0D
 			</_entryAction>
 			<_exitAction type="p"><IAction type="e">
 				<_id type="a">GUID 90922291-e437-4120-b96d-67725fb8518b</_id>
-				<_modifiedTimeWeak type="a">12.28.2025::22:18:29</_modifiedTimeWeak>
-				<_modifiedTime type="a">12.28.2025::22:18:29</_modifiedTime>
+				<_modifiedTimeWeak type="a">12.31.2025::9:26:26</_modifiedTimeWeak>
+				<_modifiedTime type="a">12.31.2025::9:26:26</_modifiedTime>
 				<_body type="a">//AirCarft Location and Sensor Diagnostics data%0D
 RecAMC1 = fillHistSineWave(4,2,95); // good certainty of measurement%0D
 RecAMC2 = fillHistSineWave(4,2,65); // questionable certainty of measurement%0D
@@ -22596,21 +22752,21 @@ RecAirLoc3 = {-233.2, -135}; // 270 Km away%0D
 // ************* Update Location Values here ************** //%0D
 %0D
 //AirCarft Weather Data - Normal Case %0D
-RecWS1 = fillHistRamp(8.0); // wind speed%0D
+RecWS1 = fillHistSineWave(4,2,4); // wind speed%0D
 RecHumd1 = fillHistSineWave(4,1,47); // humidity%0D
 RecTemp1 = fillHistSineWave(5,1,25.0); // temperature from Airplane%0D
-RecAP1 = fillHistSineWave(90,2,960); // normal Air Pressure in Hbars%0D
+RecAP1 = fillHistSineWave(20,2,1033); // normal Air Pressure in Hbars%0D
 %0D
 //AirCarft Weather Data - Alert Case (Storm) %0D
 //(Change location based on emergency)%0D
 RecWS2 = fillHistSineWave(4,2,30); //  high wind speed%0D
 RecHumd2 = fillHistSineWave(4,1,88); // high humidity%0D
 RecTemp2 = fillHistSineWave(5,1,12.0); // low temperature from Airplane%0D
-RecAP2 = fillHistSineWave(90,2,1200); // high Air Pressure in Hbars (&lt;1100)%0D
+RecAP2 = fillHistSineWave(90,2,900); // low Air Pressure in Hbars (&lt;1100)%0D
 %0D
 //AirCarft Weather Data - Alert Case (Heat Wave)%0D
 //(Change location based on emergency)%0D
-RecHumd3 =  fillHistSineWave(2,2,7);%0D
+RecHumd3 =  fillHistSineWave(2,2,12);%0D
 RecTemp3 = fillHistSineWave(5,1,40.0);%0D
 %0D
 //(Possible) Storm Locations Sent by Satellite%0D
@@ -22961,9 +23117,9 @@ OUT_PORT(out)-&gt;GEN(evMetOceanUpdate(CurrPlaneData, CurrSatData));</_body>
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">statechartdiagram_0</_name>
-			<_modifiedTimeWeak type="a">12.29.2025::13:21:21</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:26</_modifiedTimeWeak>
 			<_modifiedTime type="a">12.27.2025::13:20:39</_modifiedTime>
-			<_lastModifiedTime type="a">12.29.2025::13:21:21</_lastModifiedTime>
+			<_lastModifiedTime type="a">12.31.2025::9:26:26</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -23595,8 +23751,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID 2cd7523d-8152-4057-a840-5157a1aa36e5</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">evStartDataCollector</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_virtual type="a">0</_virtual>
 			<Args type="c">
 				<IRPYRawContainer type="e">
@@ -23607,8 +23763,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID 954bc1ea-9639-447e-9a60-1cada71daf7b</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">evCheckData</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_virtual type="a">0</_virtual>
 			<Args type="c">
 				<IRPYRawContainer type="e">
@@ -23619,8 +23775,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID 078951bf-8b87-4cda-b8c2-e94b34812e8e</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">evStartDataSend</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_virtual type="a">0</_virtual>
 			<Args type="c">
 				<IRPYRawContainer type="e">
@@ -23631,8 +23787,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID d22660df-f047-4200-b9c6-cccea73648ff</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">evStartDataMet</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_virtual type="a">0</_virtual>
 			<Args type="c">
 				<IRPYRawContainer type="e">
@@ -23643,8 +23799,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID 92174870-f581-477b-a5bd-9d06e219cc47</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">evSeismicUpdate</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">6</_lastID>
 			<_virtual type="a">0</_virtual>
 			<AggregatesList type="e">
@@ -23752,8 +23908,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID 7747e735-f70c-416c-8a3e-16a443fd139b</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">evMetOceanUpdate</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">2</_lastID>
 			<_virtual type="a">0</_virtual>
 			<AggregatesList type="e">
@@ -23795,8 +23951,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID 52eed0d0-0db9-425f-affe-2d442d93a836</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">evStartRA</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_virtual type="a">0</_virtual>
 			<Args type="c">
 				<IRPYRawContainer type="e">
@@ -23807,8 +23963,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID 02a149f2-8cb9-44c8-8cde-14bddd83088b</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">evPushSeismicRA</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">2</_lastID>
 			<_virtual type="a">0</_virtual>
 			<AggregatesList type="e">
@@ -23852,8 +24008,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID 446d9795-7c4f-4eea-a1c1-0dfd3559bc55</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">evPushMetOceanRA</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">4</_lastID>
 			<_virtual type="a">0</_virtual>
 			<AggregatesList type="e">
@@ -23931,8 +24087,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID 14ecab7c-c2a1-4de8-b795-8c1a12594738</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">startAnalysis</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_virtual type="a">0</_virtual>
 			<Args type="c">
 				<IRPYRawContainer type="e">
@@ -23943,8 +24099,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID ca96f4c7-1ec2-4623-a906-cb6153a66260</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">StartAS</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_virtual type="a">0</_virtual>
 			<Args type="c">
 				<IRPYRawContainer type="e">
@@ -23955,8 +24111,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID c9df4577-2388-4435-ae3d-ac876f7c3037</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">StartAlertGen</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_virtual type="a">0</_virtual>
 			<Args type="c">
 				<IRPYRawContainer type="e">
@@ -23967,8 +24123,8 @@ Please read Description for Idle State.</m_str>
 			<_id type="a">GUID ddf349a6-898f-41a8-a65d-b554f75fb22f</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">evPushSeismicAlert</_name>
-			<_modifiedTimeWeak type="a">12.30.2025::15:28:4</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:28:4</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">8</_lastID>
 			<_virtual type="a">0</_virtual>
 			<AggregatesList type="e">
@@ -24135,12 +24291,12 @@ Please read Description for Idle State.</m_str>
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
 			<_description type="p"><IDescription type="e">
 				<_text type="a">Can store 6 double elements.</_text>
 			</IDescription>
 			</_description>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">2</_lastID>
 			<_kind type="a">Structure</_kind>
 			<AggregatesList type="e">
@@ -24198,12 +24354,12 @@ Please read Description for Idle State.</m_str>
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
 			<_description type="p"><IDescription type="e">
 				<_text type="a">Store long term recorded data for simulation use. 18 elements (double values) can be stored.</_text>
 			</IDescription>
 			</_description>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">1</_lastID>
 			<_kind type="a">Structure</_kind>
 			<AggregatesList type="e">
@@ -24261,8 +24417,8 @@ Please read Description for Idle State.</m_str>
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">3</_lastID>
 			<_kind type="a">Structure</_kind>
 			<AggregatesList type="e">
@@ -24353,8 +24509,8 @@ Please read Description for Idle State.</m_str>
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">2</_lastID>
 			<_kind type="a">Structure</_kind>
 			<AggregatesList type="e">
@@ -24410,8 +24566,8 @@ Please read Description for Idle State.</m_str>
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">1</_lastID>
 			<_kind type="a">Structure</_kind>
 			<AggregatesList type="e">
@@ -24467,8 +24623,8 @@ Please read Description for Idle State.</m_str>
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">8</_lastID>
 			<_kind type="a">Structure</_kind>
 			<AggregatesList type="e">
@@ -24763,8 +24919,8 @@ Please read Description for Idle State.</m_str>
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">5</_lastID>
 			<_kind type="a">Structure</_kind>
 			<AggregatesList type="e">
@@ -24957,12 +25113,12 @@ Please read Description for Idle State.</m_str>
 					
 				</IRPYRawContainer>
 			</Stereotypes>
-			<_modifiedTimeWeak type="a">12.30.2025::15:25:8</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">12.31.2025::9:26:43</_modifiedTimeWeak>
 			<_description type="p"><IDescription type="e">
 				<_text type="a">Stores final data selected from currData of STN with Data Confidence (DataC) in boolean.</_text>
 			</IDescription>
 			</_description>
-			<_modifiedTime type="a">12.30.2025::15:25:8</_modifiedTime>
+			<_modifiedTime type="a">12.31.2025::9:26:43</_modifiedTime>
 			<_lastID type="a">5</_lastID>
 			<_kind type="a">Structure</_kind>
 			<AggregatesList type="e">

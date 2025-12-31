@@ -1,10 +1,10 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20255590
+	Login		: 20190977
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: RiskAssessmentSubsystem
-//!	Generated Date	: Tue, 30, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\RiskAssessmentSubsystem.cpp
 *********************************************************************/
 
@@ -478,92 +478,212 @@ void RiskAssessmentSubsystem::state_4_entDef(void) {
     state_4_subState = AnalyzeMetO;
     state_4_active = AnalyzeMetO;
     //#[ state Analysis.state_4.AnalyzeMetO.(Entry) 
-    // ========== METOCEAN THRESHOLDS ==========
-    const double STORM_CLASS_WARNING  = 5.0;
-    const double STORM_CLASS_CRITICAL = 9.0;
+    // ********************* METOCEAN RISK ASSESSMENT SUBSYSTEM ************************
     
-    const double HEATWAVE_TEMP = 38.0;
-    const double HEATWAVE_HUMD = 20.0;
+    // INPUT DATA:
+    // CurrPlaneDataFinal : AirData
+    // CurrSatDataFinal   : SatData
+    // FlagPrevAir        : bool
+    // FlagPrevSat        : bool
     
-    const double STORM_WINDS  = 25.0;
-    const double LOW_PRESSURE = 980.0;
     
+    // ========== THRESHOLDS ==========
+    const double STORM_CLASS_WARNING   = 5.0;
+    const double STORM_CLASS_CRITICAL  = 9.0;
+    
+    const double TEMP_GRAD_CRITICAL    = 8.0;   // single critical threshold
+    
+    const double STORM_WIND_THRESHOLD  = 25.0;
+    const double LOW_PRESSURE_THRESHOLD = 980.0;
+    
+    const double HEATWAVE_TEMP_THRESHOLD = 38.0;
+    const double HEATWAVE_HUMIDITY_THRESHOLD = 20.0;
+    
+    
+    // ========== STEP 1: DETERMINE DATA HEALTH STATUS ==========
     int planeHealthCase = 0;
     int satHealthCase   = 0;
     
     // ---- Plane Data Health ----
-    if(CurrPlaneDataFinal.FinalC == true && FlagPrevAir == true)
-        planeHealthCase = 1;
-    else if(CurrPlaneDataFinal.FinalC == false && FlagPrevAir == true)
-        planeHealthCase = 2;
-    else if(CurrPlaneDataFinal.FinalC == true && FlagPrevAir == false)
-        planeHealthCase = 3;
-    else
-        planeHealthCase = 4;
+    if(CurrPlaneDataFinal.FinalC == true && FlagPrevAir == true) {
+        planeHealthCase = 1;   // Not possible
+    }
+    else if(CurrPlaneDataFinal.FinalC == false && FlagPrevAir == true) {
+        planeHealthCase = 2;   // Low confidence, prev data
+    }
+    else if(CurrPlaneDataFinal.FinalC == true && FlagPrevAir == false) {
+        planeHealthCase = 3;   // High confidence, new data
+    }
+    else {
+        planeHealthCase = 4;   // Questionable new data
+    }
     
     // ---- Satellite Data Health ----
-    if(CurrSatDataFinal.FinalC == true && FlagPrevSat == true)
-        satHealthCase = 1;
-    else if(CurrSatDataFinal.FinalC == false && FlagPrevSat == true)
+    if(CurrSatDataFinal.FinalC == true && FlagPrevSat == true) {
+        satHealthCase = 1;     // Not possible
+    }
+    else if(CurrSatDataFinal.FinalC == false && FlagPrevSat == true) {
         satHealthCase = 2;
-    else if(CurrSatDataFinal.FinalC == true && FlagPrevSat == false)
+    }
+    else if(CurrSatDataFinal.FinalC == true && FlagPrevSat == false) {
         satHealthCase = 3;
-    else
+    }
+    else {
         satHealthCase = 4;
+    }
     
+    
+    // ========== STEP 2: MANUAL APPROVAL CHECK ==========
     if(planeHealthCase == 4 || satHealthCase == 4) {
         std::cout << "\n!!! MANUAL APPROVAL REQUIRED !!!\n";
     
         if(planeHealthCase == 4) {
-            std::cout << "\nQuestionable PLANE data:\n";
+            std::cout << "Questionable PLANE data:\n";
             printAirData(CurrPlaneDataFinal);
         }
     
         if(satHealthCase == 4) {
-            std::cout << "\nQuestionable SATELLITE data:\n";
+            std::cout << "Questionable SATELLITE data:\n";
             printSatData(CurrSatDataFinal);
         }
     
-        std::cout << ">>> Operator approval recommended before action <<<\n\n";
+        std::cout << "Operator approval recommended.\n\n";
     }
     
-    if(CurrSatDataFinal.StSize >= STORM_CLASS_CRITICAL) {
     
-        std::cout << "\n******** METOCEAN ALERT ********\n";
-        std::cout << "SEVERE STORM DETECTED (Class "
-                  << CurrSatDataFinal.StSize << ")\n";
-        printSatData(CurrSatDataFinal);
-        std::cout << "********************************\n\n";
+    // ========== STEP 3: METOCEAN RISK ANALYSIS ==========
+    bool decisionAlert = false;
+    bool decisionPrediction = false;
     
+    
+    // ---------- Satellite-Based Storm Analysis ----------
+    
+    // Compute storm distance (km)
+    double stormDistance =
+        sqrt((CurrSatDataFinal.StLocX * CurrSatDataFinal.StLocX) +
+             (CurrSatDataFinal.StLocY * CurrSatDataFinal.StLocY));
+    
+    if(stormDistance < 100.0) {
+    
+        if(CurrSatDataFinal.StSize >= STORM_CLASS_CRITICAL &&
+           CurrSatDataFinal.TempG  >= TEMP_GRAD_CRITICAL) {
+    
+            decisionAlert = true;
+    
+            std::cout << "\n******** METOCEAN ALERT ********\n";
+            std::cout << "Severe nearby storm detected\n";
+            std::cout << "Storm Class = " << CurrSatDataFinal.StSize << "\n";
+            std::cout << "Storm Distance = " << stormDistance << " km\n";
+            printSatData(CurrSatDataFinal);
+            std::cout << "********************************\n\n";
+        }
+        else if(CurrSatDataFinal.StSize >= STORM_CLASS_WARNING &&
+                CurrSatDataFinal.TempG  >= TEMP_GRAD_CRITICAL) {
+    
+            decisionPrediction = true;
+    
+            std::cout << "\n====== METOCEAN PREDICTION ======\n";
+            std::cout << "Storm developing very close\n";
+            std::cout << "Storm Class = " << CurrSatDataFinal.StSize << "\n";
+            std::cout << "Storm Distance = " << stormDistance << " km\n";
+            printSatData(CurrSatDataFinal);
+            std::cout << "================================\n\n";
+        }
     }
-    else if(CurrSatDataFinal.StSize >= STORM_CLASS_WARNING) {
+    else if(stormDistance < 500.0) {
     
-        std::cout << "\n====== METOCEAN PREDICTION ======\n";
-        std::cout << "Storm developing (Class "
-                  << CurrSatDataFinal.StSize << ")\n";
-        printSatData(CurrSatDataFinal);
-        std::cout << "================================\n\n";
+        if(CurrSatDataFinal.StSize >= STORM_CLASS_WARNING &&
+           CurrSatDataFinal.TempG  >= TEMP_GRAD_CRITICAL) {
+    
+            decisionPrediction = true;
+    
+            std::cout << "\n====== METOCEAN PREDICTION ======\n";
+            std::cout << "Regional storm detected\n";
+            std::cout << "Storm Class = " << CurrSatDataFinal.StSize << "\n";
+            std::cout << "Storm Distance = " << stormDistance << " km\n";
+            printSatData(CurrSatDataFinal);
+            std::cout << "================================\n\n";
+        }
     }
     
-    if(CurrPlaneDataFinal.WinS >= STORM_WINDS &&
-       CurrPlaneDataFinal.AirP <= LOW_PRESSURE) {
     
-        std::cout << "\n******** WEATHER ALERT ********\n";
-        std::cout << "Severe storm conditions detected by aircraft\n";
-        printAirData(CurrPlaneDataFinal);
-        std::cout << "*******************************\n\n";
+    // ---------- Plane-Based Weather Analysis ----------
+    
+    // Compute plane distance (km)
+    double planeDistance =
+        sqrt((CurrPlaneDataFinal.LocX * CurrPlaneDataFinal.LocX) +
+             (CurrPlaneDataFinal.LocY * CurrPlaneDataFinal.LocY));
+    
+    if(planeDistance < 100.0) {
+    
+        if(CurrPlaneDataFinal.WinS >= STORM_WIND_THRESHOLD &&
+           CurrPlaneDataFinal.AirP <= LOW_PRESSURE_THRESHOLD) {
+    
+            decisionAlert = true;
+    
+            std::cout << "\n******** WEATHER ALERT ********\n";
+            std::cout << "Severe storm conditions detected by aircraft (close range)\n";
+            std::cout << "Plane Distance = " << planeDistance << " km\n";
+            printAirData(CurrPlaneDataFinal);
+            std::cout << "*******************************\n\n";
+        }
+        else if(CurrPlaneDataFinal.Temp >= HEATWAVE_TEMP_THRESHOLD &&
+                CurrPlaneDataFinal.Humd <= HEATWAVE_HUMIDITY_THRESHOLD) {
+    
+            decisionAlert = true;
+    
+            std::cout << "\n******** HEATWAVE ALERT ********\n";
+            std::cout << "Heat wave detected by aircraft (close range)\n";
+            std::cout << "Plane Distance = " << planeDistance << " km\n";
+            printAirData(CurrPlaneDataFinal);
+            std::cout << "*******************************\n\n";
+        }
+        else {
+            printAirData(CurrPlaneDataFinal);
+        }
     }
-    else if(CurrPlaneDataFinal.Temp >= HEATWAVE_TEMP &&
-            CurrPlaneDataFinal.Humd <= HEATWAVE_HUMD) {
+    else if(planeDistance < 250.0) {
     
-        std::cout << "\n====== HEATWAVE PREDICTION ======\n";
-        printAirData(CurrPlaneDataFinal);
-        std::cout << "================================\n\n";
+        if(CurrPlaneDataFinal.WinS >= STORM_WIND_THRESHOLD &&
+           CurrPlaneDataFinal.AirP <= LOW_PRESSURE_THRESHOLD) {
+    
+            decisionPrediction = true;
+    
+            std::cout << "\n====== WEATHER PREDICTION ======\n";
+            std::cout << "Possible storm conditions detected (mid range)\n";
+            std::cout << "Plane Distance = " << planeDistance << " km\n";
+            printAirData(CurrPlaneDataFinal);
+            std::cout << "================================\n\n";
+        }
+        else if(CurrPlaneDataFinal.Temp >= HEATWAVE_TEMP_THRESHOLD &&
+                CurrPlaneDataFinal.Humd <= HEATWAVE_HUMIDITY_THRESHOLD) {
+    
+            decisionPrediction = true;
+    
+            std::cout << "\n====== HEATWAVE PREDICTION ======\n";
+            std::cout << "Possible heat wave developing (mid range)\n";
+            std::cout << "Plane Distance = " << planeDistance << " km\n";
+            printAirData(CurrPlaneDataFinal);
+            std::cout << "================================\n\n";
+        }
+        else {
+            printAirData(CurrPlaneDataFinal);
+        }
     }
     else {
-        // Normal condition ? print plane weather only
+        // Too far away – informational only
         printAirData(CurrPlaneDataFinal);
     }
+    
+    
+    // ========== STEP 4: FINAL DECISION ==========
+    if((decisionAlert || decisionPrediction) &&
+       (planeHealthCase == 4 || satHealthCase == 4)) {
+    
+        std::cout << ">>> DECISION BASED ON QUESTIONABLE DATA — MANUAL APPROVAL REQUIRED <<<\n";
+    }
+    
+    std::cout << "MetOcean risk assessment complete.\n\n";
     
     //#]
     NOTIFY_TRANSITION_TERMINATED("7");
