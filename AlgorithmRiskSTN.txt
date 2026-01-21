@@ -1,0 +1,43 @@
+RISK ASSESSMENT ALGORITHM
+=========================
+
+INPUT: Curr_STN (STNData), FlagPrevSTN (bool)
+
+STEP 1: Determine Data Health Status
+    IF (Curr_STN.DataC == true AND FlagPrevSTN == true)
+        -> Case 1: System fault/unknown, using previous data
+    ELSE IF (Curr_STN.DataC == false AND FlagPrevSTN == true)
+        -> Case 2: System operational but low confidence, using previous data
+    ELSE IF (Curr_STN.DataC == true AND FlagPrevSTN == false)
+        -> Case 3: System operational, high confidence, using new data
+    ELSE IF (Curr_STN.DataC == false AND FlagPrevSTN == false)
+        -> Case 4: System unknown but high confidence, questionable new data
+               -> REQUEST MANUAL APPROVAL
+
+STEP 2: Process Data Based on Health Status
+    FOR Cases 1, 2, 3:
+        Analyze seismic thresholds:
+        
+        IF (EQM > CRITICAL_THRESHOLD AND WPM > CRITICAL_THRESHOLD)
+            -> ALERT: Immediate tsunami threat detected
+            -> Print all STN data
+            
+        ELSE IF (SCM > WARNING_THRESHOLD OR 
+                (EQM > WARNING_THRESHOLD AND WPM > WARNING_THRESHOLD))
+            -> PREDICTION: Potential threat developing
+            -> Print relevant data (SCM, EQM, WPM)
+            
+        ELSE
+            -> NO ALERT: Normal conditions
+            -> No output
+    
+    FOR Case 4:
+        Print: "WARNING: Data reliability questionable. Manual approval required."
+        Print all STN data
+        Prompt: "Approve data for processing? (Operator intervention needed)"
+        
+        (Optional: Wait for operator approval before processing)
+        Then apply same thresholds as Cases 1-3
+
+STEP 3: Output Decision
+    Return: Alert status, message, relevant data

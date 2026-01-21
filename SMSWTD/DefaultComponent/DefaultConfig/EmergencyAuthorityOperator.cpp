@@ -1,15 +1,23 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: EmergencyAuthorityOperator
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\EmergencyAuthorityOperator.cpp
 *********************************************************************/
 
+//#[ ignore
+#define NAMESPACE_PREFIX
+//#]
+
 //## auto_generated
 #include "EmergencyAuthorityOperator.h"
+//#[ ignore
+#define Context_EmergencyAuthorityOperator_EmergencyAuthorityOperator_SERIALIZE OM_NO_OP
+//#]
+
 //## package Context
 
 //## class EmergencyAuthorityOperator
@@ -34,9 +42,11 @@ void EmergencyAuthorityOperator::in_C::connectEmergencyAuthorityOperator(Emergen
 //#]
 
 EmergencyAuthorityOperator::EmergencyAuthorityOperator(void) {
+    NOTIFY_CONSTRUCTOR(EmergencyAuthorityOperator, EmergencyAuthorityOperator(), 0, Context_EmergencyAuthorityOperator_EmergencyAuthorityOperator_SERIALIZE);
 }
 
 EmergencyAuthorityOperator::~EmergencyAuthorityOperator(void) {
+    NOTIFY_DESTRUCTOR(~EmergencyAuthorityOperator, true);
 }
 
 EmergencyAuthorityOperator::out_C* EmergencyAuthorityOperator::getOut(void) const {
@@ -54,6 +64,10 @@ EmergencyAuthorityOperator::in_C* EmergencyAuthorityOperator::getIn(void) const 
 EmergencyAuthorityOperator::in_C* EmergencyAuthorityOperator::get_in(void) const {
     return (EmergencyAuthorityOperator::in_C*) &in;
 }
+
+#ifdef _OMINSTRUMENT
+IMPLEMENT_META_P(EmergencyAuthorityOperator, Context, Context, false, OMAnimatedEmergencyAuthorityOperator)
+#endif // _OMINSTRUMENT
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\EmergencyAuthorityOperator.cpp

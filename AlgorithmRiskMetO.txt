@@ -1,0 +1,135 @@
+METOCEAN RISK ASSESSMENT ALGORITHM
+================================
+
+INPUTS:
+    CurrPlaneDataFinal   : AirData
+    CurrSatDataFinal     : SatData
+    FlagPrevAir          : bool
+    FlagPrevSat          : bool
+
+
+--------------------------------------------------
+STEP 1: DETERMINE DATA HEALTH STATUS
+--------------------------------------------------
+
+/* Determine Plane Data Health Case */
+IF (CurrPlaneDataFinal.FinalC == true AND FlagPrevAir == true)
+    PlaneHealthCase = 1        // NOT POSSIBLE (ignored)
+ELSE IF (CurrPlaneDataFinal.FinalC == false AND FlagPrevAir == true)
+    PlaneHealthCase = 2        // Low confidence, using previous data
+ELSE IF (CurrPlaneDataFinal.FinalC == true AND FlagPrevAir == false)
+    PlaneHealthCase = 3        // High confidence, using new data
+ELSE
+    PlaneHealthCase = 4        // Questionable new data
+
+
+/* Determine Satellite Data Health Case */
+IF (CurrSatDataFinal.FinalC == true AND FlagPrevSat == true)
+    SatHealthCase = 1          // NOT POSSIBLE (ignored)
+ELSE IF (CurrSatDataFinal.FinalC == false AND FlagPrevSat == true)
+    SatHealthCase = 2          // Low confidence, using previous data
+ELSE IF (CurrSatDataFinal.FinalC == true AND FlagPrevSat == false)
+    SatHealthCase = 3          // High confidence, using new data
+ELSE
+    SatHealthCase = 4          // Questionable new data
+
+
+--------------------------------------------------
+STEP 2: MANUAL APPROVAL CHECK
+--------------------------------------------------
+
+IF (PlaneHealthCase == 4 OR SatHealthCase == 4)
+    PRINT "WARNING: MetOcean data reliability questionable"
+    PRINT relevant Plane and/or Satellite data
+    PRINT "Operator approval required before automated decision"
+
+
+--------------------------------------------------
+STEP 3: METOCEAN RISK ANALYSIS
+--------------------------------------------------
+
+/* ---------- Satellite-Based Storm Analysis ---------- */
+
+/* Compute storm distance from origin (km) */
+StormDistance = sqrt( (StLocX * StLocX) + (StLocY * StLocY) )
+
+IF (StormDistance < 100)
+    IF (StormSize >= STORM_CLASS_CRITICAL AND TempG >= TEMP_GRAD_CRITICAL)
+        DECISION = ALERT
+        PRINT "Severe nearby storm detected"
+        PRINT storm distance, storm size, temperature gradient
+    ELSE IF (StormSize >= STORM_CLASS_WARNING AND TempG >= TEMP_GRAD_CRITICAL)
+        DECISION = PREDICTION
+        PRINT "Storm developing very close"
+        PRINT storm distance, storm size, temperature gradient
+
+ELSE IF (StormDistance < 500)
+    IF (StormSize >= STORM_CLASS_WARNING AND TempG >= TEMP_GRAD_CRITICAL)
+        DECISION = PREDICTION
+        PRINT "Regional storm detected"
+        PRINT storm distance, storm size, temperature gradient
+
+ELSE
+    NO ALERT OR PREDICTION FROM SATELLITE DATA
+
+
+/* ---------- Plane-Based Weather Analysis ---------- */
+
+/* Compute plane distance from origin (km) */
+PlaneDistance = sqrt( (LocX * LocX) + (LocY * LocY) )
+
+IF (PlaneDistance < 100)
+    /* Close-range aircraft data is fully relevant */
+
+    IF (CurrPlaneDataFinal.WinS >= STORM_WIND_THRESHOLD AND
+        CurrPlaneDataFinal.AirP <= LOW_PRESSURE_THRESHOLD)
+        DECISION = ALERT
+        PRINT "Severe storm conditions detected by aircraft (close range)"
+        PRINT aircraft weather data
+
+    ELSE IF (CurrPlaneDataFinal.Temp >= HEATWAVE_TEMP_THRESHOLD AND
+             CurrPlaneDataFinal.Humd <= HEATWAVE_HUMIDITY_THRESHOLD)
+        DECISION = ALERT
+        PRINT "Heat wave detected by aircraft (close range)"
+        PRINT aircraft weather data
+
+    ELSE
+        DECISION = NO ALERT
+        PRINT aircraft weather data (normal conditions)
+
+ELSE IF (PlaneDistance < 250)
+    /* Mid-range aircraft data is indicative only */
+
+    IF (CurrPlaneDataFinal.WinS >= STORM_WIND_THRESHOLD AND
+        CurrPlaneDataFinal.AirP <= LOW_PRESSURE_THRESHOLD)
+        DECISION = PREDICTION
+        PRINT "Possible storm conditions detected by aircraft (mid range)"
+        PRINT aircraft weather data
+
+    ELSE IF (CurrPlaneDataFinal.Temp >= HEATWAVE_TEMP_THRESHOLD AND
+             CurrPlaneDataFinal.Humd <= HEATWAVE_HUMIDITY_THRESHOLD)
+        DECISION = PREDICTION
+        PRINT "Possible heat wave developing (mid range)"
+        PRINT aircraft weather data
+
+    ELSE
+        DECISION = NO ALERT
+        PRINT aircraft weather data (normal conditions)
+
+ELSE
+    /* Aircraft too far to be relevant */
+    NO ALERT OR PREDICTION FROM PLANE DATA
+    PRINT aircraft weather data (informational only)
+
+
+--------------------------------------------------
+STEP 4: FINAL OUTPUT
+--------------------------------------------------
+
+IF (DECISION == ALERT OR DECISION == PREDICTION)
+    IF (PlaneHealthCase == 4 OR SatHealthCase == 4)
+        PRINT "Decision requires manual approval"
+
+RETURN:
+    Decision Type (ALERT / PREDICTION / NO ALERT)
+    Relevant MetOcean data

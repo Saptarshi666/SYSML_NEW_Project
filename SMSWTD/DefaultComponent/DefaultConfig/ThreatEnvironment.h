@@ -1,10 +1,10 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: ThreatEnvironment
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\ThreatEnvironment.h
 *********************************************************************/
 
@@ -13,14 +13,24 @@
 
 //## auto_generated
 #include <oxf.h>
+//## auto_generated
+#include <aom.h>
+//## auto_generated
+#include "Operating_Environment.h"
 //## package Context::Operating_Environment
 
 //## class ThreatEnvironment
 class ThreatEnvironment {
-    ////    Constructors and destructors    ////
+    ////    Friends    ////
     
 public :
 
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedThreatEnvironment;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
     //## auto_generated
     ThreatEnvironment(void);
     
@@ -57,6 +67,20 @@ private :
     
     double spoofingRisk;		//## attribute spoofingRisk
 };
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedThreatEnvironment : virtual public AOMInstance {
+    DECLARE_META(ThreatEnvironment, OMAnimatedThreatEnvironment)
+    
+    ////    Framework operations    ////
+    
+public :
+
+    virtual void serializeAttributes(AOMSAttributes* aomsAttributes) const;
+};
+//#]
+#endif // _OMINSTRUMENT
 
 #endif
 /*********************************************************************

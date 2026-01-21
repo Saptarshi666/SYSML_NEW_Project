@@ -1,10 +1,10 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: EmergencyServices
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\EmergencyServices.h
 *********************************************************************/
 
@@ -13,20 +13,44 @@
 
 //## auto_generated
 #include <oxf.h>
+//## auto_generated
+#include <aom.h>
+//## auto_generated
+#include "UseCases.h"
 //## package UseCases
 
 //## actor EmergencyServices
 class EmergencyServices {
-    ////    Constructors and destructors    ////
+    ////    Friends    ////
     
 public :
 
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedEmergencyServices;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
     //## auto_generated
     EmergencyServices(void);
     
     //## auto_generated
     ~EmergencyServices(void);
 };
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedEmergencyServices : virtual public AOMInstance {
+    DECLARE_META(EmergencyServices, OMAnimatedEmergencyServices)
+    
+    ////    Framework operations    ////
+    
+public :
+
+    virtual void serializeRelations(AOMSRelations* aomsRelations) const;
+};
+//#]
+#endif // _OMINSTRUMENT
 
 #endif
 /*********************************************************************

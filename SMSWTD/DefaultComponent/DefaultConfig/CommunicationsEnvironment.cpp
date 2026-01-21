@@ -1,22 +1,32 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: CommunicationsEnvironment
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\CommunicationsEnvironment.cpp
 *********************************************************************/
 
+//#[ ignore
+#define NAMESPACE_PREFIX
+//#]
+
 //## auto_generated
 #include "CommunicationsEnvironment.h"
+//#[ ignore
+#define Context_Operating_Environment_CommunicationsEnvironment_CommunicationsEnvironment_SERIALIZE OM_NO_OP
+//#]
+
 //## package Context::Operating_Environment
 
 //## class CommunicationsEnvironment
 CommunicationsEnvironment::CommunicationsEnvironment(void) {
+    NOTIFY_CONSTRUCTOR(CommunicationsEnvironment, CommunicationsEnvironment(), 0, Context_Operating_Environment_CommunicationsEnvironment_CommunicationsEnvironment_SERIALIZE);
 }
 
 CommunicationsEnvironment::~CommunicationsEnvironment(void) {
+    NOTIFY_DESTRUCTOR(~CommunicationsEnvironment, true);
 }
 
 const double CommunicationsEnvironment::getBandwidth(void) const {
@@ -50,6 +60,19 @@ const double CommunicationsEnvironment::getOutageProbability(void) const {
 void CommunicationsEnvironment::setOutageProbability(const double p_outageProbability) {
     outageProbability = p_outageProbability;
 }
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+void OMAnimatedCommunicationsEnvironment::serializeAttributes(AOMSAttributes* aomsAttributes) const {
+    aomsAttributes->addAttribute("linkAvailability", x2String(myReal->linkAvailability));
+    aomsAttributes->addAttribute("latency", x2String(myReal->latency));
+    aomsAttributes->addAttribute("bandwidth", x2String(myReal->bandwidth));
+    aomsAttributes->addAttribute("outageProbability", x2String(myReal->outageProbability));
+}
+//#]
+
+IMPLEMENT_META_P(CommunicationsEnvironment, Context_Operating_Environment, Context::Operating_Environment, false, OMAnimatedCommunicationsEnvironment)
+#endif // _OMINSTRUMENT
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\CommunicationsEnvironment.cpp

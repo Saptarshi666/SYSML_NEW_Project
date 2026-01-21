@@ -1,10 +1,10 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Context
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Context.h
 *********************************************************************/
 
@@ -13,6 +13,18 @@
 
 //## auto_generated
 #include <oxf.h>
+//## auto_generated
+#include <aom.h>
+//## auto_generated
+#include "Context.h"
+//## auto_generated
+#include <omthread.h>
+//## auto_generated
+#include <omreactive.h>
+//## auto_generated
+#include <state.h>
+//## auto_generated
+#include <event.h>
 //## classInstance bm
 #include "BroadcastMedia.h"
 //## classInstance comm
@@ -46,13 +58,19 @@
 //## package Context
 
 //## class SMSWTD_Context
-class SMSWTD_Context {
+class SMSWTD_Context : public OMReactive {
 public :
+
+    ////    Friends    ////
+    
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedSMSWTD_Context;
+#endif // _OMINSTRUMENT
 
     ////    Constructors and destructors    ////
     
     //## auto_generated
-    SMSWTD_Context(void);
+    explicit SMSWTD_Context(IOxfActive* const theActiveContext = NULL);
     
     //## auto_generated
     ~SMSWTD_Context(void);
@@ -103,6 +121,9 @@ public :
     
     //## auto_generated
     const ThreatEnvironment* getThreat(void) const;
+    
+    //## auto_generated
+    virtual bool startBehavior(void);
 
 protected :
 
@@ -142,7 +163,31 @@ private :
     TelecomSMSNetwork tel;		//## classInstance tel
     
     ThreatEnvironment threat;		//## classInstance threat
+    
+    ////    Framework operations    ////
+
+public :
+
+    //## auto_generated
+    void setActiveContext(IOxfActive* const theActiveContext, bool activeInstance);
+    
+    //## auto_generated
+    virtual void destroy(void);
 };
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedSMSWTD_Context : virtual public AOMInstance {
+    DECLARE_META(SMSWTD_Context, OMAnimatedSMSWTD_Context)
+    
+    ////    Framework operations    ////
+    
+public :
+
+    virtual void serializeRelations(AOMSRelations* aomsRelations) const;
+};
+//#]
+#endif // _OMINSTRUMENT
 
 #endif
 /*********************************************************************

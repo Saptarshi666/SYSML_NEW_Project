@@ -1,10 +1,10 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MobilePushService
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\MobilePushService.h
 *********************************************************************/
 
@@ -13,6 +13,10 @@
 
 //## auto_generated
 #include <oxf.h>
+//## auto_generated
+#include <aom.h>
+//## auto_generated
+#include "Context.h"
 //## auto_generated
 #include <OMDefaultReactivePort.h>
 //## package Context
@@ -47,6 +51,12 @@ public :
     };
 //#]
 
+    ////    Friends    ////
+    
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedMobilePushService;
+#endif // _OMINSTRUMENT
+
     ////    Constructors and destructors    ////
     
     //## auto_generated
@@ -71,6 +81,14 @@ private :
     in_C in;
 //#]
 };
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedMobilePushService : virtual public AOMInstance {
+    DECLARE_META(MobilePushService, OMAnimatedMobilePushService)
+};
+//#]
+#endif // _OMINSTRUMENT
 
 #endif
 /*********************************************************************

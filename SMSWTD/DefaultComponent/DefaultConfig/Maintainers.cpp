@@ -1,15 +1,23 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Maintainers
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\Maintainers.cpp
 *********************************************************************/
 
+//#[ ignore
+#define NAMESPACE_PREFIX
+//#]
+
 //## auto_generated
 #include "Maintainers.h"
+//#[ ignore
+#define Context_Maintainers_Maintainers_SERIALIZE OM_NO_OP
+//#]
+
 //## package Context
 
 //## class Maintainers
@@ -34,9 +42,11 @@ void Maintainers::maintenance_C::connectMaintainers(Maintainers* part) {
 //#]
 
 Maintainers::Maintainers(void) {
+    NOTIFY_CONSTRUCTOR(Maintainers, Maintainers(), 0, Context_Maintainers_Maintainers_SERIALIZE);
 }
 
 Maintainers::~Maintainers(void) {
+    NOTIFY_DESTRUCTOR(~Maintainers, true);
 }
 
 Maintainers::healthIn_C* Maintainers::getHealthIn(void) const {
@@ -54,6 +64,10 @@ Maintainers::maintenance_C* Maintainers::getMaintenance(void) const {
 Maintainers::maintenance_C* Maintainers::get_maintenance(void) const {
     return (Maintainers::maintenance_C*) &maintenance;
 }
+
+#ifdef _OMINSTRUMENT
+IMPLEMENT_META_P(Maintainers, Context, Context, false, OMAnimatedMaintainers)
+#endif // _OMINSTRUMENT
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\Maintainers.cpp

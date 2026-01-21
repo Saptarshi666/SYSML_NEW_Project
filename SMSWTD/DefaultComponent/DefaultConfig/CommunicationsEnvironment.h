@@ -1,10 +1,10 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: CommunicationsEnvironment
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\CommunicationsEnvironment.h
 *********************************************************************/
 
@@ -13,14 +13,24 @@
 
 //## auto_generated
 #include <oxf.h>
+//## auto_generated
+#include <aom.h>
+//## auto_generated
+#include "Operating_Environment.h"
 //## package Context::Operating_Environment
 
 //## class CommunicationsEnvironment
 class CommunicationsEnvironment {
-    ////    Constructors and destructors    ////
+    ////    Friends    ////
     
 public :
 
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedCommunicationsEnvironment;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
     //## auto_generated
     CommunicationsEnvironment(void);
     
@@ -65,6 +75,20 @@ private :
     
     double outageProbability;		//## attribute outageProbability
 };
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedCommunicationsEnvironment : virtual public AOMInstance {
+    DECLARE_META(CommunicationsEnvironment, OMAnimatedCommunicationsEnvironment)
+    
+    ////    Framework operations    ////
+    
+public :
+
+    virtual void serializeAttributes(AOMSAttributes* aomsAttributes) const;
+};
+//#]
+#endif // _OMINSTRUMENT
 
 #endif
 /*********************************************************************

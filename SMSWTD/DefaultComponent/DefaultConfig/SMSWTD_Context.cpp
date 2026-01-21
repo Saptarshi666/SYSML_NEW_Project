@@ -1,23 +1,42 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD_Context
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Context.cpp
 *********************************************************************/
 
+//#[ ignore
+#define NAMESPACE_PREFIX
+//#]
+
 //## auto_generated
 #include "SMSWTD_Context.h"
+//#[ ignore
+#define Context_SMSWTD_Context_SMSWTD_Context_SERIALIZE OM_NO_OP
+//#]
+
 //## package Context
 
 //## class SMSWTD_Context
-SMSWTD_Context::SMSWTD_Context(void) {
+SMSWTD_Context::SMSWTD_Context(IOxfActive* const theActiveContext) : OMReactive() {
+    NOTIFY_REACTIVE_CONSTRUCTOR(SMSWTD_Context, SMSWTD_Context(), 0, Context_SMSWTD_Context_SMSWTD_Context_SERIALIZE);
+    setActiveContext(theActiveContext, false);
+    {
+        {
+            met.setShouldDelete(false);
+        }
+        {
+            sei.setShouldDelete(false);
+        }
+    }
     initRelations();
 }
 
 SMSWTD_Context::~SMSWTD_Context(void) {
+    NOTIFY_DESTRUCTOR(~SMSWTD_Context, true);
 }
 
 const BroadcastMedia* SMSWTD_Context::getBm(void) const {
@@ -78,6 +97,23 @@ const TelecomSMSNetwork* SMSWTD_Context::getTel(void) const {
 
 const ThreatEnvironment* SMSWTD_Context::getThreat(void) const {
     return &threat;
+}
+
+bool SMSWTD_Context::startBehavior(void) {
+    bool done = true;
+    if(done == true)
+        {
+            done = met.startBehavior();
+        }
+    if(done == true)
+        {
+            done = sei.startBehavior();
+        }
+    if(done == true)
+        {
+            done = OMReactive::startBehavior();
+        }
+    return done;
 }
 
 void SMSWTD_Context::initRelations(void) {
@@ -190,6 +226,59 @@ void SMSWTD_Context::initRelations(void) {
         
     }
 }
+
+void SMSWTD_Context::setActiveContext(IOxfActive* const theActiveContext, bool activeInstance) {
+    OMReactive::setActiveContext(theActiveContext, activeInstance);
+    {
+        met.setActiveContext(theActiveContext, false);
+        sei.setActiveContext(theActiveContext, false);
+    }
+}
+
+void SMSWTD_Context::destroy(void) {
+    met.destroy();
+    sei.destroy();
+    OMReactive::destroy();
+}
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+void OMAnimatedSMSWTD_Context::serializeRelations(AOMSRelations* aomsRelations) const {
+    aomsRelations->addRelation("smswtd", true, true);
+    aomsRelations->ADD_ITEM(&myReal->smswtd);
+    aomsRelations->addRelation("met", true, true);
+    aomsRelations->ADD_ITEM(&myReal->met);
+    aomsRelations->addRelation("sei", true, true);
+    aomsRelations->ADD_ITEM(&myReal->sei);
+    aomsRelations->addRelation("eao", true, true);
+    aomsRelations->ADD_ITEM(&myReal->eao);
+    aomsRelations->addRelation("maint", true, true);
+    aomsRelations->ADD_ITEM(&myReal->maint);
+    aomsRelations->addRelation("res", true, true);
+    aomsRelations->ADD_ITEM(&myReal->res);
+    aomsRelations->addRelation("tel", true, true);
+    aomsRelations->ADD_ITEM(&myReal->tel);
+    aomsRelations->addRelation("gan", true, true);
+    aomsRelations->ADD_ITEM(&myReal->gan);
+    aomsRelations->addRelation("mps", true, true);
+    aomsRelations->ADD_ITEM(&myReal->mps);
+    aomsRelations->addRelation("bm", true, true);
+    aomsRelations->ADD_ITEM(&myReal->bm);
+    aomsRelations->addRelation("sps", true, true);
+    aomsRelations->ADD_ITEM(&myReal->sps);
+    aomsRelations->addRelation("phys", true, true);
+    aomsRelations->ADD_ITEM(&myReal->phys);
+    aomsRelations->addRelation("comm", true, true);
+    aomsRelations->ADD_ITEM(&myReal->comm);
+    aomsRelations->addRelation("ops", true, true);
+    aomsRelations->ADD_ITEM(&myReal->ops);
+    aomsRelations->addRelation("threat", true, true);
+    aomsRelations->ADD_ITEM(&myReal->threat);
+}
+//#]
+
+IMPLEMENT_REACTIVE_META_SIMPLE_P(SMSWTD_Context, Context, Context, false, OMAnimatedSMSWTD_Context)
+#endif // _OMINSTRUMENT
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD_Context.cpp

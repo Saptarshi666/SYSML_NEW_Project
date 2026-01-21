@@ -1,10 +1,10 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: AnalyticsSubsystem
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Mon, 29, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\AnalyticsSubsystem.h
 *********************************************************************/
 
@@ -13,20 +13,38 @@
 
 //## auto_generated
 #include <oxf.h>
+//## auto_generated
+#include <aom.h>
+//## auto_generated
+#include "SMSWTD_Architecture.h"
 //## package SMSWTD_Architecture
 
 //## class AnalyticsSubsystem
 class AnalyticsSubsystem {
-    ////    Constructors and destructors    ////
+    ////    Friends    ////
     
 public :
 
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedAnalyticsSubsystem;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
     //## auto_generated
     AnalyticsSubsystem(void);
     
     //## auto_generated
     ~AnalyticsSubsystem(void);
 };
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedAnalyticsSubsystem : virtual public AOMInstance {
+    DECLARE_META(AnalyticsSubsystem, OMAnimatedAnalyticsSubsystem)
+};
+//#]
+#endif // _OMINSTRUMENT
 
 #endif
 /*********************************************************************

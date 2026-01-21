@@ -1,10 +1,10 @@
 /*********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: OpsSafetySecuritySubsystem
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\OpsSafetySecuritySubsystem.h
 *********************************************************************/
 
@@ -13,20 +13,38 @@
 
 //## auto_generated
 #include <oxf.h>
+//## auto_generated
+#include <aom.h>
+//## auto_generated
+#include "SMSWTD_Architecture.h"
 //## package SMSWTD_Architecture
 
 //## class OpsSafetySecuritySubsystem
 class OpsSafetySecuritySubsystem {
-    ////    Constructors and destructors    ////
+    ////    Friends    ////
     
 public :
 
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedOpsSafetySecuritySubsystem;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
     //## auto_generated
     OpsSafetySecuritySubsystem(void);
     
     //## auto_generated
     ~OpsSafetySecuritySubsystem(void);
 };
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedOpsSafetySecuritySubsystem : virtual public AOMInstance {
+    DECLARE_META(OpsSafetySecuritySubsystem, OMAnimatedOpsSafetySecuritySubsystem)
+};
+//#]
+#endif // _OMINSTRUMENT
 
 #endif
 /*********************************************************************

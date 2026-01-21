@@ -1,15 +1,23 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Researchers
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\Researchers.cpp
 *********************************************************************/
 
+//#[ ignore
+#define NAMESPACE_PREFIX
+//#]
+
 //## auto_generated
 #include "Researchers.h"
+//#[ ignore
+#define Context_Researchers_Researchers_SERIALIZE OM_NO_OP
+//#]
+
 //## package Context
 
 //## class Researchers
@@ -25,9 +33,11 @@ void Researchers::query_C::connectResearchers(Researchers* part) {
 //#]
 
 Researchers::Researchers(void) {
+    NOTIFY_CONSTRUCTOR(Researchers, Researchers(), 0, Context_Researchers_Researchers_SERIALIZE);
 }
 
 Researchers::~Researchers(void) {
+    NOTIFY_DESTRUCTOR(~Researchers, true);
 }
 
 Researchers::query_C* Researchers::getQuery(void) const {
@@ -37,6 +47,10 @@ Researchers::query_C* Researchers::getQuery(void) const {
 Researchers::query_C* Researchers::get_query(void) const {
     return (Researchers::query_C*) &query;
 }
+
+#ifdef _OMINSTRUMENT
+IMPLEMENT_META_P(Researchers, Context, Context, false, OMAnimatedResearchers)
+#endif // _OMINSTRUMENT
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\Researchers.cpp

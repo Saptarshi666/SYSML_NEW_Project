@@ -65,7 +65,7 @@ OBJ_EXT=.obj
 EXE_EXT=.exe
 LIB_EXT=.lib
 
-INSTRUMENTATION=None
+INSTRUMENTATION=Animation
 
 TIME_MODEL=RealTime
 
@@ -86,8 +86,6 @@ ADDITIONAL_OBJS=
 
 OBJS= \
   SMSWTD.obj \
-  MetOceanDataProvider.obj \
-  SeismicTsunamiNetwork.obj \
   TelecomSMSNetwork.obj \
   SirenPASystem.obj \
   BroadcastMedia.obj \
@@ -95,10 +93,11 @@ OBJS= \
   MobilePushService.obj \
   EmergencyAuthorityOperator.obj \
   EmergencyResponders.obj \
-  Public.obj \
   Researchers.obj \
   Maintainers.obj \
   SMSWTD_Context.obj \
+  RefSeismicTsunamiNetwork.obj \
+  RefMetOceanDataProvider.obj \
   SensorObservation.obj \
   PolicyConfig.obj \
   AlertMessage.obj \
@@ -124,13 +123,19 @@ OBJS= \
   EAOperator.obj \
   SMSWTD_System.obj \
   SensingInterfaceSubsystem.obj \
-  DataIngestionSubsystem.obj \
-  AnalyticsSubsystem.obj \
   RiskAssessmentSubsystem.obj \
   AlertingSubsystem.obj \
   UserInterfaceSubsystem.obj \
   OpsSafetySecuritySubsystem.obj \
-  DataManagementSubsystem.obj
+  DataManagementSubsystem.obj \
+  SeismicTsunamiNetwork.obj \
+  Public.obj \
+  MetOceanDataProvider.obj \
+  Context.obj \
+  FlowItems.obj \
+  Operating_Environment.obj \
+  UseCases.obj \
+  SMSWTD_Architecture.obj
 
 
 
@@ -213,279 +218,309 @@ SOCK_LIB=
 
 
 
-SMSWTD.obj : SMSWTD.cpp SMSWTD.h    
+SMSWTD.obj : SMSWTD.cpp SMSWTD.h    Context.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SMSWTD.obj" "SMSWTD.cpp" 
 
 
 
-MetOceanDataProvider.obj : MetOceanDataProvider.cpp MetOceanDataProvider.h    
-	$(CREATE_OBJ_DIR)
-	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"MetOceanDataProvider.obj" "MetOceanDataProvider.cpp" 
-
-
-
-SeismicTsunamiNetwork.obj : SeismicTsunamiNetwork.cpp SeismicTsunamiNetwork.h    
-	$(CREATE_OBJ_DIR)
-	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SeismicTsunamiNetwork.obj" "SeismicTsunamiNetwork.cpp" 
-
-
-
-TelecomSMSNetwork.obj : TelecomSMSNetwork.cpp TelecomSMSNetwork.h    
+TelecomSMSNetwork.obj : TelecomSMSNetwork.cpp TelecomSMSNetwork.h    Context.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"TelecomSMSNetwork.obj" "TelecomSMSNetwork.cpp" 
 
 
 
-SirenPASystem.obj : SirenPASystem.cpp SirenPASystem.h    
+SirenPASystem.obj : SirenPASystem.cpp SirenPASystem.h    Context.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SirenPASystem.obj" "SirenPASystem.cpp" 
 
 
 
-BroadcastMedia.obj : BroadcastMedia.cpp BroadcastMedia.h    
+BroadcastMedia.obj : BroadcastMedia.cpp BroadcastMedia.h    Context.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"BroadcastMedia.obj" "BroadcastMedia.cpp" 
 
 
 
-GovAlertNetwork.obj : GovAlertNetwork.cpp GovAlertNetwork.h    
+GovAlertNetwork.obj : GovAlertNetwork.cpp GovAlertNetwork.h    Context.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"GovAlertNetwork.obj" "GovAlertNetwork.cpp" 
 
 
 
-MobilePushService.obj : MobilePushService.cpp MobilePushService.h    
+MobilePushService.obj : MobilePushService.cpp MobilePushService.h    Context.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"MobilePushService.obj" "MobilePushService.cpp" 
 
 
 
-EmergencyAuthorityOperator.obj : EmergencyAuthorityOperator.cpp EmergencyAuthorityOperator.h    
+EmergencyAuthorityOperator.obj : EmergencyAuthorityOperator.cpp EmergencyAuthorityOperator.h    Context.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"EmergencyAuthorityOperator.obj" "EmergencyAuthorityOperator.cpp" 
 
 
 
-EmergencyResponders.obj : EmergencyResponders.cpp EmergencyResponders.h    
+EmergencyResponders.obj : EmergencyResponders.cpp EmergencyResponders.h    Context.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"EmergencyResponders.obj" "EmergencyResponders.cpp" 
 
 
 
-Public.obj : Public.cpp Public.h    
-	$(CREATE_OBJ_DIR)
-	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Public.obj" "Public.cpp" 
-
-
-
-Researchers.obj : Researchers.cpp Researchers.h    
+Researchers.obj : Researchers.cpp Researchers.h    Context.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Researchers.obj" "Researchers.cpp" 
 
 
 
-Maintainers.obj : Maintainers.cpp Maintainers.h    
+Maintainers.obj : Maintainers.cpp Maintainers.h    Context.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Maintainers.obj" "Maintainers.cpp" 
 
 
 
-SMSWTD_Context.obj : SMSWTD_Context.cpp SMSWTD_Context.h    SMSWTD.h MetOceanDataProvider.h SeismicTsunamiNetwork.h EmergencyAuthorityOperator.h Maintainers.h Researchers.h TelecomSMSNetwork.h GovAlertNetwork.h MobilePushService.h BroadcastMedia.h SirenPASystem.h PhysicalEnvironment.h CommunicationsEnvironment.h OperationalEnvironment.h ThreatEnvironment.h 
+SMSWTD_Context.obj : SMSWTD_Context.cpp SMSWTD_Context.h    Context.h SMSWTD.h MetOceanDataProvider.h SeismicTsunamiNetwork.h EmergencyAuthorityOperator.h Maintainers.h Researchers.h TelecomSMSNetwork.h GovAlertNetwork.h MobilePushService.h BroadcastMedia.h SirenPASystem.h PhysicalEnvironment.h CommunicationsEnvironment.h OperationalEnvironment.h ThreatEnvironment.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SMSWTD_Context.obj" "SMSWTD_Context.cpp" 
 
 
 
-SensorObservation.obj : SensorObservation.cpp SensorObservation.h    
+RefSeismicTsunamiNetwork.obj : RefSeismicTsunamiNetwork.cpp RefSeismicTsunamiNetwork.h    Context.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"RefSeismicTsunamiNetwork.obj" "RefSeismicTsunamiNetwork.cpp" 
+
+
+
+RefMetOceanDataProvider.obj : RefMetOceanDataProvider.cpp RefMetOceanDataProvider.h    Context.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"RefMetOceanDataProvider.obj" "RefMetOceanDataProvider.cpp" 
+
+
+
+SensorObservation.obj : SensorObservation.cpp SensorObservation.h    FlowItems.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SensorObservation.obj" "SensorObservation.cpp" 
 
 
 
-PolicyConfig.obj : PolicyConfig.cpp PolicyConfig.h    
+PolicyConfig.obj : PolicyConfig.cpp PolicyConfig.h    FlowItems.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"PolicyConfig.obj" "PolicyConfig.cpp" 
 
 
 
-AlertMessage.obj : AlertMessage.cpp AlertMessage.h    
+AlertMessage.obj : AlertMessage.cpp AlertMessage.h    FlowItems.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"AlertMessage.obj" "AlertMessage.cpp" 
 
 
 
-HealthStatus.obj : HealthStatus.cpp HealthStatus.h    
+HealthStatus.obj : HealthStatus.cpp HealthStatus.h    FlowItems.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"HealthStatus.obj" "HealthStatus.cpp" 
 
 
 
-QueryRequest.obj : QueryRequest.cpp QueryRequest.h    
+QueryRequest.obj : QueryRequest.cpp QueryRequest.h    FlowItems.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"QueryRequest.obj" "QueryRequest.cpp" 
 
 
 
-QueryResponse.obj : QueryResponse.cpp QueryResponse.h    
+QueryResponse.obj : QueryResponse.cpp QueryResponse.h    FlowItems.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"QueryResponse.obj" "QueryResponse.cpp" 
 
 
 
-MaintenanceCommand.obj : MaintenanceCommand.cpp MaintenanceCommand.h    
+MaintenanceCommand.obj : MaintenanceCommand.cpp MaintenanceCommand.h    FlowItems.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"MaintenanceCommand.obj" "MaintenanceCommand.cpp" 
 
 
 
-MaintenanceReport.obj : MaintenanceReport.cpp MaintenanceReport.h    
+MaintenanceReport.obj : MaintenanceReport.cpp MaintenanceReport.h    FlowItems.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"MaintenanceReport.obj" "MaintenanceReport.cpp" 
 
 
 
-PhysicalEnvironment.obj : PhysicalEnvironment.cpp PhysicalEnvironment.h    
+PhysicalEnvironment.obj : PhysicalEnvironment.cpp PhysicalEnvironment.h    Operating_Environment.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"PhysicalEnvironment.obj" "PhysicalEnvironment.cpp" 
 
 
 
-CommunicationsEnvironment.obj : CommunicationsEnvironment.cpp CommunicationsEnvironment.h    
+CommunicationsEnvironment.obj : CommunicationsEnvironment.cpp CommunicationsEnvironment.h    Operating_Environment.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"CommunicationsEnvironment.obj" "CommunicationsEnvironment.cpp" 
 
 
 
-OperationalEnvironment.obj : OperationalEnvironment.cpp OperationalEnvironment.h    
+OperationalEnvironment.obj : OperationalEnvironment.cpp OperationalEnvironment.h    Operating_Environment.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"OperationalEnvironment.obj" "OperationalEnvironment.cpp" 
 
 
 
-ThreatEnvironment.obj : ThreatEnvironment.cpp ThreatEnvironment.h    
+ThreatEnvironment.obj : ThreatEnvironment.cpp ThreatEnvironment.h    Operating_Environment.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"ThreatEnvironment.obj" "ThreatEnvironment.cpp" 
 
 
 
-Researcher.obj : Researcher.cpp Researcher.h    
+Researcher.obj : Researcher.cpp Researcher.h    UseCases.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Researcher.obj" "Researcher.cpp" 
 
 
 
-Maintainer.obj : Maintainer.cpp Maintainer.h    
+Maintainer.obj : Maintainer.cpp Maintainer.h    UseCases.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Maintainer.obj" "Maintainer.cpp" 
 
 
 
-Journalists.obj : Journalists.cpp Journalists.h    
+Journalists.obj : Journalists.cpp Journalists.h    UseCases.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Journalists.obj" "Journalists.cpp" 
 
 
 
-Citizens.obj : Citizens.cpp Citizens.h    
+Citizens.obj : Citizens.cpp Citizens.h    UseCases.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Citizens.obj" "Citizens.cpp" 
 
 
 
-GovtAgencies.obj : GovtAgencies.cpp GovtAgencies.h    
+GovtAgencies.obj : GovtAgencies.cpp GovtAgencies.h    UseCases.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"GovtAgencies.obj" "GovtAgencies.cpp" 
 
 
 
-EmergencyServices.obj : EmergencyServices.cpp EmergencyServices.h    
+EmergencyServices.obj : EmergencyServices.cpp EmergencyServices.h    UseCases.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"EmergencyServices.obj" "EmergencyServices.cpp" 
 
 
 
-DataBase.obj : DataBase.cpp DataBase.h    
+DataBase.obj : DataBase.cpp DataBase.h    UseCases.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"DataBase.obj" "DataBase.cpp" 
 
 
 
-UnderwaterSensors.obj : UnderwaterSensors.cpp UnderwaterSensors.h    
+UnderwaterSensors.obj : UnderwaterSensors.cpp UnderwaterSensors.h    UseCases.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"UnderwaterSensors.obj" "UnderwaterSensors.cpp" 
 
 
 
-AircarftSensors.obj : AircarftSensors.cpp AircarftSensors.h    
+AircarftSensors.obj : AircarftSensors.cpp AircarftSensors.h    UseCases.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"AircarftSensors.obj" "AircarftSensors.cpp" 
 
 
 
-SatelliteCluster.obj : SatelliteCluster.cpp SatelliteCluster.h    
+SatelliteCluster.obj : SatelliteCluster.cpp SatelliteCluster.h    UseCases.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SatelliteCluster.obj" "SatelliteCluster.cpp" 
 
 
 
-EAOperator.obj : EAOperator.cpp EAOperator.h    
+EAOperator.obj : EAOperator.cpp EAOperator.h    UseCases.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"EAOperator.obj" "EAOperator.cpp" 
 
 
 
-SMSWTD_System.obj : SMSWTD_System.cpp SMSWTD_System.h    AlertingSubsystem.h DataIngestionSubsystem.h DataManagementSubsystem.h OpsSafetySecuritySubsystem.h UserInterfaceSubsystem.h RiskAssessmentSubsystem.h AnalyticsSubsystem.h 
+SMSWTD_System.obj : SMSWTD_System.cpp SMSWTD_System.h    SMSWTD_Architecture.h AlertingSubsystem.h DataManagementSubsystem.h OpsSafetySecuritySubsystem.h UserInterfaceSubsystem.h RiskAssessmentSubsystem.h SensingInterfaceSubsystem.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SMSWTD_System.obj" "SMSWTD_System.cpp" 
 
 
 
-SensingInterfaceSubsystem.obj : SensingInterfaceSubsystem.cpp SensingInterfaceSubsystem.h    
+SensingInterfaceSubsystem.obj : SensingInterfaceSubsystem.cpp SensingInterfaceSubsystem.h    SMSWTD_Architecture.h RiskAssessmentSubsystem.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SensingInterfaceSubsystem.obj" "SensingInterfaceSubsystem.cpp" 
 
 
 
-DataIngestionSubsystem.obj : DataIngestionSubsystem.cpp DataIngestionSubsystem.h    
-	$(CREATE_OBJ_DIR)
-	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"DataIngestionSubsystem.obj" "DataIngestionSubsystem.cpp" 
-
-
-
-AnalyticsSubsystem.obj : AnalyticsSubsystem.cpp AnalyticsSubsystem.h    
-	$(CREATE_OBJ_DIR)
-	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"AnalyticsSubsystem.obj" "AnalyticsSubsystem.cpp" 
-
-
-
-RiskAssessmentSubsystem.obj : RiskAssessmentSubsystem.cpp RiskAssessmentSubsystem.h    
+RiskAssessmentSubsystem.obj : RiskAssessmentSubsystem.cpp RiskAssessmentSubsystem.h    SMSWTD_Architecture.h AlertingSubsystem.h SensingInterfaceSubsystem.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"RiskAssessmentSubsystem.obj" "RiskAssessmentSubsystem.cpp" 
 
 
 
-AlertingSubsystem.obj : AlertingSubsystem.cpp AlertingSubsystem.h    
+AlertingSubsystem.obj : AlertingSubsystem.cpp AlertingSubsystem.h    SMSWTD_Architecture.h RiskAssessmentSubsystem.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"AlertingSubsystem.obj" "AlertingSubsystem.cpp" 
 
 
 
-UserInterfaceSubsystem.obj : UserInterfaceSubsystem.cpp UserInterfaceSubsystem.h    
+UserInterfaceSubsystem.obj : UserInterfaceSubsystem.cpp UserInterfaceSubsystem.h    SMSWTD_Architecture.h DataManagementSubsystem.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"UserInterfaceSubsystem.obj" "UserInterfaceSubsystem.cpp" 
 
 
 
-OpsSafetySecuritySubsystem.obj : OpsSafetySecuritySubsystem.cpp OpsSafetySecuritySubsystem.h    
+OpsSafetySecuritySubsystem.obj : OpsSafetySecuritySubsystem.cpp OpsSafetySecuritySubsystem.h    SMSWTD_Architecture.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"OpsSafetySecuritySubsystem.obj" "OpsSafetySecuritySubsystem.cpp" 
 
 
 
-DataManagementSubsystem.obj : DataManagementSubsystem.cpp DataManagementSubsystem.h    
+DataManagementSubsystem.obj : DataManagementSubsystem.cpp DataManagementSubsystem.h    SMSWTD_Architecture.h UserInterfaceSubsystem.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"DataManagementSubsystem.obj" "DataManagementSubsystem.cpp" 
+
+
+
+SeismicTsunamiNetwork.obj : SeismicTsunamiNetwork.cpp SeismicTsunamiNetwork.h    SMSWTD_Architecture.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SeismicTsunamiNetwork.obj" "SeismicTsunamiNetwork.cpp" 
+
+
+
+Public.obj : Public.cpp Public.h    SMSWTD_Architecture.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Public.obj" "Public.cpp" 
+
+
+
+MetOceanDataProvider.obj : MetOceanDataProvider.cpp MetOceanDataProvider.h    SMSWTD_Architecture.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"MetOceanDataProvider.obj" "MetOceanDataProvider.cpp" 
+
+
+
+Context.obj : Context.cpp Context.h    SMSWTD.h TelecomSMSNetwork.h SirenPASystem.h BroadcastMedia.h GovAlertNetwork.h MobilePushService.h EmergencyAuthorityOperator.h EmergencyResponders.h Researchers.h Maintainers.h SMSWTD_Context.h RefSeismicTsunamiNetwork.h RefMetOceanDataProvider.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Context.obj" "Context.cpp" 
+
+
+
+FlowItems.obj : FlowItems.cpp FlowItems.h    SensorObservation.h PolicyConfig.h AlertMessage.h HealthStatus.h QueryRequest.h QueryResponse.h MaintenanceCommand.h MaintenanceReport.h Context.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"FlowItems.obj" "FlowItems.cpp" 
+
+
+
+Operating_Environment.obj : Operating_Environment.cpp Operating_Environment.h    PhysicalEnvironment.h CommunicationsEnvironment.h OperationalEnvironment.h ThreatEnvironment.h Context.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Operating_Environment.obj" "Operating_Environment.cpp" 
+
+
+
+UseCases.obj : UseCases.cpp UseCases.h    
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"UseCases.obj" "UseCases.cpp" 
+
+
+
+SMSWTD_Architecture.obj : SMSWTD_Architecture.cpp SMSWTD_Architecture.h    SMSWTD_System.h SensingInterfaceSubsystem.h RiskAssessmentSubsystem.h AlertingSubsystem.h UserInterfaceSubsystem.h OpsSafetySecuritySubsystem.h DataManagementSubsystem.h SeismicTsunamiNetwork.h Public.h MetOceanDataProvider.h 
+	$(CREATE_OBJ_DIR)
+	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"SMSWTD_Architecture.obj" "SMSWTD_Architecture.cpp" 
 
 
 
@@ -517,8 +552,6 @@ $(TARGET_NAME)$(LIB_EXT) : $(OBJS) $(ADDITIONAL_OBJS) DefaultComponent.mak
 clean:
 	@echo Cleanup
 	if exist SMSWTD.obj erase SMSWTD.obj
-	if exist MetOceanDataProvider.obj erase MetOceanDataProvider.obj
-	if exist SeismicTsunamiNetwork.obj erase SeismicTsunamiNetwork.obj
 	if exist TelecomSMSNetwork.obj erase TelecomSMSNetwork.obj
 	if exist SirenPASystem.obj erase SirenPASystem.obj
 	if exist BroadcastMedia.obj erase BroadcastMedia.obj
@@ -526,10 +559,11 @@ clean:
 	if exist MobilePushService.obj erase MobilePushService.obj
 	if exist EmergencyAuthorityOperator.obj erase EmergencyAuthorityOperator.obj
 	if exist EmergencyResponders.obj erase EmergencyResponders.obj
-	if exist Public.obj erase Public.obj
 	if exist Researchers.obj erase Researchers.obj
 	if exist Maintainers.obj erase Maintainers.obj
 	if exist SMSWTD_Context.obj erase SMSWTD_Context.obj
+	if exist RefSeismicTsunamiNetwork.obj erase RefSeismicTsunamiNetwork.obj
+	if exist RefMetOceanDataProvider.obj erase RefMetOceanDataProvider.obj
 	if exist SensorObservation.obj erase SensorObservation.obj
 	if exist PolicyConfig.obj erase PolicyConfig.obj
 	if exist AlertMessage.obj erase AlertMessage.obj
@@ -555,13 +589,19 @@ clean:
 	if exist EAOperator.obj erase EAOperator.obj
 	if exist SMSWTD_System.obj erase SMSWTD_System.obj
 	if exist SensingInterfaceSubsystem.obj erase SensingInterfaceSubsystem.obj
-	if exist DataIngestionSubsystem.obj erase DataIngestionSubsystem.obj
-	if exist AnalyticsSubsystem.obj erase AnalyticsSubsystem.obj
 	if exist RiskAssessmentSubsystem.obj erase RiskAssessmentSubsystem.obj
 	if exist AlertingSubsystem.obj erase AlertingSubsystem.obj
 	if exist UserInterfaceSubsystem.obj erase UserInterfaceSubsystem.obj
 	if exist OpsSafetySecuritySubsystem.obj erase OpsSafetySecuritySubsystem.obj
 	if exist DataManagementSubsystem.obj erase DataManagementSubsystem.obj
+	if exist SeismicTsunamiNetwork.obj erase SeismicTsunamiNetwork.obj
+	if exist Public.obj erase Public.obj
+	if exist MetOceanDataProvider.obj erase MetOceanDataProvider.obj
+	if exist Context.obj erase Context.obj
+	if exist FlowItems.obj erase FlowItems.obj
+	if exist Operating_Environment.obj erase Operating_Environment.obj
+	if exist UseCases.obj erase UseCases.obj
+	if exist SMSWTD_Architecture.obj erase SMSWTD_Architecture.obj
 	if exist $(TARGET_MAIN)$(OBJ_EXT) erase $(TARGET_MAIN)$(OBJ_EXT)
 	if exist *$(OBJ_EXT) erase *$(OBJ_EXT)
 	if exist $(TARGET_NAME).pdb erase $(TARGET_NAME).pdb

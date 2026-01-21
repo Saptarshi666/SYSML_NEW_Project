@@ -1,15 +1,23 @@
 /********************************************************************
 	Rhapsody	: 9.0 
-	Login		: 20190977
+	Login		: 20255590
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: SMSWTD
-//!	Generated Date	: Fri, 19, Dec 2025  
+//!	Generated Date	: Wed, 31, Dec 2025  
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD.cpp
 *********************************************************************/
 
+//#[ ignore
+#define NAMESPACE_PREFIX
+//#]
+
 //## auto_generated
 #include "SMSWTD.h"
+//#[ ignore
+#define Context_SMSWTD_SMSWTD_SERIALIZE OM_NO_OP
+//#]
+
 //## package Context
 
 //## class SMSWTD
@@ -70,9 +78,11 @@ void SMSWTD::maintenance_C::connectSMSWTD(SMSWTD* part) {
 //#]
 
 SMSWTD::SMSWTD(void) {
+    NOTIFY_CONSTRUCTOR(SMSWTD, SMSWTD(), 0, Context_SMSWTD_SMSWTD_SERIALIZE);
 }
 
 SMSWTD::~SMSWTD(void) {
+    NOTIFY_DESTRUCTOR(~SMSWTD, true);
 }
 
 SMSWTD::dataIn_C* SMSWTD::getDataIn(void) const {
@@ -122,6 +132,10 @@ SMSWTD::maintenance_C* SMSWTD::getMaintenance(void) const {
 SMSWTD::maintenance_C* SMSWTD::get_maintenance(void) const {
     return (SMSWTD::maintenance_C*) &maintenance;
 }
+
+#ifdef _OMINSTRUMENT
+IMPLEMENT_META_P(SMSWTD, Context, Context, false, OMAnimatedSMSWTD)
+#endif // _OMINSTRUMENT
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\SMSWTD.cpp
